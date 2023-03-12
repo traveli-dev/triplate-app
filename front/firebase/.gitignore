@@ -8,7 +8,7 @@ firebase-debug.log*
 firebase-debug.*.log*
 
 # security rules
-firebaserc
+.firebaserc
 firestore.indexes.json
 firestore.rules
 storage.rules
