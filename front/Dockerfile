@@ -6,14 +6,17 @@ RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - \
     && apt-get install -y nodejs
 
 RUN npm uninstall -g yarn pnpm
-RUN npm install -g firebase-tools corepack
+RUN npm install -g firebase-tools firebase-admin corepack
 
 ENV APP_ROOT /home/app
 
 WORKDIR $APP_ROOT
 
-COPY ./.yarnrc.yml ./package.json ./yarn.lock ./.yarn $APP_ROOT
-RUN yarn install 
+COPY ./.yarnrc.yml ./package.json ./yarn.lock $APP_ROOT
+RUN corepack enable && \
+    corepack prepare yarn@3.4.1 --activate && \
+    yarn set version 3.4.1
+RUN yarn rebuild && yarn install 
 
 COPY . $APP_ROOT
 
