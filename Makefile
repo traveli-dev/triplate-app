@@ -1,9 +1,3 @@
-up:
-	docker compose up
-
-down:
-	docker compose down
-
 # cp modules
 cp:
 	docker compose up -d

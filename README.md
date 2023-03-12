@@ -24,3 +24,9 @@ Storybook: https://traveli-dev.github.io/traveli-web/storybook
   $ exit
   $ docker compose up
 ```
+
+## Other Commands
+```sh
+  # node_modulesをローカルにコピー
+  make cp
+```
