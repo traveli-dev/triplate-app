@@ -10,7 +10,7 @@
     "dev:firebase": "cd /home/app/firebase && firebase emulators:start --import=./db/local",
     "dev:scss": "typed-scss-modules src --watch",
     "lint": "next lint -d ./ --ignore-path .gitignore",
-    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
+    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,mdx}\"",
     "check:lint": "next lint -d ./ --fix --ignore-path .gitignore --max-warnings=0",
     "check:type": "tsc --pretty --noEmit",
     "check:format": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\"",
