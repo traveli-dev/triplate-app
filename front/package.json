@@ -16,6 +16,7 @@
     "check:format": "prettier --check \"src/**/*.{js,jsx,ts,tsx,mdx}\"",
     "build:next": "next build && next export",
     "build:scss": "typed-scss-modules src",
+    "build:storybook": "build-storybook -o ./build/storybook/",
     "export:firestore": "cd /home/app/firebase && firebase emulators:export --force ./db/local",
     "clean:firestore": "rm -rf /home/app/firebase/db/local",
     "init:firebase": "./firebase/scripts/initFirebase.sh"
