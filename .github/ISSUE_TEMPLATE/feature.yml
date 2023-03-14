@@ -1,6 +1,6 @@
-name: 'feature: 🚀 新機能追加'
-description: 新機能追加タスク
-labels: ['🚀 feature']
+name: '📄 task'
+description: Notionのタスク
+labels: ['📄 task']
 body:
   - type: textarea
     id: task-url
