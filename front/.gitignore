@@ -52,7 +52,7 @@ config/*
 bin/*
 
 # typed scss modules
-**/*modules.scss.d.ts
+**/*module.scss.d.ts
 
 # PWA
 **/public/sw.js
