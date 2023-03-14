@@ -11,8 +11,11 @@
     "moduleResolution": "node",
     "paths": {
       "@/*": [
-        "scripts/*"
+        "./*"
       ]
     },
   },
+  "include": [
+    "**/*.ts"
+  ]
 }
