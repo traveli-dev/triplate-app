@@ -2,30 +2,43 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs'
 
 <Meta title="Colors" />
 
+# Colors
+
 <ColorPalette>
   <ColorItem
-    title="theme.color.greyscale"
-    subtitle="Some of the greys"
-    colors={{ White: '#FFFFFF', Alabaster: '#F8F8F8', Concrete: '#F3F3F3' }}
-  />
-  <ColorItem
-    title="theme.color.primary"
-    subtitle="Coral"
-    colors={{ WildWatermelon: '#FF4785' }}
-  />
-  <ColorItem
-    title="theme.color.secondary"
-    subtitle="Ocean"
-    colors={{ DodgerBlue: '#1EA7FD' }}
-  />
-  <ColorItem
-    title="theme.color.positive"
-    subtitle="Green"
+    title="theme.color.blue"
+    subtitle="primaryBlue"
     colors={{
-      Apple: 'rgba(102,191,60,1)',
-      Apple80: 'rgba(102,191,60,.8)',
-      Apple60: 'rgba(102,191,60,.6)',
-      Apple30: 'rgba(102,191,60,.3)'
+      '--c-blue': '#4272ef',
+      '--h-blue': '#5a88ff',
+      '--bg-blue': '#eaf0ff'
     }}
+  />
+  <ColorItem
+    title="theme.color.pink"
+    subtitle="secondaryPink"
+    colors={{
+      '--c-pink': '#f3377e',
+      '--h-pink': '#f15d96'
+    }}
+  />
+  <ColorItem
+    title="theme.color.black"
+    subtitle="black"
+    colors={{ '--c-black': '#0f141a' }}
+  />
+  <ColorItem
+    title="theme.color.gray"
+    subtitle="gray"
+    colors={{
+      '--c-gray': '#595959',
+      '--ol-gray': '#e1e1e1',
+      '--bg-gray': '#f2f2f2'
+    }}
+  />
+  <ColorItem
+    title="theme.color.white"
+    subtitle="white"
+    colors={{ '--c-white': '#fff' }}
   />
 </ColorPalette>
