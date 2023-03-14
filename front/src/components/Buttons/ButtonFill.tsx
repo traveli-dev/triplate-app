@@ -6,7 +6,7 @@ type ButtonFillProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   //TODO: icon
 }
 
-export const ButtonFill = ({ children,...props }: ButtonFillProps) => {
+export const ButtonFill = ({ children, ...props }: ButtonFillProps) => {
   return (
     <button className={styles.button} {...props}>
       {children}
