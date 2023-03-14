@@ -1,6 +1,6 @@
 name: '📄 task'
 description: Notionのタスク
-labels: ['📄 task']
+labels: ['📄 Task']
 body:
   - type: textarea
     id: task-url
