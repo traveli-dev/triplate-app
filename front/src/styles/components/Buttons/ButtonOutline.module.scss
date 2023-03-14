@@ -1,0 +1,19 @@
+.button {
+    color: var(--c-black);
+    background-color: var(--c-white);
+    width: 361px;
+    height: 56px;
+    font-weight: 600;
+    font-size: 1.6rem;
+    border: 02px;
+    border-style: solid;
+    border-color: var(--c-black);
+    border-radius: 100px;
+}
+
+.label_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
