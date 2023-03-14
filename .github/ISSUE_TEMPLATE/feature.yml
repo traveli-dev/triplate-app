@@ -1,12 +1,12 @@
-name: "feature: 🚀 新機能追加"
+name: 'feature: 🚀 新機能追加'
 description: 新機能追加タスク
-labels: ["🚀 feature"]
+labels: ['🚀 feature']
 body:
   - type: textarea
     id: task-url
     attributes:
       label: NotionのタスクページURL
-      placeholder: https://~~~
+      placeholder: https://www.notion.so/~~~
     validations:
       required: true
   - type: textarea
