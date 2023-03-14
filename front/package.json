@@ -10,16 +10,17 @@
     "dev:firebase": "cd /home/app/firebase && firebase emulators:start --import=./db/local",
     "dev:scss": "typed-scss-modules src --watch",
     "lint": "next lint -d ./ --ignore-path .gitignore",
-    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,mdx}\"",
+    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,mdx}\" \"firebase/**/*.{js,jsx,ts,tsx,mdx}\"",
     "check:lint": "next lint -d ./ --fix --ignore-path .gitignore --max-warnings=0",
     "check:type": "tsc --pretty --noEmit",
-    "check:format": "prettier --check \"src/**/*.{js,jsx,ts,tsx,mdx}\"",
+    "check:format": "prettier --check \"src/**/*.{js,jsx,ts,tsx,mdx}\" \"firebase/**/*.{js,jsx,ts,tsx,mdx}\"",
     "build:next": "next build && next export",
     "build:scss": "typed-scss-modules src",
     "build:storybook": "build-storybook -o ./build/storybook/",
     "export:firestore": "cd /home/app/firebase && firebase emulators:export --force ./db/local",
     "clean:firestore": "rm -rf /home/app/firebase/db/local",
-    "init:firebase": "./firebase/scripts/initFirebase.sh"
+    "init:firebase": "./firebase/scripts/initFirebase.sh",
+    "seeding": "ts-node ./firebase/scripts/seeder.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^2.9.10",
@@ -61,8 +62,10 @@
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-storybook": "^0.6.10",
+    "firebase-admin": "^11.5.0",
     "prettier": "^2.8.3",
     "sass-loader": "^13.2.0",
+    "ts-node": "^10.9.1",
     "typed-scss-modules": "^7.0.2"
   }
 }
