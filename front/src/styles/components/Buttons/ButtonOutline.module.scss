@@ -1,14 +1,12 @@
 .button {
     color: var(--c-blue);
     background-color: var(--c-white);
-    width: 361px;
+    width: 100%;
     height: 56px;
     font-weight: 600;
-    font-size: 1.6rem;
-    border: 2px;
-    border-style: solid;
-    border-color: var(--c-blue);
+    font-size: var(--font-size-md);
     border-radius: 100px;
+    border: 2px solid var(--c-blue);
 }
 
 .label_wrapper {
