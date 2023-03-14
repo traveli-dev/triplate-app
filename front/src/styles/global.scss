@@ -1,0 +1,44 @@
+:root {
+  // Color
+  --c-black: #0f141a;
+  --c-gray: #595959;
+  --c-white: #fff;
+  --c-blue: #4272ef;
+  --c-pink: #f3377e;
+
+  // Hover
+  --h-blue: #5a88ff;
+  --h-pink: #f15d96;
+
+  // Background
+  --bg-gray: #f2f2f2;
+  --bg-blue: #eaf0ff;
+
+  // Outline
+  --ol-gray: #e1e1e1;
+
+  //Shadow
+  --s-gray: box-shadow(0.4rem 0.4rem 1rem #e4ebee);
+
+  // FontSize
+  --font-size-sm: 1.3rem;
+  --font-size-md: 1.6rem;
+  --font-size-lg: 2rem;
+  --font-size-xl: 2.4rem;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: var(--bg-gray);
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+}
