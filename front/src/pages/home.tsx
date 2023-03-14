@@ -1,9 +1,10 @@
-import React from 'react'
+import { NavigationBottom } from '@/components/Navigations'
 
 const Home = () => {
   return (
     <>
       <p>home</p>
+      <NavigationBottom />
     </>
   )
 }
