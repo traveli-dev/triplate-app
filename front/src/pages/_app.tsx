@@ -4,11 +4,14 @@ import { Provider } from 'react-redux'
 import 'normalize.css'
 import '@/styles/global.scss'
 import '@/lib/firebase'
+import { Layout } from '@/components/Layouts'
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (
     <Provider store={store}>
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </Provider>
   )
 }
