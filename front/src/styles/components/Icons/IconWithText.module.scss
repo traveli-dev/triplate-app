@@ -1,0 +1,22 @@
+.wrapper {
+  text-align: center;
+  width: 80px;
+  padding: 8px 0;
+  background-color: var(--c-white);
+  font-size: var(--font-size-sm);
+
+  & > p {
+    line-height: 3.6rem;
+    margin: 4px 0 0 0;
+  }
+  .wrapper__lines {
+    display: table;
+    width: 100%;
+    height: 3.6rem;
+    margin: 4px 0 0 0;
+    & > p {
+      display: table-cell;
+      vertical-align: middle;
+    }
+  }
+}
