@@ -15,7 +15,7 @@ export const NavigationBottom = () => {
   const currentPath = router.pathname
 
   return (
-    <>
+    <nav>
       <ul className={styles.wrapper}>
         <li className={styles.nav}>
           <Link
@@ -64,6 +64,6 @@ export const NavigationBottom = () => {
           </Link>
         </li>
       </ul>
-    </>
+    </nav>
   )
 }

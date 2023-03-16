@@ -1,6 +1,7 @@
+@use '@/styles/variables' as v;
+
 .wrapper {
   position: fixed;
-  left: 0;
   bottom: 0;
   z-index: 999;
   box-sizing: border-box;
@@ -9,6 +10,7 @@
   align-items: center;
   background-color: var(--c-white);
   width: 100%;
+  max-width: map-get(v.$breakpoints, 'md');
   height: 80px;
   margin: 0;
   padding: 0 48px;
