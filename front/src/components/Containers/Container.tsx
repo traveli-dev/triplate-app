@@ -4,7 +4,7 @@ import styles from '@/styles/components/Containers/Container.module.scss'
 type ContainerProps = {
   bgColor: 'white' | 'blue' // background-colorを切り替える
   isFull?: boolean // ページ全体まで高さを伸ばす（設定しなければコンテンツの量で高さが決まる）
-  isCenter?: boolean // 要素を全て中央揃えにする
+  isCenter?: boolean // 要素を全て左右中央揃えにする
   children: React.ReactNode
 }
 
