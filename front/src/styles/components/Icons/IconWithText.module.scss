@@ -1,14 +1,20 @@
 .wrapper {
-  text-align: center;
+  font-size: var(--font-size-sm);
+  text-decoration: none;
   width: 80px;
   padding: 10px 0;
+  text-align: center;
   background-color: var(--c-white);
-  font-size: var(--font-size-sm);
+  color: var(--c-black);
+  :hover {
+    color: var(--c-blue);
+  }
 
   & > p {
     line-height: 3.6rem; // フォントサイズとともに高さも変化するため
     margin: 4px 0 0 0;
   }
+
   .wrapper__lines {
     display: table;
     width: 100%;

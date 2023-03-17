@@ -9,9 +9,10 @@ import {
 } from 'react-icons/hi'
 import { FiTwitter } from 'react-icons/fi'
 import styles from '@/styles/components/Icons/IconWithText.module.scss'
+import Link from 'next/link'
 
 type IconWithiconProps = {
-  icon:
+  iconType:
     | 'qr'
     | 'bell'
     | 'setting'
@@ -22,40 +23,40 @@ type IconWithiconProps = {
     | 'hp'
 }
 
-export const IconWithText = ({ icon }: IconWithiconProps) => {
+export const IconWithText = ({ iconType }: IconWithiconProps) => {
   return (
-    <div className={styles.wrapper}>
-      {icon === 'qr' && (
+    <Link href="/" className={styles.wrapper}>
+      {iconType === 'qr' && (
         <>
           <HiOutlineQrcode size={24} />
           <p>QRコード</p>
         </>
       )}
-      {icon === 'bell' && (
+      {iconType === 'bell' && (
         <>
           <HiOutlineBell size={24} />
           <p>通知</p>
         </>
       )}
-      {icon === 'setting' && (
+      {iconType === 'setting' && (
         <>
           <HiOutlineCog size={24} />
           <p>設定</p>
         </>
       )}
-      {icon === 'help' && (
+      {iconType === 'help' && (
         <>
           <HiOutlineQuestionMarkCircle size={24} />
           <p>ヘルプ</p>
         </>
       )}
-      {icon === 'mail' && (
+      {iconType === 'mail' && (
         <>
           <HiOutlineMail size={24} />
           <p>お問い合わせ</p>
         </>
       )}
-      {icon === 'privacy' && (
+      {iconType === 'privacy' && (
         <>
           <HiOutlineShieldCheck size={24} />
           <div className={styles.wrapper__lines}>
@@ -67,7 +68,7 @@ export const IconWithText = ({ icon }: IconWithiconProps) => {
           </div>
         </>
       )}
-      {icon === 'twitter' && (
+      {iconType === 'twitter' && (
         <>
           <FiTwitter size={24} />
           <div className={styles.wrapper__lines}>
@@ -79,12 +80,12 @@ export const IconWithText = ({ icon }: IconWithiconProps) => {
           </div>
         </>
       )}
-      {icon === 'hp' && (
+      {iconType === 'hp' && (
         <>
           <HiOutlineGlobeAlt size={24} />
           <p>HP</p>
         </>
       )}
-    </div>
+    </Link>
   )
 }
