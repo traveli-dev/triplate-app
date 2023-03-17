@@ -12,10 +12,10 @@ export const Avatar = ({ url, size }: AvatarProps) => {
   return (
     <Image
       src={url}
-      alt={'user_img'}
+      alt="user_img"
       width={imgSize[size]}
       height={imgSize[size]}
-      className={`${styles.user_img}`}
+      className={styles.user_img}
     />
   )
 }

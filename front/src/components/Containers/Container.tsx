@@ -2,9 +2,9 @@ import React from 'react'
 import styles from '@/styles/components/Containers/Container.module.scss'
 
 type ContainerProps = {
-  bgColor: 'white' | 'blue' // background-colorを切り替える
-  isFull?: boolean // ページ全体まで高さを伸ばす（設定しなければコンテンツの量で高さが決まる）
-  isCenter?: boolean // 要素を全て左右中央揃えにする
+  bgColor: 'white' | 'blue'
+  isFull?: boolean
+  isCenter?: boolean
   children: React.ReactNode
 }
 

@@ -19,7 +19,7 @@ export const NavigationBottom = () => {
       <ul className={styles.wrapper}>
         <li className={styles.nav}>
           <Link
-            href={'home'}
+            href="home"
             className={`${styles.default} ${
               currentPath === '/home' && styles.focus
             }`}
@@ -34,7 +34,7 @@ export const NavigationBottom = () => {
         </li>
         <li className={styles.nav}>
           <Link
-            href={'search'}
+            href="search"
             className={`${styles.default} ${
               currentPath === '/search' && styles.focus
             }`}
@@ -50,7 +50,7 @@ export const NavigationBottom = () => {
         </li>
         <li className={styles.nav}>
           <Link
-            href={'mypage'}
+            href="mypage"
             className={`${styles.default} ${
               currentPath === '/mypage' && styles.focus
             }`}

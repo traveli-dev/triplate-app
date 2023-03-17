@@ -13,11 +13,11 @@ const Mypage = () => {
   }
   return (
     <>
-      <Container bgColor={'white'} isFull isCenter>
+      <Container bgColor="white" isFull isCenter>
         <div className={styles.wrapper}>
           <div className={styles.content}>
             <div className={styles.user}>
-              <Avatar url={user.url} size={'lg'} />
+              <Avatar url={user.url} size="lg" />
               <h1>{user.name}</h1>
               <p>{user.location}</p>
             </div>
