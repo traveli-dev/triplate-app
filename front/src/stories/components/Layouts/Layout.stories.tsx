@@ -7,9 +7,6 @@ export default {
     children: {
       description: '任意のコンポーネントが入ります'
     }
-  },
-  render: ({ children }) => {
-    return <Layout>{children}</Layout>
   }
 } as ComponentMeta<typeof Layout>
 

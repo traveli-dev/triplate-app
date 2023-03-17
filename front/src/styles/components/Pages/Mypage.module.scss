@@ -1,0 +1,27 @@
+@use '@/styles/utils.scss' as *;
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+  height: 88vh;
+
+  .content {
+    width: 400px;
+    @include mq('sm') {
+      max-width: 300px;
+    }
+    .user {
+      padding: 32px 0;
+      & > h1 {
+        font-size: var(--font-size-lg);
+        margin: 16px 0;
+      }
+      & > p {
+        font-size: var(--font-size-sm);
+        margin: 16px 0;
+      }
+    }
+  }
+}

@@ -1,8 +1,8 @@
-@use '@/styles/variables' as v;
+@use '@/styles/variables' as *;
 
 .layout {
-  max-width: map-get(v.$breakpoints, 'md');
-  min-width: map-get(v.$breakpoints, 'sm');
+  max-width: map-get($breakpoints, 'md');
+  min-width: map-get($breakpoints, 'sm');
   min-height: 100vh;
   margin: 0 auto;
   position: relative;
