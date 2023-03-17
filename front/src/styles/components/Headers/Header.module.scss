@@ -1,4 +1,4 @@
-@use '@/styles/variables' as v;
+@use '@/styles/variables' as *;
 
 .header {
   // 下に続く要素が重ならないようにする
@@ -7,8 +7,8 @@
   width: 100%;
   top: 0;
   background-color: var(--c-white);
-  max-width: map-get(v.$breakpoints, 'md');
-  min-width: map-get(v.$breakpoints, 'sm');
+  max-width: map-get($breakpoints, 'md');
+  min-width: map-get($breakpoints, 'sm');
   z-index: 999;
 }
 
