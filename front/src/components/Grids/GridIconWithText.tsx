@@ -4,19 +4,19 @@ import styles from '@/styles/components/Grids/GridIconWithText.module.scss'
 export const GridIconWithText = () => {
   return (
     <div className={styles.wrapper}>
-      <div className={styles.row}>
+      <div className={styles.column}>
         <IconWithText icon={'qr'} />
-        <IconWithText icon={'bell'} />
-        <IconWithText icon={'setting'} />
-      </div>
-      <div className={styles.row}>
         <IconWithText icon={'help'} />
-        <IconWithText icon={'mail'} />
-        <IconWithText icon={'privacy'} />
-      </div>
-      <div className={styles.row}>
         <IconWithText icon={'twitter'} />
+      </div>
+      <div className={styles.column}>
+        <IconWithText icon={'bell'} />
+        <IconWithText icon={'mail'} />
         <IconWithText icon={'hp'} />
+      </div>
+      <div className={styles.column}>
+        <IconWithText icon={'setting'} />
+        <IconWithText icon={'privacy'} />
       </div>
     </div>
   )

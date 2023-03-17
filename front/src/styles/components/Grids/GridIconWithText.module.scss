@@ -1,7 +1,16 @@
+@use '@/styles/utils.scss' as *;
+
 .wrapper {
-  max-width: 300px;
-  .row {
+  display: flex;
+  margin: 0 auto;
+  max-width: 400px;
+  justify-content: space-between;
+  .column{
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    gap:3vh
+  }
+  @include mq('sm') {
+    max-width: 300px;
   }
 }
