@@ -7,4 +7,7 @@
   font-size: var(--font-size-md);
   border-radius: 100px;
   border: 0;
+  &:hover {
+    background-color: var(--h-blue);
+  }
 }

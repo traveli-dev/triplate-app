@@ -7,6 +7,9 @@
   font-size: var(--font-size-md);
   border-radius: 100px;
   border: 2px solid var(--c-blue);
+  &:hover {
+    background-color: var(--bg-blue);
+  }
 }
 
 .label_wrapper {
