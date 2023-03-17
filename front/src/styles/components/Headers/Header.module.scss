@@ -1,0 +1,43 @@
+@use '@/styles/variables' as v;
+
+.header {
+  // 下に続く要素が重ならないようにする
+  position: sticky;
+  height: 56px;
+  width: 100%;
+  top: 0;
+  background-color: var(--c-white);
+  max-width: map-get(v.$breakpoints, 'md');
+  min-width: map-get(v.$breakpoints, 'sm');
+  z-index: 999;
+}
+
+.iconWrapper {
+  background-color: var(--c-white);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: var(--c-black);
+  &:hover {
+    background-color: var(--bg-blue);
+  }
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
+.title {
+  margin: 0;
+  text-align: center;
+  line-height: 56px;
+  font-size: var(--font-size-md);
+}
