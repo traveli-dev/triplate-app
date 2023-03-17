@@ -1,7 +1,7 @@
-@use '@/styles/variables' as v;
+@use '@/styles/variables' as *;
 
 @mixin mq($size) {
-  @media screen and (max-width: #{map-get(v.$breakpoints, $size)}) {
+  @media screen and (max-width: #{map-get($breakpoints, $size)}) {
     @content;
   }
 }

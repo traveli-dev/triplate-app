@@ -1,4 +1,4 @@
-@use '@/styles/variables' as v;
+@use '@/styles/variables' as *;
 
 .wrapper {
   position: fixed;
@@ -10,7 +10,7 @@
   align-items: center;
   background-color: var(--c-white);
   width: 100%;
-  max-width: map-get(v.$breakpoints, 'md');
+  max-width: map-get($breakpoints, 'md');
   height: 80px;
   margin: 0;
   padding: 0 48px;
