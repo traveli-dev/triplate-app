@@ -15,7 +15,7 @@ export default {
 
 export const Default: StoryObj = {
   args: {
-    href: '/',
+    href: '/'
   }
 }
 export const WithTitle: StoryObj = {
