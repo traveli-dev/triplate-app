@@ -19,8 +19,6 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     // useEffectの依存関係に出るワーニングを外す
     'react-hooks/exhaustive-deps': 'off',
-
-    '@typescript-eslint/no-var-requires': 'off',
     // jsxのstring属性はダブルクウォートにする
     'react/jsx-curly-brace-presence': [
       'error', {
