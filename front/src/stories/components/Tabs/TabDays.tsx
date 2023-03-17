@@ -1,29 +1,20 @@
 import React from 'react'
 import styles from '@/styles/components/Tabs/TabDays.module.scss'
-type TabDaysProps = {}
 
-export const TabDays = ({}: TabDaysProps) => {
-  return (
-    <div>
-      <Tabs />
-    </div>
-  )
-}
-
-export const Tabs = () => {
+export const TabDays = () => {
   return (
     <div className={styles.tabs}>
       <label>
-        <input name={'tab'} type="radio" defaultChecked />
-        <em>１日目</em>
+        <input name={'tab'} type={'radio'} defaultChecked />
+        <span>１日目</span>
       </label>
       <label>
-        <input name={'tab'} type="radio" />
-        <em>２日目</em>
+        <input name={'tab'} type={'radio'} />
+        <span>２日目</span>
       </label>
       <label>
-        <input name={'tab'} type="radio" />
-        <em>３日目</em>
+        <input name={'tab'} type={'radio'} />
+        <span>３日目</span>
       </label>
     </div>
   )

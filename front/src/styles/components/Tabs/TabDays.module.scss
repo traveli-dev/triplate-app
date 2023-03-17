@@ -1,41 +1,39 @@
-.tabs{
-    position: relative;
-    background-color: var(--c-white);
-    width: 100%;
-    height: 44px;
-    font-size: 0;
-    padding-left: 58px;
-        border-bottom: 2px solid var(--ol-gray);
-    }
+.tabs {
+  position: relative;
+  background-color: var(--c-white);
+  width: 100%;
+  height: 44px;
+  padding-left: 58px;
+  border-bottom: 2px solid var(--ol-gray);
+}
 
-    //タブ全部(unselected
-    .tabs input[type="radio"] + em{
-    position: relative;
-    z-index: 100;
-    display: inline-block;
-    margin-right: 8px;
-    width: 87px;
-    height: 44px;
-    color: var(--c-gray);
-    text-align: center;
-    font-size: var(--font-size-md);
-    font-weight: 300;
-    line-height: 46px;
-        border-bottom: 2px solid var(--ol-gray);
-    cursor: pointer;
-        &:hover {
-            background-color: var(--bg-blue);
-        }
-    }
+/* タブ */
+.tabs input[type='radio'] + span {
+  display: inline-block;
+  margin-right: 8px;
+  width: 87px;
+  height: 44px;
+  color: var(--c-gray);
+  text-align: center;
+  font-size: var(--font-size-md);
+  font-weight: 300;
+  line-height: 46px;
+  border-bottom: 2px solid var(--ol-gray);
+  cursor: pointer;
 
-    //タブ　selected
-    .tabs input[type="radio"]:checked + em{
-        color: var(--c-blue);
-        font-weight: 600;
-        border-bottom: 2px solid var(--c-blue);
-    }
+  &:hover {
+    background-color: var(--bg-blue);
+  }
+}
 
-    //ラジオボタン消す
-    .tabs input[type="radio"] {
-        display: none;
-    }
+/* タブ selected */
+.tabs input[type='radio']:checked + span {
+  color: var(--c-blue);
+  font-weight: 600;
+  border-color: var(--c-blue);
+}
+
+/* ラジオボタン消す */
+.tabs input[type='radio'] {
+  display: none;
+}
