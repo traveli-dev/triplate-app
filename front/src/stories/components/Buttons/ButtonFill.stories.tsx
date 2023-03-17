@@ -7,9 +7,6 @@ export default {
     children: {
       description: 'ボタンのラベルが入ります'
     }
-  },
-  render: ({ children }) => {
-    return <ButtonFill>{children}</ButtonFill>
   }
 } as ComponentMeta<typeof ButtonFill>
 

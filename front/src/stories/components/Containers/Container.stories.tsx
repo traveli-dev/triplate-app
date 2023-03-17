@@ -6,14 +6,16 @@ export default {
   argTypes: {
     children: {
       description: '任意のコンポーネントが入ります'
+    },
+    bgColor: {
+      description: 'background-colorを切り替える'
+    },
+    isFull: {
+      description: 'ページ全体まで高さを伸ばす（任意）'
+    },
+    isCenter: {
+      description: '要素を全て左右中央揃えにする（任意）'
     }
-  },
-  render: ({ children, bgColor, isFull, isCenter }) => {
-    return (
-      <Container bgColor={bgColor} isFull={isFull} isCenter={isCenter}>
-        {children}
-      </Container>
-    )
   }
 } as ComponentMeta<typeof Container>
 

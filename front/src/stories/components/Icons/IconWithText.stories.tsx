@@ -3,13 +3,15 @@ import { IconWithText } from '@/components/Icons'
 
 export default {
   component: IconWithText,
-  render: ({ icon }) => {
-    return <IconWithText icon={icon} />
+  argTypes: {
+    iconType: {
+      description: 'アイコンのタイプが入ります'
+    }
   }
 } as ComponentMeta<typeof IconWithText>
 
 export const Default: StoryObj = {
   args: {
-    icon: 'qr'
+    iconType: 'qr'
   }
 }
