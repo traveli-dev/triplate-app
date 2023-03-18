@@ -1,4 +1,3 @@
-import React from 'react'
 import styles from '@/styles/components/Tabs/TabDays.module.scss'
 
 export const TabDays = () => {
