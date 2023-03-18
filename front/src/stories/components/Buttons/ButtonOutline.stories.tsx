@@ -7,9 +7,6 @@ export default {
     children: {
       description: 'ボタンのラベルが入ります'
     }
-  },
-  render: ({ children, icon }) => {
-    return <ButtonOutline icon={icon}>{children}</ButtonOutline>
   }
 } as ComponentMeta<typeof ButtonOutline>
 
