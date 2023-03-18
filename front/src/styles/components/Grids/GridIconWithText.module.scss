@@ -5,10 +5,10 @@
   margin: 0 auto;
   max-width: 400px;
   justify-content: space-between;
-  .column{
+  .column {
     display: flex;
     flex-direction: column;
-    gap:3vh
+    gap: 3vh;
   }
   @include mq('sm') {
     max-width: 300px;
