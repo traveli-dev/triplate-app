@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import style from '@/styles/components/Headers/Header.module.scss'
+import styles from '@/styles/components/Headers/Header.module.scss'
 import { HiOutlineChevronLeft } from 'react-icons/hi'
 import { Container } from '@/components/Containers'
 
@@ -10,12 +10,12 @@ type HeaderProps = {
 
 export const Header = ({ title, href }: HeaderProps) => {
   return (
-    <header className={style.header}>
+    <header className={styles.header}>
       <Container>
-        <Link href={href} className={style.iconWrapper}>
-          <HiOutlineChevronLeft className={style.icon} />
+        <Link href={href} className={styles.iconWrapper}>
+          <HiOutlineChevronLeft size={24} />
         </Link>
-        {title && <h1 className={style.title}>{title}</h1>}
+        {title && <h1 className={styles.title}>{title}</h1>}
       </Container>
     </header>
   )

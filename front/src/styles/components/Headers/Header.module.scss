@@ -30,14 +30,10 @@
   }
 }
 
-.icon {
-  width: 24px;
-  height: 24px;
-}
-
 .title {
   margin: 0;
   text-align: center;
-  line-height: 56px;
+  // 56px(高さ) / 16px (font size)
+  line-height: 3.5;
   font-size: var(--font-size-md);
 }
