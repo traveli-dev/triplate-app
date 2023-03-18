@@ -10,7 +10,7 @@ const nextConfig = withPWA({
   sassOptions: {
     includePaths: [path.join(__dirname, './src/styles')]
   },
-  webpackDevMiddleware: (config) => {
+  webpack: (config) => {
     config.watchOptions = {
       poll: 800,
       aggregateTimeout: 300

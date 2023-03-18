@@ -1,6 +1,5 @@
 import { Container } from '@/components/Containers'
 import { Header } from '@/components/Headers'
-import { NavigationBottom } from '@/components/Navigations'
 
 const Index = () => {
   return (
