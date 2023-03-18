@@ -9,7 +9,6 @@ const Index = () => {
       <Container bgColor="blue" isFull>
         <div>HelloWorld</div>
       </Container>
-      <NavigationBottom />
     </>
   )
 }
