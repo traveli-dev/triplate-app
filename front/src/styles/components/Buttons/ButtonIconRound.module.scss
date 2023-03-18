@@ -15,8 +15,8 @@
   }
 
   @include mq('sm') {
-     /*波紋の基点とするためrelativeを指定*/
-	position: relative;
+    /*波紋の基点とするためrelativeを指定*/
+    position: relative;
     /*はみ出す波紋を隠す*/
     overflow: hidden;
 

@@ -28,7 +28,8 @@
       height: 100%;
       top: 0;
       left: 0;
-      background: radial-gradient(circle, #fff 10%, transparent 10%) no-repeat 50%;
+      background: radial-gradient(circle, #fff 10%, transparent 10%) no-repeat
+        50%;
       transform: scale(10, 10);
       opacity: 0;
       transition: transform 0.3s, opacity 1s;
