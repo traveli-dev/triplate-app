@@ -15,7 +15,7 @@ export const ButtonOutline = ({
   return (
     <button className={styles.button} {...props}>
       <div className={styles.label_wrapper}>
-        {icon == 'plus' && <HiOutlinePlus size={'24px'} />}
+        {icon == 'plus' && <HiOutlinePlus size={24} />}
         {children}
       </div>
     </button>
