@@ -1,3 +1,5 @@
+@use '@/styles/utils.scss' as *;
+
 .button {
   width: 64px;
   height: 64px;
@@ -12,7 +14,7 @@
     background-color: var(--h-blue);
   }
 
-  @media only screen and (max-width: 786px) {
+  @include mq('sm') {
     /*はみ出す波紋を隠す*/
     overflow: hidden;
 
