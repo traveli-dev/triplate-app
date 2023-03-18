@@ -1,17 +1,20 @@
 .button {
-    color: var(--c-blue);
-    background-color: var(--c-white);
-    width: 100%;
-    height: 56px;
-    font-weight: 600;
-    font-size: var(--font-size-md);
-    border-radius: 100px;
-    border: 2px solid var(--c-blue);
+  color: var(--c-blue);
+  background-color: var(--c-white);
+  width: 100%;
+  height: 56px;
+  font-weight: 600;
+  font-size: var(--font-size-md);
+  border-radius: 100px;
+  border: 2px solid var(--c-blue);
+  &:hover {
+    background-color: var(--bg-blue);
+  }
 }
 
 .label_wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
