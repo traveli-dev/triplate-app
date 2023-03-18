@@ -8,7 +8,7 @@
   background-color: var(--bg-blue);
 }
 .min_height {
-  min-height: 100vh;
+  min-height: calc(100vh - 56px);
 }
 .text_align {
   text-align: center;
