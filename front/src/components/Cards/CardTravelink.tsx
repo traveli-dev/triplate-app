@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { AvatarWithText } from '@/components/Avatars'
-import { ChipTag } from '@/components/Chips/ChipTag'
+import { ChipTag } from '@/components/Chips'
 import type {
   FavoriteDataType,
   TravelinkDataType

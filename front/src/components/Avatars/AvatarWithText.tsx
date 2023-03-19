@@ -1,4 +1,4 @@
-import { Avatar } from '@/components/Avatars/Avatar'
+import { Avatar } from '@/components/Avatars'
 import styles from '@/styles/components/Avatars/AvatarWithText.module.scss'
 
 type AvatarWithTextProps = {

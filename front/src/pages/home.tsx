@@ -1,6 +1,6 @@
 import { Container } from '@/components/Containers'
 import { NavigationBottom } from '@/components/Navigations'
-import { TabHome } from '@/components/Tabs/TabHome'
+import { TabHome } from '@/components/Tabs'
 import styles from '@/styles/components/Pages/Home.module.scss'
 
 const Home = () => {
