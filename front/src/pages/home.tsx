@@ -1,7 +1,7 @@
 import { Container } from '@/components/Containers'
 import { NavigationBottom } from '@/components/Navigations'
 import { TabHome } from '@/components/Tabs'
-import styles from '@/styles/components/Pages/Home.module.scss'
+import styles from '@/styles/pages/Home.module.scss'
 
 const Home = () => {
   // 仮置きのサンプルデータ
