@@ -5,11 +5,10 @@ export default {
   component: CardTravelink,
   argTypes: {
     travelink: {
-      description:
-        'ユーザが作成、または、参加中のトラべリンクのリストが入ります'
+      description: 'ユーザが作成、または、参加中のトラべリンクが入ります'
     },
     favorite: {
-      description: 'いいねしたみんなのたびトラべリンクのリストが入ります'
+      description: 'いいねしたみんなのたびトラべリンクが入ります'
     }
   }
 } as ComponentMeta<typeof CardTravelink>
