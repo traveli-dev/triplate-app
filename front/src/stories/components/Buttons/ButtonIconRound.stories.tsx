@@ -6,3 +6,9 @@ export default {
 } as ComponentMeta<typeof ButtonIconRound>
 
 export const Default: StoryObj = {}
+
+export const Mobile: StoryObj = {
+  parameters: {
+    viewport: { defaultViewport: 'mobile1' }
+  }
+}
