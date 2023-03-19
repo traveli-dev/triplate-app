@@ -43,13 +43,3 @@
     }
   }
 }
-
-.wra {
-  display: flex;
-  gap: 16px;
-  margin: 8px 0;
-  & > p {
-    font-size: var(--font-size-sm);
-    margin: auto 0;
-  }
-}

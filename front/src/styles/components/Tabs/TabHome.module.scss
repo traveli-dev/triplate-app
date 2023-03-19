@@ -5,33 +5,33 @@
   height: 34px;
 }
 
-/* タブ */
-.tabs input[type='radio'] + span {
-  display: inline-block;
-  margin-right: 8px;
-  padding: 6px 12px;
-  color: var(--c-black);
-  text-align: center;
-  font-size: var(--font-size-md);
-  border-radius: 100px;
-  cursor: pointer;
-  border: 2px solid var(--ol-gray);
-  transition: all 0.3s 0s ease;
-  background-color: var(--c-white);
-
-  &:hover {
-    background-color: var(--bg-gray);
-  }
-}
-
-/* タブ selected */
-.tabs input[type='radio']:checked + span {
-  color: var(--c-white);
-  background-color: var(--c-black);
-  border: 2px solid var(--c-black);
-}
-
-/* ラジオボタン消す */
 .tabs input[type='radio'] {
+  /* ラジオボタン消す */
   display: none;
+
+  /* タブ */
+  & + span {
+    display: inline-block;
+    margin-right: 8px;
+    padding: 6px 12px;
+    color: var(--c-black);
+    text-align: center;
+    font-size: var(--font-size-md);
+    border-radius: 100px;
+    cursor: pointer;
+    border: 2px solid var(--ol-gray);
+    transition: all 0.3s 0s ease;
+    background-color: var(--c-white);
+
+    &:hover {
+      background-color: var(--bg-gray);
+    }
+  }
+
+  /* タブ selected */
+  &:checked + span {
+    color: var(--c-white);
+    background-color: var(--c-black);
+    border: 2px solid var(--c-black);
+  }
 }
