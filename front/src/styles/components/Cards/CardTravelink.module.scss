@@ -7,7 +7,6 @@
   height: auto;
   border-radius: 16px;
   border: 1px solid var(--ol-gray);
-  margin-bottom: 16px;
   &:hover .img {
     opacity: 0.9;
   }
@@ -40,6 +39,13 @@
       font-size: var(--font-size-sm);
       color: var(--c-gray);
       margin: 8px 0 0 0;
+    }
+    .avatar_with_text_layout {
+      margin: 8px 0;
+    }
+
+    .chip_tag_layout {
+      margin: 8px 0;
     }
   }
 }

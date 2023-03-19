@@ -86,7 +86,9 @@ export const TabHome = ({
             <>
               {myTravelinkList.map((travelink) => (
                 <>
-                  <CardTravelink travelink={travelink} />
+                  <div className={styles.card_travelink_layout}>
+                    <CardTravelink travelink={travelink} />
+                  </div>
                 </>
               ))}
             </>
@@ -103,7 +105,9 @@ export const TabHome = ({
             <>
               {joinedList.map((item) => (
                 <>
-                  <CardTravelink travelink={item} />
+                  <div className={styles.card_travelink_layout}>
+                    <CardTravelink travelink={item} />
+                  </div>
                 </>
               ))}
             </>
@@ -120,7 +124,9 @@ export const TabHome = ({
             <>
               {favoriteList.map((favorite) => (
                 <>
-                  <CardTravelink favorite={favorite} />
+                  <div className={styles.card_travelink_layout}>
+                    <CardTravelink favorite={favorite} />
+                  </div>
                 </>
               ))}
             </>

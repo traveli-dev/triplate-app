@@ -32,10 +32,12 @@ export const CardTravelink = ({ travelink, favorite }: CardTravelinkProps) => {
             <p className={styles.day}>
               {travelink.date[0]} - {travelink.date[1]}
             </p>
-            <AvatarWithText
-              url={travelink.thumbnail}
-              name={travelink.ownerName}
-            />
+            <div className={styles.avatar_with_text_layout}>
+              <AvatarWithText
+                url={travelink.thumbnail}
+                name={travelink.ownerName}
+              />
+            </div>
           </div>
         </Link>
       )}
@@ -51,7 +53,9 @@ export const CardTravelink = ({ travelink, favorite }: CardTravelinkProps) => {
           </div>
           <div className={styles.content}>
             <p className={styles.title}>{favorite.title}</p>
-            <ChipTag tag={favorite.tag} />
+            <div className={styles.chip_tag_layout}>
+              <ChipTag tag={favorite.tag} />
+            </div>
           </div>
         </Link>
       )}
