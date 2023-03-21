@@ -14,5 +14,20 @@ export const Default: StoryObj = {
   args: {
     children: 'ボタンのラベルが入ります',
     icon: 'plus'
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'pc'
+    }
+  }
+}
+
+export const Mobile: StoryObj = {
+  args: {
+    children: 'ボタンのラベルが入ります',
+    icon: 'plus'
+  },
+  parameters: {
+    viewport: { defaultViewport: 'mobile1' }
   }
 }
