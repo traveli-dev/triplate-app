@@ -1,0 +1,41 @@
+@use '@/styles/variables' as *;
+
+.overlay {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.content {
+  position: fixed;
+  bottom: 0;
+  z-index: 999;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--c-white);
+  width: 100%;
+  max-width: map-get($breakpoints, 'md');
+  margin: 0;
+  padding: 0 48px;
+  border-radius: 32px 32px 0 0;
+}
+
+.isOpen {
+  .overlay {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .content {
+    transform: translateY(0);
+  }
+}
