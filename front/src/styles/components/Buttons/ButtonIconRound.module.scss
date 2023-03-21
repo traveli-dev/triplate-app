@@ -43,7 +43,7 @@
   transition: transform 0.3s;
   @include mq('sm') {
     &:active {
-      transform: scale(0.7);
+      transform: scale(0.8);
     }
   }
 }
