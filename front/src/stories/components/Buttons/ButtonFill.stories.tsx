@@ -15,3 +15,12 @@ export const Default: StoryObj = {
     children: 'ボタンのラベルが入ります'
   }
 }
+
+export const Mobile: StoryObj = {
+  args: {
+    children: 'ボタンのラベルが入ります'
+  },
+  parameters: {
+    viewport: { defaultViewport: 'mobile1' }
+  }
+}
