@@ -20,9 +20,19 @@ const Index = () => {
         onClose={closeModal}
       >
         <p id="modalHeader">これがモーダルウィンドウです。</p>
-        <p id="modalBody">
+        <div id="modalBody">
+          <p>content/content</p>
+          <p>content/content</p>
+          <p>content/content</p>
+          <p>content/content</p>
+          <p>content/content</p>
+          <p>content/content</p>
+          <p>content/content</p>
+          <p>content/content</p>
+          <p>content/content</p>
+          <p>content/content</p>
           <button onClick={closeModal}>close</button>
-        </p>
+        </div>
       </BaseHalfModal>
     </>
   )

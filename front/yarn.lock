@@ -4263,13 +4263,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/hammerjs@npm:*":
-  version: 2.0.41
-  resolution: "@types/hammerjs@npm:2.0.41"
-  checksum: d16fbd688fc9b18cc270abe8dea8d4c50ef7bd8375e593d92c233d299387933a6b003c8db69819344833052458bc5f9ef1b472001277a49f095928d184356006
-  languageName: node
-  linkType: hard
-
 "@types/hast@npm:^2.0.0":
   version: 2.3.4
   resolution: "@types/hast@npm:2.3.4"
@@ -4458,16 +4451,6 @@ __metadata:
   dependencies:
     "@types/react": "*"
   checksum: 579691e4d5ec09688087568037c35edf8cfb1ab3e07f6c60029280733ee7b5c06d66df6fcc90786702c93ac8cb13bc7ff16c79ddfc75d082938fbaa36e1cdbf4
-  languageName: node
-  linkType: hard
-
-"@types/react-hammerjs@npm:^1.0.4":
-  version: 1.0.4
-  resolution: "@types/react-hammerjs@npm:1.0.4"
-  dependencies:
-    "@types/hammerjs": "*"
-    "@types/react": "*"
-  checksum: 452b69bd764e7e2a305beec6c14caa0a97976c7f0336f9cd60b4b4f9fc305aa6502bd151580d95e8a4d7ddf56d2cc3582be6d266483748a9d51f7d3299b79a61
   languageName: node
   linkType: hard
 
@@ -9693,13 +9676,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"hammerjs@npm:^2.0.8":
-  version: 2.0.8
-  resolution: "hammerjs@npm:2.0.8"
-  checksum: b092da7d1565a165d7edb53ef0ce212837a8b11f897aa3cf81a7818b66686b0ab3f4747fbce8fc8a41d1376594639ce3a054b0fd4889ca8b5b136a29ca500e27
-  languageName: node
-  linkType: hard
-
 "handlebars@npm:^4.7.7":
   version: 4.7.7
   resolution: "handlebars@npm:4.7.7"
@@ -14030,17 +14006,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-hammerjs@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "react-hammerjs@npm:1.0.1"
-  dependencies:
-    hammerjs: ^2.0.8
-  peerDependencies:
-    react: ^0.14.9 || ^15.3.0 || ^16.0.0-rc || ^16.0
-  checksum: 0196e2ac08d0d4d81d1dfeddd9d871f2162d1f0b8ea1a95ff81cec0dbb6323e45043606f4b65a5ee7063332d1d74cf7e00140d50530205329aa885f4b0bf2997
-  languageName: node
-  linkType: hard
-
 "react-hook-form@npm:^7.42.1":
   version: 7.43.5
   resolution: "react-hook-form@npm:7.43.5"
@@ -14136,6 +14101,15 @@ __metadata:
   version: 0.11.0
   resolution: "react-refresh@npm:0.11.0"
   checksum: 112178a05b1e0ffeaf5d9fb4e56b4410a34a73adeb04dbf13abdc50d9ac9df2ada83e81485156cca0b3fa296aa3612751b3d6cd13be4464642a43679b819cbc7
+  languageName: node
+  linkType: hard
+
+"react-swipeable@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "react-swipeable@npm:7.0.0"
+  peerDependencies:
+    react: ^16.8.3 || ^17 || ^18
+  checksum: 54d15933483f7aea8f69e6a9930e220fb3bd98f314cae89a8b797e8a3bb959b68e777fe199cd7729edfe65edfcb5d933c7312ea08626f1613a6fd5d30e646598
   languageName: node
   linkType: hard
 
@@ -16118,7 +16092,6 @@ __metadata:
     "@types/node": ^18.11.18
     "@types/react": ^18.0.26
     "@types/react-dom": ^18.0.10
-    "@types/react-hammerjs": ^1.0.4
     "@types/react-modal": ^3.13.1
     "@typescript-eslint/eslint-plugin": ^5.48.2
     aria-hidden: ^1.2.3
@@ -16138,10 +16111,10 @@ __metadata:
     prettier: ^2.8.3
     react: 18.2.0
     react-dom: 18.2.0
-    react-hammerjs: ^1.0.1
     react-hook-form: ^7.42.1
     react-icons: ^4.7.1
     react-redux: ^8.0.5
+    react-swipeable: ^7.0.0
     sass: ^1.57.1
     sass-loader: ^13.2.0
     storybook-addon-next-router: ^4.0.2
