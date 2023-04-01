@@ -12,7 +12,9 @@ type UseFocusTrapOptionsType = {
 export const useFocusTrap = ({
   ref,
   isOpen,
-  onClose
+  onClose,
+  closeModal,
+  cleanUpModal
 }: UseFocusTrapOptionsType) => {
   useEffect(() => {
     if (!isOpen || ref.current === null) {
@@ -23,7 +25,8 @@ export const useFocusTrap = ({
       clickOutsideDeactivates: true,
       escapeDeactivates: true,
       returnFocusOnDeactivate: true,
-      onDeactivate: onClose
+      onDeactivate: closeModal,
+      onPostDeactivate: cleanUpModal
     })
     trap.activate()
 

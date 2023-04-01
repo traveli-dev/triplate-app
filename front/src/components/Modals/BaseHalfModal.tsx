@@ -2,7 +2,7 @@ import React from 'react'
 import styles from '@/styles/components/Modals/BaseHalfModal.module.scss'
 import { Container } from '@/components/Containers'
 import { useRef } from 'react'
-import { useAriaHidden, useFocusTrap, useModal } from '@/hooks/modals'
+import { useAriaHidden, useModal } from '@/hooks/modals'
 
 type BaseHalfModalProps = {
   ariaLabelledBy: string
@@ -26,7 +26,6 @@ export const BaseHalfModal = ({
     onClose
   })
   useAriaHidden(ref, isOpen)
-  useFocusTrap({ ref, isOpen, onClose, closeModal, cleanUpModal })
 
   return (
     <div {...handlers}>

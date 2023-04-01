@@ -1,5 +1,6 @@
-import { RefObject, useState } from 'react'
+import { RefObject, useState, useEffect } from 'react'
 import { useSwipeable } from 'react-swipeable'
+import { createFocusTrap } from 'focus-trap'
 import { useGetHeight } from '@/hooks/modals/useGetHeight'
 
 type UseModalOptionsType = {
@@ -11,6 +12,28 @@ type UseModalOptionsType = {
 export const useModal = ({ ref, isOpen, onClose }: UseModalOptionsType) => {
   const { height } = useGetHeight(ref)
   const [deltaY, setDeltaY] = useState(0)
+
+  useEffect(() => {
+    if (!isOpen || ref.current === null) {
+      return
+    }
+
+    const trap = createFocusTrap(ref.current, {
+      clickOutsideDeactivates: true,
+      escapeDeactivates: true,
+      returnFocusOnDeactivate: true,
+      onDeactivate: closeModal,
+      onPostDeactivate: () => {
+        onClose()
+        setDeltaY(0)
+      }
+    })
+    trap.activate()
+
+    return () => {
+      trap.deactivate()
+    }
+  }, [ref, isOpen, onClose])
 
   const handlers = useSwipeable({
     onSwiping: (e) => {
