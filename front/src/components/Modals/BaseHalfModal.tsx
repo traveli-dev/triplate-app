@@ -1,9 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styles from '@/styles/components/Modals/BaseHalfModal.module.scss'
 import { Container } from '@/components/Containers'
 import { useRef } from 'react'
-import { useSwipeable } from 'react-swipeable'
-import { useAriaHidden, useFocusTrap } from '@/hooks/modals'
+import { useAriaHidden, useFocusTrap, useModal } from '@/hooks/modals'
 
 type BaseHalfModalProps = {
   ariaLabelledBy: string
@@ -21,25 +20,13 @@ export const BaseHalfModal = ({
   onClose
 }: BaseHalfModalProps) => {
   const ref = useRef<HTMLDivElement>(null)
-  useAriaHidden(ref, isOpen)
-  useFocusTrap({ ref, isOpen, onClose })
-  const [deltaY, setDeltaY] = useState(0)
-
-  const handlers = useSwipeable({
-    onSwiping: (e) => {
-      setDeltaY(e.deltaY)
-    },
-    onSwipedDown: (e) => {
-      if (e.deltaY >= 150) {
-        onClose()
-      }
-      setDeltaY(0)
-    }
+  const { handlers, animationStyles, cleanUpModal, closeModal } = useModal({
+    ref,
+    isOpen,
+    onClose
   })
-
-  const style = {
-    transform: `translateY(${deltaY}px)`
-  }
+  useAriaHidden(ref, isOpen)
+  useFocusTrap({ ref, isOpen, onClose, closeModal, cleanUpModal })
 
   return (
     <div {...handlers}>
@@ -47,14 +34,16 @@ export const BaseHalfModal = ({
         <div className={styles.overlay}>
           <div
             ref={ref}
-            style={style}
+            style={animationStyles}
             className={styles.content}
             role="dialog"
             aria-modal="true"
             aria-labelledby={ariaLabelledBy}
             aria-describedby={ariaDescribedBy}
+            onTransitionEnd={cleanUpModal}
           >
             <Container bgColor="white">{children}</Container>
+            <button onClick={closeModal}></button>
           </div>
         </div>
       </div>

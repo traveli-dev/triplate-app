@@ -5,6 +5,8 @@ type UseFocusTrapOptionsType = {
   ref: RefObject<HTMLElement>
   isOpen: boolean
   onClose: () => void
+  closeModal: () => void
+  cleanUpModal: () => void
 }
 
 export const useFocusTrap = ({

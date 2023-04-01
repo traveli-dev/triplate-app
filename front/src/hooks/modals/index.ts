@@ -1,4 +1,6 @@
-export { useModal } from '@/hooks/modals/useModal'
+export { useDisclosure } from '@/hooks/modals/useDisclosure'
 export { useAriaHidden } from '@/hooks/modals/useAriaHidden'
-export { useFocusTrap } from '@/hooks/modals/useFocusTrap'
+export { useGetHeight } from '@/hooks/modals/useGetHeight'
+export { useModal } from '@/hooks/modals/useModal'
 export { useSwipe } from '@/hooks/modals/useSwipe'
+export { useFocusTrap } from '@/hooks/modals/useFocusTrap'

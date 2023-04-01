@@ -1,18 +1,58 @@
-import { useState } from 'react'
+import { RefObject, useState } from 'react'
+import { useSwipeable } from 'react-swipeable'
+import { useGetHeight } from '@/hooks/modals/useGetHeight'
 
-export const useModal = () => {
-  const [isOpen, setIsOpen] = useState(false)
+type UseModalOptionsType = {
+  ref: RefObject<HTMLDivElement>
+  isOpen: boolean
+  onClose: () => void
+}
 
-  const openModal = () => {
-    setIsOpen(true)
+export const useModal = ({ ref, isOpen, onClose }: UseModalOptionsType) => {
+  const { height } = useGetHeight(ref)
+  const [deltaY, setDeltaY] = useState(0)
+
+  const handlers = useSwipeable({
+    onSwiping: (e) => {
+      if (e.deltaY >= 0) {
+        setDeltaY(e.deltaY)
+      }
+    },
+    onSwipedDown: (e) => {
+      const FLICK_THRESHOLD = 0.6
+      const isFlick = e.velocity > FLICK_THRESHOLD
+      if (!height) return
+      if (isFlick || e.deltaY >= (height * 1) / 3) {
+        setDeltaY(height)
+      } else {
+        setDeltaY(0)
+      }
+    }
+  })
+
+  const cleanUpModal = () => {
+    if (isOpen && deltaY === height) {
+      onClose()
+      setDeltaY(0)
+    }
   }
+
   const closeModal = () => {
-    setIsOpen(false)
+    if (!height) return
+    setDeltaY(height)
+  }
+
+  const animationStyles = {
+    transform: isOpen ? `translateY(${deltaY}px)` : 'translateY(100%)',
+    transition: isOpen
+      ? 'transform cubic-bezier(0.175, 0.885, 0.32,  1.275) 0.2s'
+      : 'transform cubic-bezier(0.5, 0.5, 0.5, 0.5) 0.2s;'
   }
 
   return {
-    openModal,
-    closeModal,
-    isOpen
+    handlers,
+    cleanUpModal,
+    animationStyles,
+    closeModal
   }
 }

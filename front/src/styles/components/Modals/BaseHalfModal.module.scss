@@ -14,7 +14,6 @@
 }
 
 .content {
-  height: 300px;
   position: fixed;
   bottom: 0;
   z-index: 999;
@@ -34,9 +33,5 @@
   .overlay {
     opacity: 1;
     pointer-events: auto;
-  }
-
-  .content {
-    transform: translateY(0);
   }
 }
