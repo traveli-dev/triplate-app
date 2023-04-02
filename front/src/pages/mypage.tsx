@@ -2,7 +2,7 @@ import { Avatar } from '@/components/Avatars'
 import { Container } from '@/components/Containers'
 import { GridIconWithText } from '@/components/Grids'
 import { NavigationBottom } from '@/components/Navigations'
-import styles from '@/styles/components/Pages/Mypage.module.scss'
+import styles from '@/styles/pages/Mypage.module.scss'
 import { NextSeo } from 'next-seo'
 
 const Mypage = () => {

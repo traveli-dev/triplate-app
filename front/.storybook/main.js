@@ -13,6 +13,7 @@ module.exports = {
   core: {
     builder: '@storybook/builder-webpack5'
   },
+  staticDirs: ['../public'],
   webpackFinal: async (config) => {
     config.module.rules.push({
       test: /\.scss$/,
