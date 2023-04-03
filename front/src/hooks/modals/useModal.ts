@@ -69,8 +69,8 @@ export const useModal = ({ ref, isOpen, onClose }: UseModalOptionsType) => {
   const animationStyles = {
     transform: isOpen ? `translateY(${deltaY}px)` : 'translateY(100%)',
     transition: isOpen
-      ? 'transform cubic-bezier(0.175, 0.885, 0.32,  1.275) 0.2s'
-      : 'transform cubic-bezier(0.5, 0.5, 0.5, 0.5) 0.2s'
+      ? 'transform cubic-bezier(0.175, 0.885, 0.32,  1.275) 0.3s'
+      : 'transform cubic-bezier(0.5, 0.5, 0.5, 0.5) 0.3s'
   }
 
   return {
