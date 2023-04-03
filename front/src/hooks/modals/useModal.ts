@@ -66,14 +66,17 @@ export const useModal = ({ ref, isOpen, onClose }: UseModalOptionsType) => {
     setIsCleanUp(true)
   }
 
-  const swipeStyle = {
-    transform: isOpen ? `translateY(${deltaY}px)` : ''
+  const transitionStyle = {
+    transform: isOpen ? `translateY(${deltaY}px)` : 'translateY(100%)',
+    transition: isOpen
+      ? 'transform cubic-bezier(0.175, 0.885, 0.32,  1.275) 0.3s'
+      : 'transform cubic-bezier(0.5, 0.5, 0.5, 0.5) 0.3s'
   }
 
   return {
     handlers,
     cleanUpModal,
-    swipeStyle,
+    transitionStyle,
     closeModal
   }
 }

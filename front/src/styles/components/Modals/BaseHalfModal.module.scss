@@ -28,17 +28,11 @@
   padding: 0 48px;
   border-radius: 32px 32px 0 0;
   transform: translateY(100%);
-  // liner
-  transition: transform cubic-bezier(0.5, 0.5, 0.5, 0.5) 0.3s;
 }
 
 .isOpen {
   .overlay {
     opacity: 1;
     pointer-events: auto;
-  }
-  .content {
-    // bounce
-    transition: transform cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.3s;
   }
 }
