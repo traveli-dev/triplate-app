@@ -1,5 +1,5 @@
 import { RefObject, useEffect } from 'react'
-import { clearAllBodyScrollLocks, disableBodyScroll } from 'body-scroll-lock'
+import { clearBodyLocks, lock } from 'tua-body-scroll-lock'
 
 type UseDisableScrollOptionsType = {
   ref: RefObject<HTMLDivElement>
@@ -13,8 +13,8 @@ export const useDisableScroll = ({
   useEffect(() => {
     if (!isOpen || ref.current === null) return
 
-    disableBodyScroll(ref.current)
+    lock(ref.current)
 
-    return clearAllBodyScrollLocks
+    return clearBodyLocks
   }, [ref, isOpen])
 }
