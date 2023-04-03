@@ -12,6 +12,7 @@ type UseModalOptionsType = {
 export const useModal = ({ ref, isOpen, onClose }: UseModalOptionsType) => {
   const { height } = useGetHeight(ref)
   const [deltaY, setDeltaY] = useState(0)
+  const [isCleanUp, setIsCleanUp] = useState(false)
 
   useEffect(() => {
     if (!isOpen || ref.current === null) {
@@ -22,15 +23,12 @@ export const useModal = ({ ref, isOpen, onClose }: UseModalOptionsType) => {
       clickOutsideDeactivates: true,
       escapeDeactivates: true,
       returnFocusOnDeactivate: true,
-      onDeactivate: closeModal,
-      onPostDeactivate: () => {
-        onClose()
-        setDeltaY(0)
-      }
+      onDeactivate: closeModal
     })
     trap.activate()
 
     return () => {
+      setIsCleanUp(false)
       trap.deactivate()
     }
   }, [ref, isOpen, onClose])
@@ -47,6 +45,7 @@ export const useModal = ({ ref, isOpen, onClose }: UseModalOptionsType) => {
       if (!height) return
       if (isFlick || e.deltaY >= (height * 1) / 3) {
         setDeltaY(height)
+        setIsCleanUp(true)
       } else {
         setDeltaY(0)
       }
@@ -54,22 +53,24 @@ export const useModal = ({ ref, isOpen, onClose }: UseModalOptionsType) => {
   })
 
   const cleanUpModal = () => {
-    if (isOpen && deltaY === height) {
+    if (isCleanUp) {
       onClose()
       setDeltaY(0)
+      setIsCleanUp(false)
     }
   }
 
   const closeModal = () => {
     if (!height) return
     setDeltaY(height)
+    setIsCleanUp(true)
   }
 
   const animationStyles = {
     transform: isOpen ? `translateY(${deltaY}px)` : 'translateY(100%)',
     transition: isOpen
-      ? 'transform cubic-bezier(0.175, 0.885, 0.32,  1.275) 0.2s'
-      : 'transform cubic-bezier(0.5, 0.5, 0.5, 0.5) 0.2s'
+      ? 'transform cubic-bezier(0.175, 0.885, 0.32,  1.275) 0.5s'
+      : 'transform cubic-bezier(0.5, 0.5, 0.5, 0.5) 0.5s'
   }
 
   return {
