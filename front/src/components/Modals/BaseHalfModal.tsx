@@ -2,7 +2,12 @@ import React from 'react'
 import styles from '@/styles/components/Modals/BaseHalfModal.module.scss'
 import { Container } from '@/components/Containers'
 import { useRef } from 'react'
-import { useAriaHidden, useDisableScroll, useModal } from '@/hooks/modals'
+import {
+  useAriaHidden,
+  useDisableScroll,
+  useFocusTrap,
+  useModal
+} from '@/hooks/modals'
 
 type BaseHalfModalProps = {
   ariaLabelledBy: string
@@ -20,13 +25,15 @@ export const BaseHalfModal = ({
   onClose
 }: BaseHalfModalProps) => {
   const ref = useRef<HTMLDivElement>(null)
-  const { handlers, transitionStyle, cleanUpModal, closeModal } = useModal({
-    ref,
-    isOpen,
-    onClose
-  })
+  const { handlers, transitionStyle, cleanUpModal, closeModal, isCleanUp } =
+    useModal({
+      ref,
+      isOpen,
+      onClose
+    })
   useAriaHidden(ref, isOpen)
   useDisableScroll({ ref, isOpen })
+  useFocusTrap({ ref, isOpen, closeModal })
 
   return (
     <div {...handlers}>
@@ -40,7 +47,7 @@ export const BaseHalfModal = ({
             aria-modal="true"
             aria-labelledby={ariaLabelledBy}
             aria-describedby={ariaDescribedBy}
-            onTransitionEnd={cleanUpModal}
+            onTransitionEnd={() => isCleanUp && cleanUpModal()}
           >
             <Container bgColor="white">{children}</Container>
             <button onClick={closeModal}></button>
