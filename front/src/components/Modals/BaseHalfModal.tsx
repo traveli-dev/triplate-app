@@ -20,7 +20,7 @@ export const BaseHalfModal = ({
   onClose
 }: BaseHalfModalProps) => {
   const ref = useRef<HTMLDivElement>(null)
-  const { handlers, animationStyles, cleanUpModal, closeModal } = useModal({
+  const { handlers, swipeStyle, cleanUpModal, closeModal } = useModal({
     ref,
     isOpen,
     onClose
@@ -34,7 +34,7 @@ export const BaseHalfModal = ({
         <div className={styles.overlay}>
           <div
             ref={ref}
-            style={animationStyles}
+            style={swipeStyle}
             className={styles.content}
             role="dialog"
             aria-modal="true"
