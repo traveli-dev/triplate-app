@@ -104,5 +104,5 @@ const styles = {
     font-size: ${theme.fontSize.sm};
     color: ${theme.color.gray};
     margin: 8px 0 0 0;
-  `,
+  `
 }

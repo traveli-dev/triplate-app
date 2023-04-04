@@ -1,3 +1,4 @@
+import { css } from '@emotion/react'
 import {
   HiOutlineQrcode,
   HiOutlineBell,
@@ -8,8 +9,8 @@ import {
   HiOutlineGlobeAlt
 } from 'react-icons/hi'
 import { FiTwitter } from 'react-icons/fi'
-import styles from '@/styles/components/Icons/IconWithText.module.scss'
 import Link from 'next/link'
+import { theme } from '@/styles/theme'
 
 type IconWithiconProps = {
   iconType:
@@ -25,7 +26,7 @@ type IconWithiconProps = {
 
 export const IconWithText = ({ iconType }: IconWithiconProps) => {
   return (
-    <Link href="/" className={styles.wrapper}>
+    <Link href="/" css={styles.wrapper}>
       {iconType === 'qr' && (
         <div>
           <HiOutlineQrcode size={24} />
@@ -59,7 +60,7 @@ export const IconWithText = ({ iconType }: IconWithiconProps) => {
       {iconType === 'privacy' && (
         <div>
           <HiOutlineShieldCheck size={24} />
-          <div className={styles.wrapper__lines}>
+          <div css={styles.lines}>
             <p>
               プライバシー
               <br />
@@ -71,7 +72,7 @@ export const IconWithText = ({ iconType }: IconWithiconProps) => {
       {iconType === 'twitter' && (
         <div>
           <FiTwitter size={24} />
-          <div className={styles.wrapper__lines}>
+          <div css={styles.lines}>
             <p>
               公式
               <br />
@@ -88,4 +89,29 @@ export const IconWithText = ({ iconType }: IconWithiconProps) => {
       )}
     </Link>
   )
+}
+
+const styles = {
+  wrapper: css`
+    font-size: ${theme.fontSize.sm};
+    text-decoration: none;
+    width: 80px;
+    padding: 10px 0;
+    text-align: center;
+    background-color: ${theme.color.white};
+    color: ${theme.color.black};
+    :hover {
+      color: ${theme.color.blue};
+    }
+  `,
+  lines: css`
+    display: table;
+    width: 100%;
+    height: 3.6rem; // フォントサイズとともに高さも変化するため
+    margin: 4px 0 0 0;
+    & > p {
+      display: table-cell;
+      vertical-align: middle;
+    }
+  `
 }

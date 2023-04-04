@@ -28,5 +28,6 @@ const styles = {
       : theme.color.bgBlue};
     min-height: ${isFull && 'calc(100vh - 56px)'};
     text-align: ${isCenter && 'center'};
+    padding: 0 16px;
   `
 }
