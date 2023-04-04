@@ -1,13 +1,10 @@
+import { theme } from '@/styles/theme'
+
 // media query
-const breakpoints = {
-  sm: '32rem',
-  md: '68rem'
-} as const
+type BreakpointType = typeof theme.breakpoint
+type BreakpointKeyType = keyof BreakpointType
 
-type BreakpointsType = typeof breakpoints
-type BreakpointKeysType = keyof BreakpointsType
-
-export const mq = (breakpoint: BreakpointKeysType) => {
-  const mediaQuery = `@media (max-width: ${breakpoints[breakpoint]})`
+export const mq = (breakpointKey: BreakpointKeyType) => {
+  const mediaQuery = `@media (max-width: ${theme.breakpoint[breakpointKey]})`
   return mediaQuery
 }

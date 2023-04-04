@@ -19,7 +19,13 @@ const fontSize = {
   xl: '2.4rem'
 } as const
 
+const breakpoint = {
+  sm: '32rem',
+  md: '68rem'
+} as const
+
 export const theme = {
   color,
-  fontSize
+  fontSize,
+  breakpoint
 } as const
