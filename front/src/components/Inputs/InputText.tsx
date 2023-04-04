@@ -1,7 +1,7 @@
 import styles from '@/styles/components/Inputs/InputText.module.scss'
 import { InputHTMLAttributes } from 'react'
 type InputTextProps = InputHTMLAttributes<HTMLInputElement> & {
-  placeholder: String
+  placeholder: string
 }
 
 export const InputText = ({ placeholder }: InputTextProps) => {
