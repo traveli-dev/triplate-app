@@ -14,10 +14,10 @@ export const Container = ({
   children,
   ...options
 }: ContainerProps) => {
-  return <div css={ContainerStyle({ bgColor, ...options })}>{children}</div>
+  return <div css={container({ bgColor, ...options })}>{children}</div>
 }
 
-const ContainerStyle = ({
+const container = ({
   bgColor,
   isFull,
   isCenter

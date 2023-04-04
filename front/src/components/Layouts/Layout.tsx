@@ -5,10 +5,10 @@ type LayoutProps = {
   children: React.ReactNode
 }
 export const Layout = ({ children }: LayoutProps) => {
-  return <main css={LayoutStyle}>{children}</main>
+  return <main css={layout}>{children}</main>
 }
 
-const LayoutStyle = css`
+const layout = css`
   max-width: ${theme.breakpoint.md};
   min-width: ${theme.breakpoint.sm};
   min-height: 100vh;

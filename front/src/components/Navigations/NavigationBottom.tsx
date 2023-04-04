@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-import styles from '@/styles/components/Navigations/NavigationBottom.module.scss'
+import { css } from '@emotion/react'
+import { theme } from '@/styles/theme'
 import {
   HiOutlineHome,
   HiOutlineGlobe,
@@ -16,14 +17,9 @@ export const NavigationBottom = () => {
 
   return (
     <nav>
-      <ul className={styles.wrapper}>
-        <li className={styles.nav}>
-          <Link
-            href="home"
-            className={`${styles.default} ${
-              currentPath === '/home' && styles.focus
-            }`}
-          >
+      <ul css={wrapper}>
+        <li css={nav}>
+          <Link href="home" css={[navItem, currentPath === '/home' && focus]}>
             {currentPath === '/home' ? (
               <HiHome size={24} />
             ) : (
@@ -32,12 +28,10 @@ export const NavigationBottom = () => {
             <p>ホーム</p>
           </Link>
         </li>
-        <li className={styles.nav}>
+        <li css={nav}>
           <Link
             href="search"
-            className={`${styles.default} ${
-              currentPath === '/search' && styles.focus
-            }`}
+            css={[navItem, currentPath === '/search' && focus]}
           >
             {currentPath === '/search' ? (
               <HiGlobe size={24} />
@@ -48,12 +42,10 @@ export const NavigationBottom = () => {
             <p>みんなのたび</p>
           </Link>
         </li>
-        <li className={styles.nav}>
+        <li css={nav}>
           <Link
             href="mypage"
-            className={`${styles.default} ${
-              currentPath === '/mypage' && styles.focus
-            }`}
+            css={[navItem, currentPath === '/mypage' && focus]}
           >
             {currentPath === '/mypage' ? (
               <HiUser size={24} />
@@ -67,3 +59,41 @@ export const NavigationBottom = () => {
     </nav>
   )
 }
+
+const wrapper = css`
+  position: fixed;
+  bottom: 0;
+  z-index: 999;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: ${theme.color.white};
+  width: 100%;
+  max-width: ${theme.breakpoint.md};
+  height: 80px;
+  margin: 0;
+  padding: 0 48px;
+  border-radius: 32px 32px 0 0;
+  border: 1px solid ${theme.color.outlineGray};
+  border-bottom: 0;
+`
+
+const nav = css`
+  width: 100%;
+  text-align: center;
+  list-style: none;
+  font-size: var(--font-size-sm);
+  p {
+    margin: 4px 0 0 0;
+  }
+`
+
+const navItem = css`
+  color: var(--c-black);
+  text-decoration: none;
+`
+
+const focus = css`
+  font-weight: 700;
+`
