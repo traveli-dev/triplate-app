@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { css } from '@emotion/react'
-import styled from '@emotion/styled'
 import { AvatarWithText } from '@/components/Avatars'
 import { ChipTag } from '@/components/Chips'
 import type {
@@ -29,7 +28,8 @@ export const CardTravelink = ({ travelink, favorite }: CardTravelinkProps) => {
             <p css={styles.day}>
               {travelink.date[0]} - {travelink.date[1]}
             </p>
-            <ExtendAvatarWithText
+            <AvatarWithText
+              css={styles.avatarWithText}
               url={travelink.thumbnail}
               name={travelink.ownerName}
             />
@@ -43,21 +43,13 @@ export const CardTravelink = ({ travelink, favorite }: CardTravelinkProps) => {
           </div>
           <div css={styles.content}>
             <p css={styles.title}>{favorite.title}</p>
-            <ExtendChipTag tag={favorite.tag} />
+            <ChipTag tag={favorite.tag} css={styles.chipTag} />
           </div>
         </Link>
       )}
     </>
   )
 }
-
-const ExtendAvatarWithText = styled(AvatarWithText)`
-  margin: 8px 0;
-`
-
-const ExtendChipTag = styled(ChipTag)`
-  margin: 8px 0;
-`
 
 const styles = {
   wrapper: css`
@@ -104,5 +96,11 @@ const styles = {
     font-size: ${theme.fontSize.sm};
     color: ${theme.color.gray};
     margin: 8px 0 0 0;
+  `,
+  avatarWithText: css`
+    margin: 8px 0;
+  `,
+  chipTag: css`
+    margin: 8px 0;
   `
 }

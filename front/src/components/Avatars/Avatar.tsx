@@ -4,13 +4,15 @@ import { css } from '@emotion/react'
 type AvatarProps = {
   url: string
   size: 'sm' | 'md' | 'lg'
+  className?: string
 }
 
-export const Avatar = ({ url, size }: AvatarProps) => {
+export const Avatar = ({ url, size, className }: AvatarProps) => {
   const imgSize = { sm: 32, md: 50, lg: 150 }
 
   return (
     <Image
+      className={className}
       src={url}
       alt="user_img"
       width={imgSize[size]}

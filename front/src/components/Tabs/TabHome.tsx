@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import { CardTravelink } from '@/components/Cards'
 import { css } from '@emotion/react'
 import { theme } from '@/styles/theme'
-import styled from '@emotion/styled'
 
 // 仮置きの型設定
 // TODO:本実装のタイミングでtypeの内容とexport場所を変更
@@ -87,7 +86,11 @@ export const TabHome = ({
           {myTravelinkList.length ? (
             <>
               {myTravelinkList.map((travelink) => (
-                <ExtendCardTravelink key={travelink.id} travelink={travelink} />
+                <CardTravelink
+                  css={styles.cardTravelink}
+                  key={travelink.id}
+                  travelink={travelink}
+                />
               ))}
             </>
           ) : (
@@ -102,7 +105,11 @@ export const TabHome = ({
           {joinedList.length ? (
             <>
               {joinedList.map((item) => (
-                <CardTravelink key={item.id} travelink={item} />
+                <CardTravelink
+                  css={styles.cardTravelink}
+                  key={item.id}
+                  travelink={item}
+                />
               ))}
             </>
           ) : (
@@ -117,7 +124,11 @@ export const TabHome = ({
           {favoriteList.length ? (
             <>
               {favoriteList.map((favorite) => (
-                <CardTravelink key={favorite.puclicId} favorite={favorite} />
+                <CardTravelink
+                  css={styles.cardTravelink}
+                  key={favorite.puclicId}
+                  favorite={favorite}
+                />
               ))}
             </>
           ) : (
@@ -131,11 +142,10 @@ export const TabHome = ({
   )
 }
 
-const ExtendCardTravelink = styled(CardTravelink)`
-  margin-bottom: 16px;
-`
-
 const styles = {
+  cardTravelink: css`
+    margin-bottom: 16px;
+  `,
   tabs: css`
     position: relative;
     margin-bottom: 16px;
