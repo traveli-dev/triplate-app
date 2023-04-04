@@ -1,5 +1,6 @@
 import { Avatar } from '@/components/Avatars'
-import styles from '@/styles/components/Avatars/AvatarWithText.module.scss'
+import { css } from '@emotion/react'
+import { theme } from '@/styles/theme'
 
 type AvatarWithTextProps = {
   url: string
@@ -8,9 +9,18 @@ type AvatarWithTextProps = {
 
 export const AvatarWithText = ({ url, name }: AvatarWithTextProps) => {
   return (
-    <div className={styles.wrapper}>
+    <div css={wrapper}>
       <Avatar url={url} size={'sm'} />
       <p>{name}</p>
     </div>
   )
 }
+
+const wrapper = css`
+  display: flex;
+  gap: 16px;
+  & > p {
+    font-size: ${theme.fontSize.sm};
+    margin: auto 0;
+  }
+`
