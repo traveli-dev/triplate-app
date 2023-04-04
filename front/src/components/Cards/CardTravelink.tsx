@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { css } from '@emotion/react'
+import styled from '@emotion/styled'
 import { AvatarWithText } from '@/components/Avatars'
 import { ChipTag } from '@/components/Chips'
 import type {
@@ -28,12 +29,10 @@ export const CardTravelink = ({ travelink, favorite }: CardTravelinkProps) => {
             <p css={styles.day}>
               {travelink.date[0]} - {travelink.date[1]}
             </p>
-            <div css={styles.avatarWithTextLayout}>
-              <AvatarWithText
-                url={travelink.thumbnail}
-                name={travelink.ownerName}
-              />
-            </div>
+            <ExtendAvaterWithText
+              url={travelink.thumbnail}
+              name={travelink.ownerName}
+            />
           </div>
         </Link>
       )}
@@ -44,15 +43,21 @@ export const CardTravelink = ({ travelink, favorite }: CardTravelinkProps) => {
           </div>
           <div css={styles.content}>
             <p css={styles.title}>{favorite.title}</p>
-            <div css={styles.chipTagLayout}>
-              <ChipTag tag={favorite.tag} />
-            </div>
+            <ExtendChipTag tag={favorite.tag} />
           </div>
         </Link>
       )}
     </>
   )
 }
+
+const ExtendAvaterWithText = styled(AvatarWithText)`
+  margin: 8px 0;
+`
+
+const ExtendChipTag = styled(ChipTag)`
+  margin: 8px 0;
+`
 
 const styles = {
   wrapper: css`
@@ -100,10 +105,4 @@ const styles = {
     color: ${theme.color.gray};
     margin: 8px 0 0 0;
   `,
-  avatarWithTextLayout: css`
-    margin: 8px 0;
-  `,
-  chipTagLayout: css`
-    margin: 8px 0;
-  `
 }
