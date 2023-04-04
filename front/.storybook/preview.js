@@ -1,6 +1,6 @@
 import * as nextImage from 'next/image'
+import { globalStyle } from ''
 import { RouterContext } from 'next/dist/shared/lib/router-context'
-import '@/styles/global.scss'
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
@@ -14,6 +14,15 @@ export const parameters = {
     Provider: RouterContext.Provider
   }
 }
+
+export const decorators = [
+  (Story) => (
+    <>
+      <Global styles={globalStyle} />
+      <Story />
+    </>
+  ),
+];
 
 const OriginalNextImage = nextImage.default
 

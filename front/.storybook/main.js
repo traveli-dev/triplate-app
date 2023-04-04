@@ -7,36 +7,35 @@ module.exports = {
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
-    'storybook-addon-next-router'
+    'storybook-addon-next-router',
+    {
+      name: '@storybook/addon-postcss',
+      options: {
+        postcssLoaderOptions: {
+          implementation: require('postcss'),
+        },
+      },
+    },
   ],
   framework: '@storybook/react',
   core: {
-    builder: '@storybook/builder-webpack5'
+    builder: 'webpack5',
+    options: {
+      // 起動の高速化
+      lazyCompilation: true,
+      fsCache: true,
+    },
   },
   staticDirs: ['../public'],
   webpackFinal: async (config) => {
-    config.module.rules.push({
-      test: /\.scss$/,
-      use: [
-        'style-loader',
-        {
-          loader: 'css-loader',
-          options: {
-            importLoaders: 1,
-            modules: {
-              localIdentName: '[local]___[hash:base64:2]'
-            }
-          }
-        },
-        'sass-loader'
-      ]
-    })
     return {
       ...config,
       resolve: {
         ...config.resolve,
         alias: {
           ...config.resolve.alias,
+          '@emotion/core': toPath('node_modules/@emotion/react'),
+          '@emotion/styled': toPath('node_modules/@emotion/styled'),
           '@': path.resolve(__dirname, '../src')
         }
       }
