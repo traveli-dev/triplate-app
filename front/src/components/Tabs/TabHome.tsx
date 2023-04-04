@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { CardTravelink } from '@/components/Cards'
-import styles from '@/styles/components/Tabs/TabHome.module.scss'
+import { css } from '@emotion/react'
+import { theme } from '@/styles/theme'
+import styled from '@emotion/styled'
 
 // 仮置きの型設定
 // TODO:本実装のタイミングでtypeの内容とexport場所を変更
@@ -44,7 +46,7 @@ export const TabHome = ({
 
   return (
     <>
-      <div className={styles.tabs}>
+      <div css={styles.tabs}>
         <label>
           <input
             name={'tab'}
@@ -85,11 +87,7 @@ export const TabHome = ({
           {myTravelinkList.length ? (
             <>
               {myTravelinkList.map((travelink) => (
-                <>
-                  <div className={styles.card_travelink_layout}>
-                    <CardTravelink travelink={travelink} />
-                  </div>
-                </>
+                <ExtendCardTravelink key={travelink.id} travelink={travelink} />
               ))}
             </>
           ) : (
@@ -104,11 +102,7 @@ export const TabHome = ({
           {joinedList.length ? (
             <>
               {joinedList.map((item) => (
-                <>
-                  <div className={styles.card_travelink_layout}>
-                    <CardTravelink travelink={item} />
-                  </div>
-                </>
+                <CardTravelink key={item.id} travelink={item} />
               ))}
             </>
           ) : (
@@ -123,11 +117,7 @@ export const TabHome = ({
           {favoriteList.length ? (
             <>
               {favoriteList.map((favorite) => (
-                <>
-                  <div className={styles.card_travelink_layout}>
-                    <CardTravelink favorite={favorite} />
-                  </div>
-                </>
+                <CardTravelink key={favorite.puclicId} favorite={favorite} />
               ))}
             </>
           ) : (
@@ -139,4 +129,46 @@ export const TabHome = ({
       )}
     </>
   )
+}
+
+const ExtendCardTravelink = styled(CardTravelink)`
+  margin-bottom: 16px;
+`
+
+const styles = {
+  tabs: css`
+    position: relative;
+    margin-bottom: 16px;
+    width: 100%;
+    height: 34px;
+    & input[type='radio'] {
+      // ラジオボタン消す
+      display: none;
+
+      // tab
+      & + span {
+        display: inline-block;
+        margin-right: 8px;
+        padding: 6px 12px;
+        color: ${theme.color.black};
+        text-align: center;
+        font-size: ${theme.fontSize.md};
+        border-radius: 100px;
+        cursor: pointer;
+        border: 2px solid ${theme.color.outlineGray};
+        transition: all 0.3s 0s ease;
+        background-color: ${theme.color.white};
+
+        &:hover {
+          background-color: ${theme.color.bgGray};
+        }
+      }
+
+      &:checked + span {
+        color: ${theme.color.white};
+        background-color: ${theme.color.black};
+        border: 2px solid ${theme.color.black};
+      }
+    }
+  `
 }

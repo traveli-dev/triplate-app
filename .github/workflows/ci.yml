@@ -35,7 +35,6 @@ jobs:
         working-directory: ./front
         run: |
           yarn install --immutable
-          yarn build:scss
           yarn check:lint
           yarn check:type
           yarn check:format

@@ -51,9 +51,6 @@ next-env.d.ts
 config/*
 bin/*
 
-# typed scss modules
-**/*module.scss.d.ts
-
 # PWA
 **/public/sw.js
 **/public/workbox-*.js
