@@ -23,5 +23,6 @@ export const Avatar = ({ url, size }: AvatarProps) => {
 const styles = {
   userImg: css`
     border-radius: 100px;
+    display: inline;
   `
 }

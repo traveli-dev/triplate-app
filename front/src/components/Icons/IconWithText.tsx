@@ -103,6 +103,9 @@ const styles = {
     :hover {
       color: ${theme.color.blue};
     }
+    p {
+      margin: 12px 0;
+    }
   `,
   lines: css`
     display: table;

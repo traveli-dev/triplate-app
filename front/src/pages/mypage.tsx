@@ -40,8 +40,6 @@ const styles = {
     display: flex;
     justify-content: center;
     align-items: center;
-    vertical-align: middle;
-    height: 88vh;
   `,
   content: css`
     width: 400px;

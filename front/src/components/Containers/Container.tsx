@@ -26,8 +26,8 @@ const styles = {
     background-color: ${bgColor === 'white'
       ? theme.color.white
       : theme.color.bgBlue};
-    min-height: ${isFull && 'calc(100vh - 56px)'};
-    text-align: ${isCenter && 'center'};
+    min-height: ${isFull ? 'calc(100vh - 56px)' : 'auto'};
+    text-align: ${isCenter ? 'center' : 'start'};
     padding: 0 16px;
   `
 }
