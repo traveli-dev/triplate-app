@@ -15,11 +15,13 @@ export const Avatar = ({ url, size }: AvatarProps) => {
       alt="user_img"
       width={imgSize[size]}
       height={imgSize[size]}
-      css={userImg}
+      css={styles.userImg}
     />
   )
 }
 
-const userImg = css`
-  border-radius: 100px;
-`
+const styles = {
+  userImg: css`
+    border-radius: 100px;
+  `
+}

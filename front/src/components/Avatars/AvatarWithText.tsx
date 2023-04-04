@@ -9,18 +9,20 @@ type AvatarWithTextProps = {
 
 export const AvatarWithText = ({ url, name }: AvatarWithTextProps) => {
   return (
-    <div css={wrapper}>
+    <div css={styles.wrapper}>
       <Avatar url={url} size={'sm'} />
       <p>{name}</p>
     </div>
   )
 }
 
-const wrapper = css`
-  display: flex;
-  gap: 16px;
-  & > p {
-    font-size: ${theme.fontSize.sm};
-    margin: auto 0;
-  }
-`
+const styles = {
+  wrapper: css`
+    display: flex;
+    gap: 16px;
+    & > p {
+      font-size: ${theme.fontSize.sm};
+      margin: auto 0;
+    }
+  `
+}

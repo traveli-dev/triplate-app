@@ -14,17 +14,19 @@ export const Container = ({
   children,
   ...options
 }: ContainerProps) => {
-  return <div css={container({ bgColor, ...options })}>{children}</div>
+  return <div css={styles.container({ bgColor, ...options })}>{children}</div>
 }
 
-const container = ({
-  bgColor,
-  isFull,
-  isCenter
-}: Omit<ContainerProps, 'children'>) => css`
-  background-color: ${bgColor === 'white'
-    ? theme.color.white
-    : theme.color.bgBlue};
-  min-height: ${isFull && 'calc(100vh - 56px)'};
-  text-align: ${isCenter && 'center'};
-`
+const styles = {
+  container: ({
+    bgColor,
+    isFull,
+    isCenter
+  }: Omit<ContainerProps, 'children'>) => css`
+    background-color: ${bgColor === 'white'
+      ? theme.color.white
+      : theme.color.bgBlue};
+    min-height: ${isFull && 'calc(100vh - 56px)'};
+    text-align: ${isCenter && 'center'};
+  `
+}

@@ -17,9 +17,12 @@ export const NavigationBottom = () => {
 
   return (
     <nav>
-      <ul css={wrapper}>
-        <li css={nav}>
-          <Link href="home" css={[navItem, currentPath === '/home' && focus]}>
+      <ul css={styles.wrapper}>
+        <li css={styles.nav}>
+          <Link
+            href="home"
+            css={[styles.navItem, currentPath === '/home' && styles.focus]}
+          >
             {currentPath === '/home' ? (
               <HiHome size={24} />
             ) : (
@@ -28,10 +31,10 @@ export const NavigationBottom = () => {
             <p>ホーム</p>
           </Link>
         </li>
-        <li css={nav}>
+        <li css={styles.nav}>
           <Link
             href="search"
-            css={[navItem, currentPath === '/search' && focus]}
+            css={[styles.navItem, currentPath === '/search' && styles.focus]}
           >
             {currentPath === '/search' ? (
               <HiGlobe size={24} />
@@ -42,10 +45,10 @@ export const NavigationBottom = () => {
             <p>みんなのたび</p>
           </Link>
         </li>
-        <li css={nav}>
+        <li css={styles.nav}>
           <Link
             href="mypage"
-            css={[navItem, currentPath === '/mypage' && focus]}
+            css={[styles.navItem, currentPath === '/mypage' && styles.focus]}
           >
             {currentPath === '/mypage' ? (
               <HiUser size={24} />
@@ -60,40 +63,39 @@ export const NavigationBottom = () => {
   )
 }
 
-const wrapper = css`
-  position: fixed;
-  bottom: 0;
-  z-index: 999;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: ${theme.color.white};
-  width: 100%;
-  max-width: ${theme.breakpoint.md};
-  height: 80px;
-  margin: 0;
-  padding: 0 48px;
-  border-radius: 32px 32px 0 0;
-  border: 1px solid ${theme.color.outlineGray};
-  border-bottom: 0;
-`
-
-const nav = css`
-  width: 100%;
-  text-align: center;
-  list-style: none;
-  font-size: var(--font-size-sm);
-  p {
-    margin: 4px 0 0 0;
-  }
-`
-
-const navItem = css`
-  color: var(--c-black);
-  text-decoration: none;
-`
-
-const focus = css`
-  font-weight: 700;
-`
+const styles = {
+  wrapper: css`
+    position: fixed;
+    bottom: 0;
+    z-index: 999;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: ${theme.color.white};
+    width: 100%;
+    max-width: ${theme.breakpoint.md};
+    height: 80px;
+    margin: 0;
+    padding: 0 48px;
+    border-radius: 32px 32px 0 0;
+    border: 1px solid ${theme.color.outlineGray};
+    border-bottom: 0;
+  `,
+  nav: css`
+    width: 100%;
+    text-align: center;
+    list-style: none;
+    font-size: var(--font-size-sm);
+    p {
+      margin: 4px 0 0 0;
+    }
+  `,
+  navItem: css`
+    color: var(--c-black);
+    text-decoration: none;
+  `,
+  focus: css`
+    font-weight: 700;
+  `
+}

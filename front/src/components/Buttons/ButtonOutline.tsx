@@ -15,8 +15,8 @@ export const ButtonOutline = ({
   ...props
 }: ButtonOutlineProps) => {
   return (
-    <button css={button} {...props}>
-      <div css={labelWrapper}>
+    <button css={styles.button} {...props}>
+      <div css={styles.labelWrapper}>
         {icon == 'plus' && <HiOutlinePlus size={24} />}
         {children}
       </div>
@@ -24,56 +24,58 @@ export const ButtonOutline = ({
   )
 }
 
-const button = css`
-  color: ${theme.color.blue};
-  background-color: ${theme.color.white};
-  width: 100%;
-  height: 56px;
-  font-weight: 600;
-  font-size: ${theme.fontSize.md};
-  border-radius: 100px;
-  border: 2px solid ${theme.color.blue};
-  cursor: pointer;
-  /*波紋の基点とするためrelativeを指定*/
-  position: relative;
-  /*はみ出す波紋を隠す*/
-  overflow: hidden;
-  transition: transform 0.1s;
-
-  &:hover {
-    background-color: ${theme.color.bgBlue};
-  }
-
-  &::after {
-    content: '';
-    /*波紋*/
-    position: absolute;
+const styles = {
+  button: css`
+    color: ${theme.color.blue};
+    background-color: ${theme.color.white};
     width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background: radial-gradient(circle, #fff 10%, transparent 10%) no-repeat 50%;
-    transform: scale(10, 10);
-    opacity: 0;
-    transition: transform 0.3s, opacity 1s;
-  }
+    height: 56px;
+    font-weight: 600;
+    font-size: ${theme.fontSize.md};
+    border-radius: 100px;
+    border: 2px solid ${theme.color.blue};
+    cursor: pointer;
+    /*波紋の基点とするためrelativeを指定*/
+    position: relative;
+    /*はみ出す波紋を隠す*/
+    overflow: hidden;
+    transition: transform 0.1s;
 
-  &:active::after {
-    transform: scale(0, 0);
-    transition: 0s;
-    opacity: 0.3;
-  }
-
-  ${mq('sm')} {
-    &:active {
-      transform: scale(0.95);
+    &:hover {
+      background-color: ${theme.color.bgBlue};
     }
-  }
-`
 
-const labelWrapper = css`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-`
+    &::after {
+      content: '';
+      /*波紋*/
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: radial-gradient(circle, #fff 10%, transparent 10%) no-repeat
+        50%;
+      transform: scale(10, 10);
+      opacity: 0;
+      transition: transform 0.3s, opacity 1s;
+    }
+
+    &:active::after {
+      transform: scale(0, 0);
+      transition: 0s;
+      opacity: 0.3;
+    }
+
+    ${mq('sm')} {
+      &:active {
+        transform: scale(0.95);
+      }
+    }
+  `,
+  labelWrapper: css`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  `
+}

@@ -1,4 +1,5 @@
-import styles from '@/styles/components/Chips/ChipTag.module.scss'
+import { theme } from '@/styles/theme'
+import { css } from '@emotion/react'
 
 type ChipTagProps = {
   tag: string[]
@@ -6,12 +7,28 @@ type ChipTagProps = {
 
 export const ChipTag = ({ tag }: ChipTagProps) => {
   return (
-    <ul className={styles.chip_wrapper}>
+    <ul css={styles.wrapper}>
       {tag.map((value, index) => (
         <li key={index}>
-          <p className={styles.chip}>{value}</p>
+          <p css={styles.chip}>{value}</p>
         </li>
       ))}
     </ul>
   )
+}
+
+const styles = {
+  wrapper: css`
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+  `,
+  chip: css`
+    background-color: ${theme.color.bgGray};
+    padding: 8px;
+    margin: 8px 8px 0 0;
+    font-size: ${theme.fontSize.sm};
+    border-radius: 4px;
+  `
 }

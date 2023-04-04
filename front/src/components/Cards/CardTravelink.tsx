@@ -1,12 +1,13 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { css } from '@emotion/react'
 import { AvatarWithText } from '@/components/Avatars'
 import { ChipTag } from '@/components/Chips'
 import type {
   FavoriteDataType,
   TravelinkDataType
 } from '@/components/Tabs/TabHome'
-import styles from '@/styles/components/Cards/CardTravelink.module.scss'
+import { theme } from '@/styles/theme'
 
 // 仮置きの型設定
 type CardTravelinkProps = {
@@ -18,21 +19,16 @@ export const CardTravelink = ({ travelink, favorite }: CardTravelinkProps) => {
   return (
     <>
       {travelink && (
-        <Link href="/" className={styles.wrapper}>
-          <div className={styles.img_wrapper}>
-            <Image
-              src={travelink.thumbnail}
-              alt="img"
-              fill
-              className={styles.img}
-            />
+        <Link href="/" css={styles.wrapper} className="wrapper">
+          <div css={styles.imgWrapper}>
+            <Image src={travelink.thumbnail} alt="img" fill css={styles.img} />
           </div>
-          <div className={styles.content}>
-            <p className={styles.title}>{travelink.title}</p>
-            <p className={styles.day}>
+          <div css={styles.content}>
+            <p css={styles.title}>{travelink.title}</p>
+            <p css={styles.day}>
               {travelink.date[0]} - {travelink.date[1]}
             </p>
-            <div className={styles.avatar_with_text_layout}>
+            <div css={styles.avatarWithTextLayout}>
               <AvatarWithText
                 url={travelink.thumbnail}
                 name={travelink.ownerName}
@@ -42,18 +38,13 @@ export const CardTravelink = ({ travelink, favorite }: CardTravelinkProps) => {
         </Link>
       )}
       {favorite && (
-        <Link href="/" className={styles.wrapper}>
-          <div className={styles.img_wrapper}>
-            <Image
-              src={favorite.thumbnail}
-              alt="img"
-              fill
-              className={styles.img}
-            />
+        <Link href="/" css={styles.wrapper}>
+          <div css={styles.imgWrapper}>
+            <Image src={favorite.thumbnail} alt="img" fill css={styles.img} />
           </div>
-          <div className={styles.content}>
-            <p className={styles.title}>{favorite.title}</p>
-            <div className={styles.chip_tag_layout}>
+          <div css={styles.content}>
+            <p css={styles.title}>{favorite.title}</p>
+            <div css={styles.chipTagLayout}>
               <ChipTag tag={favorite.tag} />
             </div>
           </div>
@@ -61,4 +52,58 @@ export const CardTravelink = ({ travelink, favorite }: CardTravelinkProps) => {
       )}
     </>
   )
+}
+
+const styles = {
+  wrapper: css`
+    display: block;
+    text-decoration: none;
+    color: ${theme.color.black};
+    background-color: ${theme.color.white};
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    z-index: 1;
+    border: 1px solid ${theme.color.outlineGray};
+  `,
+  imgWrapper: css`
+    width: 100%;
+    height: 136px;
+    border-radius: 16px 16px 0 0;
+    z-index: 1;
+    overflow: hidden;
+  `,
+  img: css`
+    position: relative !important;
+    object-fit: cover;
+    transition: all 0.3s 0s ease;
+    .wrapper:hover & {
+      opacity: 0.9;
+    }
+  `,
+  content: css`
+    background-color: ${theme.color.white};
+    border-radius: 0 0 16px 16px;
+    padding: 10px 16px;
+    transition: all 0.3s 0s ease;
+    .wrapper:hover & {
+      opacity: 0.9;
+    }
+  `,
+  title: css`
+    font-size: ${theme.fontSize.md};
+    font-weight: 600;
+    margin: 0;
+  `,
+  day: css`
+    font-size: ${theme.fontSize.sm};
+    color: ${theme.color.gray};
+    margin: 8px 0 0 0;
+  `,
+  avatarWithTextLayout: css`
+    margin: 8px 0;
+  `,
+  chipTagLayout: css`
+    margin: 8px 0;
+  `
 }
