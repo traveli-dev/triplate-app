@@ -11963,6 +11963,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"modern-css-reset@npm:^1.4.0":
+  version: 1.4.0
+  resolution: "modern-css-reset@npm:1.4.0"
+  checksum: b515d1b669251ec767d948304386c74375da694355ae1508db06f2e79e271083925b6181f95ca988f58c6d749cde0648df7826b36e5494c32a623c2fd3b19476
+  languageName: node
+  linkType: hard
+
 "move-concurrently@npm:^1.0.1":
   version: 1.0.1
   resolution: "move-concurrently@npm:1.0.1"
@@ -15787,6 +15794,7 @@ __metadata:
     eslint-plugin-jsx-a11y: ^6.7.1
     eslint-plugin-storybook: ^0.6.10
     firebase: ^9.16.0
+    modern-css-reset: ^1.4.0
     next: 13.0.7
     next-pwa: ^5.6.0
     next-seo: ^5.15.0

@@ -7,7 +7,6 @@ import { Layout } from '@/components/Layouts'
 import { DefaultSeo } from 'next-seo'
 import { SEO } from '@/config/next-seo.config'
 import '@/lib/firebase'
-import 'normalize.css'
 import '@/styles/global.scss'
 
 const App = ({ Component, pageProps }: AppProps) => {

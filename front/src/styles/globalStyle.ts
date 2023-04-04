@@ -1,6 +1,6 @@
 import { css } from '@emotion/react'
 import { theme } from '@/styles/theme'
-import 'normalize.css'
+import 'modern-css-reset'
 
 export const globalStyle = () => css`
   html {

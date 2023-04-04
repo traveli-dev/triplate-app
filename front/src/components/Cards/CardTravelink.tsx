@@ -29,7 +29,7 @@ export const CardTravelink = ({ travelink, favorite }: CardTravelinkProps) => {
             <p css={styles.day}>
               {travelink.date[0]} - {travelink.date[1]}
             </p>
-            <ExtendAvaterWithText
+            <ExtendAvatarWithText
               url={travelink.thumbnail}
               name={travelink.ownerName}
             />
@@ -51,7 +51,7 @@ export const CardTravelink = ({ travelink, favorite }: CardTravelinkProps) => {
   )
 }
 
-const ExtendAvaterWithText = styled(AvatarWithText)`
+const ExtendAvatarWithText = styled(AvatarWithText)`
   margin: 8px 0;
 `
 
