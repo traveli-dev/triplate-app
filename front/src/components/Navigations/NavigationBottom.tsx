@@ -86,13 +86,13 @@ const styles = {
     width: 100%;
     text-align: center;
     list-style: none;
-    font-size: var(--font-size-sm);
+    font-size: ${theme.fontSize.sm};
     p {
-      margin: 4px 0 0 0;
+      margin: 4px 0 0;
     }
   `,
   navItem: css`
-    color: var(--c-black);
+    color: ${theme.color.black};
     text-decoration: none;
   `,
   focus: css`
