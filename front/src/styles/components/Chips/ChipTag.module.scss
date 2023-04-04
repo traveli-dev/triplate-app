@@ -1,0 +1,13 @@
+.chip_wrapper {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  .chip {
+    background-color: var(--bg-gray);
+    padding: 8px;
+    margin: 8px 8px 0 0;
+    font-size: var(--font-size-sm);
+    border-radius: 4px;
+  }
+}

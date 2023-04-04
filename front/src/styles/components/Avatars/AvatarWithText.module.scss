@@ -1,0 +1,8 @@
+.wrapper {
+  display: flex;
+  gap: 16px;
+  & > p {
+    font-size: var(--font-size-sm);
+    margin: auto 0;
+  }
+}
