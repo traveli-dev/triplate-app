@@ -7,6 +7,7 @@
   width: 100%;
   top: 0;
   background-color: var(--c-white);
+  border-bottom: 1px solid var(--ol-gray);
   max-width: map-get($breakpoints, 'md');
   min-width: map-get($breakpoints, 'sm');
   z-index: 999;
