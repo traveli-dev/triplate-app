@@ -10,7 +10,9 @@ type AvatarWithTextProps = {
 export const AvatarWithText = ({ url, name }: AvatarWithTextProps) => {
   return (
     <div css={styles.wrapper}>
-      <Avatar url={url} size={'sm'} css={styles.avater} />
+      <div css={styles.layoutAvatar}>
+        <Avatar url={url} size={'sm'} css={styles.layoutAvatar} />
+      </div>
       <p>{name}</p>
     </div>
   )
@@ -24,7 +26,7 @@ const styles = {
       margin: auto 0;
     }
   `,
-  avater: css`
+  layoutAvatar: css`
     margin-right: 16px;
   `
 }

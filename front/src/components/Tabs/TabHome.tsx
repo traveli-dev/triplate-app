@@ -86,11 +86,9 @@ export const TabHome = ({
           {myTravelinkList.length ? (
             <>
               {myTravelinkList.map((travelink) => (
-                <CardTravelink
-                  css={styles.cardTravelink}
-                  key={travelink.id}
-                  travelink={travelink}
-                />
+                <div key={travelink.id} css={styles.layoutCardTravelink}>
+                  <CardTravelink travelink={travelink} />
+                </div>
               ))}
             </>
           ) : (
@@ -105,11 +103,9 @@ export const TabHome = ({
           {joinedList.length ? (
             <>
               {joinedList.map((item) => (
-                <CardTravelink
-                  css={styles.cardTravelink}
-                  key={item.id}
-                  travelink={item}
-                />
+                <div css={styles.layoutCardTravelink} key={item.id}>
+                  <CardTravelink travelink={item} />
+                </div>
               ))}
             </>
           ) : (
@@ -124,11 +120,9 @@ export const TabHome = ({
           {favoriteList.length ? (
             <>
               {favoriteList.map((favorite) => (
-                <CardTravelink
-                  css={styles.cardTravelink}
-                  key={favorite.puclicId}
-                  favorite={favorite}
-                />
+                <div css={styles.layoutCardTravelink} key={favorite.puclicId}>
+                  <CardTravelink favorite={favorite} />
+                </div>
               ))}
             </>
           ) : (
@@ -143,7 +137,7 @@ export const TabHome = ({
 }
 
 const styles = {
-  cardTravelink: css`
+  layoutCardTravelink: css`
     margin-bottom: 16px;
   `,
   tabs: css`

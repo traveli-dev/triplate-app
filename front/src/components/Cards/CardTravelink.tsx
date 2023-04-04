@@ -28,11 +28,12 @@ export const CardTravelink = ({ travelink, favorite }: CardTravelinkProps) => {
             <p css={styles.day}>
               {travelink.date[0]} - {travelink.date[1]}
             </p>
-            <AvatarWithText
-              css={styles.avatarWithText}
-              url={travelink.thumbnail}
-              name={travelink.ownerName}
-            />
+            <div css={styles.layoutAvatarWithText}>
+              <AvatarWithText
+                url={travelink.thumbnail}
+                name={travelink.ownerName}
+              />
+            </div>
           </div>
         </Link>
       )}
@@ -43,7 +44,9 @@ export const CardTravelink = ({ travelink, favorite }: CardTravelinkProps) => {
           </div>
           <div css={styles.content}>
             <p css={styles.title}>{favorite.title}</p>
-            <ChipTag tag={favorite.tag} css={styles.chipTag} />
+            <div css={styles.layoutChipTag}>
+              <ChipTag tag={favorite.tag} css={styles.layoutChipTag} />
+            </div>
           </div>
         </Link>
       )}
@@ -97,10 +100,10 @@ const styles = {
     color: ${theme.color.gray};
     margin: 8px 0 0 0;
   `,
-  avatarWithText: css`
+  layoutAvatarWithText: css`
     margin: 8px 0;
   `,
-  chipTag: css`
+  layoutChipTag: css`
     margin: 8px 0;
   `
 }
