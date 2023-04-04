@@ -1,5 +1,6 @@
 import * as nextImage from 'next/image'
-import { globalStyle } from ''
+import { Global } from '@emotion/react'
+import { globalStyle } from '../src/styles/globalStyle'
 import { RouterContext } from 'next/dist/shared/lib/router-context'
 
 export const parameters = {

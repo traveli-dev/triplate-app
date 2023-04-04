@@ -1,4 +1,5 @@
 const path = require('path')
+const toPath = (arg) => path.join(process.cwd(), arg)
 
 module.exports = {
   stories: ['../src/**/*.stories.@(js|jsx|ts|tsx|mdx)'],
