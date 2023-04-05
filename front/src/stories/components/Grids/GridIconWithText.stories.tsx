@@ -2,7 +2,8 @@ import type { StoryObj, Meta } from '@storybook/react'
 import { GridIconWithText } from '@/components/Grids'
 
 const meta: Meta<typeof GridIconWithText> = {
-  component: GridIconWithText
+  component: GridIconWithText,
+  tags: ['autodocs']
 }
 
 export default meta

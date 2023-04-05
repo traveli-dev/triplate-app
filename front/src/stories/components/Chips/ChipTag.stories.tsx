@@ -7,7 +7,8 @@ const meta: Meta<typeof ChipTag> = {
     tag: {
       description: 'tagのリストが入ります'
     }
-  }
+  },
+  tags: ['autodocs']
 }
 
 export default meta

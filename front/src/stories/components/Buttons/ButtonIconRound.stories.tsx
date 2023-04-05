@@ -2,7 +2,8 @@ import type { StoryObj, Meta } from '@storybook/react'
 import { ButtonIconRound } from '@/components/Buttons'
 
 const meta: Meta<typeof ButtonIconRound> = {
-  component: ButtonIconRound
+  component: ButtonIconRound,
+  tags: ['autodocs']
 }
 
 export default meta

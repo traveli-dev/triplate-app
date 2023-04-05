@@ -10,7 +10,8 @@ const meta: Meta<typeof AvatarWithText> = {
     name: {
       description: 'ユーザの名前が入ります'
     }
-  }
+  },
+  tags: ['autodocs']
 }
 
 export default meta

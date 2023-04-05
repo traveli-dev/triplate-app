@@ -9,21 +9,14 @@ const config: StorybookConfig = {
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
-    {
-      name: '@storybook/addon-postcss',
-      options: {
-        postcssLoaderOptions: {
-          implementation: require('postcss'),
-        },
-      },
-    },
   ],
   framework: {
     name: '@storybook/nextjs',
     options: {}
   },
   docs: {
-    autodocs: 'tag'
+    autodocs: 'tag',
+    defaultName: 'Docs',
   },
   staticDirs: ['../public'],
   webpackFinal: async (config) => {

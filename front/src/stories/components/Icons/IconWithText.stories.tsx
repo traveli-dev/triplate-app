@@ -7,7 +7,8 @@ const meta: Meta<typeof IconWithText> = {
     iconType: {
       description: 'アイコンのタイプが入ります'
     }
-  }
+  },
+  tags: ['autodocs']
 }
 
 export default meta

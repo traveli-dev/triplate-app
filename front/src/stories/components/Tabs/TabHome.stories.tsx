@@ -14,7 +14,8 @@ const meta: Meta<typeof TabHome> = {
     favoriteList: {
       description: 'いいねしたみんなのたびトラべリンクのリストが入ります'
     }
-  }
+  },
+  tags: ['autodocs']
 }
 
 export default meta

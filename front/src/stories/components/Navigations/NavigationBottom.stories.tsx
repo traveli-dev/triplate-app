@@ -2,7 +2,8 @@ import type { StoryObj, Meta } from '@storybook/react'
 import { NavigationBottom } from '@/components/Navigations'
 
 const meta: Meta<typeof NavigationBottom> = {
-  component: NavigationBottom
+  component: NavigationBottom,
+  tags: ['autodocs']
 }
 
 export default meta

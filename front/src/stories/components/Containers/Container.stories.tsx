@@ -16,7 +16,8 @@ const meta: Meta<typeof Container> = {
     isCenter: {
       description: '要素を全て左右中央揃えにする（任意）'
     }
-  }
+  },
+  tags: ['autodocs']
 }
 
 export default meta

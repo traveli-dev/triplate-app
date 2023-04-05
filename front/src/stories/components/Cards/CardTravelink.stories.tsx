@@ -10,7 +10,8 @@ const meta: Meta<typeof CardTravelink> = {
     favorite: {
       description: 'いいねしたみんなのたびトラべリンクが入ります'
     }
-  }
+  },
+  tags: ['autodocs']
 }
 
 export default meta

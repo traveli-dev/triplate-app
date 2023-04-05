@@ -10,7 +10,8 @@ const meta: Meta<typeof Header> = {
     title: {
       description: 'h1'
     }
-  }
+  },
+  tags: ['autodocs']
 }
 
 export default meta

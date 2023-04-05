@@ -7,7 +7,8 @@ const meta: Meta<typeof ButtonOutline> = {
     children: {
       description: 'ボタンのラベルが入ります'
     }
-  }
+  },
+  tags: ['autodocs']
 }
 
 export default meta

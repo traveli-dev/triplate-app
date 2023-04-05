@@ -7,7 +7,8 @@ const meta: Meta<typeof Layout> = {
     children: {
       description: '任意のコンポーネントが入ります'
     }
-  }
+  },
+  tags: ['autodocs']
 }
 
 export default meta

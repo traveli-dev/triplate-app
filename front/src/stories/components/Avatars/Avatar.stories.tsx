@@ -10,7 +10,8 @@ const meta: Meta<typeof Avatar> = {
     size: {
       description: 'アイコンサイズが入ります'
     }
-  }
+  },
+  tags: ['autodocs']
 }
 
 export default meta
