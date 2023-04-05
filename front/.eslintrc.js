@@ -19,5 +19,13 @@ module.exports = {
     '@typescript-eslint/explicit-module-boundary-types': 0,
     'react-hooks/exhaustive-deps': 'off',
     '@typescript-eslint/no-var-requires': 0
-  }
+  },
+  overrides: [
+    {
+      files: ['*.stories.ts'],
+      rules: {
+        'storybook/story-exports': 'off'
+      }
+    }
+  ]
 }

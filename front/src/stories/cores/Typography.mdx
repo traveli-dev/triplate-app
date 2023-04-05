@@ -1,0 +1,52 @@
+import { Meta, Typeset } from '@storybook/addon-docs/blocks'
+
+<Meta title="Core/Typography" />
+
+export const typography = {
+  type: {
+    primary:
+      '"Helvetica Neue", "Arial", "Hiragino Kaku Gothic ProN","Hiragino Sans", "Meiryo", -apple-system, BlinkMacSystemFont, system-ui,sans-serif'
+  },
+  weight: {
+    regular: '400',
+    bold: '700'
+  },
+  size: {
+    sm: 12,
+    md: 16,
+    lg: 20,
+    xl: 24
+  }
+}
+
+export const SampleText = 'Hello World! あいうえお 12345'
+
+# Typography
+
+**Font:** Helvetica Neue
+
+**Weights:** 400(regular), 700(bold)
+
+<Typeset
+  fontSizes={[
+    Number(typography.size.sm),
+    Number(typography.size.md),
+    Number(typography.size.lg),
+    Number(typography.size.xl)
+  ]}
+  fontWeight={typography.weight.regular}
+  sampleText={SampleText}
+  fontFamily={typography.type.primary}
+/>
+
+<Typeset
+  fontSizes={[
+    Number(typography.size.sm),
+    Number(typography.size.md),
+    Number(typography.size.lg),
+    Number(typography.size.xl)
+  ]}
+  fontWeight={typography.weight.bold}
+  sampleText={SampleText}
+  fontFamily={typography.type.primary}
+/>
