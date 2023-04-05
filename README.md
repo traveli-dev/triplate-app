@@ -13,7 +13,7 @@ Storybook:https://traveli-dev.github.io/traveli-app/storybook
   $ touch ./front/.env
   # envファイルに環境変数をコピーしてください
   $ docker compose build
-  $ docker compose run --rm node sh
+  $ docker compose run --rm node /bin/bash
   # firebaseの設定ファイルを作る
   $ yarn init:firebase
   # 初回のみログインが必要
