@@ -1,14 +1,14 @@
-const path = require('path')
-const toPath = (arg) => path.join(process.cwd(), arg)
+import type { StorybookConfig } from '@storybook/nextjs'
+import path from 'path'
 
-module.exports = {
+const toPath = (arg: string) => path.join(process.cwd(), arg)
+
+const config: StorybookConfig = {
   stories: ['../src/**/*.stories.@(js|jsx|ts|tsx|mdx)'],
   addons: [
-    '@storybook/addon-docs',
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
-    'storybook-addon-next-router',
     {
       name: '@storybook/addon-postcss',
       options: {
@@ -18,14 +18,12 @@ module.exports = {
       },
     },
   ],
-  framework: '@storybook/react',
-  core: {
-    builder: 'webpack5',
-    options: {
-      // 起動の高速化
-      lazyCompilation: true,
-      fsCache: true,
-    },
+  framework: {
+    name: '@storybook/nextjs',
+    options: {}
+  },
+  docs: {
+    autodocs: 'tag'
   },
   staticDirs: ['../public'],
   webpackFinal: async (config) => {
@@ -34,7 +32,7 @@ module.exports = {
       resolve: {
         ...config.resolve,
         alias: {
-          ...config.resolve.alias,
+          ...config.resolve?.alias,
           '@emotion/core': toPath('node_modules/@emotion/react'),
           '@': path.resolve(__dirname, '../src')
         }
@@ -42,3 +40,5 @@ module.exports = {
     }
   }
 }
+
+export default config

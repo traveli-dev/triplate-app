@@ -1,7 +1,7 @@
-import { StoryObj, ComponentMeta } from '@storybook/react'
+import type { StoryObj, Meta } from '@storybook/react'
 import { Container } from '@/components/Containers'
 
-export default {
+const meta: Meta<typeof Container> = {
   component: Container,
   argTypes: {
     children: {
@@ -17,9 +17,13 @@ export default {
       description: '要素を全て左右中央揃えにする（任意）'
     }
   }
-} as ComponentMeta<typeof Container>
+}
 
-export const Default: StoryObj = {
+export default meta
+
+type Story = StoryObj<typeof Container>
+
+export const Default: Story = {
   args: {
     children: <h1>Welcome to traveli!</h1>,
     bgColor: 'white',

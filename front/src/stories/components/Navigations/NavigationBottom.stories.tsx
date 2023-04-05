@@ -1,11 +1,15 @@
-import { StoryObj, ComponentMeta } from '@storybook/react'
+import type { StoryObj, Meta } from '@storybook/react'
 import { NavigationBottom } from '@/components/Navigations'
 
-export default {
+const meta: Meta<typeof NavigationBottom> = {
   component: NavigationBottom
-} as ComponentMeta<typeof NavigationBottom>
+}
 
-export const Default: StoryObj = {
+export default meta
+
+type Story = StoryObj<typeof NavigationBottom>
+
+export const Default: Story = {
   parameters: {
     nextRouter: {
       pathname: '/home'

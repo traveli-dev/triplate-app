@@ -1,16 +1,20 @@
-import { StoryObj, ComponentMeta } from '@storybook/react'
+import type { StoryObj, Meta } from '@storybook/react'
 import { ChipTag } from '@/components/Chips'
 
-export default {
+const meta: Meta<typeof ChipTag> = {
   component: ChipTag,
   argTypes: {
     tag: {
       description: 'tagのリストが入ります'
     }
   }
-} as ComponentMeta<typeof ChipTag>
+}
 
-export const Default: StoryObj = {
+export default meta
+
+type Story = StoryObj<typeof ChipTag>
+
+export const Default: Story = {
   args: {
     tag: ['京都', '3人旅']
   }

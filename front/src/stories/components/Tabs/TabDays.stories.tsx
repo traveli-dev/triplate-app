@@ -1,8 +1,12 @@
-import { StoryObj, ComponentMeta } from '@storybook/react'
+import type { StoryObj, Meta } from '@storybook/react'
 import { TabDays } from '@/components/Tabs'
 
-export default {
+const meta: Meta<typeof TabDays> = {
   component: TabDays
-} as ComponentMeta<typeof TabDays>
+}
 
-export const Default: StoryObj = {}
+export default meta
+
+type Story = StoryObj<typeof TabDays>
+
+export const Default: Story = {}

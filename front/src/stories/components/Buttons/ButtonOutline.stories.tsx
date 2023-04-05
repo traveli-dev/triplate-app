@@ -1,16 +1,20 @@
-import { StoryObj, ComponentMeta } from '@storybook/react'
+import type { StoryObj, Meta } from '@storybook/react'
 import { ButtonOutline } from '@/components/Buttons'
 
-export default {
+const meta: Meta<typeof ButtonOutline> = {
   component: ButtonOutline,
   argTypes: {
     children: {
       description: 'ボタンのラベルが入ります'
     }
   }
-} as ComponentMeta<typeof ButtonOutline>
+}
 
-export const Default: StoryObj = {
+export default meta
+
+type Story = StoryObj<typeof ButtonOutline>
+
+export const Default: Story = {
   args: {
     children: 'ボタンのラベルが入ります',
     icon: 'plus'
@@ -22,7 +26,7 @@ export const Default: StoryObj = {
   }
 }
 
-export const Mobile: StoryObj = {
+export const Mobile: Story = {
   args: {
     children: 'ボタンのラベルが入ります',
     icon: 'plus'

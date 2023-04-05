@@ -1,8 +1,12 @@
-import { StoryObj, ComponentMeta } from '@storybook/react'
+import type { StoryObj, Meta } from '@storybook/react'
 import { GridIconWithText } from '@/components/Grids'
 
-export default {
+const meta: Meta<typeof GridIconWithText> = {
   component: GridIconWithText
-} as ComponentMeta<typeof GridIconWithText>
+}
 
-export const Default: StoryObj = {}
+export default meta
+
+type Story = StoryObj<typeof GridIconWithText>
+
+export const Default: Story = {}
