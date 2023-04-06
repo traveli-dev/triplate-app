@@ -1,6 +1,13 @@
 import React from 'react'
 import { Global } from '@emotion/react'
-import { Title, Subtitle, Description, Primary, Controls, Stories } from '@storybook/blocks'
+import {
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  Controls,
+  Stories
+} from '@storybook/blocks'
 import type { Preview } from '@storybook/react'
 import { globalStyle } from '../src/styles/globalStyle'
 import { theme } from '../src/styles/theme'
@@ -25,7 +32,7 @@ const preview: Preview = {
           name: 'gray',
           value: theme.color.bgGray
         }
-      ],
+      ]
     },
     docs: {
       page: () => (
@@ -46,7 +53,7 @@ const preview: Preview = {
         <Global styles={globalStyle} />
         <Story />
       </>
-    ),
+    )
   ]
 }
 
