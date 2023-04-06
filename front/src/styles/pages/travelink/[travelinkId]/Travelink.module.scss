@@ -1,0 +1,31 @@
+@use '@/styles/variables' as *;
+.modal_wrapper {
+  background-color: var(--c-white);
+  border-radius: 32px 32px 0 0;
+  position: fixed;
+  top: 180px;
+  width: 100%;
+  max-width: map-get($breakpoints, 'md');
+  height: 100%;
+
+  .handler {
+    width: 72px;
+    height: 6px;
+    border-radius: 100px;
+    background-color: var(--ol-gray);
+    margin: 8px auto 22px auto;
+  }
+
+  .title {
+    margin: 0;
+    font-size: var(--font-size-lg);
+  }
+  .date {
+    font-size: var(--font-size-md);
+    margin: 8px 0;
+  }
+
+  .button_icon_with_text_layout {
+    margin: 16px 0;
+  }
+}
