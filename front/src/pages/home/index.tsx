@@ -46,9 +46,9 @@ const Home = () => {
       <Container bgColor="white" isFull>
         <h1 css={styles.heading1}>私のトラべリンク</h1>
         <TabHome
-          userId={userId}
-          myTravelinkList={myTravelinkList}
           favoriteList={favoriteList}
+          myTravelinkList={myTravelinkList}
+          userId={userId}
         />
       </Container>
       <NavigationBottom />

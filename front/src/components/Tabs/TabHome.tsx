@@ -48,10 +48,10 @@ export const TabHome = ({
       <div css={styles.tabs}>
         <label>
           <input
+            defaultChecked
             name="tab"
             type="radio"
             value="all"
-            defaultChecked
             onChange={(e) => {
               setValue(e.target.value)
             }}
@@ -86,7 +86,7 @@ export const TabHome = ({
           {myTravelinkList.length ? (
             <>
               {myTravelinkList.map((travelink) => (
-                <div key={travelink.id} css={styles.layoutCardTravelink}>
+                <div css={styles.layoutCardTravelink} key={travelink.id}>
                   <CardTravelink travelink={travelink} />
                 </div>
               ))}

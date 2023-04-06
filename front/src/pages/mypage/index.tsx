@@ -18,11 +18,11 @@ const Mypage = () => {
     <>
       {/* TODO:NextSeoのタイトルは適切なものに */}
       <NextSeo title={user.name} />
-      <Container bgColor="white" isFull isCenter>
+      <Container bgColor="white" isCenter isFull>
         <div css={styles.wrapper}>
           <div css={styles.content}>
             <div css={styles.user}>
-              <Avatar url={user.url} size="lg" />
+              <Avatar size="lg" url={user.url} />
               <h1>{user.name}</h1>
               <p>{user.location}</p>
             </div>

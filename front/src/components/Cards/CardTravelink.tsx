@@ -19,9 +19,9 @@ export const CardTravelink = ({ travelink, favorite }: CardTravelinkProps) => {
   return (
     <>
       {travelink && (
-        <Link href="/" css={styles.wrapper} className="wrapper">
+        <Link className="wrapper" css={styles.wrapper} href="/">
           <div css={styles.imgWrapper}>
-            <Image src={travelink.thumbnail} alt="img" fill css={styles.img} />
+            <Image alt="img" css={styles.img} fill src={travelink.thumbnail} />
           </div>
           <div css={styles.content}>
             <p css={styles.title}>{travelink.title}</p>
@@ -30,22 +30,22 @@ export const CardTravelink = ({ travelink, favorite }: CardTravelinkProps) => {
             </p>
             <div css={styles.layoutAvatarWithText}>
               <AvatarWithText
-                url={travelink.thumbnail}
                 name={travelink.ownerName}
+                url={travelink.thumbnail}
               />
             </div>
           </div>
         </Link>
       )}
       {favorite && (
-        <Link href="/" css={styles.wrapper}>
+        <Link css={styles.wrapper} href="/">
           <div css={styles.imgWrapper}>
-            <Image src={favorite.thumbnail} alt="img" fill css={styles.img} />
+            <Image alt="img" css={styles.img} fill src={favorite.thumbnail} />
           </div>
           <div css={styles.content}>
             <p css={styles.title}>{favorite.title}</p>
             <div css={styles.layoutChipTag}>
-              <ChipTag tag={favorite.tag} css={styles.layoutChipTag} />
+              <ChipTag css={styles.layoutChipTag} tag={favorite.tag} />
             </div>
           </div>
         </Link>

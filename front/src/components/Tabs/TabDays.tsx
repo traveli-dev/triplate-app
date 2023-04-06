@@ -5,7 +5,7 @@ export const TabDays = () => {
   return (
     <div css={styles.tabs}>
       <label>
-        <input name="tab" type="radio" defaultChecked />
+        <input defaultChecked name="tab" type="radio" />
         <span>１日目</span>
       </label>
       <label>

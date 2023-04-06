@@ -20,8 +20,8 @@ export const NavigationBottom = () => {
       <ul css={styles.wrapper}>
         <li css={styles.nav}>
           <Link
-            href="home"
             css={[styles.navItem, currentPath === '/home' && styles.focus]}
+            href="home"
           >
             {currentPath === '/home' ? (
               <HiHome size={24} />
@@ -33,8 +33,8 @@ export const NavigationBottom = () => {
         </li>
         <li css={styles.nav}>
           <Link
-            href="search"
             css={[styles.navItem, currentPath === '/search' && styles.focus]}
+            href="search"
           >
             {currentPath === '/search' ? (
               <HiGlobe size={24} />
@@ -47,8 +47,8 @@ export const NavigationBottom = () => {
         </li>
         <li css={styles.nav}>
           <Link
-            href="mypage"
             css={[styles.navItem, currentPath === '/mypage' && styles.focus]}
+            href="mypage"
           >
             {currentPath === '/mypage' ? (
               <HiUser size={24} />

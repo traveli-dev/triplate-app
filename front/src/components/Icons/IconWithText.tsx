@@ -26,7 +26,7 @@ type IconWithiconProps = {
 
 export const IconWithText = ({ iconType }: IconWithiconProps) => {
   return (
-    <Link href="/" css={styles.wrapper}>
+    <Link css={styles.wrapper} href="/">
       {iconType === 'qr' && (
         <div>
           <HiOutlineQrcode size={24} />

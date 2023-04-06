@@ -51,6 +51,12 @@ module.exports = {
         ]
       }
     ],
+    'react/jsx-sort-props': [
+      'warn', {
+        callbacksLast: true,
+        
+      }
+    ],
     // importの順番 pages/_app.tsxに揃っている
     'import/order': [
       'warn',
