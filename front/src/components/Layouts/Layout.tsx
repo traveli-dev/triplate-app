@@ -10,10 +10,10 @@ export const Layout = ({ children }: LayoutProps) => {
 
 const styles = {
   layout: css`
-    max-width: ${theme.breakpoint.md};
+    position: relative;
     min-width: ${theme.breakpoint.sm};
+    max-width: ${theme.breakpoint.md};
     min-height: 100vh;
     margin: 0 auto;
-    position: relative;
   `
 }

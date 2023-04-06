@@ -58,8 +58,8 @@ const Home = () => {
 
 const styles = {
   heading1: css`
-    font-size: ${theme.fontSize.lg};
     padding: 24px 0;
+    font-size: ${theme.fontSize.lg};
   `
 }
 

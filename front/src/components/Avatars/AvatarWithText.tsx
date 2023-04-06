@@ -22,8 +22,8 @@ const styles = {
   wrapper: css`
     display: flex;
     & > p {
-      font-size: ${theme.fontSize.sm};
       margin: auto 0;
+      font-size: ${theme.fontSize.sm};
     }
   `,
   layoutAvatar: css`

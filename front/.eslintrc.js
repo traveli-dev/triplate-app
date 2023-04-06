@@ -101,12 +101,6 @@ module.exports = {
             pattern: '@/**',
             group: 'type',
             position: 'before'
-          },
-          {
-            pattern: '{.,..}',
-            unnamed: true, // this is a new option
-            group: 'unknown',
-            position: 'after'
           }
         ],
         pathGroupsExcludedImportTypes: ['react**', 'next/**', 'next-**', 'firebase/'],

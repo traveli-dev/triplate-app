@@ -38,8 +38,8 @@ const Mypage = () => {
 const styles = {
   wrapper: css`
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
   `,
   content: css`
     width: 400px;
@@ -50,12 +50,12 @@ const styles = {
   user: css`
     padding: 32px 0;
     & > h1 {
-      font-size: ${theme.fontSize.lg};
       margin: 16px 0;
+      font-size: ${theme.fontSize.lg};
     }
     & > p {
-      font-size: ${theme.fontSize.sm};
       margin: 16px 0;
+      font-size: ${theme.fontSize.sm};
     }
   `
 }

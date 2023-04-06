@@ -8,11 +8,11 @@ export const globalStyle = () => css`
   }
 
   body {
-    background-color: ${theme.color.bgGray};
     font-family: 'Helvetica Neue', 'Arial', 'Hiragino Kaku Gothic ProN',
       'Hiragino Sans', 'Meiryo', -apple-system, BlinkMacSystemFont, system-ui,
       sans-serif;
     line-height: 1.15;
+    background-color: ${theme.color.bgGray};
   }
 
   button,

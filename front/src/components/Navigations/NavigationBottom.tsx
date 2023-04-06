@@ -70,23 +70,23 @@ const styles = {
     z-index: 999;
     box-sizing: border-box;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    background-color: ${theme.color.white};
+    justify-content: space-between;
     width: 100%;
     max-width: ${theme.breakpoint.md};
     height: 80px;
-    margin: 0;
     padding: 0 48px;
-    border-radius: 32px 32px 0 0;
+    margin: 0;
+    background-color: ${theme.color.white};
     border: 1px solid ${theme.color.outlineGray};
     border-bottom: 0;
+    border-radius: 32px 32px 0 0;
   `,
   nav: css`
     width: 100%;
+    font-size: ${theme.fontSize.sm};
     text-align: center;
     list-style: none;
-    font-size: ${theme.fontSize.sm};
     p {
       margin: 4px 0 0;
     }

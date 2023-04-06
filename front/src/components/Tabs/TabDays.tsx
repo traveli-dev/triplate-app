@@ -23,36 +23,37 @@ export const TabDays = () => {
 const styles = {
   tabs: css`
     position: relative;
-    background-color: ${theme.color.white};
     width: 100%;
     height: 44px;
     padding-left: 58px;
+    background-color: ${theme.color.white};
     border-bottom: 2px solid ${theme.color.outlineGray};
     & input[type='radio'] {
-      // ラジオボタン消す
+      /* ラジオボタン消す */
       display: none;
 
       & + span {
         display: inline-block;
-        margin-right: 8px;
         width: 87px;
         height: 44px;
-        color: ${theme.color.gray};
-        text-align: center;
+        margin-right: 8px;
         font-size: ${theme.fontSize.md};
         font-weight: 300;
         line-height: 46px;
-        border-bottom: 2px solid ${theme.color.outlineGray};
+        color: ${theme.color.gray};
+        text-align: center;
         cursor: pointer;
+        border-bottom: 2px solid ${theme.color.outlineGray};
 
-        &:hover {
+        &:hover,
+        &:focus {
           background-color: ${theme.color.bgBlue};
         }
       }
 
       &:checked + span {
-        color: ${theme.color.blue};
         font-weight: 600;
+        color: ${theme.color.blue};
         border-color: ${theme.color.blue};
       }
     }

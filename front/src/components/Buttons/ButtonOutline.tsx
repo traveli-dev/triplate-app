@@ -26,44 +26,70 @@ export const ButtonOutline = ({
 
 const styles = {
   button: css`
-    color: ${theme.color.blue};
-    background-color: ${theme.color.white};
-    width: 100%;
-    height: 56px;
-    font-weight: 600;
-    font-size: ${theme.fontSize.md};
-    border-radius: 100px;
-    border: 2px solid ${theme.color.blue};
-    cursor: pointer;
     /*波紋の基点とするためrelativeを指定*/
     position: relative;
+    width: 100%;
+    height: 56px;
     /*はみ出す波紋を隠す*/
     overflow: hidden;
+    font-size: ${theme.fontSize.md};
+    font-weight: 600;
+    color: ${theme.color.blue};
+    cursor: pointer;
+    background-color: ${theme.color.white};
+    border: 2px solid ${theme.color.blue};
+    border-radius: 100px;
     transition: transform 0.1s;
 
-    &:hover {
+    &:hover,
+    &:focus {
       background-color: ${theme.color.bgBlue};
     }
 
+    @media screen and (prefers-reduced-motion: reduce) {
+      &::after {
+        /*波紋*/
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        content: '';
+        background: radial-gradient(circle, #fff 10%, transparent 10%) no-repeat
+          50%;
+        opacity: 0;
+        transition: none;
+        transform: scale(10, 10);
+      }
+    }
+
     &::after {
-      content: '';
       /*波紋*/
       position: absolute;
-      width: 100%;
-      height: 100%;
       top: 0;
       left: 0;
+      width: 100%;
+      height: 100%;
+      content: '';
       background: radial-gradient(circle, #fff 10%, transparent 10%) no-repeat
         50%;
-      transform: scale(10, 10);
       opacity: 0;
       transition: transform 0.3s, opacity 1s;
+      transform: scale(10, 10);
+    }
+
+    @media screen and (prefers-reduced-motion: reduce) {
+      &:active::after {
+        opacity: 0.3;
+        transition: none;
+        transform: scale(0, 0);
+      }
     }
 
     &:active::after {
-      transform: scale(0, 0);
-      transition: 0s;
       opacity: 0.3;
+      transition: 0s;
+      transform: scale(0, 0);
     }
 
     ${mq('sm')} {
@@ -74,8 +100,8 @@ const styles = {
   `,
   labelWrapper: css`
     display: flex;
-    justify-content: center;
-    align-items: center;
     gap: 10px;
+    align-items: center;
+    justify-content: center;
   `
 }

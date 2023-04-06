@@ -93,14 +93,15 @@ export const IconWithText = ({ iconType }: IconWithiconProps) => {
 
 const styles = {
   wrapper: css`
-    font-size: ${theme.fontSize.sm};
-    text-decoration: none;
     width: 80px;
     padding: 10px 0;
-    text-align: center;
-    background-color: ${theme.color.white};
+    font-size: ${theme.fontSize.sm};
     color: ${theme.color.black};
-    :hover {
+    text-align: center;
+    text-decoration: none;
+    background-color: ${theme.color.white};
+    :hover,
+    :focus {
       color: ${theme.color.blue};
     }
     p {
@@ -110,7 +111,8 @@ const styles = {
   lines: css`
     display: table;
     width: 100%;
-    height: 3.6rem; // フォントサイズとともに高さも変化するため
+    /* フォントサイズとともに高さが変わるため */
+    height: 3.6rem;
     margin: 4px 0 0 0;
     & > p {
       display: table-cell;

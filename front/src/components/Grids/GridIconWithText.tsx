@@ -26,8 +26,8 @@ export const GridIconWithText = () => {
 const styles = {
   wrapper: css`
     display: flex;
-    max-width: 400px;
     justify-content: space-between;
+    max-width: 400px;
     ${mq('sm')} {
       max-width: 300px;
     }

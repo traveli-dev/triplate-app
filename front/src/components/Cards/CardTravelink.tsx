@@ -56,49 +56,51 @@ export const CardTravelink = ({ travelink, favorite }: CardTravelinkProps) => {
 
 const styles = {
   wrapper: css`
+    z-index: 1;
     display: block;
-    text-decoration: none;
-    color: ${theme.color.black};
-    background-color: ${theme.color.white};
     width: 100%;
     height: auto;
-    border-radius: 16px;
-    z-index: 1;
+    color: ${theme.color.black};
+    text-decoration: none;
+    background-color: ${theme.color.white};
     border: 1px solid ${theme.color.outlineGray};
+    border-radius: 16px;
   `,
   imgWrapper: css`
+    z-index: 1;
     width: 100%;
     height: 136px;
-    border-radius: 16px 16px 0 0;
-    z-index: 1;
     overflow: hidden;
+    border-radius: 16px 16px 0 0;
   `,
   img: css`
     position: relative !important;
     object-fit: cover;
     transition: all 0.3s 0s ease;
-    .wrapper:hover & {
+    .wrapper:hover &,
+    .wrapper:focus & {
       opacity: 0.9;
     }
   `,
   content: css`
+    padding: 10px 16px;
     background-color: ${theme.color.white};
     border-radius: 0 0 16px 16px;
-    padding: 10px 16px;
     transition: all 0.3s 0s ease;
-    .wrapper:hover & {
+    .wrapper:hover &,
+    .wrapper:focus & {
       opacity: 0.9;
     }
   `,
   title: css`
+    margin: 0;
     font-size: ${theme.fontSize.md};
     font-weight: 600;
-    margin: 0;
   `,
   day: css`
+    margin: 8px 0 0 0;
     font-size: ${theme.fontSize.sm};
     color: ${theme.color.gray};
-    margin: 8px 0 0 0;
   `,
   layoutAvatarWithText: css`
     margin: 8px 0;

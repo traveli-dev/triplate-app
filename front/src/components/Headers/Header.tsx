@@ -24,38 +24,39 @@ export const Header = ({ title, href }: HeaderProps) => {
 
 const styles = {
   header: css`
-    // 下に続く要素が重ならないようにする
+    /* 下に続く要素が重ならないようにする */
     position: sticky;
-    height: 56px;
-    width: 100%;
     top: 0;
-    background-color: ${theme.color.white};
-    max-width: ${theme.breakpoint.md};
-    min-width: ${theme.breakpoint.sm};
     z-index: 999;
+    width: 100%;
+    min-width: ${theme.breakpoint.sm};
+    max-width: ${theme.breakpoint.md};
+    height: 56px;
+    background-color: ${theme.color.white};
   `,
   iconWrapper: css`
-    background-color: ${theme.color.white};
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 40px;
     height: 40px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
     color: ${theme.color.black};
-    &:hover {
+    text-decoration: none;
+    background-color: ${theme.color.white};
+    border-radius: 50%;
+    transform: translateY(-50%);
+    &:hover,
+    &:focus {
       background-color: ${theme.color.bgBlue};
     }
   `,
   title: css`
     margin: 0;
-    text-align: center;
-    // 56px(height) / 16px (font size)
-    line-height: 3.5;
     font-size: ${theme.fontSize.md};
+    /* 56px(height) / 16px (font size) */
+    line-height: 3.5;
+    text-align: center;
   `
 }

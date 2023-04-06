@@ -19,16 +19,16 @@ export const ChipTag = ({ tag }: ChipTagProps) => {
 
 const styles = {
   wrapper: css`
-    list-style: none;
     display: flex;
     flex-wrap: wrap;
     padding: 0;
+    list-style: none;
   `,
   chip: css`
-    background-color: ${theme.color.bgGray};
     padding: 8px;
     margin: 8px 8px 0 0;
     font-size: ${theme.fontSize.sm};
+    background-color: ${theme.color.bgGray};
     border-radius: 4px;
   `
 }
