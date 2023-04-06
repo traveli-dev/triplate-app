@@ -7,8 +7,6 @@ import { SEO } from '@/config/next-seo.config'
 import { store } from '@/redux/store'
 import { globalStyle } from '@/styles/globalStyle'
 import '@/lib/firebase'
-// コメントアウト外すとscssが使えます
-// import '@/styles/global.scss'
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (
