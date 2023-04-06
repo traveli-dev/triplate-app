@@ -12,8 +12,10 @@ type Story = StoryObj<typeof NavigationBottom>
 
 export const Default: Story = {
   parameters: {
-    nextRouter: {
-      pathname: '/home'
+    nextjs: {
+      navigation: {
+        pathname: '/home',
+      }
     }
   }
 }
