@@ -48,8 +48,8 @@ export const TabHome = ({
       <div css={styles.tabs}>
         <label>
           <input
-            name={'tab'}
-            type={'radio'}
+            name="tab"
+            type="radio"
             value="all"
             defaultChecked
             onChange={(e) => {
@@ -60,8 +60,8 @@ export const TabHome = ({
         </label>
         <label>
           <input
-            name={'tab'}
-            type={'radio'}
+            name="tab"
+            type="radio"
             value="join"
             onChange={(e) => {
               setValue(e.target.value)
@@ -71,8 +71,8 @@ export const TabHome = ({
         </label>
         <label>
           <input
-            name={'tab'}
-            type={'radio'}
+            name="tab"
+            type="radio"
             value="favorite"
             onChange={(e) => {
               setValue(e.target.value)

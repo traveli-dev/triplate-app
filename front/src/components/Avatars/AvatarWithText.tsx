@@ -11,7 +11,7 @@ export const AvatarWithText = ({ url, name }: AvatarWithTextProps) => {
   return (
     <div css={styles.wrapper}>
       <div css={styles.layoutAvatar}>
-        <Avatar url={url} size={'sm'} css={styles.layoutAvatar} />
+        <Avatar url={url} size="sm" css={styles.layoutAvatar} />
       </div>
       <p>{name}</p>
     </div>
