@@ -28,9 +28,9 @@ module.exports = {
         props: 'never', children: 'never'
       }
     ],
-    // デバッグ用のconsole.logがプロダクトに残らないようにする（console.logを使うと赤波線が出るので，使い終わったらちゃんと消す）
+    // デバッグ用のconsole.logがプロダクトに残らないようにする（console.logを使うと黄色波線が出るので，使い終わったらちゃんと消す）
     'no-console': [
-      'error', {
+      'warn', {
         // console.warn と console.errorは対象から外す（try-catchなどで使うことがあるため）
         allow: ['warn', 'error']
       }
@@ -38,7 +38,7 @@ module.exports = {
     // 使ってない変数定義が残らないようにする
     '@typescript-eslint/no-unused-vars': [
       // _から始まる変数は対象から外す（関数の引数として使うため）
-      'error', {
+      'warn', {
         argsIgnorePattern: '^_', varsIgnorePattern: '^_'
       }
     ],
