@@ -11,7 +11,7 @@ import { FiTwitter } from 'react-icons/fi'
 import styles from '@/styles/components/Icons/IconWithText.module.scss'
 import Link from 'next/link'
 
-type IconWithiconProps = {
+type IconWithTextProps = {
   iconType:
     | 'qr'
     | 'bell'
@@ -23,7 +23,7 @@ type IconWithiconProps = {
     | 'hp'
 }
 
-export const IconWithText = ({ iconType }: IconWithiconProps) => {
+export const IconWithText = ({ iconType }: IconWithTextProps) => {
   return (
     <Link href="/" className={styles.wrapper}>
       {iconType === 'qr' && (

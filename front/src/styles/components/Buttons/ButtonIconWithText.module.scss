@@ -1,0 +1,24 @@
+@use '@/styles/utils.scss' as *;
+.wrapper {
+  border: 0;
+  min-width: 52px;
+  text-align: center;
+  background-color: var(--c-white);
+  color: var(--c-black);
+
+  :hover {
+    color: var(--c-blue);
+    @include mq(sm) {
+      color: var(--c-black);
+    }
+  }
+
+  :active {
+    color: var(--c-blue);
+  }
+
+  p {
+    font-weight: var(--font-size-sm);
+    margin: 6px 0 0 0;
+  }
+}
