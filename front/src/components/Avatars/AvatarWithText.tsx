@@ -1,5 +1,5 @@
-import { Avatar } from '@/components/Avatars'
 import { css } from '@emotion/react'
+import { Avatar } from '@/components/Avatars'
 import { theme } from '@/styles/theme'
 
 type AvatarWithTextProps = {

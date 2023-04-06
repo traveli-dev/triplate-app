@@ -1,5 +1,5 @@
-import type { StoryObj, Meta } from '@storybook/react'
 import { ChipTag } from '@/components/Chips'
+import type { StoryObj, Meta } from '@storybook/react'
 
 const meta: Meta<typeof ChipTag> = {
   component: ChipTag,

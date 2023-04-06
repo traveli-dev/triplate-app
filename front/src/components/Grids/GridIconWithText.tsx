@@ -1,6 +1,6 @@
 import { css } from '@emotion/react'
-import { mq } from '@/styles/utils'
 import { IconWithText } from '@/components/Icons'
+import { mq } from '@/styles/utils'
 
 export const GridIconWithText = () => {
   return (

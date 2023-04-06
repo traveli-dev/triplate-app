@@ -1,11 +1,11 @@
+import { NextSeo } from 'next-seo'
+import { css } from '@emotion/react'
 import { Avatar } from '@/components/Avatars'
 import { Container } from '@/components/Containers'
 import { GridIconWithText } from '@/components/Grids'
 import { NavigationBottom } from '@/components/Navigations'
 import { theme } from '@/styles/theme'
 import { mq } from '@/styles/utils'
-import { css } from '@emotion/react'
-import { NextSeo } from 'next-seo'
 
 const Mypage = () => {
   // example

@@ -1,7 +1,6 @@
-import { useRouter } from 'next/router'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { css } from '@emotion/react'
-import { theme } from '@/styles/theme'
 import {
   HiOutlineHome,
   HiOutlineGlobe,
@@ -10,6 +9,7 @@ import {
   HiGlobe,
   HiUser
 } from 'react-icons/hi'
+import { theme } from '@/styles/theme'
 
 export const NavigationBottom = () => {
   const router = useRouter()

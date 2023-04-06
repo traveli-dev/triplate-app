@@ -1,5 +1,5 @@
-import type { StoryObj, Meta } from '@storybook/react'
 import { NavigationBottom } from '@/components/Navigations'
+import type { StoryObj, Meta } from '@storybook/react'
 
 const meta: Meta<typeof NavigationBottom> = {
   component: NavigationBottom,

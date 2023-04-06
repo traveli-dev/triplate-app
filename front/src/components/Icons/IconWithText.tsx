@@ -1,4 +1,6 @@
+import Link from 'next/link'
 import { css } from '@emotion/react'
+import { FiTwitter } from 'react-icons/fi'
 import {
   HiOutlineQrcode,
   HiOutlineBell,
@@ -8,8 +10,6 @@ import {
   HiOutlineShieldCheck,
   HiOutlineGlobeAlt
 } from 'react-icons/hi'
-import { FiTwitter } from 'react-icons/fi'
-import Link from 'next/link'
 import { theme } from '@/styles/theme'
 
 type IconWithiconProps = {

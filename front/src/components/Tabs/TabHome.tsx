@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import { CardTravelink } from '@/components/Cards'
 import { css } from '@emotion/react'
+import { CardTravelink } from '@/components/Cards'
 import { theme } from '@/styles/theme'
 
 // 仮置きの型設定
