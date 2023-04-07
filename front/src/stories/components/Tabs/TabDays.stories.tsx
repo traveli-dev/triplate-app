@@ -1,8 +1,13 @@
-import { StoryObj, ComponentMeta } from '@storybook/react'
 import { TabDays } from '@/components/Tabs'
+import type { StoryObj, Meta } from '@storybook/react'
 
-export default {
-  component: TabDays
-} as ComponentMeta<typeof TabDays>
+const meta: Meta<typeof TabDays> = {
+  component: TabDays,
+  tags: ['autodocs']
+}
 
-export const Default: StoryObj = {}
+export default meta
+
+type Story = StoryObj<typeof TabDays>
+
+export const Default: Story = {}

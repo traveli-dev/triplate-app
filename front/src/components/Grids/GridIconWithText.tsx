@@ -1,23 +1,40 @@
+import { css } from '@emotion/react'
 import { IconWithText } from '@/components/Icons'
-import styles from '@/styles/components/Grids/GridIconWithText.module.scss'
+import { mq } from '@/styles/utils'
 
 export const GridIconWithText = () => {
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.column}>
+    <div css={styles.wrapper}>
+      <div css={styles.column}>
         <IconWithText iconType="qr" />
         <IconWithText iconType="help" />
         <IconWithText iconType="twitter" />
       </div>
-      <div className={styles.column}>
+      <div css={styles.column}>
         <IconWithText iconType="bell" />
         <IconWithText iconType="mail" />
         <IconWithText iconType="hp" />
       </div>
-      <div className={styles.column}>
+      <div css={styles.column}>
         <IconWithText iconType="setting" />
         <IconWithText iconType="privacy" />
       </div>
     </div>
   )
+}
+
+const styles = {
+  wrapper: css`
+    display: flex;
+    justify-content: space-between;
+    max-width: 400px;
+    ${mq('sm')} {
+      max-width: 300px;
+    }
+  `,
+  column: css`
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+  `
 }

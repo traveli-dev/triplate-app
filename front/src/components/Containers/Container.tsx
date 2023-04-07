@@ -1,5 +1,6 @@
 import React from 'react'
-import styles from '@/styles/components/Containers/Container.module.scss'
+import { css } from '@emotion/react'
+import { theme } from '@/styles/theme'
 
 type ContainerProps = {
   bgColor: 'white' | 'blue'
@@ -10,18 +11,23 @@ type ContainerProps = {
 
 export const Container = ({
   bgColor,
-  isFull,
-  isCenter,
-  children
+  children,
+  ...options
 }: ContainerProps) => {
-  return (
-    <div
-      className={`${styles.container} ${
-        bgColor === 'white' ? styles.bg_white : styles.bg_blue
-      }
-      ${isFull && styles.min_height} ${isCenter && styles.text_align}`}
-    >
-      {children}
-    </div>
-  )
+  return <div css={styles.container({ bgColor, ...options })}>{children}</div>
+}
+
+const styles = {
+  container: ({
+    bgColor,
+    isFull,
+    isCenter
+  }: Omit<ContainerProps, 'children'>) => css`
+    min-height: ${isFull ? 'calc(100vh - 56px)' : 'auto'};
+    padding: 0 16px;
+    text-align: ${isCenter ? 'center' : 'start'};
+    background-color: ${bgColor === 'white'
+      ? theme.color.white
+      : theme.color.bgBlue};
+  `
 }

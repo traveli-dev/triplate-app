@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
+import { css } from '@emotion/react'
 import { CardTravelink } from '@/components/Cards'
-import styles from '@/styles/components/Tabs/TabHome.module.scss'
+import { theme } from '@/styles/theme'
 
 // 仮置きの型設定
 // TODO:本実装のタイミングでtypeの内容とexport場所を変更
@@ -44,13 +45,13 @@ export const TabHome = ({
 
   return (
     <>
-      <div className={styles.tabs}>
+      <div css={styles.tabs}>
         <label>
           <input
-            name={'tab'}
-            type={'radio'}
-            value="all"
             defaultChecked
+            name="tab"
+            type="radio"
+            value="all"
             onChange={(e) => {
               setValue(e.target.value)
             }}
@@ -59,8 +60,8 @@ export const TabHome = ({
         </label>
         <label>
           <input
-            name={'tab'}
-            type={'radio'}
+            name="tab"
+            type="radio"
             value="join"
             onChange={(e) => {
               setValue(e.target.value)
@@ -70,8 +71,8 @@ export const TabHome = ({
         </label>
         <label>
           <input
-            name={'tab'}
-            type={'radio'}
+            name="tab"
+            type="radio"
             value="favorite"
             onChange={(e) => {
               setValue(e.target.value)
@@ -85,11 +86,9 @@ export const TabHome = ({
           {myTravelinkList.length ? (
             <>
               {myTravelinkList.map((travelink) => (
-                <>
-                  <div className={styles.card_travelink_layout}>
-                    <CardTravelink travelink={travelink} />
-                  </div>
-                </>
+                <div css={styles.layoutCardTravelink} key={travelink.id}>
+                  <CardTravelink travelink={travelink} />
+                </div>
               ))}
             </>
           ) : (
@@ -104,11 +103,9 @@ export const TabHome = ({
           {joinedList.length ? (
             <>
               {joinedList.map((item) => (
-                <>
-                  <div className={styles.card_travelink_layout}>
-                    <CardTravelink travelink={item} />
-                  </div>
-                </>
+                <div css={styles.layoutCardTravelink} key={item.id}>
+                  <CardTravelink travelink={item} />
+                </div>
               ))}
             </>
           ) : (
@@ -123,11 +120,9 @@ export const TabHome = ({
           {favoriteList.length ? (
             <>
               {favoriteList.map((favorite) => (
-                <>
-                  <div className={styles.card_travelink_layout}>
-                    <CardTravelink favorite={favorite} />
-                  </div>
-                </>
+                <div css={styles.layoutCardTravelink} key={favorite.puclicId}>
+                  <CardTravelink favorite={favorite} />
+                </div>
               ))}
             </>
           ) : (
@@ -139,4 +134,66 @@ export const TabHome = ({
       )}
     </>
   )
+}
+
+const styles = {
+  layoutCardTravelink: css`
+    margin-bottom: 16px;
+  `,
+  tabs: css`
+    position: relative;
+    width: 100%;
+    height: 34px;
+    margin-bottom: 16px;
+    & input[type='radio'] {
+      /* ラジオボタン消す */
+      display: none;
+
+      /* tab */
+      @media screen and (prefers-reduced-motion: reduce) {
+        & + span {
+          display: inline-block;
+          padding: 6px 12px;
+          margin-right: 8px;
+          font-size: ${theme.fontSize.md};
+          color: ${theme.color.black};
+          text-align: center;
+          cursor: pointer;
+          background-color: ${theme.color.white};
+          border: 2px solid ${theme.color.outlineGray};
+          border-radius: 100px;
+          transition: none;
+
+          &:hover,
+          &:focus {
+            background-color: ${theme.color.bgGray};
+          }
+        }
+      }
+      & + span {
+        display: inline-block;
+        padding: 6px 12px;
+        margin-right: 8px;
+        font-size: ${theme.fontSize.md};
+        color: ${theme.color.black};
+        text-align: center;
+        cursor: pointer;
+        background-color: ${theme.color.white};
+        border: 2px solid ${theme.color.outlineGray};
+        border-radius: 100px;
+        transition: all 0.3s 0s ease;
+
+        &:hover,
+        &:focus {
+          background-color: ${theme.color.bgGray};
+        }
+      }
+
+      &:checked + span {
+        color: ${theme.color.white};
+        background-color: ${theme.color.black};
+        border: 2px solid ${theme.color.black};
+      }
+    }
+  `
 }

@@ -1,7 +1,7 @@
-import { StoryObj, ComponentMeta } from '@storybook/react'
 import { Avatar } from '@/components/Avatars'
+import type { StoryObj, Meta } from '@storybook/react'
 
-export default {
+const meta: Meta<typeof Avatar> = {
   component: Avatar,
   argTypes: {
     url: {
@@ -10,10 +10,15 @@ export default {
     size: {
       description: 'アイコンサイズが入ります'
     }
-  }
-} as ComponentMeta<typeof Avatar>
+  },
+  tags: ['autodocs']
+}
 
-export const Default: StoryObj = {
+export default meta
+
+type Story = StoryObj<typeof Avatar>
+
+export const Default: Story = {
   args: {
     url: '/images/user_sample.jpeg',
     size: 'md'

@@ -3,22 +3,22 @@ import { Html, Head, Main, NextScript } from 'next/document'
 const Document = () => (
   <Html lang="ja">
     <Head>
-      <link rel="manifest" href="/manifest.json" />
-      <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+      <link href="/manifest.json" rel="manifest" />
+      <link href="/apple-touch-icon.png" rel="apple-touch-icon" />
       <link
-        rel="icon"
-        type="image/png"
-        sizes="32x32"
         href="/favicon-32x32.png"
+        rel="icon"
+        sizes="32x32"
+        type="image/png"
       />
       <link
-        rel="icon"
-        type="image/png"
-        sizes="16x16"
         href="/favicon-16x16.png"
+        rel="icon"
+        sizes="16x16"
+        type="image/png"
       />
-      <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
-      <meta name="theme-color" content="#fff" />
+      <link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon" />
+      <meta content="#fff" name="theme-color" />
     </Head>
     <body>
       <Main />

@@ -1,6 +1,6 @@
-import { useRouter } from 'next/router'
 import Link from 'next/link'
-import styles from '@/styles/components/Navigations/NavigationBottom.module.scss'
+import { useRouter } from 'next/router'
+import { css } from '@emotion/react'
 import {
   HiOutlineHome,
   HiOutlineGlobe,
@@ -9,6 +9,7 @@ import {
   HiGlobe,
   HiUser
 } from 'react-icons/hi'
+import { theme } from '@/styles/theme'
 
 export const NavigationBottom = () => {
   const router = useRouter()
@@ -16,13 +17,11 @@ export const NavigationBottom = () => {
 
   return (
     <nav>
-      <ul className={styles.wrapper}>
-        <li className={styles.nav}>
+      <ul css={styles.wrapper}>
+        <li css={styles.nav}>
           <Link
+            css={[styles.navItem, currentPath === '/home' && styles.focus]}
             href="home"
-            className={`${styles.default} ${
-              currentPath === '/home' && styles.focus
-            }`}
           >
             {currentPath === '/home' ? (
               <HiHome size={24} />
@@ -32,12 +31,10 @@ export const NavigationBottom = () => {
             <p>ホーム</p>
           </Link>
         </li>
-        <li className={styles.nav}>
+        <li css={styles.nav}>
           <Link
+            css={[styles.navItem, currentPath === '/search' && styles.focus]}
             href="search"
-            className={`${styles.default} ${
-              currentPath === '/search' && styles.focus
-            }`}
           >
             {currentPath === '/search' ? (
               <HiGlobe size={24} />
@@ -48,12 +45,10 @@ export const NavigationBottom = () => {
             <p>みんなのたび</p>
           </Link>
         </li>
-        <li className={styles.nav}>
+        <li css={styles.nav}>
           <Link
+            css={[styles.navItem, currentPath === '/mypage' && styles.focus]}
             href="mypage"
-            className={`${styles.default} ${
-              currentPath === '/mypage' && styles.focus
-            }`}
           >
             {currentPath === '/mypage' ? (
               <HiUser size={24} />
@@ -66,4 +61,41 @@ export const NavigationBottom = () => {
       </ul>
     </nav>
   )
+}
+
+const styles = {
+  wrapper: css`
+    position: fixed;
+    bottom: 0;
+    z-index: 999;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: ${theme.breakpoint.md};
+    height: 80px;
+    padding: 0 48px;
+    margin: 0;
+    background-color: ${theme.color.white};
+    border: 1px solid ${theme.color.outlineGray};
+    border-bottom: 0;
+    border-radius: 32px 32px 0 0;
+  `,
+  nav: css`
+    width: 100%;
+    font-size: ${theme.fontSize.sm};
+    text-align: center;
+    list-style: none;
+    p {
+      margin: 4px 0 0;
+    }
+  `,
+  navItem: css`
+    color: ${theme.color.black};
+    text-decoration: none;
+  `,
+  focus: css`
+    font-weight: 700;
+  `
 }

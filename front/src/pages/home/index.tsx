@@ -1,7 +1,8 @@
+import { css } from '@emotion/react'
 import { Container } from '@/components/Containers'
 import { NavigationBottom } from '@/components/Navigations'
 import { TabHome } from '@/components/Tabs'
-import styles from '@/styles/pages/Home.module.scss'
+import { theme } from '@/styles/theme'
 
 const Home = () => {
   // 仮置きのサンプルデータ
@@ -43,16 +44,23 @@ const Home = () => {
   return (
     <>
       <Container bgColor="white" isFull>
-        <h1 className={styles.heading1}>私のトラべリンク</h1>
+        <h1 css={styles.heading1}>私のトラべリンク</h1>
         <TabHome
-          userId={userId}
-          myTravelinkList={myTravelinkList}
           favoriteList={favoriteList}
+          myTravelinkList={myTravelinkList}
+          userId={userId}
         />
       </Container>
       <NavigationBottom />
     </>
   )
+}
+
+const styles = {
+  heading1: css`
+    padding: 24px 0;
+    font-size: ${theme.fontSize.lg};
+  `
 }
 
 export default Home
