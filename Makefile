@@ -9,7 +9,7 @@ down:
 	docker compose down
 
 exec:
-	docker compose exec node $(args)
+	docker compose exec node /bin/bash
 
 check:
 	docker compose exec node yarn check

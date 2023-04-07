@@ -30,7 +30,7 @@ Storybook:https://traveli-dev.github.io/traveli-app/storybook
 ```sh
   make up
   make down
-  make exec (args)
+  make exec
   make yarn-install
   make check
   make format
