@@ -28,6 +28,10 @@ Storybook:https://traveli-dev.github.io/traveli-app/storybook
 
 ## Other Commands
 ```sh
-  # node_modulesをローカルにコピー
-  make cp
+  make up
+  make down
+  make exec (args)
+  make yarn-install
+  make check
+  make format
 ```
