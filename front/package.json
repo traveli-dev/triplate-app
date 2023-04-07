@@ -4,7 +4,7 @@
   "packageManager": "yarn@3.4.1",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"yarn dev:next\" \"yarn dev:storybook\" \"yarn dev:firebase\"",
+    "dev": "concurrently -n=nextjs,storybook,firebase -c=green,'#ff528c',red \"yarn dev:next\" \"yarn dev:storybook\" \"yarn dev:firebase\"",
     "dev:next": "next dev",
     "dev:storybook": "storybook dev --quiet -p 6006",
     "dev:firebase": "cd /home/app/firebase && firebase emulators:start --import=./db/local",
