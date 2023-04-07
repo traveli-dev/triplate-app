@@ -13,4 +13,4 @@ close #issue番号
 
 ## 🙈 self review
 - [ ] 必要のないCSSはないか（特にサイトからコピペした場合注意）
-- [ ] The Nu Html Checkerで文法チェックでエラーがでていないこと
+- [ ] The Nu Html Checkerでエラーがでていないこと
