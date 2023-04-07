@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { css } from '@emotion/react'
+import { styles } from '@/styles/components/Avatars/Avatar.styles'
 
 type AvatarProps = {
   url: string
@@ -18,11 +18,4 @@ export const Avatar = ({ url, size }: AvatarProps) => {
       width={imgSize[size]}
     />
   )
-}
-
-const styles = {
-  userImg: css`
-    display: inline;
-    border-radius: 100px;
-  `
 }

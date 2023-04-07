@@ -1,8 +1,7 @@
-import { css } from '@emotion/react'
 import { Container } from '@/components/Containers'
 import { NavigationBottom } from '@/components/Navigations'
 import { TabHome } from '@/components/Tabs'
-import { theme } from '@/styles/theme'
+import { styles } from '@/styles/pages/home/index.styles'
 
 const Home = () => {
   // 仮置きのサンプルデータ
@@ -54,13 +53,6 @@ const Home = () => {
       <NavigationBottom />
     </>
   )
-}
-
-const styles = {
-  heading1: css`
-    padding: 24px 0;
-    font-size: ${theme.fontSize.lg};
-  `
 }
 
 export default Home
