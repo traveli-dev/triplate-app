@@ -26,11 +26,11 @@ export const ButtonOutline = ({
 
 const styles = {
   button: css`
-    /*波紋の基点とするためrelativeを指定*/
+    /* 波紋の基点とするためrelativeを指定 */
     position: relative;
     width: 100%;
     height: 56px;
-    /*はみ出す波紋を隠す*/
+    /* はみ出す波紋を隠す */
     overflow: hidden;
     font-size: ${theme.fontSize.md};
     font-weight: 600;
@@ -48,7 +48,7 @@ const styles = {
 
     @media screen and (prefers-reduced-motion: reduce) {
       &::after {
-        /*波紋*/
+        /* 波紋 */
         position: absolute;
         top: 0;
         left: 0;
@@ -64,7 +64,7 @@ const styles = {
     }
 
     &::after {
-      /*波紋*/
+      /* 波紋 */
       position: absolute;
       top: 0;
       left: 0;

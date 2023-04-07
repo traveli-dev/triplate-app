@@ -13,11 +13,11 @@ export const ButtonIconRound = () => {
 
 const styles = {
   button: css`
-    /*波紋の基点とするためrelativeを指定*/
+    /* 波紋の基点とするためrelativeを指定 */
     position: relative;
     width: 64px;
     height: 64px;
-    /*はみ出す波紋を隠す*/
+    /* はみ出す波紋を隠す */
     overflow: hidden;
     color: ${theme.color.white};
     cursor: pointer;
@@ -35,7 +35,7 @@ const styles = {
 
     @media screen and (prefers-reduced-motion: reduce) {
       &::after {
-        /*波紋*/
+        /* 波紋 */
         position: absolute;
         top: 0;
         left: 0;
@@ -51,7 +51,7 @@ const styles = {
     }
 
     &::after {
-      /*波紋*/
+      /* 波紋 */
       position: absolute;
       top: 0;
       left: 0;

@@ -22,6 +22,11 @@ module.exports = {
     // font-sizeはremで指定する（global.tsは%なので%もあり）
     'declaration-property-unit-allowed-list': {
       '/^font-size/': ['rem', '%'],
-    }
+    },
+    // コメントの内側にスペースを必須にする
+    'comment-whitespace-inside': 'always',
+    // 2重スラッシュによるコメントを禁止
+    'no-invalid-double-slash-comments': true,
+    'value-no-vendor-prefix': true
   }
 }

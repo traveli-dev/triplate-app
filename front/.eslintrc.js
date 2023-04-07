@@ -51,6 +51,7 @@ module.exports = {
         ]
       }
     ],
+    // propをソートする（基本はアルファベット順，その次onClickなどのコールバック）
     'react/jsx-sort-props': [
       'warn', {
         callbacksLast: true,
@@ -109,7 +110,7 @@ module.exports = {
             position: 'before'
           }
         ],
-        pathGroupsExcludedImportTypes: ['react**', 'next/**', 'next-**', 'firebase/'],
+        pathGroupsExcludedImportTypes: ['react**', 'next/**', 'next-**', 'firebase/**'],
       }
     ],
     // importをファイル先頭に記述
