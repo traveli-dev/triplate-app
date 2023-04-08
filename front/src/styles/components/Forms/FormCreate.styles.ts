@@ -2,10 +2,10 @@ import { css } from '@emotion/react'
 import { theme } from '@/styles/theme'
 
 export const styles = {
-  wrapper: css`
+  formWrapper: css`
     position: relative;
     width: 100%;
-    min-height: calc(100vh - 56px);
+    min-height: calc(100vh - 176px);
   `,
   label: css`
     display: block;
@@ -17,8 +17,6 @@ export const styles = {
     margin-top: 8px;
   `,
   layoutButton: css`
-    position: absolute;
-    bottom: 32px;
-    width: inherit;
+    padding: 32px 0;
   `
 }
