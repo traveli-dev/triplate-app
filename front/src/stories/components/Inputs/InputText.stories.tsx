@@ -1,8 +1,22 @@
-import { StoryObj, ComponentMeta } from '@storybook/react'
 import { InputText } from '@/components/Inputs/InputText'
+import type { StoryObj, Meta } from '@storybook/react'
 
-export default {
-  component: InputText
-} as ComponentMeta<typeof InputText>
+const meta: Meta<typeof InputText> = {
+  component: InputText,
+  argTypes: {
+    placeholder: {
+      description: 'placeholder要素が入ります'
+    }
+  },
+  tags: ['autodocs']
+}
 
-export const Default: StoryObj = {}
+export default meta
+
+type Story = StoryObj<typeof InputText>
+
+export const Default: Story = {
+  args: {
+    placeholder: 'テキスト'
+  }
+}

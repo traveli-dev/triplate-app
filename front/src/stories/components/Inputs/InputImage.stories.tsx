@@ -1,13 +1,22 @@
-import { StoryObj, ComponentMeta } from '@storybook/react'
 import { InputImage } from '@/components/Inputs/InputImage'
+import type { StoryObj, Meta } from '@storybook/react'
 
-export default {
-  component: InputImage
-} as ComponentMeta<typeof InputImage>
+const meta: Meta<typeof InputImage> = {
+  component: InputImage,
+  argTypes: {
+    alt: {
+      description: 'alt要素が入ります'
+    }
+  },
+  tags: ['autodocs']
+}
 
-export const Default: StoryObj = {
+export default meta
+
+type Story = StoryObj<typeof InputImage>
+
+export const Default: Story = {
   args: {
-    src: '/images/CardImg/empty.svg',
     alt: 'img'
   }
 }
