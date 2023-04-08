@@ -1,6 +1,5 @@
-import { css } from '@emotion/react'
 import { Avatar } from '@/components/Avatars'
-import { theme } from '@/styles/theme'
+import { styles } from '@/styles/components/Avatars/AvatarWithText.styles'
 
 type AvatarWithTextProps = {
   url: string
@@ -16,17 +15,4 @@ export const AvatarWithText = ({ url, name }: AvatarWithTextProps) => {
       <p>{name}</p>
     </div>
   )
-}
-
-const styles = {
-  wrapper: css`
-    display: flex;
-    & > p {
-      margin: auto 0;
-      font-size: ${theme.fontSize.sm};
-    }
-  `,
-  layoutAvatar: css`
-    margin-right: 16px;
-  `
 }

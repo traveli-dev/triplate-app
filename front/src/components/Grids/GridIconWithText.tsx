@@ -1,6 +1,5 @@
-import { css } from '@emotion/react'
 import { IconWithText } from '@/components/Icons'
-import { mq } from '@/styles/utils'
+import { styles } from '@/styles/components/Grids/GridIconWithText.styles'
 
 export const GridIconWithText = () => {
   return (
@@ -21,20 +20,4 @@ export const GridIconWithText = () => {
       </div>
     </div>
   )
-}
-
-const styles = {
-  wrapper: css`
-    display: flex;
-    justify-content: space-between;
-    max-width: 400px;
-    ${mq('sm')} {
-      max-width: 300px;
-    }
-  `,
-  column: css`
-    display: flex;
-    flex-direction: column;
-    gap: 3vh;
-  `
 }
