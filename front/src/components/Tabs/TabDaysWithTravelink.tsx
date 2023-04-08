@@ -39,7 +39,7 @@ export const TabDaysWithTravelink = ({
                   type="radio"
                 />
                 <label css={styles.tabLabel} htmlFor={`day${item.day}`}>
-                  <div id={`tab${item.day}`}>{item.day}日目</div>
+                  {item.day}日目
                 </label>
                 <div css={styles.tabContent}>
                   <Container bgColor="blue">{item.name}</Container>

@@ -16,34 +16,34 @@ export const ButtonIconWithText = ({ iconType }: ButtonIconWithTextProps) => {
     <>
       <button css={styles.wrapper}>
         {iconType === 'members' && (
-          <div>
+          <>
             <HiOutlineUsers size={20} />
-            <p>メンバー</p>
-          </div>
+            <span>メンバー</span>
+          </>
         )}
         {iconType === 'memo' && (
-          <div>
+          <>
             <HiOutlineDocumentText size={20} />
-            <p>たびメモ</p>
-          </div>
+            <span>たびメモ</span>
+          </>
         )}
         {iconType === 'share' && (
-          <div>
+          <>
             <HiOutlineShare size={20} />
-            <p>共有する</p>
-          </div>
+            <span>共有する</span>
+          </>
         )}
         {iconType === 'edit' && (
-          <div>
+          <>
             <HiOutlinePencil size={20} />
-            <p>編集する</p>
-          </div>
+            <span>編集する</span>
+          </>
         )}
         {iconType === 'public' && (
-          <div>
+          <>
             <HiOutlineLockClosed size={20} />
-            <p>公開する</p>
-          </div>
+            <span>公開する</span>
+          </>
         )}
       </button>
     </>

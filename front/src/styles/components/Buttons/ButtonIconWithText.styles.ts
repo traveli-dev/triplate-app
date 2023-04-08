@@ -25,9 +25,9 @@ export const styles = {
       color: ${theme.color.blue};
     }
 
-    p {
+    span {
       margin: 6px 0 0 0;
-      font-weight: ${theme.fontSize.sm};
+      font-size: ${theme.fontSize.sm};
     }
   `
 }
