@@ -13,17 +13,15 @@ ENV APP_ROOT /home/app
 WORKDIR $APP_ROOT
 
 COPY ./.yarnrc.yml ./package.json ./yarn.lock $APP_ROOT
-RUN corepack enable && \
-    corepack prepare yarn@3.4.1 --activate && \
-    yarn set version 3.4.1
-RUN yarn rebuild && yarn install 
+COPY ./.yarn ./.yarn
+RUN corepack enable
+RUN yarn install
 
 COPY . $APP_ROOT
 
 # init firebase
 RUN mkdir -p ${APP_ROOT}/firebase/db/local
 RUN chmod +x ${APP_ROOT}/firebase/scripts/*.sh
-
 
 EXPOSE 3000
 

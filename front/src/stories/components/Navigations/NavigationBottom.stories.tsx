@@ -1,14 +1,21 @@
-import { StoryObj, ComponentMeta } from '@storybook/react'
 import { NavigationBottom } from '@/components/Navigations'
+import type { StoryObj, Meta } from '@storybook/react'
 
-export default {
-  component: NavigationBottom
-} as ComponentMeta<typeof NavigationBottom>
+const meta: Meta<typeof NavigationBottom> = {
+  component: NavigationBottom,
+  tags: ['autodocs']
+}
 
-export const Default: StoryObj = {
+export default meta
+
+type Story = StoryObj<typeof NavigationBottom>
+
+export const Default: Story = {
   parameters: {
-    nextRouter: {
-      pathname: '/home'
+    nextjs: {
+      navigation: {
+        pathname: '/home'
+      }
     }
   }
 }

@@ -1,6 +1,5 @@
-import { useRouter } from 'next/router'
 import Link from 'next/link'
-import styles from '@/styles/components/Navigations/NavigationBottom.module.scss'
+import { useRouter } from 'next/router'
 import {
   HiOutlineHome,
   HiOutlineGlobe,
@@ -9,6 +8,7 @@ import {
   HiGlobe,
   HiUser
 } from 'react-icons/hi'
+import { styles } from '@/styles/components/Navigations/NavigationBottom.styles'
 
 export const NavigationBottom = () => {
   const router = useRouter()
@@ -16,13 +16,11 @@ export const NavigationBottom = () => {
 
   return (
     <nav>
-      <ul className={styles.wrapper}>
-        <li className={styles.nav}>
+      <ul css={styles.wrapper}>
+        <li css={styles.nav}>
           <Link
+            css={[styles.navItem, currentPath === '/home' && styles.focus]}
             href="home"
-            className={`${styles.default} ${
-              currentPath === '/home' && styles.focus
-            }`}
           >
             {currentPath === '/home' ? (
               <HiHome size={24} />
@@ -32,12 +30,10 @@ export const NavigationBottom = () => {
             <p>ホーム</p>
           </Link>
         </li>
-        <li className={styles.nav}>
+        <li css={styles.nav}>
           <Link
+            css={[styles.navItem, currentPath === '/search' && styles.focus]}
             href="search"
-            className={`${styles.default} ${
-              currentPath === '/search' && styles.focus
-            }`}
           >
             {currentPath === '/search' ? (
               <HiGlobe size={24} />
@@ -48,12 +44,10 @@ export const NavigationBottom = () => {
             <p>みんなのたび</p>
           </Link>
         </li>
-        <li className={styles.nav}>
+        <li css={styles.nav}>
           <Link
+            css={[styles.navItem, currentPath === '/mypage' && styles.focus]}
             href="mypage"
-            className={`${styles.default} ${
-              currentPath === '/mypage' && styles.focus
-            }`}
           >
             {currentPath === '/mypage' ? (
               <HiUser size={24} />

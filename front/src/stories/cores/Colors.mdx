@@ -1,0 +1,44 @@
+import { Meta, ColorPalette, ColorItem } from '@storybook/blocks'
+
+<Meta title="Colors" />
+
+# Colors
+
+<ColorPalette>
+  <ColorItem
+    title="theme.color.blue"
+    subtitle="primaryBlue"
+    colors={{
+      'theme.color.blue': '#4272ef',
+      'theme.color.hoverBlue': '#5a88ff',
+      'theme.color.bgBlue': '#eaf0ff'
+    }}
+  />
+  <ColorItem
+    title="theme.color.pink"
+    subtitle="secondaryPink"
+    colors={{
+      'theme.color.pink': '#f3377e',
+      'theme.color.hoverPink': '#f15d96'
+    }}
+  />
+  <ColorItem
+    title="theme.color.black"
+    subtitle="black"
+    colors={{ 'theme.color.black': '#0f141a' }}
+  />
+  <ColorItem
+    title="theme.color.gray"
+    subtitle="gray"
+    colors={{
+      'theme.color.gray': '#595959',
+      'theme.color.outlineGray': '#e1e1e1',
+      'theme.color.bgGray': '#f2f2f2'
+    }}
+  />
+  <ColorItem
+    title="theme.color.white"
+    subtitle="white"
+    colors={{ 'theme.color.white': '#fff' }}
+  />
+</ColorPalette>
