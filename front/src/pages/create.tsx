@@ -5,8 +5,8 @@ import { Header } from '@/components/Headers'
 const Create = () => {
   return (
     <>
-      <Header href={'/'} title={'新しいトラベリンクの作成'} />
-      <Container bgColor={'white'} isFull>
+      <Header href="/" title="新しいトラベリンクの作成" />
+      <Container bgColor="white" isFull>
         <FormCreate />
       </Container>
     </>
