@@ -2,20 +2,25 @@ SHELL=/bin/bash
 
 env := $(shell docker compose exec node echo "up" || echo "down")
 
+init:
+	@docker compose build
+	@docker compose run --rm node yarn init:firebase
+	@docker compose run --rm node firebase login --no-localhost
+
 up:
-	docker compose up
+	@docker compose up
 
 down:
-	docker compose down
+	@docker compose down
 
 exec:
-	docker compose exec node /bin/bash
+	@docker compose exec node /bin/bash
 
 check:
-	docker compose exec node yarn check
+	@docker compose exec node yarn check
 
 format:
-	docker compose exec node yarn format
+	@docker compose exec node yarn format
 
 yarn-install:
 	@[ $(env) = "down" ] && docker compose up -d || echo "uped"
