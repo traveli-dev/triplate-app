@@ -1,5 +1,5 @@
 import { Container } from '@/components/Containers'
-import styles from '@/styles/components/Tabs/TabSample.module.scss'
+import { styles } from '@/styles/components/Tabs/TabSample.styles'
 
 type TabSampleProps = {
   data: {
@@ -10,19 +10,19 @@ type TabSampleProps = {
 
 export const TabSample = ({ data }: TabSampleProps) => {
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.tabs} id="tabs">
+    <div css={styles.wrapper}>
+      <div css={styles.tabs} id="tabs">
         <input
-          id="tab1"
-          type="radio"
-          name="tab"
-          className={styles.tab_switch}
+          css={styles.tabSwitch}
           defaultChecked
+          id="tab1"
+          name="tab"
+          type="radio"
         />
-        <label className={styles.tab_label} htmlFor="tab1">
+        <label css={styles.tabLabel} htmlFor="tab1">
           {data[0].name}
         </label>
-        <div className={styles.tab_content}>
+        <div css={styles.tabContent}>
           <Container bgColor="blue">
             {/* タブの中身を入れる */}
             {data[0].value}
@@ -34,15 +34,15 @@ export const TabSample = ({ data }: TabSampleProps) => {
             {item.name !== 1 && (
               <>
                 <input
+                  css={styles.tabSwitch}
                   id={`tab${item.name}`}
-                  type="radio"
                   name="tab"
-                  className={styles.tab_switch}
+                  type="radio"
                 />
-                <label className={styles.tab_label} htmlFor={`tab${item.name}`}>
+                <label css={styles.tabLabel} htmlFor={`tab${item.name}`}>
                   {item.name}
                 </label>
-                <div className={styles.tab_content}>
+                <div css={styles.tabContent}>
                   <Container bgColor="blue" isFull>
                     {/* タブの中身を入れる */}
                     {item.value}

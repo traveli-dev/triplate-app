@@ -15,6 +15,7 @@ export const TabDaysWithTravelink = ({
     <div css={styles.wrapper}>
       <div css={styles.tabs} id="tabs">
         <input
+          className='tabSwitch'
           css={styles.tabSwitch}
           defaultChecked
           id="day1"
@@ -42,8 +43,8 @@ export const TabDaysWithTravelink = ({
                   <div id={`tab${item.day}`}>{item.day}日目</div>
                 </label>
                 <div css={styles.tabContent}>
-                    {item.name}
                   <Container bgColor="blue" isFull>
+                    {item.name}
                   </Container>
                 </div>
               </>

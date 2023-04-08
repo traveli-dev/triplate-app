@@ -4,11 +4,11 @@ import { mq } from '@/styles/utils'
 
 export const styles = {
   wrapper: css`
-    min-height: 100px;
-    height: calc(100% - 339px);
     position: relative;
-    /* overflow: hidden; */
-    background-color: ${theme.color.black};
+    height: calc(100% - 339px);
+    min-height: 100px;
+    overflow: hidden;
+    background-color: ${theme.color.bgBlue};
   `,
   tabs: css`
     display: flex;
@@ -20,8 +20,9 @@ export const styles = {
   tabSwitch: css`
     display: none;
     &:checked {
-      background-color: aqua;
-
+      & ~ .tabContent {
+        transform: translateX(30%);
+      }
       & + .tabLabel {
         font-weight: bold;
         color: ${theme.color.blue};
@@ -39,9 +40,6 @@ export const styles = {
       & + .tabLabel::after {
         opacity: 1;
         transform: translateX(0);
-      }
-      & ~ .tabContent {
-        transform: translateX(30%);
       }
     }
   `,
@@ -68,6 +66,24 @@ export const styles = {
       }
     }
 
+    @media screen and (prefers-reduced-motion: reduce) {
+      &::after {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+        display: block;
+        width: 100%;
+        height: 3px;
+        pointer-events: none;
+        content: '';
+        background: ${theme.color.blue};
+        opacity: 0;
+        transition: none;
+        transform: translateX(100%);
+      }
+    }
+
     &::after {
       position: absolute;
       bottom: 0;
@@ -87,13 +103,12 @@ export const styles = {
   tabContent: css`
     position: absolute;
     top: 42px;
-    /* right: 0; */
     width: 100%;
-    height: 100%;
+    height: 100% !important;
     overflow-y: scroll;
     pointer-events: none;
-    background-color: ${theme.color.black};
-    /* opacity: 0; */
+    background-color: ${theme.color.bgBlue};
+    opacity: 0;
     transition: transform 0.3s 80ms, opacity 0.3s 80ms;
     transform: translateX(-30%);
   `

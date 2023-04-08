@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import styles from '@/styles/components/Images/ImageThumbnail.module.scss'
+import { styles } from '@/styles/components/Images/ImageThumbnail.styles'
 
 type ImageThumbnailProps = {
   url: string
@@ -7,8 +7,8 @@ type ImageThumbnailProps = {
 
 export const ImageThumbnail = ({ url }: ImageThumbnailProps) => {
   return (
-    <div className={styles.wrapper}>
-      <Image src={url} alt="thumbnail_image" fill className={styles.img} />
+    <div css={styles.wrapper}>
+      <Image alt="thumbnail_image" css={styles.img} fill src={url} />
     </div>
   )
 }

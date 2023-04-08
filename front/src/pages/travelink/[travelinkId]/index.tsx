@@ -2,7 +2,7 @@ import { ButtonIconWithText } from '@/components/Buttons'
 import { Container } from '@/components/Containers'
 import { ImageThumbnail } from '@/components/Images'
 import { TabDaysWithTravelink } from '@/components/Tabs'
-import styles from '@/styles/pages/travelink/[travelinkId]/Travelink.module.scss'
+import { styles } from '@/styles/pages/travelink/[travelinkId]/Travelink.styles'
 
 const Travelink = () => {
   // example
@@ -25,12 +25,12 @@ const Travelink = () => {
     <>
       <ImageThumbnail url={data.url} />
       {/* モーダル */}
-      <div className={styles.modal_wrapper}>
-        <div className={styles.handler}></div>
+      <div css={styles.modalWrapper}>
+        <div css={styles.handler}></div>
         <Container bgColor="white" isCenter>
-          <h1 className={styles.title}>田舎にゆったり旅行</h1>
-          <p className={styles.date}>2023.03.25 - 2023.03.27</p>
-          <div className={styles.button_icon_with_text_layout}>
+          <h1 css={styles.title}>田舎にゆったり旅行</h1>
+          <p css={styles.date}>2023.03.25 - 2023.03.27</p>
+          <div css={styles.layoutButtonIconWithText}>
             <ButtonIconWithText iconType="members" />
             <ButtonIconWithText iconType="memo" />
             <ButtonIconWithText iconType="share" />

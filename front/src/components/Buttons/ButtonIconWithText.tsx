@@ -5,7 +5,7 @@ import {
   HiOutlinePencil,
   HiOutlineLockClosed
 } from 'react-icons/hi'
-import styles from '@/styles/components/Buttons/ButtonIconWithText.module.scss'
+import { styles } from '@/styles/components/Buttons/ButtonIconWithText.styles'
 
 type ButtonIconWithTextProps = {
   iconType: 'members' | 'memo' | 'share' | 'edit' | 'public'
@@ -14,7 +14,7 @@ type ButtonIconWithTextProps = {
 export const ButtonIconWithText = ({ iconType }: ButtonIconWithTextProps) => {
   return (
     <>
-      <button className={styles.wrapper}>
+      <button css={styles.wrapper}>
         {iconType === 'members' && (
           <div>
             <HiOutlineUsers size={20} />

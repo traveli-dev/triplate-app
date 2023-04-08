@@ -1,17 +1,13 @@
-import { StoryObj, ComponentMeta } from '@storybook/react'
 import { ButtonIconWithText } from '@/components/Buttons'
+import type { StoryObj, Meta } from '@storybook/react'
 
-export default {
+const meta: Meta<typeof ButtonIconWithText> = {
   component: ButtonIconWithText,
-  argTypes: {
-    iconType: {
-      description: 'アイコンのタイプが入ります'
-    }
-  }
-} as ComponentMeta<typeof ButtonIconWithText>
-
-export const Default: StoryObj = {
-  args: {
-    iconType: 'members'
-  }
+  tags: ['autodocs']
 }
+
+export default meta
+
+type Story = StoryObj<typeof ButtonIconWithText>
+
+export const Default: Story = {}

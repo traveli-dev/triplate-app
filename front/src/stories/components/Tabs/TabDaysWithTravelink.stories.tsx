@@ -1,11 +1,17 @@
-import { StoryObj, ComponentMeta } from '@storybook/react'
 import { TabDaysWithTravelink } from '@/components/Tabs'
+import type { StoryObj, Meta } from '@storybook/react'
 
-export default {
-  component: TabDaysWithTravelink
-} as ComponentMeta<typeof TabDaysWithTravelink>
+const meta: Meta<typeof TabDaysWithTravelink> = {
+  component: TabDaysWithTravelink,
+  argTypes: {},
+  tags: ['autodocs']
+}
 
-export const Default: StoryObj = {
+export default meta
+
+type Story = StoryObj<typeof TabDaysWithTravelink>
+
+export const Default: Story = {
   args: {
     travelinks: [
       { day: 1, name: 'aaa' },
@@ -21,3 +27,11 @@ export const Default: StoryObj = {
     ]
   }
 }
+
+// export const NoData: Story = {
+//   args: {
+//     userId: 'opanchu',
+//     myTravelinkList: [],
+//     favoriteList: []
+//   }
+// }
