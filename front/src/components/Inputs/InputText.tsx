@@ -1,11 +1,14 @@
-import styles from '@/styles/components/Inputs/InputText.module.scss'
 import { InputHTMLAttributes } from 'react'
+import { styles } from '@/styles/components/Inputs/InputText.styles'
+
 type InputTextProps = InputHTMLAttributes<HTMLInputElement> & {
   placeholder: string
 }
 
 export const InputText = ({ placeholder }: InputTextProps) => {
   return (
-    <input type={'text'} className={styles.input} placeholder={placeholder} />
+    <>
+      <input css={styles.input} placeholder={placeholder} type="text" />
+    </>
   )
 }
