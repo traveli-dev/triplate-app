@@ -1,13 +1,18 @@
 import { ButtonIconRound } from '@/components/Buttons'
-import { StoryObj, ComponentMeta } from '@storybook/react'
+import type { StoryObj, Meta } from '@storybook/react'
 
-export default {
-  component: ButtonIconRound
-} as ComponentMeta<typeof ButtonIconRound>
+const meta: Meta<typeof ButtonIconRound> = {
+  component: ButtonIconRound,
+  tags: ['autodocs']
+}
 
-export const Default: StoryObj = {}
+export default meta
 
-export const Mobile: StoryObj = {
+type Story = StoryObj<typeof ButtonIconRound>
+
+export const Default: Story = {}
+
+export const Mobile: Story = {
   parameters: {
     viewport: { defaultViewport: 'mobile1' }
   }

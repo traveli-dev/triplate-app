@@ -1,6 +1,6 @@
 import React, { ButtonHTMLAttributes } from 'react'
-import styles from '@/styles/components/Buttons/ButtonOutline.module.scss'
 import { HiOutlinePlus } from 'react-icons/hi'
+import { styles } from '@/styles/components/Buttons/ButtonOutline.styles'
 
 type ButtonOutlineProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   children: React.ReactNode
@@ -13,8 +13,8 @@ export const ButtonOutline = ({
   ...props
 }: ButtonOutlineProps) => {
   return (
-    <button className={styles.button} {...props}>
-      <div className={styles.label_wrapper}>
+    <button css={styles.button} {...props}>
+      <div css={styles.labelWrapper}>
         {icon == 'plus' && <HiOutlinePlus size={24} />}
         {children}
       </div>

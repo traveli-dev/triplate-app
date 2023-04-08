@@ -1,4 +1,4 @@
-import styles from '@/styles/components/Chips/ChipTag.module.scss'
+import { styles } from '@/styles/components/Chips/ChipTag.styles'
 
 type ChipTagProps = {
   tag: string[]
@@ -6,10 +6,10 @@ type ChipTagProps = {
 
 export const ChipTag = ({ tag }: ChipTagProps) => {
   return (
-    <ul className={styles.chip_wrapper}>
+    <ul css={styles.wrapper}>
       {tag.map((value, index) => (
         <li key={index}>
-          <p className={styles.chip}>{value}</p>
+          <p css={styles.chip}>{value}</p>
         </li>
       ))}
     </ul>

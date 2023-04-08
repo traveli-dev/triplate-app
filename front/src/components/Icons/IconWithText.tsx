@@ -1,3 +1,5 @@
+import Link from 'next/link'
+import { FiTwitter } from 'react-icons/fi'
 import {
   HiOutlineQrcode,
   HiOutlineBell,
@@ -7,9 +9,7 @@ import {
   HiOutlineShieldCheck,
   HiOutlineGlobeAlt
 } from 'react-icons/hi'
-import { FiTwitter } from 'react-icons/fi'
-import styles from '@/styles/components/Icons/IconWithText.module.scss'
-import Link from 'next/link'
+import { styles } from '@/styles/components/Icons/IconWithText.styles'
 
 type IconWithiconProps = {
   iconType:
@@ -25,7 +25,7 @@ type IconWithiconProps = {
 
 export const IconWithText = ({ iconType }: IconWithiconProps) => {
   return (
-    <Link href="/" className={styles.wrapper}>
+    <Link css={styles.wrapper} href="/">
       {iconType === 'qr' && (
         <div>
           <HiOutlineQrcode size={24} />
@@ -59,7 +59,7 @@ export const IconWithText = ({ iconType }: IconWithiconProps) => {
       {iconType === 'privacy' && (
         <div>
           <HiOutlineShieldCheck size={24} />
-          <div className={styles.wrapper__lines}>
+          <div css={styles.lines}>
             <p>
               プライバシー
               <br />
@@ -71,7 +71,7 @@ export const IconWithText = ({ iconType }: IconWithiconProps) => {
       {iconType === 'twitter' && (
         <div>
           <FiTwitter size={24} />
-          <div className={styles.wrapper__lines}>
+          <div css={styles.lines}>
             <p>
               公式
               <br />
