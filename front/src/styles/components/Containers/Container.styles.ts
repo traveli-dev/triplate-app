@@ -12,6 +12,6 @@ export const styles = {
     padding: 0 16px;
     text-align: ${isCenter ? 'center' : 'start'};
     background-color: ${bgColor === 'white' && theme.color.white}${bgColor ===
-        'blue' && theme.color.bgBlue}${bgColor === 'none' && 'none'};
+        'blue' && theme.color.bgBlue}${bgColor === 'none' && 'transparent'};
   `
 }
