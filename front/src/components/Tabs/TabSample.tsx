@@ -43,7 +43,7 @@ export const TabSample = ({ data }: TabSampleProps) => {
                   {item.name}
                 </label>
                 <div css={styles.tabContent}>
-                  <Container bgColor="blue" isFull>
+                  <Container bgColor="blue">
                     {/* タブの中身を入れる */}
                     {item.value}
                   </Container>

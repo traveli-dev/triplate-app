@@ -20,13 +20,13 @@ export const styles = {
   tabSwitch: css`
     display: none;
     &:checked {
-      & ~ .tabContent {
+      & ~ div {
         transform: translateX(30%);
       }
-      & + .tabLabel {
+      & + label {
         font-weight: bold;
         color: ${theme.color.blue};
-        & + .tabContent {
+        & + div {
           order: 1;
           height: auto;
           pointer-events: auto;
@@ -34,10 +34,10 @@ export const styles = {
           transform: translateX(0);
         }
       }
-      & ~ .tabLabel::after {
+      & ~ label::after {
         transform: translateX(-100%);
       }
-      & + .tabLabel::after {
+      & + label::after {
         opacity: 1;
         transform: translateX(0);
       }

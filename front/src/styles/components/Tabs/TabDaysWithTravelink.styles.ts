@@ -104,7 +104,7 @@ export const styles = {
     position: absolute;
     top: 42px;
     width: 100%;
-    height: 100%;
+    height: 100% !important;
     overflow-y: scroll;
     pointer-events: none;
     background-color: ${theme.color.bgBlue};

@@ -1,11 +1,21 @@
-import { StoryObj, ComponentMeta } from '@storybook/react'
 import { TabSample } from '@/components/Tabs'
+import type { StoryObj, Meta } from '@storybook/react'
 
-export default {
-  component: TabSample
-} as ComponentMeta<typeof TabSample>
+const meta: Meta<typeof TabSample> = {
+  component: TabSample,
+  argTypes: {
+    data: {
+      description: 'データの配列が入ります'
+    }
+  },
+  tags: ['autodocs']
+}
 
-export const Default: StoryObj = {
+export default meta
+
+type Story = StoryObj<typeof TabSample>
+
+export const Default: Story = {
   args: {
     data: [
       { name: 1, value: 'タブ１' },
