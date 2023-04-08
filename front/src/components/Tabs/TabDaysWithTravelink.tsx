@@ -1,5 +1,5 @@
-import styles from '@/styles/components/Tabs/TabDaysWithTravelink.module.scss'
 import { Container } from '@/components/Containers'
+import { styles } from '@/styles/components/Tabs/TabDaysWithTravelink.styles'
 
 type TabDaysWithTravelinkProps = {
   travelinks: {
@@ -12,19 +12,19 @@ export const TabDaysWithTravelink = ({
   travelinks
 }: TabDaysWithTravelinkProps) => {
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.tabs} id="tabs">
+    <div css={styles.wrapper}>
+      <div css={styles.tabs} id="tabs">
         <input
-          id="day1"
-          type="radio"
-          name="tab"
-          className={styles.tab_switch}
+          css={styles.tabSwitch}
           defaultChecked
+          id="day1"
+          name="tab"
+          type="radio"
         />
-        <label className={styles.tab_label} htmlFor="day1" id="tab1">
+        <label css={styles.tabLabel} htmlFor="day1" id="tab1">
           {travelinks[0].day}日目
         </label>
-        <div className={styles.tab_content}>
+        <div css={styles.tabContent}>
           <Container bgColor="blue">{travelinks[0].name}</Container>
         </div>
 
@@ -33,17 +33,17 @@ export const TabDaysWithTravelink = ({
             {item.day !== 1 && (
               <>
                 <input
+                  css={styles.tabSwitch}
                   id={`day${item.day}`}
-                  type="radio"
                   name="tab"
-                  className={styles.tab_switch}
+                  type="radio"
                 />
-                <label className={styles.tab_label} htmlFor={`day${item.day}`}>
+                <label css={styles.tabLabel} htmlFor={`day${item.day}`}>
                   <div id={`tab${item.day}`}>{item.day}日目</div>
                 </label>
-                <div className={styles.tab_content}>
-                  <Container bgColor="blue" isFull>
+                <div css={styles.tabContent}>
                     {item.name}
+                  <Container bgColor="blue" isFull>
                   </Container>
                 </div>
               </>
