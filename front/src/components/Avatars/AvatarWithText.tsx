@@ -1,5 +1,5 @@
 import { Avatar } from '@/components/Avatars'
-import styles from '@/styles/components/Avatars/AvatarWithText.module.scss'
+import { styles } from '@/styles/components/Avatars/AvatarWithText.styles'
 
 type AvatarWithTextProps = {
   url: string
@@ -8,8 +8,10 @@ type AvatarWithTextProps = {
 
 export const AvatarWithText = ({ url, name }: AvatarWithTextProps) => {
   return (
-    <div className={styles.wrapper}>
-      <Avatar url={url} size={'sm'} />
+    <div css={styles.wrapper}>
+      <div css={styles.layoutAvatar}>
+        <Avatar css={styles.layoutAvatar} size="sm" url={url} />
+      </div>
       <p>{name}</p>
     </div>
   )

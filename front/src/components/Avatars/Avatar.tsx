@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import styles from '@/styles/components/Avatars/Avatar.module.scss'
+import { styles } from '@/styles/components/Avatars/Avatar.styles'
 
 type AvatarProps = {
   url: string
@@ -11,11 +11,11 @@ export const Avatar = ({ url, size }: AvatarProps) => {
 
   return (
     <Image
-      src={url}
       alt="user_img"
-      width={imgSize[size]}
+      css={styles.userImg}
       height={imgSize[size]}
-      className={styles.user_img}
+      src={url}
+      width={imgSize[size]}
     />
   )
 }

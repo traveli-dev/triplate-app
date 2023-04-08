@@ -1,7 +1,7 @@
-import { StoryObj, ComponentMeta } from '@storybook/react'
 import { CardTravelink } from '@/components/Cards'
+import type { StoryObj, Meta } from '@storybook/react'
 
-export default {
+const meta: Meta<typeof CardTravelink> = {
   component: CardTravelink,
   argTypes: {
     travelink: {
@@ -10,10 +10,15 @@ export default {
     favorite: {
       description: 'いいねしたみんなのたびトラべリンクが入ります'
     }
-  }
-} as ComponentMeta<typeof CardTravelink>
+  },
+  tags: ['autodocs']
+}
 
-export const Default: StoryObj = {
+export default meta
+
+type Story = StoryObj<typeof CardTravelink>
+
+export const Default: Story = {
   args: {
     travelink: {
       id: 'abc',
@@ -27,7 +32,7 @@ export const Default: StoryObj = {
   }
 }
 
-export const Favorite: StoryObj = {
+export const Favorite: Story = {
   args: {
     favorite: {
       puclicId: '123',

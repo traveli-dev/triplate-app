@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { CardTravelink } from '@/components/Cards'
-import styles from '@/styles/components/Tabs/TabHome.module.scss'
+import { styles } from '@/styles/components/Tabs/TabHome.styles'
 
 // 仮置きの型設定
 // TODO:本実装のタイミングでtypeの内容とexport場所を変更
@@ -44,13 +44,13 @@ export const TabHome = ({
 
   return (
     <>
-      <div className={styles.tabs}>
+      <div css={styles.tabs}>
         <label>
           <input
-            name={'tab'}
-            type={'radio'}
-            value="all"
             defaultChecked
+            name="tab"
+            type="radio"
+            value="all"
             onChange={(e) => {
               setValue(e.target.value)
             }}
@@ -59,8 +59,8 @@ export const TabHome = ({
         </label>
         <label>
           <input
-            name={'tab'}
-            type={'radio'}
+            name="tab"
+            type="radio"
             value="join"
             onChange={(e) => {
               setValue(e.target.value)
@@ -70,8 +70,8 @@ export const TabHome = ({
         </label>
         <label>
           <input
-            name={'tab'}
-            type={'radio'}
+            name="tab"
+            type="radio"
             value="favorite"
             onChange={(e) => {
               setValue(e.target.value)
@@ -85,11 +85,9 @@ export const TabHome = ({
           {myTravelinkList.length ? (
             <>
               {myTravelinkList.map((travelink) => (
-                <>
-                  <div className={styles.card_travelink_layout}>
-                    <CardTravelink travelink={travelink} />
-                  </div>
-                </>
+                <div css={styles.layoutCardTravelink} key={travelink.id}>
+                  <CardTravelink travelink={travelink} />
+                </div>
               ))}
             </>
           ) : (
@@ -104,11 +102,9 @@ export const TabHome = ({
           {joinedList.length ? (
             <>
               {joinedList.map((item) => (
-                <>
-                  <div className={styles.card_travelink_layout}>
-                    <CardTravelink travelink={item} />
-                  </div>
-                </>
+                <div css={styles.layoutCardTravelink} key={item.id}>
+                  <CardTravelink travelink={item} />
+                </div>
               ))}
             </>
           ) : (
@@ -123,11 +119,9 @@ export const TabHome = ({
           {favoriteList.length ? (
             <>
               {favoriteList.map((favorite) => (
-                <>
-                  <div className={styles.card_travelink_layout}>
-                    <CardTravelink favorite={favorite} />
-                  </div>
-                </>
+                <div css={styles.layoutCardTravelink} key={favorite.puclicId}>
+                  <CardTravelink favorite={favorite} />
+                </div>
               ))}
             </>
           ) : (

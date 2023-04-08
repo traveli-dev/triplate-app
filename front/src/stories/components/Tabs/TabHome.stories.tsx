@@ -1,7 +1,7 @@
-import { StoryObj, ComponentMeta } from '@storybook/react'
 import { TabHome } from '@/components/Tabs'
+import type { StoryObj, Meta } from '@storybook/react'
 
-export default {
+const meta: Meta<typeof TabHome> = {
   component: TabHome,
   argTypes: {
     userId: {
@@ -14,10 +14,15 @@ export default {
     favoriteList: {
       description: 'いいねしたみんなのたびトラべリンクのリストが入ります'
     }
-  }
-} as ComponentMeta<typeof TabHome>
+  },
+  tags: ['autodocs']
+}
 
-export const Default: StoryObj = {
+export default meta
+
+type Story = StoryObj<typeof TabHome>
+
+export const Default: Story = {
   args: {
     userId: 'opanchu',
 
@@ -58,7 +63,7 @@ export const Default: StoryObj = {
   }
 }
 
-export const NoData: StoryObj = {
+export const NoData: Story = {
   args: {
     userId: 'opanchu',
     myTravelinkList: [],

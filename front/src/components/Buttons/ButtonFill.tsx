@@ -1,5 +1,5 @@
 import React, { ButtonHTMLAttributes } from 'react'
-import styles from '@/styles/components/Buttons/ButtonFill.module.scss'
+import { styles } from '@/styles/components/Buttons/ButtonFill.styles'
 
 type ButtonFillProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   children: React.ReactNode
@@ -8,7 +8,7 @@ type ButtonFillProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 
 export const ButtonFill = ({ children, ...props }: ButtonFillProps) => {
   return (
-    <button className={styles.button} {...props}>
+    <button css={styles.button} {...props}>
       {children}
     </button>
   )
