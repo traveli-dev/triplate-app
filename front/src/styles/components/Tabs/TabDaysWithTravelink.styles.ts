@@ -20,8 +20,9 @@ export const styles = {
   tabSwitch: css`
     display: none;
     &:checked {
-      background-color: aqua;
-
+      & ~ div {
+        transform: translateX(30%);
+      }
       & + label {
         font-weight: bold;
         color: ${theme.color.blue};
@@ -39,9 +40,6 @@ export const styles = {
       & + label::after {
         opacity: 1;
         transform: translateX(0);
-      }
-      & ~ div {
-        transform: translateX(30%);
       }
     }
   `,
