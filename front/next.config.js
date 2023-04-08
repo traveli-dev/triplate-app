@@ -1,14 +1,9 @@
-const path = require('path')
 const withPWA = require('next-pwa')({ dest: 'public' })
 
-
 /** @type {import('next').NextConfig} */
-const nextConfig = withPWA({
+const nextConfig = {
   reactStrictMode: true,
   trailingSlash: false,
-  sassOptions: {
-    includePaths: [path.join(__dirname, './src/styles')]
-  },
   webpack: (config) => {
     config.watchOptions = {
       poll: 800,
@@ -16,6 +11,6 @@ const nextConfig = withPWA({
     }
     return config
   }
-})
+}
 
-module.exports = nextConfig
+module.exports = process.env.NODE_ENV === 'development' ? nextConfig : withPWA(nextConfig)
