@@ -7,8 +7,8 @@ export const styles = {
     min-height: 100px;
     height: calc(100% - 339px);
     position: relative;
-    /* overflow: hidden; */
-    background-color: ${theme.color.black};
+    overflow: hidden;
+    background-color: ${theme.color.bgBlue};
   `,
   tabs: css`
     display: flex;
@@ -22,10 +22,10 @@ export const styles = {
     &:checked {
       background-color: aqua;
 
-      & + .tabLabel {
+      & + label {
         font-weight: bold;
         color: ${theme.color.blue};
-        & + .tabContent {
+        & + div {
           order: 1;
           height: auto;
           pointer-events: auto;
@@ -33,14 +33,14 @@ export const styles = {
           transform: translateX(0);
         }
       }
-      & ~ .tabLabel::after {
+      & ~ label::after {
         transform: translateX(-100%);
       }
-      & + .tabLabel::after {
+      & + label::after {
         opacity: 1;
         transform: translateX(0);
       }
-      & ~ .tabContent {
+      & ~ div {
         transform: translateX(30%);
       }
     }
@@ -87,13 +87,12 @@ export const styles = {
   tabContent: css`
     position: absolute;
     top: 42px;
-    /* right: 0; */
     width: 100%;
     height: 100%;
     overflow-y: scroll;
     pointer-events: none;
-    background-color: ${theme.color.black};
-    /* opacity: 0; */
+    background-color: ${theme.color.bgBlue};
+    opacity: 0;
     transition: transform 0.3s 80ms, opacity 0.3s 80ms;
     transform: translateX(-30%);
   `

@@ -15,7 +15,6 @@ export const TabDaysWithTravelink = ({
     <div css={styles.wrapper}>
       <div css={styles.tabs} id="tabs">
         <input
-          className='tabSwitch'
           css={styles.tabSwitch}
           defaultChecked
           id="day1"

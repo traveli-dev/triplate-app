@@ -3,7 +3,11 @@ import type { StoryObj, Meta } from '@storybook/react'
 
 const meta: Meta<typeof TabDaysWithTravelink> = {
   component: TabDaysWithTravelink,
-  argTypes: {},
+  argTypes: {
+    travelinks: {
+      description: 'travelinkデータの配列が入ります'
+    }
+  },
   tags: ['autodocs']
 }
 
@@ -27,11 +31,3 @@ export const Default: Story = {
     ]
   }
 }
-
-// export const NoData: Story = {
-//   args: {
-//     userId: 'opanchu',
-//     myTravelinkList: [],
-//     favoriteList: []
-//   }
-// }
