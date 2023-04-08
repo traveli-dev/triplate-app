@@ -5,8 +5,8 @@ export const styles = {
   previewImageWrapper: css`
     width: 100%;
     height: 136px;
-    border-radius: 16px;
     overflow: hidden;
+    border-radius: 16px;
     &:hover,
     &:focus {
       border: 2px solid ${theme.color.outlineGray};
