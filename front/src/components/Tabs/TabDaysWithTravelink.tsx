@@ -42,9 +42,7 @@ export const TabDaysWithTravelink = ({
                   <div id={`tab${item.day}`}>{item.day}日目</div>
                 </label>
                 <div css={styles.tabContent}>
-                  <Container bgColor="blue" isFull>
-                    {item.name}
-                  </Container>
+                  <Container bgColor="blue">{item.name}</Container>
                 </div>
               </>
             )}
