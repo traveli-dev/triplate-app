@@ -4,9 +4,9 @@ import { mq } from '@/styles/utils'
 
 export const styles = {
   wrapper: css`
-    min-height: 100px;
-    height: calc(100% - 339px);
     position: relative;
+    height: calc(100% - 339px);
+    min-height: 100px;
     overflow: hidden;
     background-color: ${theme.color.bgBlue};
   `,
@@ -65,6 +65,24 @@ export const styles = {
       background: ${theme.color.bgBlue};
       ${mq('sm')} {
         background: none;
+      }
+    }
+
+    @media screen and (prefers-reduced-motion: reduce) {
+      &::after {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+        display: block;
+        width: 100%;
+        height: 3px;
+        pointer-events: none;
+        content: '';
+        background: ${theme.color.blue};
+        opacity: 0;
+        transition: none;
+        transform: translateX(100%);
       }
     }
 

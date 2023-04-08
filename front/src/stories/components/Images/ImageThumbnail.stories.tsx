@@ -1,16 +1,21 @@
-import { StoryObj, ComponentMeta } from '@storybook/react'
 import { ImageThumbnail } from '@/components/Images'
+import type { StoryObj, Meta } from '@storybook/react'
 
-export default {
+const meta: Meta<typeof ImageThumbnail> = {
   component: ImageThumbnail,
   argTypes: {
     url: {
       description: 'サムネイル画像のURLが入ります'
     }
-  }
-} as ComponentMeta<typeof ImageThumbnail>
+  },
+  tags: ['autodocs']
+}
 
-export const Default: StoryObj = {
+export default meta
+
+type Story = StoryObj<typeof ImageThumbnail>
+
+export const Default: Story = {
   args: {
     url: '/images/thumbnail_sample.jpg'
   }
