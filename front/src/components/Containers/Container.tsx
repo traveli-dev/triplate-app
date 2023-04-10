@@ -2,7 +2,7 @@ import React from 'react'
 import { styles } from '@/styles/components/Containers/Container.styles'
 
 export type ContainerProps = {
-  bgColor: 'white' | 'blue'
+  bgColor: 'white' | 'blue' | 'none'
   isFull?: boolean
   isCenter?: boolean
   children: React.ReactNode
