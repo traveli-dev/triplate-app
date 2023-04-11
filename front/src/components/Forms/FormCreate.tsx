@@ -1,6 +1,5 @@
 import { ButtonFill } from '@/components/Buttons'
-import { InputImage } from '@/components/Inputs/InputImage'
-import { InputText } from '@/components/Inputs/InputText'
+import { InputImage, InputText } from '@/components/Inputs'
 import { styles } from '@/styles/components/Forms/FormCreate.styles'
 
 export const FormCreate = () => {
