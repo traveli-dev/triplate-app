@@ -18,5 +18,10 @@ type Story = StoryObj<typeof InputText>
 export const Default: Story = {
   args: {
     placeholder: 'テキスト'
+  },
+  parameters: {
+    backgrounds: {
+      default: 'white'
+    }
   }
 }

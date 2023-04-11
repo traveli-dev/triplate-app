@@ -18,5 +18,10 @@ type Story = StoryObj<typeof InputImage>
 export const Default: Story = {
   args: {
     alt: 'img'
+  },
+  parameters: {
+    backgrounds: {
+      default: 'white'
+    }
   }
 }
