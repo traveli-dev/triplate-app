@@ -1,17 +1,20 @@
-import styles from '@/styles/components/Buttons/ButtonFollow.module.scss'
 import { HiOutlinePlus } from 'react-icons/hi'
+import styles from '@/styles/components/Buttons/ButtonFollow.module.scss'
+
 type ButtonFollowProps = {
   isFollowing: boolean
 }
 
-export const ButtonFollow = ({ isFollowing }: ButtonFollowProps) => {
+export const ButtonFollow = ({ isFollowing, ...props }: ButtonFollowProps) => {
   return isFollowing ? (
-    <button className={styles.button_following}>{'フォロー中'}</button>
+    <button css={styles.button_following} {...props}>
+      フォロー中
+    </button>
   ) : (
-    <button className={styles.button}>
-      <div className={styles.label_wrapper}>
+    <button css={styles.button}>
+      <div css={styles.label_wrapper}>
         <HiOutlinePlus size={12} />
-        {'フォロー'}
+        フォロー
       </div>
     </button>
   )
