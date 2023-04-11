@@ -1,4 +1,4 @@
-import { InputHTMLAttributes, useState } from 'react'
+import { InputHTMLAttributes } from 'react'
 import Image from 'next/image'
 import { HiOutlineUpload } from 'react-icons/hi'
 import { useInputImage } from '@/hooks/inputs'
@@ -8,10 +8,8 @@ type InputImageProps = InputHTMLAttributes<HTMLInputElement> & {
   alt: string
 }
 
-export const InputImage = ({ alt }: InputImageProps) => {
-  const [image, setImage] = useState<File | null>()
-  const { inputRef, onClickImage } = useInputImage()
-
+export const InputImage = ({ alt, ...props }: InputImageProps) => {
+  const { inputRef, image, onChangeImage, onClickImage } = useInputImage()
   return (
     <>
       <input
@@ -19,12 +17,8 @@ export const InputImage = ({ alt }: InputImageProps) => {
         css={styles.hidden}
         ref={inputRef}
         type="file"
-        onChange={(e) => {
-          if (e.target.files !== null) {
-            const file = e.target.files[0]
-            setImage(file)
-          }
-        }}
+        onChange={onChangeImage}
+        {...props}
       />
       {image ? (
         <div css={styles.previewImageWrapper}>
@@ -32,8 +26,7 @@ export const InputImage = ({ alt }: InputImageProps) => {
             alt={alt}
             css={styles.previewImage}
             fill
-            src={URL.createObjectURL(image as File)}
-            onClick={onClickImage}
+            src={URL.createObjectURL(image)}
           />
         </div>
       ) : (
