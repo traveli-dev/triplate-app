@@ -6,7 +6,7 @@ const Index = () => {
     <>
       <Header href="/" title="GoogleMapから追加" />
       <Container bgColor="blue" isFull>
-        <div>動作確認</div>
+        <div>あいうえお</div>
       </Container>
     </>
   )
