@@ -12,6 +12,11 @@ export const styles = {
     background-color: ${theme.color.white};
     border: 1px solid ${theme.color.outlineGray};
     border-radius: 16px;
+    transition: opacity 0.3s 0s ease;
+    &:hover,
+    &:focus {
+      opacity: 0.9;
+    }
   `,
   imgWrapper: css`
     z-index: 1;
@@ -23,21 +28,11 @@ export const styles = {
   img: css`
     position: relative !important;
     object-fit: cover;
-    transition: all 0.3s 0s ease;
-    .wrapper:hover &,
-    .wrapper:focus & {
-      opacity: 0.9;
-    }
   `,
   content: css`
     padding: 10px 16px;
     background-color: ${theme.color.white};
     border-radius: 0 0 16px 16px;
-    transition: all 0.3s 0s ease;
-    .wrapper:hover &,
-    .wrapper:focus & {
-      opacity: 0.9;
-    }
   `,
   title: css`
     margin: 0;

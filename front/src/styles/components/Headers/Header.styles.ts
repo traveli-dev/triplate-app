@@ -12,6 +12,7 @@ export const styles = {
     max-width: ${theme.breakpoint.md};
     height: 56px;
     background-color: ${theme.color.white};
+    border-bottom: 2px solid ${theme.color.bgGray};
   `,
   iconWrapper: css`
     position: absolute;
