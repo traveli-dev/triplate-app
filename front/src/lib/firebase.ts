@@ -1,6 +1,6 @@
+import { getAnalytics } from 'firebase/analytics'
 import { initializeApp, getApps, getApp } from 'firebase/app'
 import { connectFirestoreEmulator, getFirestore } from 'firebase/firestore'
-import { getAnalytics } from 'firebase/analytics'
 import 'firebase/analytics'
 import 'firebase/firestore'
 

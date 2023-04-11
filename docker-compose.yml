@@ -7,7 +7,6 @@ services:
     container_name: traveli-app
     environment:
       FIRESTORE_EMULATOR_HOST: "localhost:8080"
-    mem_limit: 1024m
     ports:
       - 3000:3000 # Next.js
       - 6006:6006 # Storybook
@@ -21,8 +20,10 @@ services:
       - ./front/firebase/db/local:/firebase/db/local
       - node_modules_volume:/home/app/node_modules:delegated
       - build_volume:/home/app/.next:nocopy
+      - build_storybook_volume:/home/app/build:nocopy
     tty: true
 
 volumes:
   node_modules_volume:
   build_volume:
+  build_storybook_volume:

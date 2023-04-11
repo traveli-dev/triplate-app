@@ -1,0 +1,10 @@
+export type Styles = {
+  wrapper: string
+  wrapper__lines: string
+}
+
+export type ClassNames = keyof Styles
+
+declare const styles: Styles
+
+export default styles

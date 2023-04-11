@@ -1,7 +1,7 @@
-import { StoryObj, ComponentMeta } from '@storybook/react'
 import { Header } from '@/components/Headers'
+import type { StoryObj, Meta } from '@storybook/react'
 
-export default {
+const meta: Meta<typeof Header> = {
   component: Header,
   argTypes: {
     href: {
@@ -10,15 +10,20 @@ export default {
     title: {
       description: 'h1'
     }
-  }
-} as ComponentMeta<typeof Header>
+  },
+  tags: ['autodocs']
+}
 
-export const Default: StoryObj = {
+export default meta
+
+type Story = StoryObj<typeof Header>
+
+export const Default: Story = {
   args: {
     href: '/'
   }
 }
-export const WithTitle: StoryObj = {
+export const WithTitle: Story = {
   args: {
     href: '/',
     title: '新しいトラベリンクを作成'
