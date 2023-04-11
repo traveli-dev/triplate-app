@@ -17,10 +17,14 @@ jobs:
     name: dispatch-repo-updated
     runs-on: ubuntu-latest
     steps:
+      - name: commit message to JSON
+        env:
+          COMMIT_MESSAGE: ${{ toJson(github.event.head_commit.message) }}
+      
       - name: dispatch repo updated
         uses: peter-evans/repository-dispatch@v2
         with:
           token: ${{ secrets.ACCESS_TOKEN }}
           repository: ${{ matrix.repo }}
           event-type: repo-updated
-          client-payload: '{"commit_message": "${{ github.event.head_commit.message }}"}'
+          client-payload: '{"commit_message": "${{ COMMIT_MESSAGE }}"}'
