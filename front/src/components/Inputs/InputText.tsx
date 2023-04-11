@@ -5,10 +5,13 @@ type InputTextProps = InputHTMLAttributes<HTMLInputElement> & {
   placeholder: string
 }
 
-export const InputText = ({ placeholder }: InputTextProps) => {
+export const InputText = ({ placeholder, ...props }: InputTextProps) => {
   return (
-    <>
-      <input css={styles.input} placeholder={placeholder} type="text" />
-    </>
+    <input
+      css={styles.input}
+      placeholder={placeholder}
+      type="text"
+      {...props}
+    />
   )
 }
