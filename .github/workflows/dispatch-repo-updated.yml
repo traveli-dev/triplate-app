@@ -29,4 +29,4 @@ jobs:
           token: ${{ secrets.ACCESS_TOKEN }}
           repository: ${{ matrix.repo }}
           event-type: repo-updated
-          client-payload: '{"commit_message": "${{ env.COMMIT_MESSAGE }}"}'
+          client-payload: '{"commit_message": "${COMMIT_MESSAGE}"}'
