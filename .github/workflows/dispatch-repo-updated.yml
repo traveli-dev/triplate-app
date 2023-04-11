@@ -1,0 +1,28 @@
+name: dispatch repo updated
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - front/**
+
+jobs:
+  dispatch-repo-updated:
+    strategy:
+      matrix:
+        repo:
+          - ${{ vars.REPO_SYNC }}
+
+    name: dispatch-repo-updated
+    runs-on: ubuntu-latest
+    steps:
+      - name: dispatch repo updated
+        uses: peter-evans/repository-dispatch@v2
+        env:
+          COMMIT_MESSAGE: ${{ toJson(github.event.head_commit.message) }}
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
+          repository: ${{ matrix.repo }}
+          event-type: repo-updated
+          client-payload: '{"commit_message": "${COMMIT_MESSAGE}"}'

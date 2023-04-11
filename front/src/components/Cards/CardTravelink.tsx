@@ -18,7 +18,7 @@ export const CardTravelink = ({ travelink, favorite }: CardTravelinkProps) => {
   return (
     <>
       {travelink && (
-        <Link className="wrapper" css={styles.wrapper} href="/">
+        <Link css={styles.wrapper} href="/">
           <div css={styles.imgWrapper}>
             <Image alt="img" css={styles.img} fill src={travelink.thumbnail} />
           </div>

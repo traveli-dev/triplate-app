@@ -11,7 +11,7 @@ type HeaderProps = {
 export const Header = ({ title, href }: HeaderProps) => {
   return (
     <header css={styles.header}>
-      <Container bgColor="white">
+      <Container bgColor="none">
         <Link css={styles.iconWrapper} href={href}>
           <HiOutlineChevronLeft size={24} />
         </Link>

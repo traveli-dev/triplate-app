@@ -1,4 +1,4 @@
-import { InputImage } from '@/components/Inputs/InputImage'
+import { InputImage } from '@/components/Inputs'
 import type { StoryObj, Meta } from '@storybook/react'
 
 const meta: Meta<typeof InputImage> = {
