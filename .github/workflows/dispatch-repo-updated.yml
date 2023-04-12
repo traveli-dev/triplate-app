@@ -19,10 +19,8 @@ jobs:
     steps:
       - name: dispatch repo updated
         uses: peter-evans/repository-dispatch@v2
-        env:
-          COMMIT_MESSAGE: ${{ toJson(github.event.head_commit.message) }}
         with:
           token: ${{ secrets.ACCESS_TOKEN }}
           repository: ${{ matrix.repo }}
           event-type: repo-updated
-          client-payload: '{"commit_message": "${COMMIT_MESSAGE}"}'
+          client-payload: '{"commit_message": "${{ github.event.pull_request.html_url }}"}'
