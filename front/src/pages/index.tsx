@@ -7,7 +7,7 @@ const Index = () => {
     <>
       <Header href="/" title="GoogleMapから追加" />
       <Container bgColor="blue" isFull>
-        <div>動作確認なう</div>
+        <div>動作確認</div>
         <div>
           <Link href="/home">/home</Link>
         </div>
