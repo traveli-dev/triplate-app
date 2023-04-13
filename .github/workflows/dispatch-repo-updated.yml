@@ -6,21 +6,75 @@ on:
       - main
     paths:
       - front/**
+  pull_request:
+    paths:
+      - front/**
+  delete:
+
+env:
+  STATUS : null
 
 jobs:
   dispatch-repo-updated:
     strategy:
       matrix:
-        repo:
-          - ${{ vars.REPO_SYNC }}
+        repo: 
+          - ${{ vars.SYNC_REPO_NAME }}
 
-    name: dispatch-repo-updated
+    name: dispatch repo updated
     runs-on: ubuntu-latest
     steps:
-      - name: dispatch repo updated
-        uses: peter-evans/repository-dispatch@v2
+      - name: checkout base repo
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
+        uses: actions/checkout@v3
+     
+      - name: update env if pull request opened or updated
+        if: github.event_name == 'pull_request' && github.event.pull_request.closed_at == null && github.event.pull_request.merged == false
+        run: |
+          echo "STATUS=pull-request" >> $GITHUB_ENV        
+      
+      - name: dispatch events when pull reqest is opened or updated
+        if: env.STATUS == 'pull-request'
+        uses: peter-evans/repository-dispatch@v2	    
         with:
           token: ${{ secrets.ACCESS_TOKEN }}
           repository: ${{ matrix.repo }}
-          event-type: repo-updated
-          client-payload: '{"commit_message": "${{ github.event.pull_request.html_url }}"}'
+          event-type: pull-request
+          client-payload: '{"commit_message": "${{ github.event.pull_request.html_url }}", "ref": "${{ github.head_ref }}", "type": "pull-request"}'
+
+      - name: update env if pull request merged
+        if: github.event_name == 'push'
+        run: |
+          echo "STATUS=merged" >> $GITHUB_ENV
+
+      - name: get number
+        if: env.STATUS == 'merged'
+        env: 
+          GH_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        run: |
+          number=$(gh pr list --base main --state merged --limit 1 --json number | jq '.[0].number')
+          echo "NUMBER=${number}" >> $GITHUB_ENV
+
+      - name: dispatch events when pull request merged
+        if: env.STATUS == 'merged'
+        uses: peter-evans/repository-dispatch@v2	    
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
+          repository: ${{ matrix.repo }}
+          event-type: merged
+          client-payload: '{"commit_message": "https://github.com/traveli-dev/traveli-app/pull/${{ env.NUMBER }}", "type": "merged"}'
+      
+      - name: update env if branch is deleted
+        if: github.event_name == 'delete'
+        run: |
+          echo "STATUS=deleted" >> $GITHUB_ENV
+      
+      - name: dispatch events when branch deleted
+        if: env.STATUS == 'deleted'
+        uses: peter-evans/repository-dispatch@v2	    
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
+          repository: ${{ matrix.repo }}
+          event-type: deleted
+          client-payload: '{"branch_name": "${{ github.event.ref }}", "type": "deleted"}'
