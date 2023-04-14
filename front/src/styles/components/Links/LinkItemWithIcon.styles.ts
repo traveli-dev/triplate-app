@@ -5,7 +5,7 @@ export const styles = {
   link: css`
     display: flex;
     align-items: center;
-    height: 50px;
+    height: 42px;
     padding-left: 8px;
     color: ${theme.color.black};
     text-decoration: none;
