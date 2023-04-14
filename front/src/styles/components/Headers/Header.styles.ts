@@ -6,7 +6,7 @@ export const styles = {
     /* 下に続く要素が重ならないようにする */
     position: sticky;
     top: 0;
-    z-index: 999;
+    z-index: 100;
     width: 100%;
     min-width: ${theme.breakpoint.sm};
     max-width: ${theme.breakpoint.md};

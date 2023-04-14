@@ -7,7 +7,7 @@ export const styles = {
     position: fixed;
     top: 0;
     bottom: 0;
-    z-index: 1000;
+    z-index: 500;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -24,7 +24,7 @@ export const styles = {
   content: (isOpen: boolean) => css`
     position: fixed;
     bottom: 0;
-    z-index: 1001;
+    z-index: 1000;
     box-sizing: border-box;
     width: 100%;
     max-width: ${theme.breakpoint.md};

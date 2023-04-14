@@ -5,7 +5,7 @@ export const styles = {
   wrapper: css`
     position: fixed;
     bottom: 0;
-    z-index: 999;
+    z-index: 100;
     box-sizing: border-box;
     display: flex;
     align-items: center;
