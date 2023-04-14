@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { Container } from '@/components/Containers'
 import { Header } from '@/components/Headers'
-import { BaseHalfModal } from '@/components/Modals/BaseHalfModal'
+import { ModalEdit } from '@/components/Modals'
 import { useDisclosure } from '@/hooks/modals'
 
 const Index = () => {
@@ -23,26 +23,7 @@ const Index = () => {
           <Link href="/travelink/123">/travelink/123</Link>
         </div>
       </Container>
-      <BaseHalfModal
-        ariaDescribedBy="modalBody"
-        ariaLabelledBy="modalHeader"
-        isOpen={isOpen}
-        onClose={onClose}
-      >
-        <p id="modalHeader">これがモーダルウィンドウです。</p>
-        <div id="modalBody">
-          <p>content/content</p>
-          <p>content/content</p>
-          <p>content/content</p>
-          <p>content/content</p>
-          <p>content/content</p>
-          <p>content/content</p>
-          <p>content/content</p>
-          <p>content/content</p>
-          <p>content/content</p>
-          <p>content/content</p>
-        </div>
-      </BaseHalfModal>
+      <ModalEdit isOpen={isOpen} onClose={onClose} />
     </>
   )
 }
