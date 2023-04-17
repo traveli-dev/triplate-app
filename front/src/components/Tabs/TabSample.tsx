@@ -1,3 +1,4 @@
+import React from 'react'
 import { Container } from '@/components/Containers'
 import { styles } from '@/styles/components/Tabs/TabSample.styles'
 
@@ -32,7 +33,7 @@ export const TabSample = ({ data }: TabSampleProps) => {
         {data.map((item) => (
           <>
             {item.name !== 1 && (
-              <>
+              <React.Fragment key={item.name}>
                 <input
                   css={styles.tabSwitch}
                   id={`tab${item.name}`}
@@ -48,7 +49,7 @@ export const TabSample = ({ data }: TabSampleProps) => {
                     {item.value}
                   </Container>
                 </div>
-              </>
+              </React.Fragment>
             )}
           </>
         ))}

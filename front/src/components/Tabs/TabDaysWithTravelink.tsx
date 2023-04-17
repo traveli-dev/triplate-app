@@ -1,3 +1,4 @@
+import React from 'react'
 import { Container } from '@/components/Containers'
 import { styles } from '@/styles/components/Tabs/TabDaysWithTravelink.styles'
 
@@ -29,12 +30,13 @@ export const TabDaysWithTravelink = ({
         </div>
 
         {travelinks.map((item) => (
-          <>
+          <React.Fragment key={item.day}>
             {item.day !== 1 && (
               <>
                 <input
                   css={styles.tabSwitch}
                   id={`day${item.day}`}
+                  key={item.day}
                   name="tab"
                   type="radio"
                 />
@@ -46,7 +48,7 @@ export const TabDaysWithTravelink = ({
                 </div>
               </>
             )}
-          </>
+          </React.Fragment>
         ))}
       </div>
     </div>
