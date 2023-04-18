@@ -6,11 +6,12 @@ export const styles = {
   wrapper: css`
     min-width: 52px;
     text-align: center;
+    cursor: pointer;
     background-color: ${theme.color.white};
     border: 0;
-    cursor: pointer;
 
-    &:hover {
+    &:hover,
+    &:focus {
       color: ${theme.color.blue};
       ${mq('sm')} {
         color: ${theme.color.black};
