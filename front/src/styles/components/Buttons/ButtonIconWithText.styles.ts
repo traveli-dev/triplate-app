@@ -5,10 +5,10 @@ import { mq } from '@/styles/utils'
 export const styles = {
   wrapper: css`
     min-width: 52px;
-    color: ${theme.color.black};
     text-align: center;
     background-color: ${theme.color.white};
     border: 0;
+    cursor: pointer;
 
     &:hover {
       color: ${theme.color.blue};
@@ -16,11 +16,6 @@ export const styles = {
         color: ${theme.color.black};
       }
     }
-
-    &:focus {
-      color: ${theme.color.black};
-    }
-
     &:active {
       color: ${theme.color.blue};
     }
