@@ -13,7 +13,7 @@ export const styles = {
     justify-content: center;
     width: 68rem;
     pointer-events: ${isOpen ? 'auto' : 'none'};
-    background-color: rgba(0, 0, 0, 0.25);
+    background-color: ${theme.color.bgGray}; 
     opacity: ${isOpen ? 1 : 0};
     transition: opacity ease-out 0.3s;
     ${mq('sm')} {
@@ -51,7 +51,7 @@ export const styles = {
     /* 本来は:focusも一緒につけた方がいいけど，focus-trapでモーダル開いた時に直近の要素にfocusが当たる（ばつボタンにfocusのstyleが当たる）のがなんか微妙なのでstyleは当てないようにした */
     /* stylelint-disable-next-line  a11y/selector-pseudo-class-focus */
     &:hover {
-      background-color: rgba(0, 0, 0, 0.05);
+      background-color: ${theme.color.bgGray};
     }
   `,
   header: css`

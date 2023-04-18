@@ -12,7 +12,7 @@ export const styles = {
     border-radius: 8px;
     &:hover,
     &:focus {
-      background-color: rgba(0, 0, 0, 0.05);
+      background-color: ${theme.color.bgGray};
     }
   `,
   icon: css`
