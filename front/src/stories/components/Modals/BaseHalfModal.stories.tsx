@@ -1,3 +1,4 @@
+import { Title, Subtitle, Description, Controls } from '@storybook/blocks'
 import { BaseHalfModal } from '@/components/Modals'
 import type { StoryObj, Meta } from '@storybook/react'
 
@@ -30,5 +31,17 @@ export const Default: Story = {
     onClose: () => null,
     title: '編集する',
     children: <p>あいうえお</p>
+  },
+  parameters: {
+    docs: {
+      page: () => (
+        <>
+          <Title />
+          <Subtitle />
+          <Description />
+          <Controls />
+        </>
+      )
+    }
   }
 }

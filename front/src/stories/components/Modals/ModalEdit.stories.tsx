@@ -1,3 +1,4 @@
+import { Title, Subtitle, Description, Controls } from '@storybook/blocks'
 import { ModalEdit } from '@/components/Modals'
 import type { StoryObj, Meta } from '@storybook/react'
 
@@ -22,5 +23,17 @@ export const Default: Story = {
   args: {
     isOpen: true,
     onClose: () => null
+  },
+  parameters: {
+    docs: {
+      page: () => (
+        <>
+          <Title />
+          <Subtitle />
+          <Description />
+          <Controls />
+        </>
+      )
+    }
   }
 }

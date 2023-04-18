@@ -13,7 +13,7 @@ export const styles = {
     justify-content: center;
     width: 68rem;
     pointer-events: ${isOpen ? 'auto' : 'none'};
-    background-color: ${theme.color.bgGray}; 
+    background-color: ${theme.color.bgGray};
     opacity: ${isOpen ? 1 : 0};
     transition: opacity ease-out 0.3s;
     ${mq('sm')} {
