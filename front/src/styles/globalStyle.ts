@@ -12,7 +12,12 @@ export const globalStyle = () => css`
       'Hiragino Sans', 'Meiryo', -apple-system, BlinkMacSystemFont, system-ui,
       sans-serif;
     line-height: 1.15;
+    color: ${theme.color.black};
     background-color: ${theme.color.bgGray};
+  }
+
+  a {
+    color: ${theme.color.black};
   }
 
   button,

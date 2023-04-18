@@ -22,7 +22,6 @@ export const styles = {
     justify-content: center;
     width: 40px;
     height: 40px;
-    color: ${theme.color.black};
     text-decoration: none;
     background-color: ${theme.color.white};
     border-radius: 50%;

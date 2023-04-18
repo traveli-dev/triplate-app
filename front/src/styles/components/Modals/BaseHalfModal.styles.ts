@@ -41,7 +41,6 @@ export const styles = {
     justify-content: center;
     width: 40px;
     height: 40px;
-    color: ${theme.color.black};
     text-align: right;
     cursor: pointer;
     background-color: ${theme.color.white};
@@ -63,6 +62,5 @@ export const styles = {
   `,
   title: css`
     font-size: ${theme.fontSize.lg};
-    color: ${theme.color.black};
   `
 }

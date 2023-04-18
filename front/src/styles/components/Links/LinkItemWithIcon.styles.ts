@@ -7,7 +7,6 @@ export const styles = {
     align-items: center;
     height: 42px;
     padding-left: 8px;
-    color: ${theme.color.black};
     text-decoration: none;
     border-radius: calc(42px / 2);
     &:hover,

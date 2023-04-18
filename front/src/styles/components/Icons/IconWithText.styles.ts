@@ -6,7 +6,6 @@ export const styles = {
     width: 80px;
     padding: 10px 0;
     font-size: ${theme.fontSize.sm};
-    color: ${theme.color.black};
     text-align: center;
     text-decoration: none;
     background-color: ${theme.color.white};

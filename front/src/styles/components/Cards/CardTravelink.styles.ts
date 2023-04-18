@@ -7,7 +7,6 @@ export const styles = {
     display: block;
     width: 100%;
     height: auto;
-    color: ${theme.color.black};
     text-decoration: none;
     background-color: ${theme.color.white};
     border: 1px solid ${theme.color.outlineGray};

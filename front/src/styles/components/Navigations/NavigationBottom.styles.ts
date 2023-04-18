@@ -30,7 +30,6 @@ export const styles = {
     }
   `,
   navItem: css`
-    color: ${theme.color.black};
     text-decoration: none;
   `,
   focus: css`
