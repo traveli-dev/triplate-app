@@ -5,22 +5,18 @@ import { mq } from '@/styles/utils'
 export const styles = {
   wrapper: css`
     min-width: 52px;
-    color: ${theme.color.black};
     text-align: center;
+    cursor: pointer;
     background-color: ${theme.color.white};
     border: 0;
 
-    &:hover {
+    &:hover,
+    &:focus {
       color: ${theme.color.blue};
       ${mq('sm')} {
         color: ${theme.color.black};
       }
     }
-
-    &:focus {
-      color: ${theme.color.black};
-    }
-
     &:active {
       color: ${theme.color.blue};
     }

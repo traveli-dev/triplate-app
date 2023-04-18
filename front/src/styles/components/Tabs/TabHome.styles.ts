@@ -21,7 +21,6 @@ export const styles = {
           padding: 6px 12px;
           margin-right: 8px;
           font-size: ${theme.fontSize.md};
-          color: ${theme.color.black};
           text-align: center;
           cursor: pointer;
           background-color: ${theme.color.white};
@@ -40,7 +39,6 @@ export const styles = {
         padding: 6px 12px;
         margin-right: 8px;
         font-size: ${theme.fontSize.md};
-        color: ${theme.color.black};
         text-align: center;
         cursor: pointer;
         background-color: ${theme.color.white};
