@@ -16,7 +16,7 @@ export const styles = {
     }
   `,
   icon: css`
-    margin-right: 25px;
+    margin-right: 24px;
   `,
   title: css`
     font-size: ${theme.fontSize.md};
