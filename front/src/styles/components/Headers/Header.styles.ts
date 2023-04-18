@@ -29,7 +29,7 @@ export const styles = {
     transform: translateY(-50%);
     &:hover,
     &:focus {
-      background-color: ${theme.color.bgBlue};
+      background-color: ${theme.color.bgGray};
     }
   `,
   title: css`

@@ -9,7 +9,7 @@ export const styles = {
     padding-left: 8px;
     color: ${theme.color.black};
     text-decoration: none;
-    border-radius: 8px;
+    border-radius: calc(42px / 2);
     &:hover,
     &:focus {
       background-color: ${theme.color.bgGray};
