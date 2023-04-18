@@ -59,7 +59,7 @@ export const styles = {
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
   `,
   title: css`
     font-size: ${theme.fontSize.lg};
