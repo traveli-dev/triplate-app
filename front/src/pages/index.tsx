@@ -3,6 +3,7 @@ import { Container } from '@/components/Containers'
 import { Header } from '@/components/Headers'
 import { ModalEdit } from '@/components/Modals'
 import { useDisclosure } from '@/hooks/modals'
+import { TravelListItem } from '@/components/travelLists'
 
 const Index = () => {
   const { isOpen, onClose, onOpen } = useDisclosure()
@@ -22,6 +23,7 @@ const Index = () => {
         <div>
           <Link href="/travelink/123">/travelink/123</Link>
         </div>
+        <TravelListItem date="" icon="link" title="" title_memo=""/>
       </Container>
       <ModalEdit isOpen={isOpen} onClose={onClose} />
     </>
