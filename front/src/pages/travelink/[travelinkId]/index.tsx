@@ -1,7 +1,7 @@
 import { ButtonIconWithText } from '@/components/Buttons'
 import { Container } from '@/components/Containers'
 import { ImageThumbnail } from '@/components/Images'
-import { TabDaysWithTravelink } from '@/components/Tabs'
+import { Tab } from '@/components/Tabs/Tab'
 import { styles } from '@/styles/pages/travelink/[travelinkId]/Travelink.styles'
 
 const Travelink = () => {
@@ -38,7 +38,7 @@ const Travelink = () => {
             <ButtonIconWithText iconType="public" />
           </div>
         </Container>
-        <TabDaysWithTravelink travelinks={data.travelinks} />
+        <Tab />
       </div>
     </>
   )
