@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { Container } from '@/components/Containers'
 import { Header } from '@/components/Headers'
+import { TravelListItem } from '@/components/travelLists'
 
 const Index = () => {
   return (
@@ -17,6 +18,7 @@ const Index = () => {
         <div>
           <Link href="/travelink/123">/travelink/123</Link>
         </div>
+        <TravelListItem date="" icon="link" title="" title_memo=""/>
       </Container>
     </>
   )
