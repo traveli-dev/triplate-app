@@ -64,7 +64,6 @@ export const styles = {
     display: flex;
     margin: 0 auto;
     & a {
-      /* display: inline-flex; */
       align-items: center;
       min-width: 91px;
       height: 28px;
@@ -85,7 +84,6 @@ export const styles = {
     height: 3px;
     background: ${theme.color.black};
     border-radius: 2px;
-    /* animation-name: navIndicatorAnimation; */
     transition: left 0.3s ease-out;
   `,
   active: css`
