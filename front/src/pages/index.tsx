@@ -3,7 +3,7 @@ import { Container } from '@/components/Containers'
 import { Header } from '@/components/Headers'
 import { ModalEdit } from '@/components/Modals'
 import { TravelList } from '@/components/travelLists'
-import { TravelListItemType } from '@/components/travelLists/TravelListItem'
+import { TravelListItemType } from '@/components/travelLists/TravelList'
 import { useDisclosure } from '@/hooks/modals'
 
 const Index = () => {
