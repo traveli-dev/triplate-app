@@ -13,8 +13,8 @@ const Index = () => {
     { icon: 'map', title: 'タイトル１', date: '18:00', memo: 'memomemo' },
     { icon: 'link', title: 'タイトル２', date: '18:00', memo: '' },
     { icon: 'ledger', title: 'タイトル３', date: '', memo: 'memomemo' },
-    { icon: 'map', title: 'タイトル４', date: '', memo: '' },
-]
+    { icon: 'map', title: 'タイトル４', date: '', memo: '' }
+  ]
   return (
     <>
       <Header href="/" title="GoogleMapから追加" />
@@ -30,7 +30,7 @@ const Index = () => {
         <div>
           <Link href="/travelink/123">/travelink/123</Link>
         </div>
-        <TravelList travelList={items}/>
+        <TravelList travelList={items} />
       </Container>
       <ModalEdit isOpen={isOpen} onClose={onClose} />
     </>

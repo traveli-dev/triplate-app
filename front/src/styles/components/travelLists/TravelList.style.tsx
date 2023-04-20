@@ -1,8 +1,7 @@
-import { css } from "@emotion/react";
-
+import { css } from '@emotion/react'
 
 export const styles = {
-    item:css`
-        margin-top: 16px;
-    `
+  item: css`
+    margin-top: 16px;
+  `
 }

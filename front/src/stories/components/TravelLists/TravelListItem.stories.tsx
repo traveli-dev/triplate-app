@@ -1,21 +1,21 @@
-import { Meta, StoryObj } from "@storybook/react"
-import { TravelListItem } from "@/components/travelLists"
+import { Meta, StoryObj } from '@storybook/react'
+import { TravelListItem } from '@/components/travelLists'
 
 const meta: Meta<typeof TravelListItem> = {
   component: TravelListItem,
   argTypes: {
     icon: {
-        description: 'アイコンのタイプが入ります'
-      },
+      description: 'アイコンのタイプが入ります'
+    },
     title: {
       description: 'タイトルが入ります'
     },
     date: {
-        description: '時間が入ります'
-      },
-      memo: {
-        description: 'テキストが入ります'
-      }
+      description: '時間が入ります'
+    },
+    memo: {
+      description: 'テキストが入ります'
+    }
   },
   tags: ['autodocs']
 }
@@ -39,13 +39,13 @@ export const Default: Story = {
 }
 
 export const WithoutDetails: Story = {
-    args: {
-      icon: 'link',
-      title: 'タイトル',
-    },
-    parameters: {
-      viewport: {
-        defaultViewport: 'pc'
-      }
+  args: {
+    icon: 'link',
+    title: 'タイトル'
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'pc'
     }
   }
+}
