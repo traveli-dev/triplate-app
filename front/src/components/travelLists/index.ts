@@ -1,1 +1,2 @@
-export {TravelListItem} from '@/components/travelLists/travelListItem'
+export {TravelListItem} from '@/components/travelLists/TravelListItem'
+export {TravelList} from '@/components/travelLists/TravelList'
