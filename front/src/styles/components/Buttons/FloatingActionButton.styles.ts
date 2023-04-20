@@ -2,6 +2,8 @@ import { css } from '@emotion/react'
 import { theme } from '@/styles/theme'
 import { mq } from '@/styles/utils'
 
+/* TODO:デザイン修正
+ボタンの色、ホバーの色 */
 export const styles = {
   button: css`
     /* 波紋の基点とするためrelativeを指定 */
