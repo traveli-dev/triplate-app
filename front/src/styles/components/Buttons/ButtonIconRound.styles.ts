@@ -1,17 +1,17 @@
-import { theme } from "@/styles/theme";
-import { mq } from "@/styles/utils";
-import { css } from "@emotion/react";
+import { css } from '@emotion/react'
+import { theme } from '@/styles/theme'
+import { mq } from '@/styles/utils'
 
 export const styles = {
-    button:css`
-    width:40px;
-    height:40px;
-    background: ${theme.color.white};
-   /* 波紋の基点とするためrelativeを指定 */
+  button: css`
+    /* 波紋の基点とするためrelativeを指定 */
     position: relative;
+    width: 40px;
+    height: 40px;
     /* はみ出す波紋を隠す */
     overflow: hidden;
     cursor: pointer;
+    background: ${theme.color.white};
     filter: drop-shadow(0 0 0.8px rgba(101, 119, 134, 0.2));
     border: 0;
     border-radius: 100px;
@@ -69,5 +69,5 @@ export const styles = {
         transform: scale(0.8);
       }
     }
-    `
+  `
 }

@@ -3,9 +3,9 @@ import type { StoryObj, Meta } from '@storybook/react'
 
 const meta: Meta<typeof ButtonIconRound> = {
   component: ButtonIconRound,
-  argTypes:{
-    icon:{
-        description:'iconの種類が入ります'
+  argTypes: {
+    icon: {
+      description: 'iconの種類が入ります'
     }
   },
   tags: ['autodocs']
@@ -17,7 +17,7 @@ type Story = StoryObj<typeof ButtonIconRound>
 
 export const Default: Story = {
   args: {
-   icon: 'back'
+    icon: 'back'
   },
   parameters: {
     viewport: {
