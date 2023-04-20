@@ -1,12 +1,10 @@
 import { TravelListItem } from "@/components/travelLists"
-import { styles } from "@/styles/components/travelLists/TravelList.style"
+import { styles } from "@/styles/components/TravelLists/TravelList.style"
 import { TravelListItemType } from "./TravelListItem"
 
 type TravelListProps = {
     travelList: TravelListItemType[]
 }
-
-
 
 export const TravelList = ({ travelList }: TravelListProps) => {
     return (<>

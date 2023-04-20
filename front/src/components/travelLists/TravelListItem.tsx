@@ -1,6 +1,6 @@
 import Image from "next/image"
 import { HiOutlineClock, HiOutlineDocumentText } from "react-icons/hi"
-import { styles } from "@/styles/components/travelLists/TravelListItem.styles"
+import { styles } from "@/styles/components/TravelLists/TravelListItem.styles"
 
 export type TravelListItemType = {
   icon: 'map' | 'link' | 'ledger'

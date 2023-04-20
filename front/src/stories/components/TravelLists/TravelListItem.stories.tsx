@@ -1,5 +1,5 @@
-import { TravelListItem } from "@/components/travelLists"
 import { Meta, StoryObj } from "@storybook/react"
+import { TravelListItem } from "@/components/travelLists"
 
 const meta: Meta<typeof TravelListItem> = {
   component: TravelListItem,
