@@ -16,8 +16,12 @@ export const styles = {
     }
   `,
   imgWrapper: (isGrid: boolean) => css`
-    width: ${isGrid ? '171px' : '100%'};
-    height: 171px;
+    width: ${isGrid ? '160px' : '100%'};
+    height: 160px;
+    ${mq('xs')} {
+      width: ${isGrid ? '150px' : '100%'};
+      height: ${isGrid ? '150px' : '171px'};
+    }
     margin: 0 auto;
     overflow: hidden;
     /* TODO: 無くなる可能性あり */
@@ -26,8 +30,8 @@ export const styles = {
     border-radius: ${isGrid ? '32px' : '16px'};
   `,
   img: css`
-    display: block;
     position: relative !important;
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
