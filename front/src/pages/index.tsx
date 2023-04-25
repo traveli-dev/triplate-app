@@ -1,18 +1,18 @@
 import Link from 'next/link'
+import { HiOutlineQrcode } from 'react-icons/hi'
+import { ButtonIconWIthTextHorizontal } from '@/components/Buttons/ButtonIconWithTextHorizontal'
 import { Container } from '@/components/Containers'
 import { Header } from '@/components/Headers'
-import { ModalEdit } from '@/components/Modals'
+import { ModalMember } from '@/components/Modals/ModalMember'
 import { useDisclosure } from '@/hooks/modals'
 
 const Index = () => {
-  const { isOpen, onClose, onOpen } = useDisclosure()
-
+  const { isOpen, onOpen, onClose } = useDisclosure()
   return (
     <>
       <Header href="/" title="GoogleMapから追加" />
-      <Container bgColor="blue" isFull>
+      <Container bgColor="blue">
         <div>動作確認なう</div>
-        <button onClick={onOpen}>モーダルを開ける</button>
         <div>
           <Link href="/home">/home</Link>
         </div>
@@ -23,7 +23,12 @@ const Index = () => {
           <Link href="/travelink/123">/travelink/123</Link>
         </div>
       </Container>
-      <ModalEdit isOpen={isOpen} onClose={onClose} />
+      <ButtonIconWIthTextHorizontal
+        Icon={HiOutlineQrcode}
+        title="aaaa"
+        onClick={onOpen}
+      />
+      <ModalMember isOpen={isOpen} onClose={onClose} />
     </>
   )
 }
