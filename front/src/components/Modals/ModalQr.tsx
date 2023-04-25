@@ -1,7 +1,5 @@
-import { HiOutlineInformationCircle } from 'react-icons/hi'
-import { LinkIconWithTextHorizontal } from '@/components/Links'
 import { BaseHalfModal } from '@/components/Modals'
-import { styles } from '@/styles/components/Modals/ModalEdit.styles'
+import { styles } from '@/styles/components/Modals/ModalQr.styles'
 
 type ModalQrProps = {
   isOpen: boolean
@@ -12,11 +10,7 @@ export const ModalQr = ({ isOpen, onClose }: ModalQrProps) => {
   return (
     <BaseHalfModal isOpen={isOpen} title="招待用QRコード" onClose={onClose}>
       <div css={styles.layoutLinkItem}>
-        <LinkIconWithTextHorizontal
-          Icon={HiOutlineInformationCircle}
-          href="/"
-          title="基本情報を編集"
-        />
+        <p css={styles.text}>QRコードを読み取ってください</p>
       </div>
     </BaseHalfModal>
   )
