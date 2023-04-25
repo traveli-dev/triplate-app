@@ -1,7 +1,10 @@
 import { ButtonIconWithText } from '@/components/Buttons'
 import { Container } from '@/components/Containers'
 import { ImageThumbnail } from '@/components/Images'
+import { ModalEdit, ModalMemo, ModalShare } from '@/components/Modals'
+import { ModalMember } from '@/components/Modals/ModalMember'
 import { TabDaysWithTravelink } from '@/components/Tabs'
+import { useDisclosure } from '@/hooks/modals'
 import { styles } from '@/styles/pages/travelink/[travelinkId]/Travelink.styles'
 
 const Travelink = () => {
@@ -21,6 +24,31 @@ const Travelink = () => {
       { day: 10, name: 'jjj' }
     ]
   }
+
+  const {
+    isOpen: editIsOpen,
+    onClose: editOnClose,
+    onOpen: editOnOpen
+  } = useDisclosure()
+
+  const {
+    isOpen: memoIsOpen,
+    onClose: memoOnClose,
+    onOpen: memoOnOpen
+  } = useDisclosure()
+
+  const {
+    isOpen: shareIsOpen,
+    onClose: shareOnClose,
+    onOpen: shareOnOpen
+  } = useDisclosure()
+
+  const {
+    isOpen: memberIsOpen,
+    onClose: memberOnClose,
+    onOpen: memberOnOpen
+  } = useDisclosure()
+
   return (
     <>
       <ImageThumbnail url={data.url} />
@@ -31,13 +59,16 @@ const Travelink = () => {
           <h1 css={styles.title}>田舎にゆったり旅行</h1>
           <p css={styles.date}>2023.03.25 - 2023.03.27</p>
           <div css={styles.layoutButtonIconWithText}>
-            <ButtonIconWithText iconType="members" />
-            <ButtonIconWithText iconType="memo" />
-            <ButtonIconWithText iconType="share" />
-            <ButtonIconWithText iconType="edit" />
-            <ButtonIconWithText iconType="public" />
+            <ButtonIconWithText iconType="members" onClick={memberOnOpen} />
+            <ButtonIconWithText iconType="memo" onClick={memoOnOpen} />
+            <ButtonIconWithText iconType="share" onClick={shareOnOpen} />
+            <ButtonIconWithText iconType="edit" onClick={editOnOpen} />
           </div>
         </Container>
+        <ModalMember isOpen={memberIsOpen} onClose={memberOnClose} />
+        <ModalEdit isOpen={editIsOpen} onClose={editOnClose} />
+        <ModalMemo isOpen={memoIsOpen} onClose={memoOnClose} />
+        <ModalShare isOpen={shareIsOpen} onClose={shareOnClose} />
         <TabDaysWithTravelink travelinks={data.travelinks} />
       </div>
     </>

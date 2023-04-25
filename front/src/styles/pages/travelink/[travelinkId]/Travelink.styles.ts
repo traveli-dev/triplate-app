@@ -28,5 +28,6 @@ export const styles = {
   `,
   layoutButtonIconWithText: css`
     margin: 16px 0;
+    text-align: center;
   `
 }
