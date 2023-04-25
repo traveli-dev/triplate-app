@@ -6,7 +6,7 @@ export const styles = {
     display: flex;
     & > p {
       margin: auto 0;
-      font-size: ${theme.fontSize.sm};
+      font-size: ${theme.fontSize.xs};
     }
   `,
   layoutAvatar: css`
