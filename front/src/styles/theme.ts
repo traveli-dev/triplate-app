@@ -13,7 +13,8 @@ const color = {
 } as const
 
 const fontSize = {
-  sm: '1.2rem',
+  xs: '1.2rem',
+  sm: '1.4rem',
   md: '1.6rem',
   lg: '2.0rem',
   xl: '2.4rem'

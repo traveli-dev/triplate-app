@@ -22,7 +22,7 @@ export const styles = {
     }
     & > p {
       margin: 16px 0;
-      font-size: ${theme.fontSize.sm};
+      font-size: ${theme.fontSize.xs};
     }
   `
 }

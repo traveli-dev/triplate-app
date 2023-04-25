@@ -11,15 +11,15 @@ type CardTravelinkProps = {
   }
 }
 
-export const CardTravelink = ({ data }: CardTravelinkProps) => {
+export const CardTravelink = ({ data, isSquare }: CardTravelinkProps) => {
   return (
     <div css={styles.wrapper}>
-      <div css={styles.imgWrapper}>
+      <div css={styles.imgWrapper(isSquare)}>
         <Image alt="" css={styles.img} fill src={data.thumbnail} />
       </div>
-      <div css={styles.description}>
-        <h2 css={styles.title}>{data.title}</h2>
-        <p css={styles.date}>{data.date}</p>
+      <div css={styles.description(isSquare)}>
+        <h2 css={styles.title(isSquare)}>{data.title}</h2>
+        <p css={styles.date(isSquare)}>{data.date}</p>
       </div>
     </div>
   )

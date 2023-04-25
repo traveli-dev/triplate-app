@@ -22,7 +22,7 @@ export const styles = {
   `,
   nav: css`
     width: 100%;
-    font-size: ${theme.fontSize.sm};
+    font-size: ${theme.fontSize.xs};
     text-align: center;
     list-style: none;
     p {

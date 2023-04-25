@@ -24,7 +24,7 @@ export const styles = {
     span {
       display: block;
       margin: 6px 0 0 0;
-      font-size: ${theme.fontSize.sm};
+      font-size: ${theme.fontSize.xs};
     }
   `
 }

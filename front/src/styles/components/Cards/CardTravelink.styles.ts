@@ -14,31 +14,33 @@ export const styles = {
       opacity: 0.9;
     }
   `,
-  imgWrapper: css`
-    width: 100%;
+  imgWrapper: (isGrid: boolean) => css`
+    width: ${isGrid ? '171px' : '100%'};
     height: 171px;
     overflow: hidden;
     /* TODO: 無くなる可能性あり */
     filter: drop-shadow(2px 2px 15px rgba(0, 0, 0, 0.2));
     border: 1px solid ${theme.color.bgGray};
-    border-radius: 16px;
+    border-radius: ${isGrid ? '32px' : '16px'};
   `,
   img: css`
     position: relative !important;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
   `,
-  title: css`
-    margin: 0;
-    font-size: ${theme.fontSize.md};
+  title: (isGrid: boolean) => css`
+    font-size: ${isGrid ? theme.fontSize.sm : theme.fontSize.md};
     font-weight: 600;
   `,
-  description: css`
+  description: (isGrid: boolean) => css`
     margin-top: 16px;
     margin-left: 14px;
+    text-align: ${isGrid ? 'center' : 'start'};
   `,
-  date: css`
-    margin-top: 8px;
-    font-size: ${theme.fontSize.sm};
+  date: (isGrid: boolean) => css`
+    margin-top: ${isGrid ? '6px' : '8px'};
+    font-size: ${theme.fontSize.xs};
     color: ${theme.color.gray};
   `
 }

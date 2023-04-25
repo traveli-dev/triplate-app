@@ -11,7 +11,7 @@ export const styles = {
   chip: css`
     padding: 8px;
     margin: 8px 8px 0 0;
-    font-size: ${theme.fontSize.sm};
+    font-size: ${theme.fontSize.xs};
     background-color: ${theme.color.bgGray};
     border-radius: 4px;
   `

@@ -16,6 +16,7 @@ type TabHomeProps = {
 
 export const TabHome = ({ data }: TabHomeProps) => {
   const [value, setValue] = useState<string>('all')
+  const [isSquare, setIsSquare] = useState(false)
 
   const travelinkData = data.map(({ thumbnail, date, title, id }) => ({
     thumbnail,
@@ -26,6 +27,13 @@ export const TabHome = ({ data }: TabHomeProps) => {
 
   return (
     <>
+      <button
+        onClick={() => {
+          setIsSquare(!isSquare)
+        }}
+      >
+        きりかえ
+      </button>
       <div css={styles.tabs}>
         <label>
           <input
@@ -68,14 +76,12 @@ export const TabHome = ({ data }: TabHomeProps) => {
             <>
               {travelinkData.map((travelink) => (
                 <div css={styles.layoutCardTravelink} key={travelink.id}>
-                  <CardTravelink data={travelink} isSquare={false} />
+                  <CardTravelink data={travelink} isSquare={isSquare} />
                 </div>
               ))}
             </>
           ) : (
-            <>
-              <p>トラべリンクがないです</p>
-            </>
+            <p>トラべリンクがないです</p>
           )}
         </>
       )}
