@@ -1,7 +1,15 @@
 import { css } from '@emotion/react'
 import { theme } from '@/styles/theme'
+import { mq } from '@/styles/utils'
 
 export const styles = {
+  grid: (isGrid: boolean) => css`
+    display: grid;
+    grid-template-columns: ${isGrid ? '1fr 1fr 1fr' : '1fr'};
+    ${mq('sm')} {
+      grid-template-columns: ${isGrid ? '1fr 1fr' : '1fr'};
+    }
+  `,
   layoutCardTravelink: css`
     margin-bottom: 32px;
   `,
