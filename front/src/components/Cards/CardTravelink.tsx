@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { AvatarWithText } from '@/components/Avatars'
-import { ChipTag } from '@/components/Chips'
+import { ChipTagList } from '@/components/Chips'
 import type {
   FavoriteDataType,
   TravelinkDataType
@@ -29,6 +29,8 @@ export const CardTravelink = ({ travelink, favorite }: CardTravelinkProps) => {
             </p>
             <div css={styles.layoutAvatarWithText}>
               <AvatarWithText
+                avatarSize="sm"
+                fontSize="sm"
                 name={travelink.ownerName}
                 url={travelink.thumbnail}
               />
@@ -44,7 +46,7 @@ export const CardTravelink = ({ travelink, favorite }: CardTravelinkProps) => {
           <div css={styles.content}>
             <p css={styles.title}>{favorite.title}</p>
             <div css={styles.layoutChipTag}>
-              <ChipTag css={styles.layoutChipTag} tag={favorite.tag} />
+              <ChipTagList css={styles.layoutChipTag} tagList={favorite.tag} />
             </div>
           </div>
         </Link>
