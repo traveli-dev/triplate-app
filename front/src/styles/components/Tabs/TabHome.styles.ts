@@ -3,7 +3,7 @@ import { theme } from '@/styles/theme'
 
 export const styles = {
   layoutCardTravelink: css`
-    margin-bottom: 16px;
+    margin-bottom: 32px;
   `,
   tabs: css`
     position: relative;
