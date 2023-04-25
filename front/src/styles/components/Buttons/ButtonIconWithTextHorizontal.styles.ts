@@ -5,13 +5,13 @@ export const styles = {
   button: css`
     display: flex;
     align-items: center;
+    width: 100%;
     height: 42px;
     padding-left: 8px;
-    border: 0;
-    border-radius: calc(42px / 2);
     cursor: pointer;
     background-color: transparent;
-    width: 100%;
+    border: 0;
+    border-radius: calc(42px / 2);
 
     &:hover {
       background-color: ${theme.color.bgGray};

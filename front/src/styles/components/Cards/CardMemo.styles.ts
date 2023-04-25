@@ -3,33 +3,33 @@ import { theme } from '@/styles/theme'
 
 export const styles = {
   memoWrapper: css`
+    padding: 20px 24px;
     background-color: ${theme.color.bgGray};
     border-radius: 16px;
-    padding: 20px 24px;
   `,
   memo: css`
-    list-style: none;
-    padding: 0;
     display: flex;
     flex-direction: column;
     gap: 8px;
+    padding: 0;
+    list-style: none;
     li {
       display: flex;
       font-size: ${theme.fontSize.md};
     }
   `,
   title: css`
+    flex-grow: 1;
     font-weight: bold;
     /* width: 70px; */
     text-align: start;
-    flex-grow: 1;
   `,
   item: css`
-    flex-grow: 2;
-    text-align: end;
     display: flex;
     flex-direction: column;
+    flex-grow: 2;
     gap: 4px;
+    text-align: end;
     li > label {
       flex-grow: 1;
       line-height: 25px;
@@ -37,26 +37,26 @@ export const styles = {
   `,
   checkbox: css`
     position: relative;
-    height: 25px;
-    width: 25px;
     display: inline-block;
-    border-radius: 8px;
-    border: 2px solid ${theme.color.gray};
+    width: 25px;
+    height: 25px;
+    margin: 0;
     background: #fff;
+    border: 2px solid ${theme.color.gray};
+    border-radius: 8px;
     -webkit-appearance: none;
     appearance: none;
-    margin: 0;
     &:checked {
-      border: none;
       background: ${theme.color.black};
+      border: none;
       &::before,
       ::after {
+        position: absolute;
         display: block;
         content: '';
-        position: absolute;
+        background: #fff;
         border-radius: 2px;
         transform: rotate(45deg);
-        background: #fff;
       }
       &::before {
         bottom: 9px;

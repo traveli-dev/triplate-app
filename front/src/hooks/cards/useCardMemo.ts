@@ -45,7 +45,7 @@ export const useCardMemo = (id: string) => {
     const checkedList = getCheckedList()
     setCheckedData(checkedList)
   }, [])
-  
+
   return {
     checkedData,
     setCheckedData,
