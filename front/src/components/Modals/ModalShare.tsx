@@ -21,10 +21,11 @@ export const ModalShare = ({ isOpen, onClose }: ModalShareProps) => {
     <>
       <BaseHalfModal isOpen={isOpen} title="共有する" onClose={onClose}>
         <div css={styles.layoutLinkItem}>
+          {/* TODO:URLをコピーする機能をonClickに渡す */}
           <ButtonIconWIthTextHorizontal
             Icon={HiOutlineLink}
             title="URLをコピー"
-            onClick={() => console.log('コピー機能')}
+            onClick={onClose}
           />
         </div>
         <div css={styles.layoutLinkItem}>
@@ -38,12 +39,11 @@ export const ModalShare = ({ isOpen, onClose }: ModalShareProps) => {
           />
         </div>
         <div css={styles.layoutLinkItem}>
+          {/* TODO:端末のデフォルトのシェアモーダルを呼び出す機能をonClickに渡す */}
           <ButtonIconWIthTextHorizontal
             Icon={HiOutlineUpload}
             title="その他"
-            onClick={() =>
-              console.log('端末のデフォルトの共有モーダル開く機能')
-            }
+            onClick={onClose}
           />
         </div>
       </BaseHalfModal>
