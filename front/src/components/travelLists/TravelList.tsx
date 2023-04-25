@@ -1,5 +1,5 @@
 import { TravelListItem } from '@/components/travelLists'
-import { styles } from '@/styles/components/TravelLists/TravelList.style'
+import { styles } from '@/styles/components/TravelLists/TravelListItem.styles'
 
 export type TravelListItemType = {
   icon: 'map' | 'link' | 'ledger'
