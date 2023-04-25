@@ -40,7 +40,7 @@ export const CardMemo = ({ id, budget, items, memo }: CardMemoProps) => {
         </li>
         <li>
           <p css={styles.title}>予算</p>
-          <p css={styles.item}>{budget}円</p>
+          <p css={styles.item}>{budget ? <>{budget}円</> : '０円'}</p>
         </li>
         <li>
           <p css={styles.title}>メモ</p>
