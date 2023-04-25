@@ -4,27 +4,27 @@ import { mq } from '@/styles/utils'
 
 export const styles = {
   wrapper: css`
-    display: inline-block;
     position: relative;
+    display: inline-block;
     vertical-align: middle;
 
     select {
-      font-size: ${theme.fontSize.md};
-      appearance: none;
       width: 120px;
       padding: 8px 16px;
-      border: 2px solid ${theme.color.bgGray};
-      outline: 0;
-      border-radius: 100px;
-      background: #fff;
-      box-shadow: none;
+      font-size: ${theme.fontSize.md};
       text-overflow: ellipsis;
       cursor: pointer;
-      &:hover {
+      background: #fff;
+      border: 2px solid ${theme.color.bgGray};
+      border-radius: 100px;
+      outline: 0;
+      box-shadow: none;
+      appearance: none;
+      &:hover,
+      &:focus {
         background-color: ${theme.color.bgGray};
-        ${mq('sm')}{
-        background-color: ${theme.color.white};
-
+        ${mq('sm')} {
+          background-color: ${theme.color.white};
         }
       }
     }
@@ -32,13 +32,13 @@ export const styles = {
       position: absolute;
       top: 50%;
       right: 16px;
-      margin-top: -7px;
-      content: '';
       width: 10px;
       height: 10px;
+      margin-top: -7px;
+      content: '';
       border: 0;
-      border-bottom: solid 2px ${theme.color.gray};
       border-right: solid 2px ${theme.color.gray};
+      border-bottom: solid 2px ${theme.color.gray};
       transform: rotate(45deg);
     }
   `

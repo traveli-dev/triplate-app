@@ -3,13 +3,13 @@ import { theme } from '@/styles/theme'
 
 export const styles = {
   layoutLinkItem: css`
-    margin-top: 8px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    margin-top: 8px;
   `,
   title: css`
-    font-size: ${theme.fontSize.lg};
     margin: 32px 0 0 0;
+    font-size: ${theme.fontSize.lg};
   `
 }
