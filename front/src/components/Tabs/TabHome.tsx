@@ -73,13 +73,13 @@ export const TabHome = ({ data }: TabHomeProps) => {
       {value === 'all' && (
         <>
           {travelinkData.length ? (
-            <>
+            <div css={styles.grid(isSquare)}>
               {travelinkData.map((travelink) => (
                 <div css={styles.layoutCardTravelink} key={travelink.id}>
                   <CardTravelink data={travelink} isSquare={isSquare} />
                 </div>
               ))}
-            </>
+            </div>
           ) : (
             <p>トラべリンクがないです</p>
           )}

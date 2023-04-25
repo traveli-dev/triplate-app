@@ -21,6 +21,7 @@ const fontSize = {
 } as const
 
 const breakpoint = {
+  xs: '27rem',
   sm: '32rem',
   md: '68rem'
 } as const

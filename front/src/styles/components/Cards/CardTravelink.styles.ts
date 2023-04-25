@@ -1,5 +1,6 @@
 import { css } from '@emotion/react'
 import { theme } from '@/styles/theme'
+import { mq } from '@/styles/utils'
 
 export const styles = {
   wrapper: css`
@@ -17,6 +18,7 @@ export const styles = {
   imgWrapper: (isGrid: boolean) => css`
     width: ${isGrid ? '171px' : '100%'};
     height: 171px;
+    margin: 0 auto;
     overflow: hidden;
     /* TODO: 無くなる可能性あり */
     filter: drop-shadow(2px 2px 15px rgba(0, 0, 0, 0.2));
@@ -24,6 +26,7 @@ export const styles = {
     border-radius: ${isGrid ? '32px' : '16px'};
   `,
   img: css`
+    display: block;
     position: relative !important;
     width: 100%;
     height: 100%;
@@ -35,7 +38,7 @@ export const styles = {
   `,
   description: (isGrid: boolean) => css`
     margin-top: 16px;
-    margin-left: 14px;
+    margin-left: ${isGrid ? '0' : '14px'};
     text-align: ${isGrid ? 'center' : 'start'};
   `,
   date: (isGrid: boolean) => css`

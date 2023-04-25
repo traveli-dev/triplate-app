@@ -23,6 +23,15 @@ const Home = () => {
       date: ['2023.03.25', '2023.03.27'] as [string, string],
       ownerName: 'うさぎ',
       ownerIcon: '/images/user_sample.jpeg'
+    },
+    {
+      id: 'def',
+      ownerId: 'usagi',
+      title: '鳥取４人旅',
+      thumbnail: '/images/user_sample.jpeg',
+      date: ['2023.03.25', '2023.03.27'] as [string, string],
+      ownerName: 'うさぎ',
+      ownerIcon: '/images/user_sample.jpeg'
     }
   ]
 
