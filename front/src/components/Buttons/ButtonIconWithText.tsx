@@ -1,3 +1,4 @@
+import { ButtonHTMLAttributes } from 'react'
 import {
   HiOutlineUsers,
   HiOutlineDocumentText,
@@ -7,14 +8,17 @@ import {
 } from 'react-icons/hi'
 import { styles } from '@/styles/components/Buttons/ButtonIconWithText.styles'
 
-type ButtonIconWithTextProps = {
+type ButtonIconWithTextProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   iconType: 'members' | 'memo' | 'share' | 'edit' | 'public'
 }
 
-export const ButtonIconWithText = ({ iconType }: ButtonIconWithTextProps) => {
+export const ButtonIconWithText = ({
+  iconType,
+  ...props
+}: ButtonIconWithTextProps) => {
   return (
     <>
-      <button css={styles.wrapper}>
+      <button css={styles.wrapper} {...props}>
         {iconType === 'members' && (
           <>
             <HiOutlineUsers size={20} />
