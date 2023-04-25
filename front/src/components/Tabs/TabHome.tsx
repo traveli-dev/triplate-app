@@ -1,46 +1,28 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { CardTravelink } from '@/components/Cards'
 import { styles } from '@/styles/components/Tabs/TabHome.styles'
 
-// 仮置きの型設定
-// TODO:本実装のタイミングでtypeの内容とexport場所を変更
-export type TravelinkDataType = {
-  id: string
-  ownerId: string
-  title: string
-  thumbnail: string
-  date: string[]
-  ownerName: string
-  ownerIcon: string
-}
-
-// 仮置きの型設定
-// TODO:本実装のタイミングでtypeの内容とexport場所を変更
-export type FavoriteDataType = {
-  puclicId: string
-  title: string
-  thumbnail: string
-  tag: string[]
-}
-
 type TabHomeProps = {
-  userId: string
-  myTravelinkList: TravelinkDataType[]
-  favoriteList: FavoriteDataType[]
+  data: {
+    id: string
+    ownerId: string
+    title: string
+    thumbnail: string
+    date: [string, string]
+    ownerName: string
+    ownerIcon: string
+  }[]
 }
 
-export const TabHome = ({
-  userId,
-  myTravelinkList,
-  favoriteList
-}: TabHomeProps) => {
+export const TabHome = ({ data }: TabHomeProps) => {
   const [value, setValue] = useState<string>('all')
-  const [joinedList, setJoinedList] = useState<TravelinkDataType[]>([])
 
-  useEffect(() => {
-    const list = myTravelinkList.filter((item) => item.ownerId !== userId)
-    if (list) setJoinedList(list)
-  }, [])
+  const travelinkData = data.map(({ thumbnail, date, title, id }) => ({
+    thumbnail,
+    date,
+    title,
+    id
+  }))
 
   return (
     <>
@@ -82,11 +64,11 @@ export const TabHome = ({
       </div>
       {value === 'all' && (
         <>
-          {myTravelinkList.length ? (
+          {travelinkData.length ? (
             <>
-              {myTravelinkList.map((travelink) => (
+              {travelinkData.map((travelink) => (
                 <div css={styles.layoutCardTravelink} key={travelink.id}>
-                  <CardTravelink travelink={travelink} />
+                  <CardTravelink data={travelink} isSquare={false} />
                 </div>
               ))}
             </>
@@ -97,40 +79,8 @@ export const TabHome = ({
           )}
         </>
       )}
-      {value === 'join' && (
-        <>
-          {joinedList.length ? (
-            <>
-              {joinedList.map((item) => (
-                <div css={styles.layoutCardTravelink} key={item.id}>
-                  <CardTravelink travelink={item} />
-                </div>
-              ))}
-            </>
-          ) : (
-            <>
-              <p>参加中のトラべリンクがないです</p>
-            </>
-          )}
-        </>
-      )}
-      {value === 'favorite' && (
-        <>
-          {favoriteList.length ? (
-            <>
-              {favoriteList.map((favorite) => (
-                <div css={styles.layoutCardTravelink} key={favorite.puclicId}>
-                  <CardTravelink favorite={favorite} />
-                </div>
-              ))}
-            </>
-          ) : (
-            <>
-              <p>いいねしたみんなのたびがないです</p>
-            </>
-          )}
-        </>
-      )}
+      {value === 'join' && <p>参加中のトラべリンクがないです</p>}
+      {value === 'favorite' && <p>いいねしたみんなのたびがないです</p>}
     </>
   )
 }
