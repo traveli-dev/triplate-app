@@ -14,10 +14,10 @@ export const ButtonIconWIthTextHorizontal = ({
 }: ButtonIconWIthTextHorizontalProps) => {
   return (
     <button css={styles.button} onClick={onClick}>
-      <div css={styles.icon}>
+      <span css={styles.icon}>
         <Icon size={32} />
-      </div>
-      <p css={styles.title}>{title}</p>
+      </span>
+      <span css={styles.title}>{title}</span>
     </button>
   )
 }
