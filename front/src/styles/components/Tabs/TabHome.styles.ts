@@ -26,10 +26,10 @@ export const styles = {
     background-color: transparent;
     border: none;
     &:hover {
-      color: ${theme.color.black};
+      color: ${theme.color.blue};
     }
     &:focus {
-      color: ${theme.color.blue};
+      color: ${theme.color.black};
     }
   `,
   tabs: css`
