@@ -36,7 +36,7 @@ export const Default: Story = {
         ownerName: 'うさぎ',
         ownerIcon: '/images/user_sample.jpeg'
       }
-    ],
+    ]
   }
 }
 

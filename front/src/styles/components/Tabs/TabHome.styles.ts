@@ -6,6 +6,8 @@ export const styles = {
   grid: (isGrid: boolean) => css`
     display: grid;
     grid-template-columns: ${isGrid ? '1fr 1fr 1fr' : '1fr'};
+    gap: 32px 16px;
+    width: 100%;
     ${mq('sm')} {
       grid-template-columns: ${isGrid ? '1fr 1fr' : '1fr'};
     }
