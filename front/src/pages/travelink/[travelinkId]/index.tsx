@@ -1,8 +1,12 @@
 import { ButtonIconWithText } from '@/components/Buttons'
 import { Container } from '@/components/Containers'
 import { ImageThumbnail } from '@/components/Images'
-import { ModalEdit, ModalMemo, ModalShare } from '@/components/Modals'
-import { ModalMember } from '@/components/Modals/ModalMember'
+import {
+  ModalEdit,
+  ModalMemo,
+  ModalShare,
+  ModalMember
+} from '@/components/Modals'
 import { TabDaysWithTravelink } from '@/components/Tabs'
 import { useDisclosure } from '@/hooks/modals'
 import { styles } from '@/styles/pages/travelink/[travelinkId]/Travelink.styles'
