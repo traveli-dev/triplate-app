@@ -3,7 +3,7 @@ import { HiOutlineQrcode } from 'react-icons/hi'
 import { ButtonIconWIthTextHorizontal } from '@/components/Buttons/ButtonIconWithTextHorizontal'
 import { Container } from '@/components/Containers'
 import { Header } from '@/components/Headers'
-import { ModalMember } from '@/components/Modals/ModalMember'
+import { ModalMember } from '@/components/Modals'
 import { useDisclosure } from '@/hooks/modals'
 
 const Index = () => {
