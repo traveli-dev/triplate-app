@@ -10,7 +10,7 @@ type ModalMemoProps = {
 }
 
 export const ModalMemo = ({ isOpen, onClose }: ModalMemoProps) => {
-  const tabimemo = {
+  const data = {
     id: 'abcde', // travelinkのid
     budget: '0',
     items: ['自撮り棒', 'チェキ', '日傘'],
@@ -24,12 +24,7 @@ export const ModalMemo = ({ isOpen, onClose }: ModalMemoProps) => {
       usage="memo"
       onClose={onClose}
     >
-      <CardMemo
-        budget={tabimemo.budget}
-        id={tabimemo.id}
-        items={tabimemo.items}
-        memo={tabimemo.memo}
-      />
+      <CardMemo data={data} />
       <div css={styles.layoutLinkItem}>
         <LinkIconWithTextHorizontal
           Icon={HiOutlinePencilAlt}

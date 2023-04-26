@@ -2,15 +2,17 @@ import { useCardMemo } from '@/hooks/cards'
 import { styles } from '@/styles/components/Cards/CardMemo.styles'
 
 type CardMemoProps = {
-  id: string
-  budget: string
-  items: string[]
-  memo: string
+  data: {
+    id: string
+    budget: string
+    items: string[]
+    memo: string
+  }
 }
 
-export const CardMemo = ({ id, budget, items, memo }: CardMemoProps) => {
+export const CardMemo = ({ data }: CardMemoProps) => {
   const { checkedData, setCheckedData, updateCheckedList, createCheckedList } =
-    useCardMemo(id)
+    useCardMemo(data.id)
 
   return (
     <div css={styles.memoWrapper}>
@@ -18,8 +20,8 @@ export const CardMemo = ({ id, budget, items, memo }: CardMemoProps) => {
         <li>
           <p css={styles.title}>持ち物</p>
           <ul css={styles.item}>
-            {items.length
-              ? items.map((item, index) => (
+            {data.items.length
+              ? data.items.map((item, index) => (
                   <li key={index}>
                     <input
                       checked={checkedData.includes(index.toString())}
@@ -40,11 +42,11 @@ export const CardMemo = ({ id, budget, items, memo }: CardMemoProps) => {
         </li>
         <li>
           <p css={styles.title}>予算</p>
-          <p css={styles.item}>{budget ? <>{budget}円</> : '０円'}</p>
+          <p css={styles.item}>{data.budget ? <>{data.budget}円</> : '０円'}</p>
         </li>
         <li>
           <p css={styles.title}>メモ</p>
-          <p css={styles.item}>{memo ? memo : 'ー'}</p>
+          <p css={styles.item}>{data.memo ? data.memo : 'ー'}</p>
         </li>
       </ul>
     </div>
