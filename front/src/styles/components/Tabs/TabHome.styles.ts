@@ -25,7 +25,9 @@ export const styles = {
     color: ${theme.color.black};
     background-color: transparent;
     border: none;
-    &:hover,
+    &:hover {
+      color: ${theme.color.black};
+    }
     &:focus {
       color: ${theme.color.blue};
     }
