@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { HiViewGrid } from 'react-icons/hi'
 import { CardTravelink } from '@/components/Cards'
 import { styles } from '@/styles/components/Tabs/TabHome.styles'
 
@@ -27,48 +28,51 @@ export const TabHome = ({ data }: TabHomeProps) => {
 
   return (
     <>
-      <button
-        onClick={() => {
-          setIsSquare(!isSquare)
-        }}
-      >
-        きりかえ
-      </button>
-      <div css={styles.tabs}>
-        <label>
-          <input
-            defaultChecked
-            name="tab"
-            type="radio"
-            value="all"
-            onChange={(e) => {
-              setValue(e.target.value)
-            }}
-          />
-          <span>すべて</span>
-        </label>
-        <label>
-          <input
-            name="tab"
-            type="radio"
-            value="join"
-            onChange={(e) => {
-              setValue(e.target.value)
-            }}
-          />
-          <span>参加中</span>
-        </label>
-        <label>
-          <input
-            name="tab"
-            type="radio"
-            value="favorite"
-            onChange={(e) => {
-              setValue(e.target.value)
-            }}
-          />
-          <span>いいね</span>
-        </label>
+      <div css={styles.tabsWrapper}>
+        <div css={styles.tabs}>
+          <label>
+            <input
+              defaultChecked
+              name="tab"
+              type="radio"
+              value="all"
+              onChange={(e) => {
+                setValue(e.target.value)
+              }}
+            />
+            <span>すべて</span>
+          </label>
+          <label>
+            <input
+              name="tab"
+              type="radio"
+              value="join"
+              onChange={(e) => {
+                setValue(e.target.value)
+              }}
+            />
+            <span>参加中</span>
+          </label>
+          <label>
+            <input
+              name="tab"
+              type="radio"
+              value="favorite"
+              onChange={(e) => {
+                setValue(e.target.value)
+              }}
+            />
+            <span>いいね</span>
+          </label>
+        </div>
+        <button
+          css={styles.buttonGrid}
+          onClick={() => {
+            setIsSquare(!isSquare)
+          }}
+        >
+          <HiViewGrid size={20} />
+        </button>
       </div>
       {value === 'all' && (
         <>
