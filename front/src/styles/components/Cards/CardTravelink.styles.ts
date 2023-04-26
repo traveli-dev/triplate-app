@@ -13,16 +13,20 @@ export const styles = {
       opacity: 0.9;
     }
   `,
-  imgWrapper: (isGrid: boolean) => css`
+  imgWrapper: (isSquare: boolean) => css`
+    position: relative;
     width: 100%;
-    height: ${isGrid ? '100%' : '171px'};
+    height: ${isSquare ? '100%' : '171px'};
     margin: 0 auto;
     overflow: hidden;
     /* TODO: 無くなる可能性あり */
     filter: drop-shadow(2px 2px 15px rgba(0, 0, 0, 0.2));
     border: 1px solid ${theme.color.bgGray};
-    border-radius: ${isGrid ? '32px' : '16px'};
-
+    border-radius: ${isSquare ? '32px' : '16px'};
+    /* safariでfilterを使うときに必要 */
+    transform: translateZ(0);
+  `,
+  imgSquare: css`
     /* 正方形を維持する */
     &::before {
       display: block;
@@ -31,19 +35,20 @@ export const styles = {
     }
   `,
   img: css`
-    object-fit: cover !important;
+    object-fit: cover;
+    display: block;
   `,
-  title: (isGrid: boolean) => css`
-    font-size: ${isGrid ? theme.fontSize.sm : theme.fontSize.md};
+  title: (isSquare: boolean) => css`
+    font-size: ${isSquare ? theme.fontSize.sm : theme.fontSize.md};
     font-weight: 600;
   `,
-  description: (isGrid: boolean) => css`
+  description: (isSquare: boolean) => css`
     margin-top: 16px;
-    margin-left: ${isGrid ? '0' : '14px'};
-    text-align: ${isGrid ? 'center' : 'start'};
+    margin-left: ${isSquare ? '0' : '14px'};
+    text-align: ${isSquare ? 'center' : 'start'};
   `,
-  date: (isGrid: boolean) => css`
-    margin-top: ${isGrid ? '6px' : '8px'};
+  date: (isSquare: boolean) => css`
+    margin-top: ${isSquare ? '6px' : '8px'};
     font-size: ${theme.fontSize.xs};
     color: ${theme.color.gray};
   `

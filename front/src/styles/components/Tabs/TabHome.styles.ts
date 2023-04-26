@@ -3,13 +3,13 @@ import { theme } from '@/styles/theme'
 import { mq } from '@/styles/utils'
 
 export const styles = {
-  grid: (isGrid: boolean) => css`
+  grid: (isSquare: boolean) => css`
     display: grid;
-    grid-template-columns: ${isGrid ? '1fr 1fr 1fr' : '1fr'};
+    grid-template-columns: ${isSquare ? '1fr 1fr 1fr' : '1fr'};
     gap: 32px 16px;
     width: 100%;
     ${mq('sm')} {
-      grid-template-columns: ${isGrid ? '1fr 1fr' : '1fr'};
+      grid-template-columns: ${isSquare ? '1fr 1fr' : '1fr'};
     }
   `,
   layoutCardTravelink: css`
