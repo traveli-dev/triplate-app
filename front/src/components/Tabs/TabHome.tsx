@@ -75,7 +75,7 @@ export const TabHome = ({ data }: TabHomeProps) => {
           {travelinkData.length ? (
             <div css={styles.grid(isSquare)}>
               {travelinkData.map((travelink) => (
-                <div css={styles.layoutCardTravelink} key={travelink.id}>
+                <div key={travelink.id}>
                   <CardTravelink data={travelink} isSquare={isSquare} />
                 </div>
               ))}
