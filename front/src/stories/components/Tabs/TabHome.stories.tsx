@@ -5,7 +5,7 @@ const meta: Meta<typeof TabHome> = {
   component: TabHome,
   argTypes: {
     data: {
-      description: ''
+      description: 'travelinkデータの配列'
     }
   },
   tags: ['autodocs']
