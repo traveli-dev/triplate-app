@@ -3,7 +3,8 @@ import { theme } from '@/styles/theme'
 
 export const styles = {
   wrapper: css`
-    height: 120px;
+    /* height 80px + margin 32px */
+    height: 112px;
     background-color: ${theme.color.white};
   `,
   ul: css`
