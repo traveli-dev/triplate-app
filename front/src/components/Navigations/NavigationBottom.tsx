@@ -15,8 +15,8 @@ export const NavigationBottom = () => {
   const currentPath = router.pathname
 
   return (
-    <nav>
-      <ul css={styles.wrapper}>
+    <nav css={styles.wrapper}>
+      <ul css={styles.ul}>
         <li css={styles.nav}>
           <Link
             css={[styles.navItem, currentPath === '/home' && styles.focus]}

@@ -3,6 +3,10 @@ import { theme } from '@/styles/theme'
 
 export const styles = {
   wrapper: css`
+    height: 120px;
+    background-color: ${theme.color.white};
+  `,
+  ul: css`
     position: fixed;
     bottom: 0;
     z-index: 100;
