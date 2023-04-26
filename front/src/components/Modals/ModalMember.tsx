@@ -42,7 +42,12 @@ export const ModalMember = ({ isOpen, onClose }: ModalMemberProps) => {
 
   return (
     <>
-      <BaseHalfModal isOpen={isOpen} title="共有する" onClose={onClose}>
+      <BaseHalfModal
+        isOpen={isOpen}
+        title="メンバー"
+        usage="member"
+        onClose={onClose}
+      >
         {sample.map((user, index) => (
           <div css={styles.layoutLinkItem} key={index}>
             <AvatarWithText
@@ -76,7 +81,7 @@ export const ModalMember = ({ isOpen, onClose }: ModalMemberProps) => {
           />
         </div>
       </BaseHalfModal>
-      <ModalQr isOpen={qrIsOpen} onClose={qrOnClose} />
+      <ModalQr isOpen={qrIsOpen} usage="invite" onClose={qrOnClose} />
     </>
   )
 }

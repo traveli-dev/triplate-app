@@ -13,7 +13,12 @@ type ModalEditProps = {
 
 export const ModalEdit = ({ isOpen, onClose }: ModalEditProps) => {
   return (
-    <BaseHalfModal isOpen={isOpen} title="編集する" onClose={onClose}>
+    <BaseHalfModal
+      isOpen={isOpen}
+      title="編集する"
+      usage="edit"
+      onClose={onClose}
+    >
       <div css={styles.layoutLinkItem}>
         <LinkIconWithTextHorizontal
           Icon={HiOutlineInformationCircle}

@@ -18,7 +18,12 @@ export const ModalMemo = ({ isOpen, onClose }: ModalMemoProps) => {
   }
 
   return (
-    <BaseHalfModal isOpen={isOpen} title="たびメモ" onClose={onClose}>
+    <BaseHalfModal
+      isOpen={isOpen}
+      title="たびメモ"
+      usage="memo"
+      onClose={onClose}
+    >
       <CardMemo
         budget={tabimemo.budget}
         id={tabimemo.id}

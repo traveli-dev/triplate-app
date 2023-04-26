@@ -19,7 +19,12 @@ export const ModalShare = ({ isOpen, onClose }: ModalShareProps) => {
 
   return (
     <>
-      <BaseHalfModal isOpen={isOpen} title="共有する" onClose={onClose}>
+      <BaseHalfModal
+        isOpen={isOpen}
+        title="共有する"
+        usage="share"
+        onClose={onClose}
+      >
         <div css={styles.layoutLinkItem}>
           {/* TODO:URLをコピーする機能をonClickに渡す */}
           <ButtonIconWIthTextHorizontal
@@ -47,7 +52,7 @@ export const ModalShare = ({ isOpen, onClose }: ModalShareProps) => {
           />
         </div>
       </BaseHalfModal>
-      <ModalQr isOpen={qrIsOpen} onClose={qrOnClose} />
+      <ModalQr isOpen={qrIsOpen} usage="share" onClose={qrOnClose} />
     </>
   )
 }
