@@ -6,7 +6,6 @@ export const styles = {
   wrapper: css`
     min-width: 52px;
     text-align: center;
-    cursor: pointer;
     background-color: ${theme.color.white};
     border: 0;
 

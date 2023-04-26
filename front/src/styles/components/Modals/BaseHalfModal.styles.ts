@@ -42,9 +42,7 @@ export const styles = {
     width: 40px;
     height: 40px;
     text-align: right;
-    cursor: pointer;
     background-color: ${theme.color.white};
-    border: 0;
     border-radius: 50%;
 
     /* 本来は:focusも一緒につけた方がいいけど，focus-trapでモーダル開いた時に直近の要素にfocusが当たる（ばつボタンにfocusのstyleが当たる）のがなんか微妙なのでstyleは当てないようにした */

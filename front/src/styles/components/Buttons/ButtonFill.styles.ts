@@ -13,9 +13,7 @@ export const styles = {
     font-size: ${theme.fontSize.md};
     font-weight: 600;
     color: ${theme.color.white};
-    cursor: pointer;
     background-color: ${theme.color.blue};
-    border: 0;
     border-radius: 100px;
     transition: transform 0.1s;
 
