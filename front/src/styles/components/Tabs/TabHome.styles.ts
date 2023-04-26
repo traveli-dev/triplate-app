@@ -22,8 +22,13 @@ export const styles = {
     margin-bottom: 16px;
   `,
   buttonGrid: css`
+    color: ${theme.color.black};
     background-color: transparent;
     border: none;
+    &:hover,
+    &:focus {
+      color: ${theme.color.blue};
+    }
   `,
   tabs: css`
     position: relative;
