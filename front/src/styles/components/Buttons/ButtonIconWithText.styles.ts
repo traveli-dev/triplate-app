@@ -6,7 +6,6 @@ export const styles = {
   wrapper: css`
     min-width: 52px;
     text-align: center;
-    cursor: pointer;
     background-color: ${theme.color.white};
     border: 0;
 
@@ -27,7 +26,7 @@ export const styles = {
     span {
       display: block;
       margin: 6px 0 0 0;
-      font-size: ${theme.fontSize.sm};
+      font-size: ${theme.fontSize.xs};
     }
   `
 }

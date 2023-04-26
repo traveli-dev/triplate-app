@@ -13,7 +13,6 @@ export const styles = {
     font-size: ${theme.fontSize.md};
     font-weight: 600;
     color: ${theme.color.blue};
-    cursor: pointer;
     background-color: ${theme.color.white};
     border: 2px solid ${theme.color.blue};
     border-radius: 100px;

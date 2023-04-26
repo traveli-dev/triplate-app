@@ -3,50 +3,49 @@ import { theme } from '@/styles/theme'
 
 export const styles = {
   wrapper: css`
-    z-index: 1;
     display: block;
     width: 100%;
-    height: auto;
     text-decoration: none;
-    background-color: ${theme.color.white};
-    border: 1px solid ${theme.color.outlineGray};
-    border-radius: 16px;
+    cursor: pointer;
     transition: opacity 0.3s 0s ease;
     &:hover,
     &:focus {
       opacity: 0.9;
     }
   `,
-  imgWrapper: css`
-    z-index: 1;
+  imgWrapper: (isGrid: boolean) => css`
+    position: relative;
     width: 100%;
-    height: 136px;
+    height: ${isGrid ? '100%' : '171px'};
+    margin: 0 auto;
     overflow: hidden;
-    border-radius: 16px 16px 0 0;
+    border: 1px solid ${theme.color.bgGray};
+    border-radius: ${isGrid ? '32px' : '16px'};
+  `,
+  imgSquare: css`
+    /* 正方形を維持する */
+    &::before {
+      display: block;
+      padding-top: 100%;
+      content: '';
+    }
   `,
   img: css`
-    position: relative !important;
     object-fit: cover;
+    display: block;
   `,
-  content: css`
-    padding: 10px 16px;
-    background-color: ${theme.color.white};
-    border-radius: 0 0 16px 16px;
-  `,
-  title: css`
-    margin: 0;
-    font-size: ${theme.fontSize.md};
+  title: (isGrid: boolean) => css`
+    font-size: ${isGrid ? theme.fontSize.sm : theme.fontSize.md};
     font-weight: 600;
   `,
-  day: css`
-    margin: 8px 0 0 0;
-    font-size: ${theme.fontSize.sm};
+  description: (isGrid: boolean) => css`
+    margin-top: 16px;
+    margin-left: ${isGrid ? '0' : '14px'};
+    text-align: ${isGrid ? 'center' : 'start'};
+  `,
+  date: (isGrid: boolean) => css`
+    margin-top: ${isGrid ? '6px' : '8px'};
+    font-size: ${theme.fontSize.xs};
     color: ${theme.color.gray};
-  `,
-  layoutAvatarWithText: css`
-    margin: 8px 0;
-  `,
-  layoutChipTag: css`
-    margin: 8px 0;
   `
 }
