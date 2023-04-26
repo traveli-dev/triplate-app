@@ -22,7 +22,7 @@ export const styles = {
     margin-bottom: 16px;
   `,
   buttonGrid: css`
-    background-color: ${theme.color.white};
+    background-color: transparent;
     border: none;
   `,
   tabs: css`
