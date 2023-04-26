@@ -25,7 +25,7 @@ const Home = () => {
       ownerIcon: '/images/user_sample.jpeg'
     },
     {
-      id: 'def',
+      id: 'aie',
       ownerId: 'usagi',
       title: '鳥取４人旅',
       thumbnail: '/images/user_sample.jpeg',
