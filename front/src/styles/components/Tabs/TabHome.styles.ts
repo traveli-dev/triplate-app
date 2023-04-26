@@ -15,11 +15,20 @@ export const styles = {
   layoutCardTravelink: css`
     margin-bottom: 32px;
   `,
+  tabsWrapper: css`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  `,
+  buttonGrid: css`
+    background-color: ${theme.color.white};
+    border: none;
+  `,
   tabs: css`
     position: relative;
     width: 100%;
     height: 34px;
-    margin-bottom: 16px;
     & input[type='radio'] {
       /* ラジオボタン消す */
       display: none;
