@@ -16,6 +16,8 @@ export const styles = {
     border-radius: 100px;
     box-shadow: 0 1px 3px 1px rgba(101, 119, 134, 0.25);
     transition: transform 0.3s;
+    /* safariでfilterを使うときに必要 */
+    transform: translateZ(0);
 
     &:hover,
     &:focus {

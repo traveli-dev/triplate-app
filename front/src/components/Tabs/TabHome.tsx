@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { HiViewGrid } from 'react-icons/hi'
+import { HiViewGrid, HiOutlineViewList } from 'react-icons/hi'
 import { CardTravelink } from '@/components/Cards'
 import { styles } from '@/styles/components/Tabs/TabHome.styles'
 
@@ -17,7 +17,7 @@ type TabHomeProps = {
 
 export const TabHome = ({ data }: TabHomeProps) => {
   const [value, setValue] = useState<string>('all')
-  const [isSquare, setIsSquare] = useState(false)
+  const [isGrid, setIsGrid] = useState(false)
 
   const travelinkData = data.map(({ thumbnail, date, title, id }) => ({
     thumbnail,
@@ -68,19 +68,19 @@ export const TabHome = ({ data }: TabHomeProps) => {
         <button
           css={styles.buttonGrid}
           onClick={() => {
-            setIsSquare(!isSquare)
+            setIsGrid(!isGrid)
           }}
         >
-          <HiViewGrid size={20} />
+          {isGrid ? <HiOutlineViewList size={20} /> : <HiViewGrid size={20} />}
         </button>
       </div>
       {value === 'all' && (
         <>
           {travelinkData.length ? (
-            <div css={styles.grid(isSquare)}>
+            <div css={styles.grid(isGrid)}>
               {travelinkData.map((travelink) => (
                 <div key={travelink.id}>
-                  <CardTravelink data={travelink} isSquare={isSquare} />
+                  <CardTravelink data={travelink} isGrid={isGrid} />
                 </div>
               ))}
             </div>
