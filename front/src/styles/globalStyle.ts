@@ -27,4 +27,10 @@ export const globalStyle = () => css`
     font-family: inherit;
     font-size: 100%;
   }
+
+  button {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+  }
 `

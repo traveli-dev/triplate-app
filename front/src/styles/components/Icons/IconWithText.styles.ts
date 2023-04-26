@@ -5,7 +5,7 @@ export const styles = {
   wrapper: css`
     width: 80px;
     padding: 10px 0;
-    font-size: ${theme.fontSize.sm};
+    font-size: ${theme.fontSize.xs};
     text-align: center;
     text-decoration: none;
     background-color: ${theme.color.white};
