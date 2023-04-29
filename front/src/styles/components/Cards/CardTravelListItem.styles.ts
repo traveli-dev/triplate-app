@@ -7,9 +7,10 @@ export const styles = {
     align-items: center;
     width: 100%;
     height: 64px;
-    background: ${theme.color.white};
+    background-color: ${theme.color.white};
     border-radius: 100px;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.04);
+    cursor: pointer;
   `,
   values: css`
     color: ${theme.color.black};
@@ -26,12 +27,12 @@ export const styles = {
     display: flex;
     gap: 24px;
   `,
-  text_with_icon: css`
+  textWithIcon: css`
     display: flex;
     align-items: center;
     font-size: ${theme.fontSize.sm};
   `,
-  icon_small: css`
+  iconSmall: css`
     margin-right: 8px;
   `
 }

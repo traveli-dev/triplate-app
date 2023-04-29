@@ -1,8 +1,8 @@
 import { Meta, StoryObj } from '@storybook/react'
-import { TravelListItem } from '@/components/travelLists'
+import { CardTravelListItem } from '@/components/Cards'
 
-const meta: Meta<typeof TravelListItem> = {
-  component: TravelListItem,
+const meta: Meta<typeof CardTravelListItem> = {
+  component: CardTravelListItem,
   argTypes: {
     icon: {
       description: 'アイコンのタイプが入ります'
@@ -22,7 +22,7 @@ const meta: Meta<typeof TravelListItem> = {
 
 export default meta
 
-type Story = StoryObj<typeof TravelListItem>
+type Story = StoryObj<typeof CardTravelListItem>
 
 export const Default: Story = {
   args: {
