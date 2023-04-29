@@ -4,7 +4,7 @@ import {
   HiOutlineHeart,
   HiOutlineDuplicate
 } from 'react-icons/hi'
-import styles from '@/styles/components/Buttons/ButtonSmall.module.scss'
+import { styles } from '@/styles/components/Buttons/ButtonSmall.styles'
 
 type ButtonSmallProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   children: string

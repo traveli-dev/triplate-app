@@ -1,5 +1,5 @@
 import { HiOutlinePlus } from 'react-icons/hi'
-import styles from '@/styles/components/Buttons/ButtonFollow.module.scss'
+import { styles } from '@/styles/components/Buttons/ButtonFollow.styles'
 
 type ButtonFollowProps = {
   isFollowing: boolean
