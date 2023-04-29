@@ -17,39 +17,37 @@ export const ButtonIconWithText = ({
   ...props
 }: ButtonIconWithTextProps) => {
   return (
-    <>
-      <button css={styles.wrapper} {...props}>
-        {iconType === 'members' && (
-          <>
-            <HiOutlineUsers size={20} />
-            <span>メンバー</span>
-          </>
-        )}
-        {iconType === 'memo' && (
-          <>
-            <HiOutlineDocumentText size={20} />
-            <span>たびメモ</span>
-          </>
-        )}
-        {iconType === 'share' && (
-          <>
-            <HiOutlineShare size={20} />
-            <span>共有する</span>
-          </>
-        )}
-        {iconType === 'edit' && (
-          <>
-            <HiOutlinePencil size={20} />
-            <span>編集する</span>
-          </>
-        )}
-        {iconType === 'public' && (
-          <>
-            <HiOutlineLockClosed size={20} />
-            <span>公開する</span>
-          </>
-        )}
-      </button>
-    </>
+    <button css={styles.wrapper} {...props}>
+      {iconType === 'members' && (
+        <>
+          <HiOutlineUsers size={20} />
+          <span>メンバー</span>
+        </>
+      )}
+      {iconType === 'memo' && (
+        <>
+          <HiOutlineDocumentText size={20} />
+          <span>たびメモ</span>
+        </>
+      )}
+      {iconType === 'share' && (
+        <>
+          <HiOutlineShare size={20} />
+          <span>共有する</span>
+        </>
+      )}
+      {iconType === 'edit' && (
+        <>
+          <HiOutlinePencil size={20} />
+          <span>編集する</span>
+        </>
+      )}
+      {iconType === 'public' && (
+        <>
+          <HiOutlineLockClosed size={20} />
+          <span>公開する</span>
+        </>
+      )}
+    </button>
   )
 }

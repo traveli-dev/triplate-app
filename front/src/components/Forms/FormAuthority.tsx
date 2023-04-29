@@ -6,10 +6,8 @@ type FormAuthorityProps = {
 
 export const FormAuthority = ({ canEdit }: FormAuthorityProps) => {
   return (
-    <>
-      <form action="POST">
-        <SelectAuthority canEdit={canEdit} />
-      </form>
-    </>
+    <form action="POST">
+      <SelectAuthority canEdit={canEdit} />
+    </form>
   )
 }
