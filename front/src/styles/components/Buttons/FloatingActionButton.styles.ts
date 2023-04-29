@@ -6,7 +6,7 @@ import { buttonAnimation } from '@/styles/utils'
 ボタンの色、ホバーの色 */
 export const styles = {
   button: css`
-    ${buttonAnimation({ scale: 0.8, transition: '0.3s'})}
+    ${buttonAnimation({ scale: 0.8, transition: '0.3s' })}
     display: flex;
     align-items: center;
     justify-content: center;

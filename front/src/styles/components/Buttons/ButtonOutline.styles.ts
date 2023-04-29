@@ -4,7 +4,7 @@ import { buttonAnimation } from '@/styles/utils'
 
 export const styles = {
   button: css`
-  ${buttonAnimation({ scale: 0.95, transition: '0.1s'})}
+    ${buttonAnimation({ scale: 0.95, transition: '0.1s' })}
     width: 100%;
     height: 56px;
     font-size: ${theme.fontSize.md};
@@ -18,7 +18,6 @@ export const styles = {
     &:focus {
       background-color: ${theme.color.bgBlue};
     }
-
   `,
   labelWrapper: css`
     display: flex;
