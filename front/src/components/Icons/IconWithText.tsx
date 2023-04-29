@@ -11,7 +11,7 @@ import {
 } from 'react-icons/hi'
 import { styles } from '@/styles/components/Icons/IconWithText.styles'
 
-type IconWithiconProps = {
+type IconWithTextProps = {
   iconType:
     | 'qr'
     | 'bell'
@@ -23,7 +23,7 @@ type IconWithiconProps = {
     | 'hp'
 }
 
-export const IconWithText = ({ iconType }: IconWithiconProps) => {
+export const IconWithText = ({ iconType }: IconWithTextProps) => {
   return (
     <Link css={styles.wrapper} href="/">
       {iconType === 'qr' && (

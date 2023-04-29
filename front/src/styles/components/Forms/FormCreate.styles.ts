@@ -11,7 +11,6 @@ export const styles = {
     display: block;
     padding-top: 16px;
     font-size: ${theme.fontSize.md};
-    color: ${theme.color.black};
   `,
   layoutInput: css`
     margin-top: 8px;

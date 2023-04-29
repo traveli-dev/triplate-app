@@ -49,7 +49,7 @@ const preview: Preview = {
           <Stories />
         </>
       )
-    }
+    },
   },
   decorators: [
     (Story) => (
