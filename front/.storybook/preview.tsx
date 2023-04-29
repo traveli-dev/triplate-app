@@ -31,6 +31,10 @@ const preview: Preview = {
         {
           name: 'gray',
           value: theme.color.bgGray
+        },
+        {
+          name: 'white',
+          value: theme.color.white
         }
       ]
     },
@@ -45,7 +49,7 @@ const preview: Preview = {
           <Stories />
         </>
       )
-    }
+    },
   },
   decorators: [
     (Story) => (

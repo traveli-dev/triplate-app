@@ -3,9 +3,14 @@ import { theme } from '@/styles/theme'
 
 export const styles = {
   wrapper: css`
+    /* height 80px + margin 32px */
+    height: 112px;
+    background-color: ${theme.color.white};
+  `,
+  ul: css`
     position: fixed;
     bottom: 0;
-    z-index: 999;
+    z-index: 100;
     box-sizing: border-box;
     display: flex;
     align-items: center;
@@ -22,7 +27,7 @@ export const styles = {
   `,
   nav: css`
     width: 100%;
-    font-size: ${theme.fontSize.sm};
+    font-size: ${theme.fontSize.xs};
     text-align: center;
     list-style: none;
     p {
@@ -30,7 +35,6 @@ export const styles = {
     }
   `,
   navItem: css`
-    color: ${theme.color.black};
     text-decoration: none;
   `,
   focus: css`

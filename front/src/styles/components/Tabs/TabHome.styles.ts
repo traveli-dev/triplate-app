@@ -1,15 +1,41 @@
 import { css } from '@emotion/react'
 import { theme } from '@/styles/theme'
+import { mq } from '@/styles/utils'
 
 export const styles = {
+  grid: (isGrid: boolean) => css`
+    display: grid;
+    grid-template-columns: ${isGrid ? '1fr 1fr 1fr' : '1fr'};
+    gap: 32px 16px;
+    width: 100%;
+    ${mq('sm')} {
+      grid-template-columns: ${isGrid ? '1fr 1fr' : '1fr'};
+    }
+  `,
   layoutCardTravelink: css`
+    margin-bottom: 32px;
+  `,
+  tabsWrapper: css`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     margin-bottom: 16px;
+  `,
+  buttonGrid: css`
+    color: ${theme.color.black};
+    background-color: transparent;
+    border: none;
+    &:hover {
+      color: ${theme.color.blue};
+    }
+    &:focus {
+      color: ${theme.color.black};
+    }
   `,
   tabs: css`
     position: relative;
     width: 100%;
     height: 34px;
-    margin-bottom: 16px;
     & input[type='radio'] {
       /* ラジオボタン消す */
       display: none;
@@ -21,7 +47,6 @@ export const styles = {
           padding: 6px 12px;
           margin-right: 8px;
           font-size: ${theme.fontSize.md};
-          color: ${theme.color.black};
           text-align: center;
           cursor: pointer;
           background-color: ${theme.color.white};
@@ -40,7 +65,6 @@ export const styles = {
         padding: 6px 12px;
         margin-right: 8px;
         font-size: ${theme.fontSize.md};
-        color: ${theme.color.black};
         text-align: center;
         cursor: pointer;
         background-color: ${theme.color.white};
