@@ -26,6 +26,7 @@ export const styles = {
   sub: css`
     display: flex;
     gap: 24px;
+    margin-top: 6px;
   `,
   textWithIcon: css`
     display: flex;
