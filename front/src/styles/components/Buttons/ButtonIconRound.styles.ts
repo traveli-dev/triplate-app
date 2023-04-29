@@ -1,73 +1,18 @@
 import { css } from '@emotion/react'
 import { theme } from '@/styles/theme'
-import { mq } from '@/styles/utils'
+import { buttonAnimation } from '@/styles/utils'
 
 export const styles = {
   button: css`
-    /* 波紋の基点とするためrelativeを指定 */
-    position: relative;
+    ${buttonAnimation({ scale: 0.8, transition: '0.3s' })}
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 40px;
     height: 40px;
-    /* はみ出す波紋を隠す */
-    overflow: hidden;
     background-color: ${theme.color.white};
     filter: drop-shadow(0 0 0.8px rgba(101, 119, 134, 0.2));
     border-radius: 100px;
     box-shadow: 0 1px 3px 1px rgba(101, 119, 134, 0.25);
-    transition: transform 0.3s;
-    /* safariでfilterを使うときに必要 */
-    transform: translateZ(0);
-
-    @media screen and (prefers-reduced-motion: reduce) {
-      &::after {
-        /* 波紋 */
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        content: '';
-        background: radial-gradient(circle, #fff 10%, transparent 10%) no-repeat
-          50%;
-        opacity: 0;
-        transition: none;
-        transform: scale(10, 10);
-      }
-    }
-
-    &::after {
-      /* 波紋 */
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      content: '';
-      background: radial-gradient(circle, #fff 10%, transparent 10%) no-repeat
-        50%;
-      opacity: 0;
-      transition: transform 0.3s, opacity 1s;
-      transform: scale(10, 10);
-    }
-
-    @media screen and (prefers-reduced-motion: reduce) {
-      &:active::after {
-        opacity: 0.3;
-        transition: none;
-        transform: scale(0, 0);
-      }
-    }
-
-    &:active::after {
-      opacity: 0.3;
-      transition: 0s;
-      transform: scale(0, 0);
-    }
-
-    ${mq('sm')} {
-      &:active {
-        transform: scale(0.8);
-      }
-    }
   `
 }
