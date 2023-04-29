@@ -3,10 +3,10 @@ import { HiOutlineClock, HiOutlineDocumentText } from 'react-icons/hi'
 import { styles } from '@/styles/components/Cards/CardTravelListItem.styles'
 
 type CardTravelListItemType = {
-    icon: 'map' | 'link' | 'ledger'
-    title: string
-    date?: string
-    memo?: string
+  icon: 'map' | 'link' | 'ledger'
+  title: string
+  date?: string
+  memo?: string
 }
 
 export const CardTravelListItem = ({
