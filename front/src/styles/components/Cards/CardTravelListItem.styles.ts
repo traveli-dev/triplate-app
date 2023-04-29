@@ -7,10 +7,10 @@ export const styles = {
     align-items: center;
     width: 100%;
     height: 64px;
+    cursor: pointer;
     background-color: ${theme.color.white};
     border-radius: 100px;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.04);
-    cursor: pointer;
   `,
   values: css`
     color: ${theme.color.black};
