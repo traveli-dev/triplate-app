@@ -1,5 +1,5 @@
-# Traveli
-“メモ帳以上、旅程表アプリ未満” の旅程管理アプリ  
+# Triplate
+旅のテンプレートを作る旅程管理アプリ
 
 URL: https://traveli.app
 
