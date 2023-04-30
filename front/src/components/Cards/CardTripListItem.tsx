@@ -1,20 +1,20 @@
 import Image from 'next/image'
 import { HiOutlineClock, HiOutlineDocumentText } from 'react-icons/hi'
-import { styles } from '@/styles/components/Cards/CardTravelListItem.styles'
+import { styles } from '@/styles/components/Cards/CardTripListItem.styles'
 
-type CardTravelListItemType = {
+type CardTripListItemType = {
   icon: 'map' | 'link' | 'ledger'
   title: string
   date?: string
   memo?: string
 }
 
-export const CardTravelListItem = ({
+export const CardTripListItem = ({
   icon,
   title,
   date,
   memo
-}: CardTravelListItemType) => {
+}: CardTripListItemType) => {
   return (
     <div css={styles.item}>
       <div css={styles.icon}>

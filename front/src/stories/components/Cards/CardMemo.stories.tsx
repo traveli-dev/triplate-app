@@ -18,7 +18,7 @@ type Story = StoryObj<typeof CardMemo>
 export const Default: Story = {
   args: {
     data: {
-      id: 'abcde', // travelinkのid
+      id: 'abcde', // triplinkのid
       budget: '30000',
       items: ['自撮り棒', 'チェキ', '日傘'],
       memo: '目指せ写真１００枚！'
@@ -29,7 +29,7 @@ export const Default: Story = {
 export const Empty: Story = {
   args: {
     data: {
-      id: 'abcde', // travelinkのid
+      id: 'abcde', // triplinkのid
       budget: '',
       items: [],
       memo: ''

@@ -1,17 +1,17 @@
 import React from 'react'
 import { Container } from '@/components/Containers'
-import { styles } from '@/styles/components/Tabs/TabDaysWithTravelink.styles'
+import { styles } from '@/styles/components/Tabs/TabDaysWithTriplink.styles'
 
-type TabDaysWithTravelinkProps = {
-  travelinks: {
+type TabDaysWithTriplinkProps = {
+  triplinks: {
     day: number
     name: string
   }[]
 }
 
-export const TabDaysWithTravelink = ({
-  travelinks
-}: TabDaysWithTravelinkProps) => {
+export const TabDaysWithTriplink = ({
+  triplinks
+}: TabDaysWithTriplinkProps) => {
   return (
     <div css={styles.wrapper}>
       <div css={styles.tabs} id="tabs">
@@ -23,13 +23,13 @@ export const TabDaysWithTravelink = ({
           type="radio"
         />
         <label css={styles.tabLabel} htmlFor="day1" id="tab1">
-          {travelinks[0].day}日目
+          {triplinks[0].day}日目
         </label>
         <div css={styles.tabContent}>
-          <Container bgColor="blue">{travelinks[0].name}</Container>
+          <Container bgColor="blue">{triplinks[0].name}</Container>
         </div>
 
-        {travelinks.map((item) => (
+        {triplinks.map((item) => (
           <React.Fragment key={item.day}>
             {item.day !== 1 && (
               <>

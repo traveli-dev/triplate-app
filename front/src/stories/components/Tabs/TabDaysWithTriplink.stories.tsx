@@ -1,11 +1,11 @@
-import { TabDaysWithTravelink } from '@/components/Tabs'
+import { TabDaysWithTriplink } from '@/components/Tabs'
 import type { StoryObj, Meta } from '@storybook/react'
 
-const meta: Meta<typeof TabDaysWithTravelink> = {
-  component: TabDaysWithTravelink,
+const meta: Meta<typeof TabDaysWithTriplink> = {
+  component: TabDaysWithTriplink,
   argTypes: {
-    travelinks: {
-      description: 'travelinkデータの配列が入ります'
+    triplinks: {
+      description: 'triplinkデータの配列が入ります'
     }
   },
   tags: ['autodocs']
@@ -13,11 +13,11 @@ const meta: Meta<typeof TabDaysWithTravelink> = {
 
 export default meta
 
-type Story = StoryObj<typeof TabDaysWithTravelink>
+type Story = StoryObj<typeof TabDaysWithTriplink>
 
 export const Default: Story = {
   args: {
-    travelinks: [
+    triplinks: [
       { day: 1, name: 'aaa' },
       { day: 2, name: 'bbb' },
       { day: 3, name: 'ccc' },
