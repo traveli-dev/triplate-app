@@ -75,7 +75,7 @@ export const TabHome = ({ data }: TabHomeProps) => {
         </button>
       </div>
       {value === 'all' && (
-        <>
+        <div>
           {travelinkData.length ? (
             <div css={styles.grid(isGrid)}>
               {travelinkData.map((travelink) => (
@@ -87,7 +87,7 @@ export const TabHome = ({ data }: TabHomeProps) => {
           ) : (
             <p>トラべリンクがないです</p>
           )}
-        </>
+        </div>
       )}
       {value === 'join' && <p>参加中のトラべリンクがないです</p>}
       {value === 'favorite' && <p>いいねしたみんなのたびがないです</p>}

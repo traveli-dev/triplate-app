@@ -1,18 +1,21 @@
 import { css } from '@emotion/react'
+import { ChipTagProps } from '@/components/Chips'
 import { theme } from '@/styles/theme'
 
+type ChipTagStyleType = Omit<ChipTagProps, 'tag'>
+type FontSizeStyleType = Omit<ChipTagStyleType, 'isRound'>
+
+const setFontSize = ({ fontSize }: FontSizeStyleType) => {
+  if (fontSize === 'sm') return theme.fontSize.sm
+  else if (fontSize === 'md') return theme.fontSize.md
+}
+
 export const styles = {
-  wrapper: css`
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0;
-    list-style: none;
-  `,
-  chip: css`
+  chip: ({ isRound, fontSize }: ChipTagStyleType) => css`
+    display: inline-block;
     padding: 8px;
-    margin: 8px 8px 0 0;
-    font-size: ${theme.fontSize.xs};
+    font-size: ${setFontSize({ fontSize })};
     background-color: ${theme.color.bgGray};
-    border-radius: 4px;
+    border-radius: ${isRound ? '100px' : '4px'};
   `
 }
