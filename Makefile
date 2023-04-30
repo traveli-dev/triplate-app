@@ -8,7 +8,7 @@ init:
 	@docker compose run --rm node firebase login --no-localhost
 
 build:
-	@docker compose build
+	@docker compose build --no-cache
 	@docker compose run --rm node yarn install
 
 up:

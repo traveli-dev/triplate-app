@@ -4,6 +4,7 @@ services:
     build:
       context: ./front
       dockerfile: Dockerfile
+    image: traveli-dev/triplate-app
     container_name: triplate-app
     environment:
       FIRESTORE_EMULATOR_HOST: "localhost:8080"
@@ -25,5 +26,8 @@ services:
 
 volumes:
   node_modules_volume:
+    name: triplate-node-modules-volume
   build_volume:
+    name: triplate-build-volume
   build_storybook_volume:
+    name: triplate-storybook-volume
