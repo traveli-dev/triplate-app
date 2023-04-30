@@ -1,9 +1,0 @@
-@use '@/styles/variables' as v;
-
-.container {
-  max-width: map-get(v.$breakpoints, 'md');
-  min-width: map-get(v.$breakpoints, 'sm');
-  margin: 0 auto;
-  padding: 0 1.6rem;
-  min-height: 100vh;
-}

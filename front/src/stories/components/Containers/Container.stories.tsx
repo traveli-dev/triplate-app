@@ -1,20 +1,34 @@
-import { StoryObj, ComponentMeta } from '@storybook/react'
 import { Container } from '@/components/Containers'
+import type { StoryObj, Meta } from '@storybook/react'
 
-export default {
+const meta: Meta<typeof Container> = {
   component: Container,
   argTypes: {
     children: {
       description: '任意のコンポーネントが入ります'
+    },
+    bgColor: {
+      description: 'background-colorを切り替える'
+    },
+    isFull: {
+      description: 'ページ全体まで高さを伸ばす（任意）'
+    },
+    isCenter: {
+      description: '要素を全て左右中央揃えにする（任意）'
     }
   },
-  render: ({ children }) => {
-    return <Container>{children}</Container>
-  }
-} as ComponentMeta<typeof Container>
+  tags: ['autodocs']
+}
 
-export const Default: StoryObj = {
+export default meta
+
+type Story = StoryObj<typeof Container>
+
+export const Default: Story = {
   args: {
-    children: <h1>Welcome to traveli!</h1>
+    children: <h1>Welcome to traveli!</h1>,
+    bgColor: 'white',
+    isFull: false,
+    isCenter: false
   }
 }

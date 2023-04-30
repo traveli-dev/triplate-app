@@ -1,0 +1,18 @@
+name: '📄 task'
+description: Notionのタスク
+labels: ['📄 Task']
+body:
+  - type: textarea
+    id: task-url
+    attributes:
+      label: NotionのタスクページURL
+      placeholder: https://www.notion.so/~~~
+    validations:
+      required: true
+  - type: textarea
+    id: content
+    attributes:
+      label: その他特記事項
+      placeholder: waiwai
+    validations:
+      required: false

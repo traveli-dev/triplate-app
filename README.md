@@ -1,5 +1,5 @@
-# Traveli
-“メモ帳以上、旅程表アプリ未満” の旅程管理アプリ  
+# Triplate
+旅のテンプレートを作る旅程管理アプリ
 
 URL: https://traveli.app
 
@@ -12,22 +12,21 @@ Storybook:https://traveli-dev.github.io/traveli-app/storybook
 ```sh
   $ touch ./front/.env
   # envファイルに環境変数をコピーしてください
-  $ docker compose build
-  $ docker compose run --rm node sh
-  # firebaseの設定ファイルを作る
-  $ yarn init:firebase
-  # 初回のみログインが必要
-  $ firebase login --no-localhost
+  $ make init
+  # 途中でYnがでるのでYを押す
   # 表示されたURLにアクセス
   # traveliアカウントでログイン
   # 画面の指示に従い，最後に出てくるトークンをコピペしてください
   # Success! Logged in as ~~~と出てきたらOKです
-  $ exit
-  $ docker compose up
+  $ make up
 ```
 
 ## Other Commands
 ```sh
-  # node_modulesをローカルにコピー
-  make cp
+  make up
+  make down
+  make exec
+  make yarn-install
+  make check
+  make format
 ```

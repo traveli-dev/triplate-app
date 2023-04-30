@@ -1,10 +1,17 @@
 import React from 'react'
-import styles from '@/styles/components/Containers/Container.module.scss'
+import { styles } from '@/styles/components/Containers/Container.styles'
 
-type ContainerProps = {
+export type ContainerProps = {
+  bgColor: 'white' | 'blue' | 'none'
+  isFull?: boolean
+  isCenter?: boolean
   children: React.ReactNode
 }
 
-export const Container = ({ children }: ContainerProps) => {
-  return <div className={styles.container}>{children}</div>
+export const Container = ({
+  bgColor,
+  children,
+  ...options
+}: ContainerProps) => {
+  return <div css={styles.container({ bgColor, ...options })}>{children}</div>
 }
