@@ -1,8 +1,8 @@
-import { CardTravelink } from '@/components/Cards'
+import { CardTriplink } from '@/components/Cards'
 import type { StoryObj, Meta } from '@storybook/react'
 
-const meta: Meta<typeof CardTravelink> = {
-  component: CardTravelink,
+const meta: Meta<typeof CardTriplink> = {
+  component: CardTriplink,
   argTypes: {
     data: {
       description: 'title, thumbnail, date'
@@ -13,7 +13,7 @@ const meta: Meta<typeof CardTravelink> = {
 
 export default meta
 
-type Story = StoryObj<typeof CardTravelink>
+type Story = StoryObj<typeof CardTriplink>
 
 export const Default: Story = {
   args: {

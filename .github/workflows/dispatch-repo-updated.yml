@@ -61,7 +61,7 @@ jobs:
           token: ${{ secrets.ACCESS_TOKEN }}
           repository: ${{ matrix.repo }}
           event-type: merged
-          client-payload: '{"commit_message": "https://github.com/traveli-dev/traveli-app/pull/${{ env.NUMBER }}", "type": "merged"}'
+          client-payload: '{"commit_message": "https://github.com/traveli-dev/triplate-app/pull/${{ env.NUMBER }}", "type": "merged"}'
       
       - name: update env if branch is deleted
         if: github.event_name == 'delete'

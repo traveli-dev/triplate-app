@@ -11,7 +11,7 @@ type ModalMemoProps = {
 
 export const ModalMemo = ({ isOpen, onClose }: ModalMemoProps) => {
   const data = {
-    id: 'abcde', // travelinkのid
+    id: 'abcde', // triplinkのid
     budget: '0',
     items: ['自撮り棒', 'チェキ', '日傘'],
     memo: ''
