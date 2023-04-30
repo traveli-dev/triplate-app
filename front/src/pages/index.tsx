@@ -20,7 +20,7 @@ const Index = () => {
           <Link href="/create">/create</Link>
         </div>
         <div>
-          <Link href="/travelink/123">/travelink/123</Link>
+          <Link href="/tripLink/123">/tripLink/123</Link>
         </div>
       </Container>
       <ButtonIconWIthTextHorizontal

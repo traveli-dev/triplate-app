@@ -1,8 +1,8 @@
 import Image from 'next/image'
-import { styles } from '@/styles/components/Cards/CardTravelink.styles'
+import { styles } from '@/styles/components/Cards/CardTripLink.styles'
 
 // 仮置きの型設定
-type CardTravelinkProps = {
+type CardTripLinkProps = {
   isGrid: boolean
   data: {
     thumbnail: string
@@ -11,7 +11,7 @@ type CardTravelinkProps = {
   }
 }
 
-export const CardTravelink = ({ data, isGrid }: CardTravelinkProps) => {
+export const CardTripLink = ({ data, isGrid }: CardTripLinkProps) => {
   return (
     <div css={styles.wrapper}>
       <div css={[styles.imgWrapper(isGrid), isGrid && styles.imgSquare]}>

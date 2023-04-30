@@ -4,7 +4,7 @@ services:
     build:
       context: ./front
       dockerfile: Dockerfile
-    container_name: traveli-app
+    container_name: triplate-app
     environment:
       FIRESTORE_EMULATOR_HOST: "localhost:8080"
     ports:

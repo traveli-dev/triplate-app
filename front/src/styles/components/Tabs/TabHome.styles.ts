@@ -12,7 +12,7 @@ export const styles = {
       grid-template-columns: ${isGrid ? '1fr 1fr' : '1fr'};
     }
   `,
-  layoutCardTravelink: css`
+  layoutCardTripLink: css`
     margin-bottom: 32px;
   `,
   tabsWrapper: css`
