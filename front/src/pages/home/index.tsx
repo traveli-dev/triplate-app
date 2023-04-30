@@ -5,7 +5,7 @@ import { styles } from '@/styles/pages/home/index.styles'
 
 const Home = () => {
   // 仮置きのサンプルデータ
-  const tripLinkData = [
+  const triplinkData = [
     {
       id: 'abc',
       ownerId: 'opanchu',
@@ -39,7 +39,7 @@ const Home = () => {
     <>
       <Container bgColor="white" isFull>
         <h1 css={styles.heading1}>私のトラべリンク</h1>
-        <TabHome data={tripLinkData} />
+        <TabHome data={triplinkData} />
       </Container>
       <NavigationBottom />
     </>

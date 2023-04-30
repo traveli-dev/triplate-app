@@ -5,7 +5,7 @@ const meta: Meta<typeof TabHome> = {
   component: TabHome,
   argTypes: {
     data: {
-      description: 'tripLinkデータの配列'
+      description: 'triplinkデータの配列'
     }
   },
   tags: ['autodocs']

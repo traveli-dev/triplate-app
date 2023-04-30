@@ -1,3 +1,3 @@
-export { CardTripLink } from '@/components/Cards/CardTripLink'
+export { CardTriplink } from '@/components/Cards/CardTriplink'
 export { CardMemo } from '@/components/Cards/CardMemo'
 export { CardTripListItem } from '@/components/Cards/CardTripListItem'

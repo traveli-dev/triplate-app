@@ -7,15 +7,15 @@ import {
   ModalShare,
   ModalMember
 } from '@/components/Modals'
-import { TabDaysWithTripLink } from '@/components/Tabs'
+import { TabDaysWithTriplink } from '@/components/Tabs'
 import { useDisclosure } from '@/hooks/modals'
-import { styles } from '@/styles/pages/tripLink/[tripLinkId]/TripLink.styles'
+import { styles } from '@/styles/pages/triplink/[triplinkId]/triplink.styles'
 
-const TripLink = () => {
+const Triplink = () => {
   // example
   const data = {
     url: '/images/thumbnail_sample.jpg',
-    tripLinks: [
+    triplinks: [
       { day: 1, name: 'aaa' },
       { day: 2, name: 'bbb' },
       { day: 3, name: 'ccc' },
@@ -73,9 +73,9 @@ const TripLink = () => {
         <ModalEdit isOpen={editIsOpen} onClose={editOnClose} />
         <ModalMemo isOpen={memoIsOpen} onClose={memoOnClose} />
         <ModalShare isOpen={shareIsOpen} onClose={shareOnClose} />
-        <TabDaysWithTripLink tripLinks={data.tripLinks} />
+        <TabDaysWithTriplink triplinks={data.triplinks} />
       </div>
     </>
   )
 }
-export default TripLink
+export default Triplink
