@@ -30,5 +30,5 @@ yarn-install:
 	@[ $(env) = "down" ] && docker compose up -d || echo "uped"
 	@docker compose exec node yarn install
 	@docker compose exec node echo "copy node_modules files from container"
-	docker cp triplate-app:/home/app/node_modules/ ./front/
+	docker cp triplate-app-node:/home/app/node_modules/ ./front/
 	@[ $(env) = "down" ] && docker compose down || echo "installed"

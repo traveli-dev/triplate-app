@@ -6,8 +6,7 @@ if (!admin.apps.length) {
     'firebase/cert/serviceAccountKey.json'
   )
   admin.initializeApp({
-    credential: admin.credential.cert(serviceAccountKey)
+    credential: admin.credential.cert(serviceAccountKey),
+    storageBucket: "traveli-test.appspot.com"
   })
 }
-
-export default admin

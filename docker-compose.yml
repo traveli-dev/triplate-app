@@ -7,7 +7,8 @@ services:
     image: traveli-dev/triplate-app-client
     container_name: triplate-app-node
     environment:
-      FIRESTORE_EMULATOR_HOST: "localhost:8080"
+      FIRESTORE_EMULATOR_HOST: localhost:8080
+      FIREBASE_STORAGE_EMULATOR_HOST: localhost:9199
     ports:
       - 3000:3000 # Next.js
       - 6006:6006 # Storybook

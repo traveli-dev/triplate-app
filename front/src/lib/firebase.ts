@@ -1,6 +1,7 @@
 import { getAnalytics } from 'firebase/analytics'
 import { initializeApp, getApps, getApp } from 'firebase/app'
 import { connectFirestoreEmulator, getFirestore } from 'firebase/firestore'
+import { getStorage, connectStorageEmulator } from 'firebase/storage'
 import 'firebase/analytics'
 import 'firebase/firestore'
 
@@ -16,6 +17,7 @@ const firebaseConfig = {
 
 const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApp()
 const db = getFirestore(app)
+const storage = getStorage(app)
 const analytics =
   process.env.NODE_ENV === 'production' && typeof window !== 'undefined'
     ? getAnalytics(app)
@@ -23,6 +25,7 @@ const analytics =
 
 if (process.env.NODE_ENV === 'development') {
   connectFirestoreEmulator(db, 'localhost', 8080)
+  connectStorageEmulator(storage, 'localhost', 9199)
 }
 
 export { db, analytics }

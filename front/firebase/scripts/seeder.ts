@@ -1,20 +1,17 @@
-import admin from '@/utils/firebaseAdmin'
+import path from 'path'
+import admin from 'firebase-admin'
 import { restore } from 'firestore-export-import'
-import { readJson } from '@/utils/readJson'
+import '@/utils/firebaseAdmin'
 
-const seeder = async () => {
-  const users = readJson('firebase/seeds/users.json')
-  const db = admin.firestore()
-  // await importer.restore('firebase/seeds/users.json')
-  console.log(restore)
-}
-
-;(async () => {
+(async () => {
   try {
-    console.log('seeding...')
-    await seeder()
-    console.log('done')
+    const bucket = admin.storage().bucket()
+    const pathe = path.join(process.cwd(), "firebase/seeds/resources/thumbnail_sample.jpg");
+  
+    await bucket.upload(pathe, { destination: 'thumbnail_sample.jpg' });  
+    await restore('firebase/seeds/users.json')
+  
   } catch (e) {
-    console.log(e)
+    console.error(e)
   }
 })()
