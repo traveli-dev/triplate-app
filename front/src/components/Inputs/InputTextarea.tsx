@@ -1,7 +1,8 @@
-import {styles} from "@/styles/components/Inputs/InputTextarea.styles";
+import { styles } from '@/styles/components/Inputs/InputTextarea.styles'
 
-export const InputTextarea = () => {
-    return(
-            <textarea css={styles}/>
-    )
+type InputTextareaProps = {
+  placeholder: string
+}
+export const InputTextarea = ({ placeholder }: InputTextareaProps) => {
+  return <textarea css={styles} placeholder={placeholder} />
 }
