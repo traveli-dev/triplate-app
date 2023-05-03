@@ -7,6 +7,7 @@ export const styles = {
     height: 136px;
     overflow: hidden;
     border-radius: 16px;
+
     &:hover,
     &:focus {
       border: 2px solid ${theme.color.outlineGray};
@@ -29,13 +30,22 @@ export const styles = {
     background-color: ${theme.color.bgGray};
     border: 0;
     border-radius: 16px;
+
     span {
       display: block;
       margin: 8px 0 0 0;
     }
+
     &:hover,
     &:focus {
       border: 2px solid ${theme.color.outlineGray};
     }
   `
 }
+
+export const round = css`
+  width: 150px !important;
+  height: 150px !important;
+  font-size: ${theme.fontSize.sm} !important;
+  border-radius: 100px !important;
+`
