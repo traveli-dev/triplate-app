@@ -8,6 +8,7 @@ export const styles = {
     height: 48px;
     padding: 0 16px;
     font-size: ${theme.fontSize.md};
+    color: ${theme.color.black};
     background-color: ${theme.color.bgGray};
     border: 0;
     border-radius: 100px;
