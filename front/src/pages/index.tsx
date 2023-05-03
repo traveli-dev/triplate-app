@@ -20,6 +20,9 @@ const Index = () => {
           <Link href="/create">/create</Link>
         </div>
         <div>
+          <Link href="/edit/profile">/create</Link>
+        </div>
+        <div>
           <Link href="/triplink/123">/triplink/123</Link>
         </div>
       </Container>
