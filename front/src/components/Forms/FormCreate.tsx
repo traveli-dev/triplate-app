@@ -21,7 +21,7 @@ export const FormCreate = () => {
         <label css={styles.label} htmlFor="image">
           サムネイルの画像
           <div css={styles.layoutInput}>
-            <InputImage alt="thumbnail_image" id="image"  shape={'box'}/>
+            <InputImage alt="thumbnail_image" id="image" shape="box" />
           </div>
         </label>
       </div>
