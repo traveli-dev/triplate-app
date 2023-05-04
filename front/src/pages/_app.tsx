@@ -6,6 +6,7 @@ import { Layout } from '@/components/Layouts'
 import { SEO } from '@/config/next-seo.config'
 import { store } from '@/redux/store'
 import { globalStyle } from '@/styles/globalStyle'
+import '@/styles/lib/googleMap.css'
 import '@/lib/firebase'
 
 const App = ({ Component, pageProps }: AppProps) => {

@@ -29,5 +29,12 @@ export const useLoadMap = (options: LoadScriptUrlOptions) => {
     ...options
   })
 
-  return { isLoaded, loadError }
+  const mapOptions: google.maps.MapOptions = {
+    mapTypeControl: false,
+    maxZoom: 18,
+    streetViewControl: false,
+    fullscreenControl: false
+  }
+
+  return { isLoaded, loadError, mapOptions }
 }

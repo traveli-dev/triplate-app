@@ -1,71 +1,38 @@
-import { useState } from 'react'
 import { GoogleMap, MarkerF } from '@react-google-maps/api'
-import { StandaloneSearchBox } from '@react-google-maps/api'
+import { Header } from '@/components/Headers'
+import { ModalSearchMap } from '@/components/Modals/ModalSearchMap'
 import { useLoadMap } from '@/hooks/maps'
-
-// TODO: 多分firebase実装の時にRTKの方に移植する
-type PlaceDetailsType = {
-  name: string
-  location: google.maps.LatLngLiteral
-}
+import { useSearchBox } from '@/hooks/maps'
 
 const TripLinkEdit = () => {
-  const { isLoaded } = useLoadMap({ libraries: ['geometry', 'places'] })
-  const [searchBox, setSearchBox] =
-    useState<google.maps.places.SearchBox | null>(null)
-  const [placeDetails, setPlaceDetails] = useState<PlaceDetailsType | null>(
-    null
-  )
+  const { isLoaded, mapOptions, loadError } = useLoadMap({
+    libraries: ['geometry', 'places']
+  })
+  const { placeDetails, onLoadHandler, onPlacesChangedHandler } = useSearchBox()
 
-  const getPlaceDetails = (places?: google.maps.places.PlaceResult[]) => {
-    if (places && places.length > 0) {
-      const place = places[0]
-      return {
-        name: place.name || '',
-        location: {
-          lat: place.geometry?.location?.lat() || 0,
-          lng: place.geometry?.location?.lng() || 0
-        }
-      }
-    }
-    return null
-  }
-
-  const onLoadHandler = (ref: google.maps.places.SearchBox) => {
-    setSearchBox(ref)
-  }
-
-  const onPlacesChangedHandler = () => {
-    if (!searchBox) return
-    setPlaceDetails(getPlaceDetails(searchBox.getPlaces()))
-  }
+  // TODO: エラーハンドリング
+  if (loadError) return <>エラーだよ</>
 
   return (
     <div>
+      <Header href="/" title="GoogleMapから追加" />
       {isLoaded ? (
         <div>
-          <StandaloneSearchBox
-            onLoad={onLoadHandler}
-            onPlacesChanged={onPlacesChangedHandler}
-          >
-            <input placeholder="aiueo" type="text" />
-          </StandaloneSearchBox>
           <GoogleMap
-            center={
-              placeDetails?.location || { lat: 35.681382, lng: 139.766084 }
-            }
+            center={placeDetails.location}
             mapContainerStyle={{
               width: '100%',
-              height: '400px'
+              height: '100vh'
             }}
+            options={mapOptions}
             zoom={16}
           >
-            <MarkerF
-              position={
-                placeDetails?.location || { lat: 35.681382, lng: 139.766084 }
-              }
-            />
+            <MarkerF position={placeDetails.location} />
           </GoogleMap>
+          <ModalSearchMap
+            onLoad={onLoadHandler}
+            onPlacesChanged={onPlacesChangedHandler}
+          />
         </div>
       ) : (
         <>now load</>
