@@ -2,10 +2,6 @@ import { css } from '@emotion/react'
 import { theme } from '@/styles/theme'
 
 export const styles = {
-  wrapper: css`
-    display: flex;
-    justify-content: space-between;
-  `,
   inputWrapper: css`
     display: flex;
     align-items: center;
@@ -14,6 +10,12 @@ export const styles = {
     padding: 8px 16px;
     background-color: ${theme.color.bgGray};
     border-radius: 100px;
+
+    :focus,
+    :hover {
+      outline: 2px solid ${theme.color.outlineGray};
+    }
+
   `,
   icon: css`
     width: 20px;
@@ -29,7 +31,7 @@ export const styles = {
 
     :focus,
     :hover {
-      outline-color: ${theme.color.bgGray};
+      outline: 2px solid ${theme.color.bgGray};
     }
   `
 }
