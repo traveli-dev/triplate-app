@@ -3,27 +3,36 @@ import { theme } from '@/styles/theme'
 
 export const styles = {
   toggleSwitch: css`
-    display: table;
-
-    input {
-      display: none;
+    @media screen and (prefers-reduced-motion: reduce) {
+      .toggle-button-001 {
+        position: relative;
+        display: inline-block;
+        width: 38px;
+        height: 20px;
+        cursor: pointer;
+        background-color: ${theme.color.bgGray};
+        border-radius: 100px;
+        transition: none;
+      }
     }
 
-    label {
+    .toggle-button-001 {
       position: relative;
-      display: block;
+      display: inline-block;
       width: 38px;
       height: 20px;
       cursor: pointer;
       background-color: ${theme.color.bgGray};
       border-radius: 100px;
+      transition: background-color 0.4s;
     }
-    input:checked + label {
+
+    .toggle-button-001:has(:checked) {
       background-color: ${theme.color.blue};
     }
 
     @media screen and (prefers-reduced-motion: reduce) {
-      label::before {
+      .toggle-button-001::after {
         position: absolute;
         top: 1px;
         left: 1px;
@@ -31,12 +40,12 @@ export const styles = {
         height: 18px;
         content: '';
         background-color: ${theme.color.white};
-        border-radius: 100px;
+        border-radius: 100%;
         transition: none;
       }
     }
 
-    label::before {
+    .toggle-button-001::after {
       position: absolute;
       top: 1px;
       left: 1px;
@@ -44,11 +53,16 @@ export const styles = {
       height: 18px;
       content: '';
       background-color: ${theme.color.white};
-      border-radius: 100px;
-      transition: 0.2s;
+      border-radius: 100%;
+      transition: left 0.2s;
     }
-    input:checked + label::before {
+
+    .toggle-button-001:has(:checked)::after {
       left: 19px;
+    }
+
+    .toggle-button-001 input {
+      display: none;
     }
   `
 }
