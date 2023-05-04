@@ -6,6 +6,7 @@ export const styles = {
     position: relative;
     width: 100%;
     min-height: calc(100vh - 176px);
+    margin-bottom: 48px;
   `,
   image: css`
     display: flex;

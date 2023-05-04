@@ -20,24 +20,27 @@ const Profile = () => {
           </div>
           <div css={styles.labelWrapper}>
             <label css={styles.label} htmlFor="name">
-              ユーザ名
+              なまえ
               <div css={styles.layoutInput}>
-                <InputText placeholder="名前を入力してください" />
+                <InputText id="name" placeholder="なまえを入力してください" />
               </div>
             </label>
             <label css={styles.label} htmlFor="id">
               ユーザID
               <div css={styles.layoutInput}>
-                <InputText placeholder="ユーザIDを入力してください" />
+                <InputText id="id" placeholder="ユーザIDを入力してください" />
               </div>
             </label>
             <label css={styles.label} htmlFor="status">
               自己紹介
               <div css={styles.layoutInput}>
-                <InputTextarea placeholder="自己紹介を入力してください" />
+                <InputTextarea
+                  id="status"
+                  placeholder="自己紹介を入力してください"
+                />
               </div>
             </label>
-            <label css={styles.label} htmlFor="sns">
+            <div css={styles.label}>
               SNSリンク
               <div css={styles.layoutInput}>
                 <div css={styles.inputLink}>
@@ -53,8 +56,7 @@ const Profile = () => {
                   />
                 </div>
               </div>
-              {/*TODO:テキストエリア*/}
-            </label>
+            </div>
           </div>
         </div>
 

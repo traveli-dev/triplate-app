@@ -8,9 +8,11 @@ type InputLinkProps = {
 export const InputLink = ({ iconType, placeholder }: InputLinkProps) => {
   return (
     <div css={styles.wrapper}>
-      {iconType == 'twitter' && <FiTwitter size={32} />}
-      {iconType == 'instagram' && <FiInstagram size={32} />}
-      <input css={styles.input} placeholder={placeholder} />
+      <label htmlFor={iconType}>
+        {iconType == 'twitter' && <FiTwitter size={28} />}
+        {iconType == 'instagram' && <FiInstagram size={28} />}
+        <input css={styles.input} id={iconType} placeholder={placeholder} />
+      </label>
     </div>
   )
 }
