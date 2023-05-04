@@ -15,7 +15,6 @@ export const styles = {
     :hover {
       outline: 2px solid ${theme.color.outlineGray};
     }
-
   `,
   icon: css`
     width: 20px;
