@@ -50,7 +50,6 @@ export const styles = {
     justify-content: center;
     width: 68rem;
     pointer-events: ${isOpen ? 'auto' : 'none'};
-    background-color: red;
     opacity: ${isOpen ? 1 : 0};
     ${mq('sm')} {
       right: 0;
