@@ -1,6 +1,6 @@
 import { StandaloneSearchBox } from '@react-google-maps/api'
 import { HiOutlineSearch } from 'react-icons/hi'
-import { useDisclosure } from '@/hooks/modals'
+import { useModalSearchMap } from '@/hooks/modals/useModalSearchMap'
 import { styles } from '@/styles/components/Modals/ModalSearchMap.styles'
 
 type ModalSearchMapProps = {
@@ -12,21 +12,31 @@ export const ModalSearchMap = ({
   onLoad,
   onPlacesChanged
 }: ModalSearchMapProps) => {
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  const { isOpen, onOpen, onClose, ref } = useModalSearchMap()
 
   return (
     <div>
-      <div css={styles.content(isOpen)}>
-        <StandaloneSearchBox onLoad={onLoad} onPlacesChanged={onPlacesChanged}>
+      <div css={styles.overlay(isOpen)} />
+      <div
+        aria-modal="true"
+        css={styles.content(isOpen)}
+        ref={ref}
+        role="dialog"
+      >
+        <StandaloneSearchBox
+          onLoad={onLoad}
+          onPlacesChanged={() => {
+            onPlacesChanged()
+            onClose()
+          }}
+        >
           <div css={styles.inputWrapper}>
             <HiOutlineSearch css={styles.icon} size={24} />
             <input
               css={styles.input}
               placeholder="行き先で検索"
               type="text"
-              onBlur={onClose}
-              onFocus={onOpen}
-              onKeyDown={(e) => e.key === 'Enter' && onClose()}
+              onChange={onOpen}
             />
           </div>
         </StandaloneSearchBox>

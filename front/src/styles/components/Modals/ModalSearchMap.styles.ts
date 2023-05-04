@@ -1,5 +1,6 @@
 import { css } from '@emotion/react'
 import { theme } from '@/styles/theme'
+import { mq } from '@/styles/utils'
 
 export const styles = {
   inputWrapper: css`
@@ -38,5 +39,22 @@ export const styles = {
     border-radius: 32px 32px 0 0;
     transition: transform ease-out 0.3s;
     transform: ${isOpen ? 'translateY(0)' : 'translateY(352px)'};
+  `,
+  overlay: (isOpen: boolean) => css`
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 68rem;
+    pointer-events: ${isOpen ? 'auto' : 'none'};
+    background-color: red;
+    opacity: ${isOpen ? 1 : 0};
+    ${mq('sm')} {
+      right: 0;
+      left: 0;
+    }
   `
 }
