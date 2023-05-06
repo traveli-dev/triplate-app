@@ -33,17 +33,17 @@ yarn-install:
 	docker cp triplate-app-node:/home/app/node_modules/ ./front/
 	@[ $(env) = "down" ] && docker compose down || echo "installed"
 
-firebase-seed:
+seeding:
 	@[ $(env) = "down" ] && docker compose up -d || echo ""
 	docker compose exec node yarn seeding
 	@[ $(env) = "down" ] && docker compose down || echo "done"
 
-firebase-save:
+db-save:
 	@[ $(env) = "down" ] && docker compose up -d || echo ""
 	docker compose exec node yarn export:firebase
 	@[ $(env) = "down" ] && docker compose down || echo "done"
 
-firebase-clean:
+db-clean:
 	@[ $(env) = "down" ] && docker compose up -d || echo ""
 	docker compose exec node yarn clean:firebase
 	@[ $(env) = "down" ] && docker compose down || echo "done"
