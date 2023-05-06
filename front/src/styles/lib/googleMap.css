@@ -10,39 +10,49 @@
   height: 504px !important;
   border: 0 !important;
   box-shadow: none !important;
+  font-family: 'Helvetica Neue', 'Arial', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Meiryo', -apple-system, BlinkMacSystemFont, system-ui !important;
+  background-color: transparent;
 }
 
 .pac-container .pac-item {
   margin-right: auto;
   cursor: pointer;
   border: 0;
-  margin-left: auto;
   padding-left: 16px;
   margin-bottom: 16px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 16px !important;
 }
 
-.pac-container .pac-item>span {
+.pac-container .pac-item:hover,  .pac-container .pac-item:focus, .pac-container .pac-item:active {
+  background-color: #f2f2f2;
+  border-radius: calc(54px / 2);
+}
+
+.pac-container .pac-item > span {
   font-weight: normal;
-  font-size: 16px;
-  font-family: 'Helvetica Neue', 'Arial', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Meiryo', -apple-system, BlinkMacSystemFont, system-ui;
-  line-height: 48px;
+  font-size: 16px !important;
+  background-color: transparent;
 }
 
 .pac-container .pac-item>span .pac-matched {
+  background-color: transparent;
   font-weight: bolder;
 }
 
 .pac-container .pac-item .pac-icon {
+  background-color: transparent;
   background-image: url('/mapIcon/marker.svg') !important;
   width: 48px;
   height: 48px;
-  margin: 0;
+  margin: 0 16px 0 0;
   padding: 0;
   background-size: 48px;
+  display: block;
   background-position: 0;
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: 16px;
 }
 
 .pac-container::after {

@@ -13,7 +13,17 @@ export const ModalSearchMap = ({
   onPlacesChanged
 }: ModalSearchMapProps) => {
   const { isOpen, onOpen, onClose, ref } = useModalSearchMap()
+  const autoCompleteService = new google.maps.places.AutocompleteService();
 
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(e.target.value);
+    autoCompleteService.getPlacePredictions({ input: e.target.value }, (predictions, status) => {
+        if (status === 'OK') {
+          console.log(predictions)
+        }
+      })
+  }
+  
   return (
     <div>
       <div css={styles.overlay(isOpen)} />
@@ -36,7 +46,7 @@ export const ModalSearchMap = ({
               css={styles.input}
               placeholder="行き先で検索"
               type="text"
-              onChange={onOpen}
+              onChange={onChange}
             />
           </div>
         </StandaloneSearchBox>
