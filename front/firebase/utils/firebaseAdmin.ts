@@ -7,6 +7,6 @@ if (!admin.apps.length) {
   )
   admin.initializeApp({
     credential: admin.credential.cert(serviceAccountKey),
-    storageBucket: "traveli-test.appspot.com"
+    storageBucket: 'traveli-test.appspot.com'
   })
 }
