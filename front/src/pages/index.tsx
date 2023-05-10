@@ -22,6 +22,9 @@ const Index = () => {
         <div>
           <Link href="/triplink/123">/triplink/123</Link>
         </div>
+          <div>
+              <Link href="/triplink/triplate">/triplink/triplate</Link>
+          </div>
       </Container>
       <ButtonIconWIthTextHorizontal
         Icon={HiOutlineQrcode}
