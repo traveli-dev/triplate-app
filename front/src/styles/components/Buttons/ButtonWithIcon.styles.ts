@@ -1,8 +1,8 @@
-import {css} from "@emotion/react";
-import {theme} from "@/styles/theme";
+import { css } from '@emotion/react'
+import { theme } from '@/styles/theme'
 
 export const styles = {
-    button: css`
+  button: css`
     height: 28px;
     font-size: ${theme.fontSize.sm};
     font-weight: 300;
@@ -16,7 +16,7 @@ export const styles = {
     }
   `,
 
-    label_wrapper: css`
+  label_wrapper: css`
     display: flex;
     gap: 8px;
     align-items: center;
