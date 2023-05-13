@@ -35,15 +35,12 @@ yarn-install:
 
 seeding:
 	@[ $(env) = "down" ] && docker compose up -d || echo ""
+	docker compose exec node yarn reset:firestore
 	docker compose exec node yarn seeding
-	@[ $(env) = "down" ] && docker compose down || echo "done"
-
-db-save:
-	@[ $(env) = "down" ] && docker compose up -d || echo ""
 	docker compose exec node yarn export:firebase
 	@[ $(env) = "down" ] && docker compose down || echo "done"
 
-db-clean:
+reset-seeds:
 	@[ $(env) = "down" ] && docker compose up -d || echo ""
-	docker compose exec node yarn clean:firebase
+	docker compose exec node rm -rf ./firebase/db/local/
 	@[ $(env) = "down" ] && docker compose down || echo "done"

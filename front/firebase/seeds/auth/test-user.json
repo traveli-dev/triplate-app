@@ -1,0 +1,10 @@
+{
+  "email": "test@example.com",
+  "emailVerified": true,
+  "phoneNumber": "+1234567890",
+  "password": "password",
+  "displayName": "test user",
+  "photoURL": "http://localhost:3000/images/thumbnail_sample.jpg",
+  "disabled": false,
+  "uid": "C5Ja2gXGLeIXTjhWZbDiWUWe8Whd"
+}

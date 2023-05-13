@@ -20,8 +20,8 @@
     "build:next": "next build && next export",
     "build:storybook": "storybook build -o ./build/storybook/",
     "export:firebase": "cd /home/app/firebase && firebase emulators:export --force ./db/local",
-    "clean:firebase": "rm -rf /home/app/firebase/db/local",
     "init:firebase": "./firebase/scripts/initFirebase.sh",
+    "reset:firestore": "./firebase/scripts/resetDb.sh",
     "seeding": "ts-node -r tsconfig-paths/register -P ./firebase/tsconfig.json ./firebase/scripts/seeder.ts"
   },
   "dependencies": {

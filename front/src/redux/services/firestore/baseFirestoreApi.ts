@@ -1,7 +1,8 @@
 import { createApi, fakeBaseQuery } from '@reduxjs/toolkit/query/react'
 
-export const baseApi = createApi({
-  reducerPath: 'baseApi',
+// firebase javascript sdk 用
+export const baseFirestoreApi = createApi({
+  reducerPath: 'baseFirestoreApi',
   baseQuery: fakeBaseQuery(),
   tagTypes: [],
   endpoints: () => ({})
