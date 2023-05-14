@@ -1,0 +1,19 @@
+{
+  "users": {
+    "C5Ja2gXGLeIXTjhWZbDiWUWe8Whd": {
+      "name": "テストゆーざ",
+      "subCollection": {
+        "users/C5Ja2gXGLeIXTjhWZbDiWUWe8Whd/joinTrips": {
+          "1": {
+            "tripId": "BNyy3Lh1lEaHHJ69zGlz45uY8GD3"
+          }
+        },
+        "users/C5Ja2gXGLeIXTjhWZbDiWUWe8Whd/myTrips": {
+          "1": {
+            "tripId": "oMPHRC1TGzdX4WAxHSZrdgCIweQ2"
+          }
+        }
+      }
+    }
+  }
+}

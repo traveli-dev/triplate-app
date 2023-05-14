@@ -5,14 +5,21 @@ import { Container } from '@/components/Containers'
 import { Header } from '@/components/Headers'
 import { ModalMember } from '@/components/Modals'
 import { useDisclosure } from '@/hooks/modals'
+import { useAppSelector } from '@/redux/rootStore'
+import { authSelectors } from '@/redux/stores'
 
 const Index = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
+
+  // 確認よう
+  const currentUser = useAppSelector(authSelectors.currentUser)
+
   return (
     <>
       <Header href="/" title="GoogleMapから追加" />
       <Container bgColor="blue">
         <div>動作確認なう</div>
+        <h1>{currentUser.uid}</h1>
         <div>
           <Link href="/home">/home</Link>
         </div>

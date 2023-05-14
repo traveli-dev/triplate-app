@@ -5,7 +5,7 @@ source ./.env
 FIREBASE_CONFIG=$(cat << EOS
 {
   "projects": {
-    "default": "${NEXT_PUBLIC_FIREBASE_PROJECT_ID}"
+    "default": "${FIREBASE_ADMIN_PROJECT_ID}"
   }
 }
 EOS
