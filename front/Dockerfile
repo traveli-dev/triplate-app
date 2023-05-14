@@ -21,7 +21,8 @@ COPY . $APP_ROOT
 
 # init firebase
 RUN mkdir -p ${APP_ROOT}/firebase/db/local
-RUN chmod +x ${APP_ROOT}/firebase/scripts/*.sh
+RUN chmod +x ${APP_ROOT}/firebase/scripts/initFirebase.sh
+RUN chmod +x ${APP_ROOT}/firebase/scripts/resetDb.sh
 
 EXPOSE 3000
 

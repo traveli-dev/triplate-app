@@ -14,3 +14,4 @@ firestore.rules
 storage.rules
 
 db/*
+cert/
