@@ -32,13 +32,13 @@ export const styles = {
     box-sizing: border-box;
     width: 100%;
     max-width: ${theme.breakpoint.md};
-    height: 456px;
+    height: 552px;
     padding: 16px 30px 32px 30px;
     margin: 0;
     background-color: ${theme.color.white};
     border-radius: 32px 32px 0 0;
     transition: transform ease-out 0.3s;
-    transform: ${isOpen ? 'translateY(0)' : 'translateY(352px)'};
+    transform: ${isOpen ? 'translateY(0)' : 'translateY(452px)'};
   `,
   overlay: (isOpen: boolean) => css`
     position: fixed;
@@ -55,5 +55,33 @@ export const styles = {
       right: 0;
       left: 0;
     }
+  `,
+  marker: css`
+    display: block;
+    margin-right: 16px;
+  `,
+  dataWrapper: css`
+    width: 100%;
+    margin-top: 16px;
+    margin-bottom: 16px;
+  `,
+  addressItem: css`
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 54px;
+    padding: 0 16px;
+    margin-bottom: 16px;
+    border-radius: calc(54px / 2);
+    &:hover,
+    &:focus {
+      background-color: ${theme.color.bgGray};
+    }
+  `,
+  address: css`
+    overflow: hidden;
+    font-size: ${theme.fontSize.md};
+    text-overflow: ellipsis;
+    white-space: nowrap;
   `
 }
