@@ -1,14 +1,17 @@
 import { useState } from 'react'
 import { GoogleMap, MarkerF } from '@react-google-maps/api'
 import { Header } from '@/components/Headers'
+import { ModalConfirmAddress } from '@/components/Modals'
 import { ModalSearchMap } from '@/components/Modals/ModalSearchMap'
 import { useLoadMap } from '@/hooks/maps'
+import { useDisclosure } from '@/hooks/modals'
 import { useAppSelector } from '@/redux/rootStore'
 import { mapSelectors } from '@/redux/stores'
 
 const TripLinkEdit = () => {
   const { isLoaded, mapOptions, loadError } = useLoadMap()
   const [mapRef, setMapRef] = useState<google.maps.Map | null>(null)
+  const { isOpen, onOpen, onClose } = useDisclosure()
   const currentCenter = useAppSelector(mapSelectors.currentCenter)
 
   // TODO: エラーハンドリング
@@ -36,7 +39,15 @@ const TripLinkEdit = () => {
           >
             <MarkerF position={currentCenter.location} />
           </GoogleMap>
-          {mapRef && <ModalSearchMap mapRef={mapRef} />}
+          {mapRef && (
+            <ModalSearchMap mapRef={mapRef} onOpenConfirmModal={onOpen} />
+          )}
+          <ModalConfirmAddress
+            address={currentCenter.address}
+            isOpen={isOpen}
+            name={currentCenter.name}
+            onClose={onClose}
+          />
         </div>
       ) : (
         <>now load</>

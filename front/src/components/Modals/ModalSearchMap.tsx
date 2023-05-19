@@ -6,10 +6,15 @@ import { styles } from '@/styles/components/Modals/ModalSearchMap.styles'
 
 type ModalSearchMapProps = {
   mapRef: google.maps.Map
+  onOpenConfirmModal: () => void
 }
 
-export const ModalSearchMap = ({ mapRef }: ModalSearchMapProps) => {
-  const { isOpen, onOpen, onClose } = useDisclosure()
+export const ModalSearchMap = ({
+  mapRef,
+  onOpenConfirmModal
+}: ModalSearchMapProps) => {
+  const { isOpen, onClose, onOpen } = useDisclosure()
+
   const { ref } = useHalfModal(isOpen, onClose)
   const {
     onChangeHandler,
@@ -53,7 +58,9 @@ export const ModalSearchMap = ({ mapRef }: ModalSearchMapProps) => {
                       css={styles.addressItem}
                       key={item.place_id}
                       onClick={() => {
-                        onClickHandler(item, onClose)
+                        onClickHandler(item)
+                        onClose()
+                        onOpenConfirmModal()
                       }}
                     >
                       <Image

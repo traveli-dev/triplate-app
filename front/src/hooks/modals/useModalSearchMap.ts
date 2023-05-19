@@ -57,15 +57,13 @@ export const useModalSearchMap = (mapRef: google.maps.Map) => {
 
   // placeidから場所を求めてglobal stateに入れる
   const onClickHandler = async (
-    data: google.maps.places.AutocompletePrediction,
-    onClose: () => void
+    data: google.maps.places.AutocompletePrediction
   ) => {
     places.getDetails({ placeId: data.place_id }, (prediction, status) => {
       if (status === 'OK') {
         dispatch(setCenterAddress(getPlaceDetails(prediction)))
       }
     })
-    onClose()
     setPredictions(null)
   }
 
