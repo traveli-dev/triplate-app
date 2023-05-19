@@ -1,29 +1,24 @@
-import { StandaloneSearchBox } from '@react-google-maps/api'
+import Image from 'next/image'
 import { HiOutlineSearch } from 'react-icons/hi'
-import { useModalSearchMap } from '@/hooks/modals/useModalSearchMap'
+import { useDisclosure, useHalfModal } from '@/hooks/modals'
+import { useModalSearchMap } from '@/hooks/modals/'
 import { styles } from '@/styles/components/Modals/ModalSearchMap.styles'
 
 type ModalSearchMapProps = {
-  onLoad: (ref: google.maps.places.SearchBox) => void
-  onPlacesChanged: () => void
+  mapRef: google.maps.Map
 }
 
-export const ModalSearchMap = ({
-  onLoad,
-  onPlacesChanged
-}: ModalSearchMapProps) => {
-  const { isOpen, onOpen, onClose, ref } = useModalSearchMap()
-  const autoCompleteService = new google.maps.places.AutocompleteService();
+export const ModalSearchMap = ({ mapRef }: ModalSearchMapProps) => {
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const { ref } = useHalfModal(isOpen, onClose)
+  const {
+    onChangeHandler,
+    onCompositionEndHandler,
+    onCompositionStartHandler,
+    predictions,
+    onClickHandler
+  } = useModalSearchMap(mapRef)
 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value);
-    autoCompleteService.getPlacePredictions({ input: e.target.value }, (predictions, status) => {
-        if (status === 'OK') {
-          console.log(predictions)
-        }
-      })
-  }
-  
   return (
     <div>
       <div css={styles.overlay(isOpen)} />
@@ -33,23 +28,49 @@ export const ModalSearchMap = ({
         ref={ref}
         role="dialog"
       >
-        <StandaloneSearchBox
-          onLoad={onLoad}
-          onPlacesChanged={() => {
-            onPlacesChanged()
-            onClose()
-          }}
-        >
-          <div css={styles.inputWrapper}>
-            <HiOutlineSearch css={styles.icon} size={24} />
-            <input
-              css={styles.input}
-              placeholder="行き先で検索"
-              type="text"
-              onChange={onChange}
-            />
+        <div css={styles.inputWrapper}>
+          <HiOutlineSearch css={styles.icon} size={24} />
+          <input
+            css={styles.input}
+            placeholder="行き先で検索"
+            type="text"
+            onChange={(e) => {
+              onChangeHandler(e)
+              onOpen()
+            }}
+            onCompositionEnd={onCompositionEndHandler}
+            onCompositionStart={onCompositionStartHandler}
+          />
+        </div>
+
+        <div>
+          <div css={styles.dataWrapper}>
+            {predictions && predictions.length > 0 && (
+              <>
+                {predictions.map((item) => {
+                  return (
+                    <button
+                      css={styles.addressItem}
+                      key={item.place_id}
+                      onClick={() => {
+                        onClickHandler(item, onClose)
+                      }}
+                    >
+                      <Image
+                        alt=""
+                        css={styles.marker}
+                        height={48}
+                        src="/mapIcon/marker.svg"
+                        width={48}
+                      />
+                      <p css={styles.address}>{item.description}</p>
+                    </button>
+                  )
+                })}
+              </>
+            )}
           </div>
-        </StandaloneSearchBox>
+        </div>
       </div>
     </div>
   )

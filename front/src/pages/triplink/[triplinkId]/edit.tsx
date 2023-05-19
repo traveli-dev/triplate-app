@@ -1,14 +1,15 @@
+import { useState } from 'react'
 import { GoogleMap, MarkerF } from '@react-google-maps/api'
 import { Header } from '@/components/Headers'
 import { ModalSearchMap } from '@/components/Modals/ModalSearchMap'
 import { useLoadMap } from '@/hooks/maps'
-import { useSearchBox } from '@/hooks/maps'
+import { useAppSelector } from '@/redux/rootStore'
+import { mapSelectors } from '@/redux/stores'
 
 const TripLinkEdit = () => {
-  const { isLoaded, mapOptions, loadError } = useLoadMap({
-    libraries: ['geometry', 'places']
-  })
-  const { placeDetails, onLoadHandler, onPlacesChangedHandler } = useSearchBox()
+  const { isLoaded, mapOptions, loadError } = useLoadMap()
+  const [mapRef, setMapRef] = useState<google.maps.Map | null>(null)
+  const currentCenter = useAppSelector(mapSelectors.currentCenter)
 
   // TODO: エラーハンドリング
   if (loadError) return <>エラーだよ</>
@@ -19,20 +20,23 @@ const TripLinkEdit = () => {
       {isLoaded ? (
         <div>
           <GoogleMap
-            center={placeDetails.location}
+            center={currentCenter.location}
             mapContainerStyle={{
               width: '100%',
-              height: '100vh'
+              height: 'calc(100vh - 56px)'
             }}
             options={mapOptions}
             zoom={16}
+            onLoad={(map) => {
+              setMapRef(map)
+            }}
+            onUnmount={() => {
+              setMapRef(null)
+            }}
           >
-            <MarkerF position={placeDetails.location} />
+            <MarkerF position={currentCenter.location} />
           </GoogleMap>
-          <ModalSearchMap
-            onLoad={onLoadHandler}
-            onPlacesChanged={onPlacesChangedHandler}
-          />
+          {mapRef && <ModalSearchMap mapRef={mapRef} />}
         </div>
       ) : (
         <>now load</>
