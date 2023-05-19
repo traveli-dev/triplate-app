@@ -1,4 +1,6 @@
+import { ButtonFill } from '@/components/Buttons'
 import { BaseHalfModal } from '@/components/Modals'
+import { styles } from '@/styles/components/Modals/ModalConfirmAddress.styles'
 
 type ModalConfirmAddressProps = {
   isOpen: boolean
@@ -19,7 +21,10 @@ export const ModalConfirmAddress = ({
       usage="confirm-address"
       {...props}
     >
-      {address}
+      <p css={styles.address}>{address}</p>
+      <div css={styles.layoutButton}>
+        <ButtonFill>旅程に追加する</ButtonFill>
+      </div>
     </BaseHalfModal>
   )
 }
