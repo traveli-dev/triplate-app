@@ -68,7 +68,12 @@ export const ModalSearchMap = ({
                           size={24}
                         />
                       </div>
-                      <p css={styles.address}>{item.description}</p>
+                      <p css={styles.prediction}>
+                        {item.structured_formatting.main_text}
+                        <span css={styles.address}>
+                          {item.structured_formatting.secondary_text}
+                        </span>
+                      </p>
                     </button>
                   )
                 })}

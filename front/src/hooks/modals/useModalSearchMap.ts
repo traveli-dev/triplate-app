@@ -6,6 +6,8 @@ export const useModalSearchMap = (mapRef: google.maps.Map) => {
   // 検索候補を表示するCSSを上書きするのが難しいので，その部分だけライブラリを使わずに実装する
   const autoCompleteService = new google.maps.places.AutocompleteService()
   const places = new google.maps.places.PlacesService(mapRef)
+  // TODO: (考慮事項) 検索開始から終了まで，4回以上リクエストが飛ぶ場合はsessiontokenを発行する方が安い
+  // const sessionToken = new google.maps.places.AutocompleteSessionToken()
 
   const dispatch = useAppDispath()
   const [predictions, setPredictions] = useState<
@@ -13,8 +15,7 @@ export const useModalSearchMap = (mapRef: google.maps.Map) => {
   >(null)
   const [isTyping, setIsTyping] = useState(false)
 
-  // place情報から使うやつだけ抜き出す
-  // TODO: 必要な情報は適宜調整する
+  // フォーマットを整える
   const getPlaceDetails = (place: google.maps.places.PlaceResult | null) => {
     if (place) {
       return {
@@ -60,11 +61,18 @@ export const useModalSearchMap = (mapRef: google.maps.Map) => {
   const onClickHandler = async (
     data: google.maps.places.AutocompletePrediction
   ) => {
-    places.getDetails({ placeId: data.place_id }, (prediction, status) => {
-      if (status === 'OK') {
-        dispatch(setCenterAddress(getPlaceDetails(prediction)))
+    // fieldsで欲しいfiledsだけ帰ってくるようにする（料金最適化）
+    places.getDetails(
+      {
+        placeId: data.place_id,
+        fields: ['formatted_address', 'geometry', 'name']
+      },
+      (prediction, status) => {
+        if (status === 'OK') {
+          dispatch(setCenterAddress(getPlaceDetails(prediction)))
+        }
       }
-    })
+    )
     setPredictions(null)
   }
 

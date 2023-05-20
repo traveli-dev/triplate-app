@@ -88,10 +88,17 @@ export const styles = {
       background-color: ${theme.color.bgGray};
     }
   `,
-  address: css`
+  prediction: css`
     overflow: hidden;
     font-size: ${theme.fontSize.md};
+    text-align: left;
     text-overflow: ellipsis;
     white-space: nowrap;
+  `,
+  address: css`
+    display: block;
+    margin-top: 4px;
+    font-size: ${theme.fontSize.xs};
+    color: ${theme.color.gray};
   `
 }
