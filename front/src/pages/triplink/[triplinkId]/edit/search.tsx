@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { useRouter } from 'next/router'
 import { GoogleMap, MarkerF } from '@react-google-maps/api'
 import { Header } from '@/components/Headers'
@@ -12,8 +11,14 @@ import { mapSelectors } from '@/redux/stores'
 const TripLinkEditSearch = () => {
   const router = useRouter()
   const { triplinkId } = router.query
-  const { isLoaded, mapOptions, loadError } = useLoadMap()
-  const [mapRef, setMapRef] = useState<google.maps.Map | null>(null)
+  const {
+    isLoaded,
+    mapOptions,
+    loadError,
+    handleOnLoad,
+    handleOnUnMount,
+    mapRef
+  } = useLoadMap()
   const { isOpen, onOpen, onClose } = useDisclosure()
   const currentCenter = useAppSelector(mapSelectors.currentCenter)
 
@@ -33,12 +38,8 @@ const TripLinkEditSearch = () => {
             }}
             options={mapOptions}
             zoom={16}
-            onLoad={(map) => {
-              setMapRef(map)
-            }}
-            onUnmount={() => {
-              setMapRef(null)
-            }}
+            onLoad={handleOnLoad}
+            onUnmount={handleOnUnMount}
           >
             {currentCenter.name && (
               <MarkerF position={currentCenter.location} />
