@@ -20,7 +20,6 @@ export const ModalAddPlace = (props: ModalAddPlaceProps) => {
   return (
     <BaseHalfModal title="行き先を追加" usage="add-place" {...props}>
       <div css={styles.layoutLinkItem}>
-        {/* TODO:URLをコピーする機能をonClickに渡す */}
         <ButtonIconWIthTextHorizontal
           Icon={HiOutlineLocationMarker}
           title="GoogleMapから追加"
@@ -39,7 +38,7 @@ export const ModalAddPlace = (props: ModalAddPlaceProps) => {
       <div css={styles.layoutLinkItem}>
         <ButtonIconWIthTextHorizontal
           Icon={HiOutlineLink}
-          title="その他"
+          title="手動で追加"
           onClick={() => {
             router.push('')
           }}
