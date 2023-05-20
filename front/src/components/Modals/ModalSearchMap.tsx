@@ -1,5 +1,4 @@
-import Image from 'next/image'
-import { HiOutlineSearch } from 'react-icons/hi'
+import { HiOutlineLocationMarker, HiOutlineSearch } from 'react-icons/hi'
 import { useDisclosure, useHalfModal } from '@/hooks/modals'
 import { useModalSearchMap } from '@/hooks/modals/'
 import { styles } from '@/styles/components/Modals/ModalSearchMap.styles'
@@ -63,13 +62,12 @@ export const ModalSearchMap = ({
                         onOpenConfirmModal()
                       }}
                     >
-                      <Image
-                        alt=""
-                        css={styles.marker}
-                        height={48}
-                        src="/mapIcon/marker.svg"
-                        width={48}
-                      />
+                      <div css={styles.markerWrapper}>
+                        <HiOutlineLocationMarker
+                          css={styles.marker}
+                          size={24}
+                        />
+                      </div>
                       <p css={styles.address}>{item.description}</p>
                     </button>
                   )

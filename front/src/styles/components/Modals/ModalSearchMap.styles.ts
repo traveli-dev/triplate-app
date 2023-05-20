@@ -56,9 +56,18 @@ export const styles = {
       left: 0;
     }
   `,
+  markerWrapper: css`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    margin-right: 16px;
+    border: 1.2px solid ${theme.color.outlineGray};
+    border-radius: 50%;
+  `,
   marker: css`
     display: block;
-    margin-right: 16px;
   `,
   dataWrapper: css`
     width: 100%;
