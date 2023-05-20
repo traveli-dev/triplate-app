@@ -40,15 +40,17 @@ const TripLinkEditSearch = () => {
               setMapRef(null)
             }}
           >
-            <MarkerF position={currentCenter.location} />
+            {currentCenter.name && (
+              <MarkerF position={currentCenter.location} />
+            )}
           </GoogleMap>
           {mapRef && (
             <ModalSearchMap mapRef={mapRef} onOpenConfirmModal={onOpen} />
           )}
           <ModalConfirmAddress
-            address={currentCenter.address}
+            address={currentCenter.address || ''}
             isOpen={isOpen}
-            name={currentCenter.name}
+            name={currentCenter.name || ''}
             onClose={onClose}
           />
         </div>

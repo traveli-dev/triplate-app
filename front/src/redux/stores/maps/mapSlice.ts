@@ -2,8 +2,8 @@ import { createSlice, createSelector, PayloadAction } from '@reduxjs/toolkit'
 import { StateType } from '@/redux/rootStore'
 
 export type CenterAddressType = {
-  name: string
-  address: string
+  name: string | null
+  address: string | null
   location: {
     lat: number
     lng: number
@@ -11,8 +11,8 @@ export type CenterAddressType = {
 }
 
 const initialState: CenterAddressType = {
-  name: '東京駅',
-  address: '日本、〒100-0005 東京都千代田区丸の内１丁目９',
+  name: null,
+  address: null,
   location: { lat: 35.68123620000001, lng: 139.7671248 }
 }
 
