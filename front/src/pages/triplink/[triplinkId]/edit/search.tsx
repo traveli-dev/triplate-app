@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useRouter } from 'next/router'
 import { GoogleMap, MarkerF } from '@react-google-maps/api'
 import { Header } from '@/components/Headers'
 import { ModalConfirmAddress } from '@/components/Modals'
@@ -8,7 +9,9 @@ import { useDisclosure } from '@/hooks/modals'
 import { useAppSelector } from '@/redux/rootStore'
 import { mapSelectors } from '@/redux/stores'
 
-const TripLinkEdit = () => {
+const TripLinkEditSearch = () => {
+  const router = useRouter()
+  const { triplinkId } = router.query
   const { isLoaded, mapOptions, loadError } = useLoadMap()
   const [mapRef, setMapRef] = useState<google.maps.Map | null>(null)
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -19,7 +22,7 @@ const TripLinkEdit = () => {
 
   return (
     <div>
-      <Header href="/" title="GoogleMapから追加" />
+      <Header href={`/triplink/${triplinkId}/edit`} title="GoogleMapから追加" />
       {isLoaded ? (
         <div>
           <GoogleMap
@@ -56,4 +59,4 @@ const TripLinkEdit = () => {
   )
 }
 
-export default TripLinkEdit
+export default TripLinkEditSearch

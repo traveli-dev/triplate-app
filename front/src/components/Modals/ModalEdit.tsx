@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router'
 import {
   HiOutlineInformationCircle,
   HiOutlineClipboardList
@@ -12,6 +13,9 @@ type ModalEditProps = {
 }
 
 export const ModalEdit = ({ isOpen, onClose }: ModalEditProps) => {
+  const router = useRouter()
+  const { triplinkId } = router.query
+
   return (
     <BaseHalfModal
       isOpen={isOpen}
@@ -29,7 +33,7 @@ export const ModalEdit = ({ isOpen, onClose }: ModalEditProps) => {
       <div css={styles.layoutLinkItem}>
         <LinkIconWithTextHorizontal
           Icon={HiOutlineClipboardList}
-          href="/"
+          href={`/triplink/${triplinkId}/edit`}
           title="旅程を編集"
         />
       </div>

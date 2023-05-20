@@ -14,6 +14,7 @@ export const useModalSearchMap = (mapRef: google.maps.Map) => {
   const [isTyping, setIsTyping] = useState(false)
 
   // place情報から使うやつだけ抜き出す
+  // TODO: 必要な情報は適宜調整する
   const getPlaceDetails = (place: google.maps.places.PlaceResult | null) => {
     if (place) {
       return {

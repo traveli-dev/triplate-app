@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router'
 import { ButtonFill } from '@/components/Buttons'
 import { BaseHalfModal } from '@/components/Modals'
 import { styles } from '@/styles/components/Modals/ModalConfirmAddress.styles'
@@ -14,6 +15,9 @@ export const ModalConfirmAddress = ({
   name,
   ...props
 }: ModalConfirmAddressProps) => {
+  const router = useRouter()
+  const { triplinkId } = router.query
+
   return (
     <BaseHalfModal
       isBlur={false}
@@ -23,7 +27,13 @@ export const ModalConfirmAddress = ({
     >
       <p css={styles.address}>{address}</p>
       <div css={styles.layoutButton}>
-        <ButtonFill>旅程に追加する</ButtonFill>
+        <ButtonFill
+          onClick={() => {
+            router.push(`/triplink/${triplinkId}/edit`)
+          }}
+        >
+          旅程に追加する
+        </ButtonFill>
       </div>
     </BaseHalfModal>
   )
