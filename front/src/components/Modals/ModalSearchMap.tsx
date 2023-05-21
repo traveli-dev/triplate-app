@@ -1,6 +1,5 @@
 import { HiOutlineLocationMarker, HiOutlineSearch } from 'react-icons/hi'
-import { useDisclosure, useHalfModal } from '@/hooks/modals'
-import { useModalSearchMap } from '@/hooks/modals/'
+import { useDisclosure, useHalfModal, useModalSearchMap } from '@/hooks/modals'
 import { styles } from '@/styles/components/Modals/ModalSearchMap.styles'
 
 type ModalSearchMapProps = {

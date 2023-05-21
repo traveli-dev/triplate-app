@@ -1,9 +1,5 @@
 import { useRouter } from 'next/router'
-import {
-  HiOutlineLocationMarker,
-  HiOutlineSearch,
-  HiOutlineLink
-} from 'react-icons/hi'
+import { HiOutlineLocationMarker, HiOutlineLink } from 'react-icons/hi'
 import { ButtonIconWIthTextHorizontal } from '@/components/Buttons'
 import { BaseHalfModal } from '@/components/Modals'
 import { styles } from '@/styles/components/Modals/ModalAddPlace.styles'
@@ -24,15 +20,6 @@ export const ModalAddPlace = (props: ModalAddPlaceProps) => {
           Icon={HiOutlineLocationMarker}
           title="GoogleMapから追加"
           onClick={() => router.push(`/triplink/${triplinkId}/edit/search`)}
-        />
-      </div>
-      <div css={styles.layoutLinkItem}>
-        <ButtonIconWIthTextHorizontal
-          Icon={HiOutlineSearch}
-          title="ウェブ検索から追加"
-          onClick={() => {
-            router.push('/')
-          }}
         />
       </div>
       <div css={styles.layoutLinkItem}>

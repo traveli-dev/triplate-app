@@ -33,7 +33,7 @@ export const styles = {
     width: 100%;
     max-width: ${theme.breakpoint.md};
     height: 552px;
-    padding: 16px 30px 32px 30px;
+    padding: 16px 16px 32px 16px;
     margin: 0;
     background-color: ${theme.color.white};
     border-radius: 32px 32px 0 0;

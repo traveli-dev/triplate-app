@@ -28,7 +28,7 @@ export const styles = {
     box-sizing: border-box;
     width: 100%;
     max-width: ${theme.breakpoint.md};
-    padding: 32px 30px;
+    padding: 32px 16px;
     margin: 0;
     background-color: ${theme.color.white};
     border-radius: 32px 32px 0 0;
