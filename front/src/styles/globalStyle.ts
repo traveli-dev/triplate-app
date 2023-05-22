@@ -29,6 +29,7 @@ export const globalStyle = () => css`
   }
 
   button {
+    color: ${theme.color.black};
     cursor: pointer;
     background-color: transparent;
     border: none;

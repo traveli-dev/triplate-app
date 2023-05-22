@@ -1,27 +1,15 @@
 import { Title, Subtitle, Description, Controls } from '@storybook/blocks'
-import { BaseHalfModal } from '@/components/Modals'
+import { ModalAddPlace } from '@/components/Modals'
 import type { StoryObj, Meta } from '@storybook/react'
 
-const meta: Meta<typeof BaseHalfModal> = {
-  component: BaseHalfModal,
+const meta: Meta<typeof ModalAddPlace> = {
+  component: ModalAddPlace,
   argTypes: {
     isOpen: {
       description: '開閉のstate（boolean）'
     },
     onClose: {
       description: '閉じるボタン用のハンドラ'
-    },
-    children: {
-      description: 'modalのbody'
-    },
-    title: {
-      description: 'modalを説明するh1'
-    },
-    isBlur: {
-      description: 'overlay要素をグレーで表示するか'
-    },
-    usage: {
-      description: 'id（string）'
     }
   },
   tags: ['autodocs']
@@ -29,14 +17,12 @@ const meta: Meta<typeof BaseHalfModal> = {
 
 export default meta
 
-type Story = StoryObj<typeof BaseHalfModal>
+type Story = StoryObj<typeof ModalAddPlace>
 
 export const Default: Story = {
   args: {
     isOpen: true,
-    onClose: () => null,
-    title: '編集する',
-    children: <p>あいうえお</p>
+    onClose: () => null
   },
   parameters: {
     docs: {

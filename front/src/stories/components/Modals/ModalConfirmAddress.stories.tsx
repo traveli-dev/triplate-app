@@ -1,9 +1,9 @@
 import { Title, Subtitle, Description, Controls } from '@storybook/blocks'
-import { BaseHalfModal } from '@/components/Modals'
+import { ModalConfirmAddress } from '@/components/Modals'
 import type { StoryObj, Meta } from '@storybook/react'
 
-const meta: Meta<typeof BaseHalfModal> = {
-  component: BaseHalfModal,
+const meta: Meta<typeof ModalConfirmAddress> = {
+  component: ModalConfirmAddress,
   argTypes: {
     isOpen: {
       description: '開閉のstate（boolean）'
@@ -11,17 +11,11 @@ const meta: Meta<typeof BaseHalfModal> = {
     onClose: {
       description: '閉じるボタン用のハンドラ'
     },
-    children: {
-      description: 'modalのbody'
+    name: {
+      description: '場所の名前'
     },
-    title: {
-      description: 'modalを説明するh1'
-    },
-    isBlur: {
-      description: 'overlay要素をグレーで表示するか'
-    },
-    usage: {
-      description: 'id（string）'
+    address: {
+      description: '住所'
     }
   },
   tags: ['autodocs']
@@ -29,14 +23,14 @@ const meta: Meta<typeof BaseHalfModal> = {
 
 export default meta
 
-type Story = StoryObj<typeof BaseHalfModal>
+type Story = StoryObj<typeof ModalConfirmAddress>
 
 export const Default: Story = {
   args: {
     isOpen: true,
     onClose: () => null,
-    title: '編集する',
-    children: <p>あいうえお</p>
+    name: '東京駅',
+    address: '東京駅日本、〒100-0005 東京都千代田区丸の内１丁目９'
   },
   parameters: {
     docs: {
