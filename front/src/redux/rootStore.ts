@@ -20,5 +20,7 @@ export const store = configureStore({
     return rootReducer(state, action)
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(baseFirestoreApi.middleware)
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }).concat(baseFirestoreApi.middleware)
 })

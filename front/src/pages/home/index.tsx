@@ -2,6 +2,8 @@ import { Container } from '@/components/Containers'
 import { NavigationBottom } from '@/components/Navigations'
 import { TabHome } from '@/components/Tabs'
 import { styles } from '@/styles/pages/home/index.styles'
+import { TriplinkType, useCreateTriplinksByUserMutation,useGetTriplinksByUserQuery } from "@/redux/services/firestore/triplinks/triplinks";
+import {useState} from "react";
 
 const Home = () => {
   // 仮置きのサンプルデータ
@@ -35,11 +37,30 @@ const Home = () => {
     }
   ]
 
+  const { data, isLoading } = useGetTriplinksByUserQuery()
+  console.log(data)
   return (
     <>
       <Container bgColor="white" isFull>
         <h1 css={styles.heading1}>私のトラべリンク</h1>
-        <TabHome data={triplinkData} />
+        {!data || isLoading ? (
+          /*TODO: */
+          <>{isLoading}</>
+          ) : (
+            <>
+              {data.map((item,_) =>(
+                <div key={_}>
+                  {item.id}
+                  {item.title}
+                  {item.ownerId}
+                  {item.ownerName}
+                </div>
+                )
+              )}
+          <TabHome data={triplinkData} />
+            </>
+        )}
+
       </Container>
       <NavigationBottom />
     </>
