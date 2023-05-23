@@ -25,16 +25,16 @@ export const ModalEdit = ({ isOpen, onClose }: ModalEditProps) => {
     >
       <div css={styles.layoutLinkItem}>
         <LinkIconWithTextHorizontal
-          Icon={HiOutlineInformationCircle}
-          href="/"
-          title="基本情報を編集"
+          Icon={HiOutlineClipboardList}
+          href={`/triplink/${triplinkId}/edit`}
+          title="旅程を編集"
         />
       </div>
       <div css={styles.layoutLinkItem}>
         <LinkIconWithTextHorizontal
-          Icon={HiOutlineClipboardList}
-          href={`/triplink/${triplinkId}/edit`}
-          title="旅程を編集"
+          Icon={HiOutlineInformationCircle}
+          href={`/triplink/${triplinkId}/settings/edit`}
+          title="基本情報を編集"
         />
       </div>
     </BaseHalfModal>
