@@ -32,15 +32,14 @@ export const NavigationBottom = () => {
         </li>
         <li css={styles.nav}>
           <Link
-            css={[styles.navItem, currentPath === '/search' && styles.focus]}
-            href="search"
+            css={[styles.navItem, currentPath === '/explore' && styles.focus]}
+            href="explore"
           >
-            {currentPath === '/search' ? (
+            {currentPath === '/explore' ? (
               <HiGlobe size={24} />
             ) : (
               <HiOutlineGlobe size={24} />
             )}
-
             <p>みんなのたび</p>
           </Link>
         </li>

@@ -7,9 +7,10 @@ import { styles } from '@/styles/components/Modals/ModalMemo.styles'
 type ModalMemoProps = {
   isOpen: boolean
   onClose: () => void
+  triplinkId: string
 }
 
-export const ModalMemo = ({ isOpen, onClose }: ModalMemoProps) => {
+export const ModalMemo = ({ isOpen, onClose, triplinkId }: ModalMemoProps) => {
   const data = {
     id: 'abcde', // triplinkのid
     budget: '0',
@@ -28,7 +29,7 @@ export const ModalMemo = ({ isOpen, onClose }: ModalMemoProps) => {
       <div css={styles.layoutLinkItem}>
         <LinkIconWithTextHorizontal
           Icon={HiOutlinePencilAlt}
-          href="/"
+          href={`/triplink/${triplinkId}/edit/tabimemo`}
           title="たびメモを編集"
         />
       </div>

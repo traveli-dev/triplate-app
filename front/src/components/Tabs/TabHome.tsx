@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Link from 'next/link'
 import { HiViewGrid, HiOutlineViewList } from 'react-icons/hi'
 import { CardTriplink } from '@/components/Cards'
 import { styles } from '@/styles/components/Tabs/TabHome.styles'
@@ -79,9 +80,9 @@ export const TabHome = ({ data }: TabHomeProps) => {
           {triplinkData.length ? (
             <div css={styles.grid(isGrid)}>
               {triplinkData.map((triplink) => (
-                <div key={triplink.id}>
+                <Link href="/triplink/123" key={triplink.id}>
                   <CardTriplink data={triplink} isGrid={isGrid} />
-                </div>
+                </Link>
               ))}
             </div>
           ) : (
