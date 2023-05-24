@@ -33,7 +33,7 @@ export const ModalEdit = ({ isOpen, onClose }: ModalEditProps) => {
       <div css={styles.layoutLinkItem}>
         <LinkIconWithTextHorizontal
           Icon={HiOutlineInformationCircle}
-          href={`/triplink/${triplinkId}/settings/edit`}
+          href={`/triplink/${triplinkId}/edit/settings`}
           title="基本情報を編集"
         />
       </div>
