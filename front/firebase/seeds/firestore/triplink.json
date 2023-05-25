@@ -3,7 +3,7 @@
     "BNyy3Lh1lEaHHJ69zGlz45uY8GD3": {
       "id": "BNyy3Lh1lEaHHJ69zGlz45uY8GD3",
       "title": "いつメンの京都旅行",
-      "thumbnail": "http://localhost:9199/v0/b/traveli-test.appspot.com/o/thumbnail_sample.jpg?alt=media",
+      "thumbnail": "/images/thumbnail_sample.jpg",
       "date": [
         "2023.03.25",
         "2023.05.23"
@@ -15,13 +15,25 @@
     "oMPHRC1TGzdX4WAxHSZrdgCIweQ2": {
       "id": "oMPHRC1TGzdX4WAxHSZrdgCIweQ2",
       "title": "いつメンの京都旅行",
-      "thumbnail": "http://localhost:9199/v0/b/traveli-test.appspot.com/o/thumbnail_sample.jpg?alt=media",
+      "thumbnail": "/images/thumbnail_sample.jpg",
       "date": [
         "2022.03.25",
         "2022.05.23"
       ],
       "ownerId": "opanchu",
       "ownerName": "おぱんちゅうさぎ2",
+      "ownerIcon": "/images/user_sample.jpeg"
+    },
+    "asdgRC1TGzdX4gFaHSZrdgCIwf5h": {
+      "id": "asdgRC1TGzdX4gFaHSZrdgCIwf5h",
+      "title": "テストデータ３",
+      "thumbnail": "/images/thumbnail_sample.jpg",
+      "date": [
+        "1111.03.25",
+        "1111.05.23"
+      ],
+      "ownerId": "opanchu",
+      "ownerName": "おぱんちゅうさぎ3",
       "ownerIcon": "/images/user_sample.jpeg"
     }
   }

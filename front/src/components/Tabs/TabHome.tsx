@@ -2,17 +2,10 @@ import { useState } from 'react'
 import { HiViewGrid, HiOutlineViewList } from 'react-icons/hi'
 import { CardTriplink } from '@/components/Cards'
 import { styles } from '@/styles/components/Tabs/TabHome.styles'
+import {TriplinkType} from "@/redux/services/firestore/triplinks/triplinks";
 
 type TabHomeProps = {
-  data: {
-    id: string
-    ownerId: string
-    title: string
-    thumbnail: string
-    date: [string, string]
-    ownerName: string
-    ownerIcon: string
-  }[]
+  data: TriplinkType[]
 }
 
 export const TabHome = ({ data }: TabHomeProps) => {
