@@ -8,14 +8,14 @@ type CheckAuthProps = {
 
 export const CheckAuth = ({ children }: CheckAuthProps) => {
   const currentUserUid = useAppSelector(authSelectors.currentUserUid)
-  const currentUserData = useAppSelector(currentUserSelectors.currentUserData)
+  const isRegisteredUser = useAppSelector(currentUserSelectors.isRegisteredUser)
 
   const { isCurrentPageStatic, isCurrentPageRequireUserRegistration } =
     useCheckAuth()
 
   const isReady =
     isCurrentPageStatic ||
-    (currentUserData && currentUserUid) ||
+    (isRegisteredUser && currentUserUid) ||
     !isCurrentPageRequireUserRegistration
 
   return <div>{isReady ? <div>{children}</div> : <>ローディング</>}</div>

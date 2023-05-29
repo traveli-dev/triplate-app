@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import { auth } from '@/lib/firebase'
 import { useAppDispath, useAppSelector } from '@/redux/rootStore'
 import { usersApi } from '@/redux/services/firestore'
-import { authSelectors, currentUserSelectors, setUser } from '@/redux/stores'
+import { authSelectors, setUser } from '@/redux/stores'
 import { onAuthStateChanged } from '@/utils/firebase'
 
 export const useCheckAuth = () => {
@@ -11,7 +11,6 @@ export const useCheckAuth = () => {
   const dispatch = useAppDispath()
 
   const currentUserUid = useAppSelector(authSelectors.currentUserUid)
-  const isRegisteredUser = useAppSelector(currentUserSelectors.isRegisteredUser)
 
   // TODO: roleの実装
   const staticPages = ['/404', '/auth']
@@ -46,9 +45,15 @@ export const useCheckAuth = () => {
         )
         const isRegisteredUser = !!data?.userId || false
 
-        // 認証済みで，ユーザ未登録の場合はトップページにリダイレクト
+        // 認証必要ページは，ユーザ未登録の場合はトップにリダイレクト
         if (isCurrentPageRequireUserRegistration && !isRegisteredUser) {
           router.push('/')
+          return
+        }
+
+        // ユーザ登録済みで/user/newにアクセスした場合
+        if (isRegisteredUser && router.pathname === '/user/new') {
+          router.push('/home')
           return
         }
 
@@ -73,10 +78,6 @@ export const useCheckAuth = () => {
   useEffect(() => {
     // ログインなしてアクセス可能なページには認証確認しない
     if (isCurrentPageStatic) return
-    // 登録済みユーザはユーザ登録画面にアクセスすると/homeにリダイレクト
-    if (isRegisteredUser && router.pathname === '/user/new') {
-      router.push('/home')
-    }
 
     checkAuth()
   }, [router.pathname, currentUserUid])
