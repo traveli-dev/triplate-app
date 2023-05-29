@@ -22,9 +22,11 @@ export const useCheckAuth = () => {
     '/triplink'
   ]
 
-  const isCurrentPageStatic = staticPages.includes(router.pathname)
-  const isCurrentPageRequireUserRegistration = signInRequiredPages.includes(
-    router.pathname
+  const isCurrentPageStatic = staticPages.some((page) =>
+    router.pathname.startsWith(page)
+  )
+  const isCurrentPageRequireUserRegistration = signInRequiredPages.some(
+    (page) => router.pathname.startsWith(page)
   )
 
   const checkAuth = async () => {
