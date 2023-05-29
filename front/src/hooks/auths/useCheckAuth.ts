@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import { auth } from '@/lib/firebase'
 import { useAppDispath, useAppSelector } from '@/redux/rootStore'
 import { usersApi } from '@/redux/services/firestore'
-import { authSelectors, setUser } from '@/redux/stores'
+import { authSelectors, currentUserSelectors, setUser } from '@/redux/stores'
 import { onAuthStateChanged } from '@/utils/firebase'
 
 export const useCheckAuth = () => {
@@ -11,6 +11,7 @@ export const useCheckAuth = () => {
   const dispatch = useAppDispath()
 
   const currentUserUid = useAppSelector(authSelectors.currentUserUid)
+  const isRegisteredUser = useAppSelector(currentUserSelectors.isRegisteredUser)
 
   // TODO: roleの実装
   const staticPages = ['/404', '/auth']
@@ -72,6 +73,10 @@ export const useCheckAuth = () => {
   useEffect(() => {
     // ログインなしてアクセス可能なページには認証確認しない
     if (isCurrentPageStatic) return
+    // 登録済みユーザはユーザ登録画面にアクセスすると/homeにリダイレクト
+    if (isRegisteredUser && router.pathname === '/user/new') {
+      router.push('/home')
+    }
 
     checkAuth()
   }, [router.pathname, currentUserUid])

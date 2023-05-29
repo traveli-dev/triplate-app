@@ -35,7 +35,7 @@ const currentUserSlice = createSlice({
 const stateSelector = (state: RootState) => state.user
 
 export const currentUserSelectors = {
-  isRegisteredUser: createSelector(stateSelector, (state) => !!state),
+  isRegisteredUser: createSelector(stateSelector, (state) => !!state.userId),
   currentUserData: createSelector(stateSelector, (state) => state)
 }
 
