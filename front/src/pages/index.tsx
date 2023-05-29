@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { signInWithEmailAndPassword } from 'firebase/auth'
 import { HiOutlineQrcode } from 'react-icons/hi'
 import { ButtonFill } from '@/components/Buttons'
 import { ButtonIconWIthTextHorizontal } from '@/components/Buttons/ButtonIconWithTextHorizontal'
@@ -8,6 +9,7 @@ import { Header } from '@/components/Headers'
 import { ModalMember } from '@/components/Modals'
 import { useSignOut } from '@/hooks/auths'
 import { useDisclosure } from '@/hooks/modals'
+import { auth } from '@/lib/firebase'
 import { useAppSelector } from '@/redux/rootStore'
 import { currentUserSelectors } from '@/redux/stores'
 
@@ -17,6 +19,12 @@ const Index = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const { signOutHandler } = useSignOut()
   const currentUser = useAppSelector(currentUserSelectors.currentUserData)
+
+  // 仮置き
+  const signInTestUser = async () => {
+    await signInWithEmailAndPassword(auth, 'test@example.com', 'password')
+    router.push('/home')
+  }
 
   return (
     <>
@@ -54,6 +62,12 @@ const Index = () => {
         title="aaaa"
         onClick={onOpen}
       />
+
+      {process.env.NODE_ENV === 'development' && (
+        <ButtonFill onClick={signInTestUser}>
+          テストユーザでログイン（シードデータ）
+        </ButtonFill>
+      )}
       <ModalMember isOpen={isOpen} onClose={onClose} />
     </>
   )
