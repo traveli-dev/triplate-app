@@ -5,6 +5,8 @@ import { HiOutlineBell, HiOutlineCog } from 'react-icons/hi'
 import { Avatar } from '@/components/Avatars'
 import { Container } from '@/components/Containers'
 import { NavigationBottom } from '@/components/Navigations'
+import { useAppSelector } from '@/redux/rootStore'
+import { currentUserSelectors } from '@/redux/stores'
 import { styles } from '@/styles/pages/[userId]/index.styles'
 
 const Mypage = () => {
@@ -12,12 +14,8 @@ const Mypage = () => {
   const { userId } = router.query
   const triplateId = '123'
 
-  // example
-  const user = {
-    name: 'おぱんちゅうさぎ',
-    url: '/images/user_sample.jpeg',
-    description: 'ゆるーい旅行ログです'
-  }
+  // TODO: userIdからGETさせる （今は認証ユーザのデータを表示させてるだけ）
+  const user = useAppSelector(currentUserSelectors.currentUserData)
 
   return (
     <>
@@ -38,9 +36,8 @@ const Mypage = () => {
         <div css={styles.wrapper}>
           <div css={styles.content}>
             <div css={styles.user}>
-              <Avatar size="lg" url={user.url} />
+              <Avatar size="lg" url={user.icon || ''} />
               <h1>{user.name}</h1>
-              <p>{user.description}</p>
               <Link href={`/settings/profile?prev=${userId}`}>
                 <HiOutlineCog size={15} />
                 プロフィール設定

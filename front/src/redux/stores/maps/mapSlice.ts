@@ -1,5 +1,5 @@
 import { createSlice, createSelector, PayloadAction } from '@reduxjs/toolkit'
-import { StateType } from '@/redux/rootStore'
+import { RootState } from '@/redux/rootStore'
 
 export type CenterAddressType = {
   name: string | null
@@ -35,7 +35,7 @@ const mapSlice = createSlice({
 
 export const { setCenterAddress } = mapSlice.actions
 
-const stateSelector = (state: StateType) => state.map
+const stateSelector = (state: RootState) => state.map
 
 export const mapSelectors = {
   currentCenter: createSelector(stateSelector, (state) => state)
