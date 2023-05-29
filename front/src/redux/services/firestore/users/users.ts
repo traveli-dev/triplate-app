@@ -40,32 +40,34 @@ export const usersApi = baseFirestoreApi.injectEndpoints({
           ) as DocumentReference<UserType>
 
           const snapshot = await getDoc(ref)
-          
+
           const isUserExists = snapshot.exists()
           if (!isUserExists) return { data: null }
-            
+
           const user = snapshot.data()
           return { data: user }
         } catch (error) {
           return { error }
         }
-      }
+      },
+      providesTags: ['User']
     }),
-    createUser: builder.mutation<void, CreateUserType>({
+    createUser: builder.mutation<string, CreateUserType>({
       queryFn: async ({ id, body }) => {
         try {
-          const res = await setDoc(doc(db, 'users', id), {
+          await setDoc(doc(db, 'users', id), {
             ...body,
             createdAt: serverTimestamp()
           })
 
           return {
-            data: res
+            data: 'OK'
           }
         } catch (error) {
           return { error }
         }
-      }
+      },
+      invalidatesTags: (_result, error) => (error ? [] : ['User'])
     })
   }),
   overrideExisting: false
