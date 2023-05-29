@@ -6,6 +6,9 @@ const meta: Meta<typeof ChipTag> = {
   argTypes: {
     tag: {
       description: 'tagのリストが入ります'
+    },
+    isRound: {
+      description: 'trueで丸くなります'
     }
   },
   tags: ['autodocs']
@@ -17,6 +20,13 @@ type Story = StoryObj<typeof ChipTag>
 
 export const Default: Story = {
   args: {
-    tag: ['京都', '3人旅']
+    tag: '京都'
+  }
+}
+
+export const Round: Story = {
+  args: {
+    tag: '京都',
+    isRound: true
   }
 }

@@ -1,18 +1,25 @@
 import Link from 'next/link'
+import { HiOutlineQrcode } from 'react-icons/hi'
+import { ButtonIconWIthTextHorizontal } from '@/components/Buttons/ButtonIconWithTextHorizontal'
 import { Container } from '@/components/Containers'
 import { Header } from '@/components/Headers'
-import { ModalEdit } from '@/components/Modals'
+import { ModalMember } from '@/components/Modals'
 import { useDisclosure } from '@/hooks/modals'
+import { useAppSelector } from '@/redux/rootStore'
+import { authSelectors } from '@/redux/stores'
 
 const Index = () => {
-  const { isOpen, onClose, onOpen } = useDisclosure()
+  const { isOpen, onOpen, onClose } = useDisclosure()
+
+  // 確認よう
+  const currentUser = useAppSelector(authSelectors.currentUser)
 
   return (
     <>
       <Header href="/" title="GoogleMapから追加" />
-      <Container bgColor="blue" isFull>
+      <Container bgColor="blue">
         <div>動作確認なう</div>
-        <button onClick={onOpen}>モーダルを開ける</button>
+        <h1>{currentUser.uid}</h1>
         <div>
           <Link href="/home">/home</Link>
         </div>
@@ -20,10 +27,15 @@ const Index = () => {
           <Link href="/create">/create</Link>
         </div>
         <div>
-          <Link href="/travelink/123">/travelink/123</Link>
+          <Link href="/triplink/123">/triplink/123</Link>
         </div>
       </Container>
-      <ModalEdit isOpen={isOpen} onClose={onClose} />
+      <ButtonIconWIthTextHorizontal
+        Icon={HiOutlineQrcode}
+        title="aaaa"
+        onClick={onOpen}
+      />
+      <ModalMember isOpen={isOpen} onClose={onClose} />
     </>
   )
 }

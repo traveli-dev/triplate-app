@@ -1,11 +1,15 @@
+import { useRouter } from 'next/router'
+import { FloatingActionButton } from '@/components/Buttons'
 import { Container } from '@/components/Containers'
 import { NavigationBottom } from '@/components/Navigations'
 import { TabHome } from '@/components/Tabs'
 import { styles } from '@/styles/pages/home/index.styles'
 
 const Home = () => {
+  const router = useRouter()
+
   // 仮置きのサンプルデータ
-  const travelinkData = [
+  const triplinkData = [
     {
       id: 'abc',
       ownerId: 'opanchu',
@@ -39,7 +43,8 @@ const Home = () => {
     <>
       <Container bgColor="white" isFull>
         <h1 css={styles.heading1}>私のトラべリンク</h1>
-        <TabHome data={travelinkData} />
+        <TabHome data={triplinkData} />
+        <FloatingActionButton onClick={() => router.push('/triplink/new')} />
       </Container>
       <NavigationBottom />
     </>

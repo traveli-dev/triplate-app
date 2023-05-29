@@ -9,12 +9,15 @@ export const styles = {
     background-color: ${theme.color.white};
     border: 0;
 
-    &:hover,
-    &:focus {
+    &:hover {
       color: ${theme.color.blue};
       ${mq('sm')} {
         color: ${theme.color.black};
       }
+    }
+
+    &:focus {
+      color: ${theme.color.black};
     }
     &:active {
       color: ${theme.color.blue};

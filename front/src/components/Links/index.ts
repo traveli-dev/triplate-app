@@ -1,1 +1,1 @@
-export { LinkItemWithIcon } from '@/components/Links/LinkItemWithIcon'
+export { LinkIconWithTextHorizontal } from '@/components/Links/LinkIconWithTextHorizontal'

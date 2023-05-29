@@ -1,6 +1,7 @@
 import { useState } from 'react'
+import Link from 'next/link'
 import { HiViewGrid, HiOutlineViewList } from 'react-icons/hi'
-import { CardTravelink } from '@/components/Cards'
+import { CardTriplink } from '@/components/Cards'
 import { styles } from '@/styles/components/Tabs/TabHome.styles'
 
 type TabHomeProps = {
@@ -19,7 +20,7 @@ export const TabHome = ({ data }: TabHomeProps) => {
   const [value, setValue] = useState<string>('all')
   const [isGrid, setIsGrid] = useState(false)
 
-  const travelinkData = data.map(({ thumbnail, date, title, id }) => ({
+  const triplinkData = data.map(({ thumbnail, date, title, id }) => ({
     thumbnail,
     date,
     title,
@@ -75,19 +76,19 @@ export const TabHome = ({ data }: TabHomeProps) => {
         </button>
       </div>
       {value === 'all' && (
-        <>
-          {travelinkData.length ? (
+        <div>
+          {triplinkData.length ? (
             <div css={styles.grid(isGrid)}>
-              {travelinkData.map((travelink) => (
-                <div key={travelink.id}>
-                  <CardTravelink data={travelink} isGrid={isGrid} />
-                </div>
+              {triplinkData.map((triplink) => (
+                <Link href="/triplink/123" key={triplink.id}>
+                  <CardTriplink data={triplink} isGrid={isGrid} />
+                </Link>
               ))}
             </div>
           ) : (
             <p>トラべリンクがないです</p>
           )}
-        </>
+        </div>
       )}
       {value === 'join' && <p>参加中のトラべリンクがないです</p>}
       {value === 'favorite' && <p>いいねしたみんなのたびがないです</p>}

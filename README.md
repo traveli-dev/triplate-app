@@ -1,5 +1,5 @@
-# Traveli
-“メモ帳以上、旅程表アプリ未満” の旅程管理アプリ  
+# Triplate
+旅のテンプレートを作る旅程管理アプリ
 
 URL: https://traveli.app
 
@@ -15,7 +15,7 @@ Storybook:https://traveli-dev.github.io/traveli-app/storybook
   $ make init
   # 途中でYnがでるのでYを押す
   # 表示されたURLにアクセス
-  # traveliアカウントでログイン
+  # チームアカウントでログイン
   # 画面の指示に従い，最後に出てくるトークンをコピペしてください
   # Success! Logged in as ~~~と出てきたらOKです
   $ make up

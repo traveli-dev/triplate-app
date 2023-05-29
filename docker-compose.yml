@@ -4,13 +4,17 @@ services:
     build:
       context: ./front
       dockerfile: Dockerfile
-    container_name: traveli-app
+    image: traveli-dev/triplate-app-client
+    container_name: triplate-app-node
     environment:
-      FIRESTORE_EMULATOR_HOST: "localhost:8080"
+      FIRESTORE_EMULATOR_HOST: localhost:8080
+      FIREBASE_STORAGE_EMULATOR_HOST: localhost:9199
+      FIREBASE_AUTH_EMULATOR_HOST: localhost:9099
     ports:
       - 3000:3000 # Next.js
       - 6006:6006 # Storybook
       - 8080:8080 # Cloud Firestore
+      - 9099:9099 # Firebase Authentication
       - 9199:9199 # Cloud Storage
       - 4000:4000 # Emulator Suite UI
     volumes:
@@ -21,9 +25,11 @@ services:
       - node_modules_volume:/home/app/node_modules:delegated
       - build_volume:/home/app/.next:nocopy
       - build_storybook_volume:/home/app/build:nocopy
-    tty: true
 
 volumes:
   node_modules_volume:
+    name: triplate-node-modules-volume
   build_volume:
+    name: triplate-build-volume
   build_storybook_volume:
+    name: triplate-storybook-volume

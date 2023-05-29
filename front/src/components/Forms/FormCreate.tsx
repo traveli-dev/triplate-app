@@ -1,8 +1,13 @@
+import { useRouter } from 'next/router'
 import { ButtonFill } from '@/components/Buttons'
 import { InputImage, InputText } from '@/components/Inputs'
 import { styles } from '@/styles/components/Forms/FormCreate.styles'
 
 export const FormCreate = () => {
+  const router = useRouter()
+  // createした時にレスポンスでtriplinkIdを受け取る
+  const triplinkId = 123
+
   return (
     <>
       <div css={styles.formWrapper}>
@@ -26,7 +31,9 @@ export const FormCreate = () => {
         </label>
       </div>
       <div css={styles.layoutButton}>
-        <ButtonFill>作成する</ButtonFill>
+        <ButtonFill onClick={() => router.push(`/triplink/${triplinkId}`)}>
+          作成する
+        </ButtonFill>
       </div>
     </>
   )
