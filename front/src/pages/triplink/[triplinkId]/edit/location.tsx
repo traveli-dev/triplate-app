@@ -7,7 +7,7 @@ import { useDisclosure } from '@/hooks/modals'
 import { useAppSelector } from '@/redux/rootStore'
 import { mapSelectors } from '@/redux/stores'
 
-const TripLinkEditSearch = () => {
+const TriplinkEditLocation = () => {
   const router = useRouter()
   const { triplinkId } = router.query
   const {
@@ -61,4 +61,4 @@ const TripLinkEditSearch = () => {
   )
 }
 
-export default TripLinkEditSearch
+export default TriplinkEditLocation

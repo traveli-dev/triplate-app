@@ -19,7 +19,7 @@ export const ModalAddPlace = (props: ModalAddPlaceProps) => {
         <ButtonIconWIthTextHorizontal
           Icon={HiOutlineLocationMarker}
           title="GoogleMapから追加"
-          onClick={() => router.push(`/triplink/${triplinkId}/edit/search`)}
+          onClick={() => router.push(`/triplink/${triplinkId}/edit/location`)}
         />
       </div>
       <div css={styles.layoutLinkItem}>
@@ -27,7 +27,7 @@ export const ModalAddPlace = (props: ModalAddPlaceProps) => {
           Icon={HiOutlineLink}
           title="手動で追加"
           onClick={() => {
-            router.push('')
+            alert('一個formがあらわれる')
           }}
         />
       </div>

@@ -23,6 +23,7 @@ const triplinksApi = baseFirestoreApi.injectEndpoints({
   endpoints: (builder) => ({
     getTriplinksByUser: builder.query<TriplinkType[], void>({
       queryFn: async () => {
+        /*ユーザIDと突き合わせて取得*/
         try {
           const snapshot = await getDocs(collection(db, 'triplinks'))
           const ret = snapshot.docs.map((doc) => {
@@ -38,7 +39,6 @@ const triplinksApi = baseFirestoreApi.injectEndpoints({
       queryFn: async (arg) => {
         try {
           const ref = await addDoc(collection(db, 'triplinks'), arg)
-
           return { data : ref.id }
         } catch (err) {
           return { error: err }

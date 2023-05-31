@@ -3,6 +3,15 @@ import { theme } from '@/styles/theme'
 import { mq } from '@/styles/utils'
 
 export const styles = {
+  header: css`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  `,
+  heading1: css`
+    padding: 24px 0;
+    font-size: ${theme.fontSize.lg};
+  `,
   wrapper: css`
     display: flex;
     align-items: center;

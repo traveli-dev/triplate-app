@@ -1,5 +1,5 @@
 import { createSlice, createSelector, PayloadAction } from '@reduxjs/toolkit'
-import { StateType } from '@/redux/rootStore'
+import { RootState } from '@/redux/rootStore'
 
 export type AuthType = {
   uid: string | null
@@ -21,10 +21,10 @@ const authSlice = createSlice({
 
 export const { setUser } = authSlice.actions
 
-const stateSelector = (state: StateType) => state.auth
+const stateSelector = (state: RootState) => state.auth
 
 export const authSelectors = {
-  currentUser: createSelector(stateSelector, (state) => state)
+  currentUserUid: createSelector(stateSelector, (state) => state.uid)
 }
 
 export const authReducer = authSlice.reducer
