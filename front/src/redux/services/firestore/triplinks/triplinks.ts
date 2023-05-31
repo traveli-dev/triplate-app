@@ -6,8 +6,11 @@ import {
   deleteDoc,
   doc,
   getDocs,
-  getFirestore
+  getFirestore, query, QuerySnapshot, where
 } from 'firebase/firestore'
+import {useAppSelector} from "@/redux/rootStore";
+import {authSelectors} from "@/redux/stores";
+import {DocumentData} from "@google-cloud/firestore";
 
 export type TriplinkType =     {
   id: string,
@@ -18,11 +21,12 @@ export type TriplinkType =     {
   ownerName: string,
   ownerIcon: string
 }
-
+/*TODO: 修正：currentId置き換え*/
+const currentId = "C5Ja2gXGLeIXTjhWZbDiWUWe8Whd"
 const triplinksApi = baseFirestoreApi.injectEndpoints({
   endpoints: (builder) => ({
     getTriplinksByUser: builder.query<TriplinkType[], void>({
-      queryFn: async () => {
+      queryFn: async (arg) => {
         /*ユーザIDと突き合わせて取得*/
         try {
           const snapshot = await getDocs(collection(db, 'triplinks'))
@@ -35,21 +39,29 @@ const triplinksApi = baseFirestoreApi.injectEndpoints({
         }
       },
     }),
-    createTriplinksByUser: builder.mutation<string,TriplinkType>({
-      queryFn: async (arg) => {
+    getMyTriplinksByUser: builder.query<TriplinkType[], void>({
+      queryFn: async () => {
+        /*ユーザIDと突き合わせて取得*/
         try {
-          const ref = await addDoc(collection(db, 'triplinks'), arg)
-          return { data : ref.id }
+          const triplinksRef = collection(db, 'triplinks')
+          const triplinksQuery = query(triplinksRef,
+            where("ownerId","==",currentId))
+          const triplinksSnap = await getDocs(triplinksQuery)
+
+          const ret = triplinksSnap.docs.map((doc) => {
+            return { ...doc.data() } as TriplinkType
+          })
+          return { data: ret }
         } catch (err) {
           return { error: err }
         }
       },
-    })
+    }),
   }),
   overrideExisting: false
 })
 
 export const {
   useGetTriplinksByUserQuery,
-  useCreateTriplinksByUserMutation,
+  useGetMyTriplinksByUserQuery,
   } = triplinksApi
