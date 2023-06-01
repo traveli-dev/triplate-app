@@ -1,20 +1,42 @@
 {
   "triplinks": {
-    "BNyy3Lh1lEaHHJ69zGlz45uY8GD3": {
-      "title": "いつメンの京都旅行",
-      "thumbnail": "http://localhost:9199/v0/b/traveli-test.appspot.com/o/thumbnail_sample.jpg?alt=media",
+    "o1PHRC1TGzdX4WAxHSZrdgCIweQ2": {
+      "title": "テストデータ１",
+      "thumbnail": "/images/thumbnail_sample.jpg",
       "date": [
-        "2023.03.25",
-        "2023.05.23"
-      ]
+        "0000.00.00",
+        "0000.00.01"
+      ],
+      "ownerId": "C5Ja2gXGLeIXTjhWZbDiWUWe8Whd"
     },
-    "oMPHRC1TGzdX4WAxHSZrdgCIweQ2": {
-      "title": "鳥取4人旅",
-      "thumbnail": "http://localhost:9199/v0/b/traveli-test.appspot.com/o/thumbnail_sample.jpg?alt=media",
+    "o2PHRC1TGzdX4WAxHSZrdgCIweQ2": {
+      "title": "テストデータ２",
+      "thumbnail": "/images/thumbnail_sample.jpg",
       "date": [
-        "2023.03.25",
-        "2023.05.23"
-      ]
+        "0000.00.00",
+        "0000.00.01"
+      ],
+      "ownerId": "C5Ja2gXGLeIXTjhWZbDiWUWe8Whd"
+    },
+    "o3PHRC1TGzdX4WAxHSZrdgCIweQ2": {
+      "title": "テストデータ３",
+      "thumbnail": "/images/thumbnail_sample.jpg",
+      "date": [
+        "0000.00.00",
+        "0000.00.01"
+      ],
+      "ownerId": "C5Ja2gXGLeIXTjhWZbDiWUWe8Whd"
+
+    },
+    "o11HRC1TGzdX4WAxHSZrdgCIweQ2": {
+      "title": "テストデータ11",
+      "thumbnail": "/images/thumbnail_sample.jpg",
+      "date": [
+        "0000.00.00",
+        "0000.00.01"
+      ],
+      "ownerId": "C00a2gXGLeIXTjhWZbDiWUWe8Whd"
+
     }
   }
 }

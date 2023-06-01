@@ -24,7 +24,7 @@ export const { setUser } = authSlice.actions
 const stateSelector = (state: RootState) => state.auth
 
 export const authSelectors = {
-  currentUserUid: createSelector(stateSelector, (state) => state.uid)
+  currentUid: createSelector(stateSelector, (state) => state.uid)
 }
 
 export const authReducer = authSlice.reducer

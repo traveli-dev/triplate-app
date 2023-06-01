@@ -10,7 +10,7 @@ import { onAuthStateChanged } from '@/utils/firebase/onAuthStateChanged'
 
 const UserNew = () => {
   const router = useRouter()
-  const currentUserUid = useAppSelector(authSelectors.currentUserUid)
+  const currentUid = useAppSelector(authSelectors.currentUid)
 
   // TODO 仮置き ユーザ登録フローの確認のため
   const [disabled, setDisabled] = useState(false)
@@ -54,7 +54,7 @@ const UserNew = () => {
 
   return (
     <div>
-      {!currentUserUid ? (
+      {!currentUid ? (
         <p>ログインに失敗しました。大変お手数ですが、再度お試しください</p>
       ) : (
         <>

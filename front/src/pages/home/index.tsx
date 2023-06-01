@@ -3,47 +3,42 @@ import { FloatingActionButton } from '@/components/Buttons'
 import { Container } from '@/components/Containers'
 import { NavigationBottom } from '@/components/Navigations'
 import { TabHome } from '@/components/Tabs'
+import { useAppSelector } from '@/redux/rootStore'
+import {
+  useGetJoinTripsQuery,
+  useGetMyTripsQuery
+} from '@/redux/services/firestore'
+import { authSelectors } from '@/redux/stores'
 import { styles } from '@/styles/pages/home/index.styles'
 
 const Home = () => {
   const router = useRouter()
+  const currentUid = useAppSelector(authSelectors.currentUid)
+  const { data: myTripsData, isLoading: myTripsDataIsLoading } =
+    useGetMyTripsQuery(currentUid ?? '')
+  const { data: joinTripsData, isLoading: joinTripsDataIsLoading } =
+    useGetJoinTripsQuery(currentUid ?? '')
 
-  // 仮置きのサンプルデータ
-  const triplinkData = [
-    {
-      id: 'abc',
-      ownerId: 'opanchu',
-      title: 'いつメンの京都旅行',
-      thumbnail: '/images/user_sample.jpeg',
-      date: ['2023.03.25', '2023.03.27'] as [string, string],
-      ownerName: 'おぱんちゅうさぎ',
-      ownerIcon: '/images/user_sample.jpeg'
-    },
-    {
-      id: 'def',
-      ownerId: 'usagi',
-      title: '鳥取４人旅',
-      thumbnail: '/images/user_sample.jpeg',
-      date: ['2023.03.25', '2023.03.27'] as [string, string],
-      ownerName: 'うさぎ',
-      ownerIcon: '/images/user_sample.jpeg'
-    },
-    {
-      id: 'aie',
-      ownerId: 'usagi',
-      title: '鳥取４人旅',
-      thumbnail: '/images/user_sample.jpeg',
-      date: ['2023.03.25', '2023.03.27'] as [string, string],
-      ownerName: 'うさぎ',
-      ownerIcon: '/images/user_sample.jpeg'
-    }
-  ]
+  const isLoading =
+    !myTripsData ||
+    !joinTripsData ||
+    myTripsDataIsLoading ||
+    joinTripsDataIsLoading
 
   return (
     <>
       <Container bgColor="white" isFull>
         <h1 css={styles.heading1}>私のトラべリンク</h1>
-        <TabHome data={triplinkData} />
+        {isLoading ? (
+          <>LOADING</>
+        ) : (
+          <TabHome
+            favoriteTriplinksData={[]}
+            joinTriplinksData={joinTripsData}
+            myTriplinksData={myTripsData}
+          />
+        )}
+
         <FloatingActionButton onClick={() => router.push('/triplink/new')} />
       </Container>
       <NavigationBottom />

@@ -1,19 +1,53 @@
 {
   "users": {
     "C5Ja2gXGLeIXTjhWZbDiWUWe8Whd": {
-      "name": "テストゆーざ",
-      "icon": null,
-      "userId": "ma_ma_hima",
-      "email": "test@example.com",
+      "id": "C5Ja2gXGLeIXTjhWZbDiWUWe8Whd",
+      "name": "testUser0",
+      "icon": "/images/user_sample.jpeg",
+      "userId": "userID00",
+      "email": "test0@example.com",
       "subCollection": {
         "users/C5Ja2gXGLeIXTjhWZbDiWUWe8Whd/joinTrips": {
           "1": {
-            "tripId": "BNyy3Lh1lEaHHJ69zGlz45uY8GD3"
+            "tripId": "o11HRC1TGzdX4WAxHSZrdgCIweQ2"
           }
         },
         "users/C5Ja2gXGLeIXTjhWZbDiWUWe8Whd/myTrips": {
           "1": {
-            "tripId": "oMPHRC1TGzdX4WAxHSZrdgCIweQ2"
+            "tripId": "o1PHRC1TGzdX4WAxHSZrdgCIweQ2"
+          },
+          "2": {
+            "tripId": "o2PHRC1TGzdX4WAxHSZrdgCIweQ2"
+          },
+          "3": {
+            "tripId": "o3PHRC1TGzdX4WAxHSZrdgCIweQ2"
+          }
+        },
+        "users/C5Ja2gXGLeIXTjhWZbDiWUWe8Whd/favorite": {
+
+        }
+      }
+    },
+    "C00a2gXGLeIXTjhWZbDiWUWe8Whd": {
+      "id": "C00a2gXGLeIXTjhWZbDiWUWe8Whd",
+      "name": "testUser1",
+      "icon": "/images/user_sample.jpeg",
+      "userId": "userID01",
+      "email": "test2@example.com",
+      "subCollection": {
+        "users/C00a2gXGLeIXTjhWZbDiWUWe8Whd/joinTrips": {
+          "1": {
+            "tripId": "o1PHRC1TGzdX4WAxHSZrdgCIweQ2"
+          }
+        },
+        "users/C00a2gXGLeIXTjhWZbDiWUWe8Whd/myTrips": {
+          "1": {
+            "tripId": "o11HRC1TGzdX4WAxHSZrdgCIweQ2"
+          }
+        },
+        "users/C00a2gXGLeIXTjhWZbDiWUWe8Whd/favorite": {
+          "1": {
+            "tripId": "o2PHRC1TGzdX4WAxHSZrdgCIweQ2"
           }
         }
       }

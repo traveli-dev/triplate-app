@@ -2,30 +2,47 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { HiViewGrid, HiOutlineViewList } from 'react-icons/hi'
 import { CardTriplink } from '@/components/Cards'
+import { TriplinkType } from '@/redux/services/firestore'
 import { styles } from '@/styles/components/Tabs/TabHome.styles'
 
 type TabHomeProps = {
-  data: {
-    id: string
-    ownerId: string
-    title: string
-    thumbnail: string
-    date: [string, string]
-    ownerName: string
-    ownerIcon: string
-  }[]
+  myTriplinksData: TriplinkType[]
+  joinTriplinksData: TriplinkType[]
+  favoriteTriplinksData: TriplinkType[]
 }
 
-export const TabHome = ({ data }: TabHomeProps) => {
+export const TabHome = ({
+  myTriplinksData,
+  joinTriplinksData,
+  favoriteTriplinksData
+}: TabHomeProps) => {
   const [value, setValue] = useState<string>('all')
   const [isGrid, setIsGrid] = useState(false)
 
-  const triplinkData = data.map(({ thumbnail, date, title, id }) => ({
-    thumbnail,
-    date,
-    title,
-    id
-  }))
+  const formattedMyTriplinksData = myTriplinksData.map(
+    ({ thumbnail, date, title, id }) => ({
+      thumbnail,
+      date,
+      title,
+      id
+    })
+  )
+  const formattedJoinTriplinksData = joinTriplinksData.map(
+    ({ thumbnail, date, title, id }) => ({
+      thumbnail,
+      date,
+      title,
+      id
+    })
+  )
+  const formattedFavoriteTriplinksData = favoriteTriplinksData.map(
+    ({ thumbnail, date, title, id }) => ({
+      thumbnail,
+      date,
+      title,
+      id
+    })
+  )
 
   return (
     <>
@@ -77,10 +94,10 @@ export const TabHome = ({ data }: TabHomeProps) => {
       </div>
       {value === 'all' && (
         <div>
-          {triplinkData.length ? (
+          {formattedMyTriplinksData.length ? (
             <div css={styles.grid(isGrid)}>
-              {triplinkData.map((triplink) => (
-                <Link href="/triplink/123" key={triplink.id}>
+              {formattedMyTriplinksData.map((triplink) => (
+                <Link href={`/triplink/${triplink.id}`} key={triplink.id}>
                   <CardTriplink data={triplink} isGrid={isGrid} />
                 </Link>
               ))}
@@ -90,8 +107,36 @@ export const TabHome = ({ data }: TabHomeProps) => {
           )}
         </div>
       )}
-      {value === 'join' && <p>参加中のトラべリンクがないです</p>}
-      {value === 'favorite' && <p>いいねしたみんなのたびがないです</p>}
+      {value === 'join' && (
+        <div>
+          {formattedJoinTriplinksData.length ? (
+            <div css={styles.grid(isGrid)}>
+              {formattedJoinTriplinksData.map((triplink) => (
+                <Link href={`/triplink/${triplink.id}`} key={triplink.id}>
+                  <CardTriplink data={triplink} isGrid={isGrid} />
+                </Link>
+              ))}
+            </div>
+          ) : (
+            <p>トラべリンクがないです</p>
+          )}
+        </div>
+      )}
+      {value === 'favorite' && (
+        <div>
+          {formattedFavoriteTriplinksData.length ? (
+            <div css={styles.grid(isGrid)}>
+              {formattedFavoriteTriplinksData.map((triplink) => (
+                <Link href={`/triplink/${triplink.id}`} key={triplink.id}>
+                  <CardTriplink data={triplink} isGrid={isGrid} />
+                </Link>
+              ))}
+            </div>
+          ) : (
+            <p>トラべリンクがないです</p>
+          )}
+        </div>
+      )}
     </>
   )
 }

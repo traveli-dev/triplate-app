@@ -10,7 +10,7 @@ export const useCheckAuth = () => {
   const router = useRouter()
   const dispatch = useAppDispath()
 
-  const currentUserUid = useAppSelector(authSelectors.currentUserUid)
+  const currentUid = useAppSelector(authSelectors.currentUid)
 
   // TODO: roleの実装
   const staticPages = ['/404', '/auth']
@@ -82,7 +82,7 @@ export const useCheckAuth = () => {
     if (isCurrentPageStatic) return
 
     checkAuth()
-  }, [router.pathname, currentUserUid])
+  }, [router.pathname, currentUid])
 
   return {
     isCurrentPageStatic,
