@@ -1,67 +1,102 @@
-import { baseFirestoreApi } from '@/redux/services/firestore/baseFirestoreApi'
-import { db } from '@/lib/firebase'
 import {
-  addDoc,
   collection,
-  deleteDoc,
+  CollectionReference,
   doc,
-  getDocs,
-  getFirestore, query, QuerySnapshot, where
+  DocumentReference,
+  getDoc,
+  getDocs
 } from 'firebase/firestore'
-import {useAppSelector} from "@/redux/rootStore";
-import {authSelectors} from "@/redux/stores";
-import {DocumentData} from "@google-cloud/firestore";
+import { db } from '@/lib/firebase'
+import { baseFirestoreApi } from '@/redux/services/firestore/baseFirestoreApi'
 
-export type TriplinkType =     {
-  id: string,
-  ownerId: string,
-  title: string,
-  thumbnail: string,
-  date:  [string, string],
-  ownerName: string,
+export type TriplinkType = {
+  id: string
+  ownerId: string
+  title: string
+  thumbnail: string
+  date: [string, string]
+  ownerName: string
   ownerIcon: string
 }
-/*TODO: 修正：currentId置き換え*/
-const currentId = "C5Ja2gXGLeIXTjhWZbDiWUWe8Whd"
+export type MyTripType = {
+  tripId: string
+}
+export type JoinTripType = {
+  tripId: string
+}
+
 const triplinksApi = baseFirestoreApi.injectEndpoints({
   endpoints: (builder) => ({
-    getTriplinksByUser: builder.query<TriplinkType[], void>({
-      queryFn: async (arg) => {
-        /*ユーザIDと突き合わせて取得*/
+    getMyTrips: builder.query<TriplinkType[], string>({
+      /*TODO: なんかエラー*/
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      //@ts-ignore
+      queryFn: async (uid) => {
         try {
-          const snapshot = await getDocs(collection(db, 'triplinks'))
-          const ret = snapshot.docs.map((doc) => {
-            return { ...doc.data() } as TriplinkType
+          /*tripIdのリスト取得*/
+          const myTripsRef = collection(
+            db,
+            'users',
+            uid,
+            'myTrips'
+          ) as CollectionReference<MyTripType>
+          const myTripsSnap = await getDocs(myTripsRef)
+          const tripIds = myTripsSnap.docs.map((doc) => {
+            return { ...doc.data() }
           })
-          return { data: ret }
+          /*tripIdからtriplinkリストを取得*/
+          const data = await Promise.all(
+            tripIds.map(async ({ tripId }) => {
+              const ref = doc(
+                collection(db, 'triplinks'),
+                tripId
+              ) as DocumentReference<TriplinkType>
+              const document = await getDoc(ref)
+              return { ...document.data() }
+            })
+          )
+          return { data }
         } catch (err) {
           return { error: err }
         }
-      },
+      }
     }),
-    getMyTriplinksByUser: builder.query<TriplinkType[], void>({
-      queryFn: async () => {
-        /*ユーザIDと突き合わせて取得*/
+    getJoinTrips: builder.query<TriplinkType[], string>({
+      /*TODO: なんかエラー*/
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      //@ts-ignore
+      queryFn: async (uid) => {
         try {
-          const triplinksRef = collection(db, 'triplinks')
-          const triplinksQuery = query(triplinksRef,
-            where("ownerId","==",currentId))
-          const triplinksSnap = await getDocs(triplinksQuery)
-
-          const ret = triplinksSnap.docs.map((doc) => {
-            return { ...doc.data() } as TriplinkType
+          /*tripIdのリスト取得*/
+          const joinTripsRef = collection(
+            db,
+            'users',
+            uid,
+            'joinTrips'
+          ) as CollectionReference<JoinTripType>
+          const joinTripsSnap = await getDocs(joinTripsRef)
+          const tripIds = joinTripsSnap.docs.map((doc) => {
+            return { ...doc.data() }
           })
-          return { data: ret }
+          /*tripIdからtriplinkリストを取得*/
+          const data = await Promise.all(
+            tripIds.map(async ({ tripId }) => {
+              const ref = doc(
+                collection(db, 'triplinks'),
+                tripId
+              ) as DocumentReference<TriplinkType>
+              const document = await getDoc(ref)
+              return { ...document.data() }
+            })
+          )
+          return { data }
         } catch (err) {
           return { error: err }
         }
-      },
-    }),
+      }
+    })
   }),
   overrideExisting: false
 })
 
-export const {
-  useGetTriplinksByUserQuery,
-  useGetMyTriplinksByUserQuery,
-  } = triplinksApi
+export const { useGetMyTripsQuery, useGetJoinTripsQuery } = triplinksApi
