@@ -15,8 +15,6 @@ export type TriplinkType = {
   title: string
   thumbnail: string
   date: [string, string]
-  ownerName: string
-  ownerIcon: string
 }
 export type MyTripType = {
   tripId: string
