@@ -14,12 +14,14 @@
         },
         "users/C5Ja2gXGLeIXTjhWZbDiWUWe8Whd/myTrips": {
           "1": {
-            "tripId": "oMPHRC1TGzdX4WAxHSZrdgCIweQ2"
+            "tripId": "o1PHRC1TGzdX4WAxHSZrdgCIweQ2"
           },
           "2": {
             "tripId": "o2PHRC1TGzdX4WAxHSZrdgCIweQ2"
+          },
+          "3": {
+            "tripId": "o3PHRC1TGzdX4WAxHSZrdgCIweQ2"
           }
-
         },
         "users/C5Ja2gXGLeIXTjhWZbDiWUWe8Whd/favorite": {
 
@@ -33,17 +35,17 @@
       "userId": "userID01",
       "email": "test2@example.com",
       "subCollection": {
-        "users/C5Ja2gXGLeIXTjhWZbDiWUWe8Whd/joinTrips": {
+        "users/C00a2gXGLeIXTjhWZbDiWUWe8Whd/joinTrips": {
           "1": {
-            "tripId": "oMPHRC1TGzdX4WAxHSZrdgCIweQ2"
+            "tripId": "o1PHRC1TGzdX4WAxHSZrdgCIweQ2"
           }
         },
-        "users/C5Ja2gXGLeIXTjhWZbDiWUWe8Whd/myTrips": {
+        "users/C00a2gXGLeIXTjhWZbDiWUWe8Whd/myTrips": {
           "1": {
             "tripId": "o11HRC1TGzdX4WAxHSZrdgCIweQ2"
           }
         },
-        "users/C5Ja2gXGLeIXTjhWZbDiWUWe8Whd/favorite": {
+        "users/C00a2gXGLeIXTjhWZbDiWUWe8Whd/favorite": {
           "1": {
             "tripId": "o2PHRC1TGzdX4WAxHSZrdgCIweQ2"
           }

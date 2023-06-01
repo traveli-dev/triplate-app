@@ -1,52 +1,42 @@
 {
   "triplinks": {
-    "oMPHRC1TGzdX4WAxHSZrdgCIweQ2": {
-      "id": "oMPHRC1TGzdX4WAxHSZrdgCIweQ2",
+    "o1PHRC1TGzdX4WAxHSZrdgCIweQ2": {
       "title": "テストデータ１",
       "thumbnail": "/images/thumbnail_sample.jpg",
       "date": [
         "0000.00.00",
         "0000.00.01"
       ],
-      "ownerId": "C5Ja2gXGLeIXTjhWZbDiWUWe8Whd",
-      "ownerName": "testUser0",
-      "ownerIcon": "/images/user_sample.jpeg"
+      "ownerId": "C5Ja2gXGLeIXTjhWZbDiWUWe8Whd"
     },
     "o2PHRC1TGzdX4WAxHSZrdgCIweQ2": {
-      "id": "o2PHRC1TGzdX4WAxHSZrdgCIweQ2",
       "title": "テストデータ２",
       "thumbnail": "/images/thumbnail_sample.jpg",
       "date": [
         "0000.00.00",
         "0000.00.01"
       ],
-      "ownerId": "C5Ja2gXGLeIXTjhWZbDiWUWe8Whd",
-      "ownerName": "testUser0",
-      "ownerIcon": "/images/user_sample.jpeg"
+      "ownerId": "C5Ja2gXGLeIXTjhWZbDiWUWe8Whd"
     },
     "o3PHRC1TGzdX4WAxHSZrdgCIweQ2": {
-      "id": "o3PHRC1TGzdX4WAxHSZrdgCIweQ2",
       "title": "テストデータ３",
       "thumbnail": "/images/thumbnail_sample.jpg",
       "date": [
         "0000.00.00",
         "0000.00.01"
       ],
-      "ownerId": "C5Ja2gXGLeIXTjhWZbDiWUWe8Whd",
-      "ownerName": "testUser0",
-      "ownerIcon": "/images/user_sample.jpeg"
+      "ownerId": "C5Ja2gXGLeIXTjhWZbDiWUWe8Whd"
+
     },
     "o11HRC1TGzdX4WAxHSZrdgCIweQ2": {
-      "id": "o11HRC1TGzdX4WAxHSZrdgCIweQ2",
       "title": "テストデータ11",
       "thumbnail": "/images/thumbnail_sample.jpg",
       "date": [
         "0000.00.00",
         "0000.00.01"
       ],
-      "ownerId": "C00a2gXGLeIXTjhWZbDiWUWe8Whd",
-      "ownerName": "testUser1",
-      "ownerIcon": "/images/user_sample.jpeg"
+      "ownerId": "C00a2gXGLeIXTjhWZbDiWUWe8Whd"
+
     }
   }
 }
