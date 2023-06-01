@@ -16,9 +16,11 @@ export type TriplinkType = {
   thumbnail: string
   date: [string, string]
 }
+
 export type MyTripType = {
   tripId: string
 }
+
 export type JoinTripType = {
   tripId: string
 }
@@ -26,9 +28,6 @@ export type JoinTripType = {
 const triplinksApi = baseFirestoreApi.injectEndpoints({
   endpoints: (builder) => ({
     getMyTrips: builder.query<TriplinkType[], string>({
-      /*TODO: なんかエラー*/
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      //@ts-ignore
       queryFn: async (uid) => {
         try {
           /*tripIdのリスト取得*/
@@ -42,27 +41,35 @@ const triplinksApi = baseFirestoreApi.injectEndpoints({
           const tripIds = myTripsSnap.docs.map((doc) => {
             return { ...doc.data() }
           })
+
           /*tripIdからtriplinkリストを取得*/
           const data = await Promise.all(
             tripIds.map(async ({ tripId }) => {
               const ref = doc(
                 collection(db, 'triplinks'),
                 tripId
-              ) as DocumentReference<TriplinkType>
+              ) as DocumentReference<Omit<TriplinkType, 'id'>>
+
               const document = await getDoc(ref)
-              return { ...document.data() }
+              if (!document.exists()) return null
+
+              return { ...document.data(), id: tripId }
             })
           )
-          return { data }
+
+          // nullをフィルタリング
+          const filteredData = data.filter(
+            (item): item is NonNullable<typeof item> => item !== null
+          )
+
+          return { data: filteredData }
         } catch (err) {
+          // TODO: エラー処理
           return { error: err }
         }
       }
     }),
     getJoinTrips: builder.query<TriplinkType[], string>({
-      /*TODO: なんかエラー*/
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      //@ts-ignore
       queryFn: async (uid) => {
         try {
           /*tripIdのリスト取得*/
@@ -76,19 +83,30 @@ const triplinksApi = baseFirestoreApi.injectEndpoints({
           const tripIds = joinTripsSnap.docs.map((doc) => {
             return { ...doc.data() }
           })
+
           /*tripIdからtriplinkリストを取得*/
           const data = await Promise.all(
             tripIds.map(async ({ tripId }) => {
               const ref = doc(
                 collection(db, 'triplinks'),
                 tripId
-              ) as DocumentReference<TriplinkType>
+              ) as DocumentReference<Omit<TriplinkType, 'id'>>
+
               const document = await getDoc(ref)
-              return { ...document.data() }
+              if (!document.exists()) return null
+
+              return { ...document.data(), id: tripId }
             })
           )
-          return { data }
+
+          // nullをフィルタリング
+          const filteredData = data.filter(
+            (item): item is NonNullable<typeof item> => item !== null
+          )
+
+          return { data: filteredData }
         } catch (err) {
+          // TODO: エラー処理
           return { error: err }
         }
       }

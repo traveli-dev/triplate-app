@@ -7,26 +7,29 @@ import { useAppSelector } from '@/redux/rootStore'
 import {
   useGetJoinTripsQuery,
   useGetMyTripsQuery
-} from '@/redux/services/firestore/triplinks/triplinks'
+} from '@/redux/services/firestore'
 import { authSelectors } from '@/redux/stores'
 import { styles } from '@/styles/pages/home/index.styles'
 
 const Home = () => {
   const router = useRouter()
   const currentUid = useAppSelector(authSelectors.currentUid)
-  const { data: myTripsData, isLoading: myTripsDataisLoading } =
+  const { data: myTripsData, isLoading: myTripsDataIsLoading } =
     useGetMyTripsQuery(currentUid ?? '')
-  const { data: joinTripsData, isLoading: joinTripsDataisLoading } =
+  const { data: joinTripsData, isLoading: joinTripsDataIsLoading } =
     useGetJoinTripsQuery(currentUid ?? '')
+
+  const isLoading =
+    !myTripsData ||
+    !joinTripsData ||
+    myTripsDataIsLoading ||
+    joinTripsDataIsLoading
 
   return (
     <>
       <Container bgColor="white" isFull>
         <h1 css={styles.heading1}>私のトラべリンク</h1>
-        {!myTripsData ||
-        !joinTripsData ||
-        myTripsDataisLoading ||
-        joinTripsDataisLoading ? (
+        {isLoading ? (
           <>LOADING</>
         ) : (
           <TabHome
