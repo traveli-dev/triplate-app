@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 import { ButtonFill } from '@/components/Buttons'
+import { Container } from '@/components/Containers'
+import { FormCreateUpdateUser } from '@/components/Forms'
 import { Header } from '@/components/Headers'
 import { auth } from '@/lib/firebase'
 import { useAppSelector } from '@/redux/rootStore'
@@ -59,16 +61,21 @@ const UserNew = () => {
       ) : (
         <>
           <Header title="アカウント作成" />
-          <ButtonFill
-            disabled={disabled}
-            onClick={async () => {
-              await onCreateUserHandler()
-              router.push('/home')
-            }}
-          >
-            アカウント作成
-          </ButtonFill>
-          <button onClick={deleteAuthHandler}>アカウント作成を中断する</button>
+          <Container bgColor="white" isFull>
+            <FormCreateUpdateUser />
+            <ButtonFill
+              disabled={disabled}
+              onClick={async () => {
+                await onCreateUserHandler()
+                router.push('/home')
+              }}
+            >
+              アカウント作成
+            </ButtonFill>
+            <button onClick={deleteAuthHandler}>
+              アカウント作成を中断する
+            </button>
+          </Container>
         </>
       )}
     </div>
