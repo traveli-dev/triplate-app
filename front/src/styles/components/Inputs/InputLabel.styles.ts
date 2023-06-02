@@ -6,6 +6,7 @@ export const styles = {
     display: block;
     padding-top: 16px;
     font-size: ${theme.fontSize.md};
+    cursor: pointer;
   `,
   subText: css`
     margin-left: 16px;
