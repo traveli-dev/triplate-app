@@ -2,7 +2,7 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import { setupListeners } from '@reduxjs/toolkit/dist/query'
 import { ALL_CLEAR } from '@/redux/actions'
-import { baseFirestoreApi } from '@/redux/services/firestore/baseFirestoreApi'
+import { baseFirestoreApi } from '@/redux/services/firestore'
 import { authReducer, mapReducer, currentUserReducers } from '@/redux/stores'
 
 export type RootState = ReturnType<typeof rootReducer>
