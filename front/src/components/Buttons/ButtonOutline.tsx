@@ -1,8 +1,8 @@
-import React, { ButtonHTMLAttributes } from 'react'
+import React, { ComponentPropsWithRef } from 'react'
 import { HiOutlinePlus } from 'react-icons/hi'
 import { styles } from '@/styles/components/Buttons/ButtonOutline.styles'
 
-type ButtonOutlineProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+type ButtonOutlineProps = ComponentPropsWithRef<'button'> & {
   children: React.ReactNode
   icon: 'plus' | 'none'
 }

@@ -1,10 +1,10 @@
-import { InputHTMLAttributes } from 'react'
+import { ComponentPropsWithRef } from 'react'
 import Image from 'next/image'
 import { HiOutlineUpload } from 'react-icons/hi'
 import { useInputImage } from '@/hooks/inputs'
 import { styles } from '@/styles/components/Inputs/InputImage.styles'
 
-type InputImageProps = InputHTMLAttributes<HTMLInputElement> & {
+type InputImageProps = ComponentPropsWithRef<'input'> & {
   alt: string
 }
 

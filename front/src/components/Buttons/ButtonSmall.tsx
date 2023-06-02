@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes } from 'react'
+import { ComponentPropsWithRef } from 'react'
 import {
   HiOutlineShare,
   HiOutlineHeart,
@@ -6,7 +6,7 @@ import {
 } from 'react-icons/hi'
 import { styles } from '@/styles/components/Buttons/ButtonSmall.styles'
 
-type ButtonSmallProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+type ButtonSmallProps = ComponentPropsWithRef<'button'> & {
   children: string
   icon: 'share' | 'heart' | 'copy'
 }

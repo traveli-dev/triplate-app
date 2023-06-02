@@ -1,8 +1,8 @@
-import { ButtonHTMLAttributes } from 'react'
+import { ComponentPropsWithRef } from 'react'
 import { HiOutlineChevronLeft, HiOutlineDotsHorizontal } from 'react-icons/hi'
 import { styles } from '@/styles/components/Buttons/ButtonIconRound.styles'
 
-type ButtonIconRoundProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+type ButtonIconRoundProps = ComponentPropsWithRef<'button'> & {
   icon: 'back' | 'menu'
 }
 
