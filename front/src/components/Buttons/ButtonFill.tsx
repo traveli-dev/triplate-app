@@ -1,7 +1,7 @@
-import React, { ButtonHTMLAttributes } from 'react'
+import React, { ComponentPropsWithRef } from 'react'
 import { styles } from '@/styles/components/Buttons/ButtonFill.styles'
 
-type ButtonFillProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+type ButtonFillProps = ComponentPropsWithRef<'button'> & {
   children: React.ReactNode
   //TODO: icon
 }

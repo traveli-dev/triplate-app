@@ -1,7 +1,7 @@
-import { InputHTMLAttributes } from 'react'
+import { ComponentPropsWithRef } from 'react'
 import { styles } from '@/styles/components/Inputs/InputText.styles'
 
-type InputTextProps = InputHTMLAttributes<HTMLInputElement> & {
+type InputTextProps = ComponentPropsWithRef<'input'> & {
   placeholder: string
 }
 

@@ -1,8 +1,8 @@
-import { ButtonHTMLAttributes } from 'react'
+import { ComponentPropsWithRef } from 'react'
 import { HiOutlinePlus } from 'react-icons/hi'
 import { styles } from '@/styles/components/Buttons/FloatingActionButton.styles'
 
-type FloatingActionButtonProps = ButtonHTMLAttributes<HTMLButtonElement>
+type FloatingActionButtonProps = ComponentPropsWithRef<'button'>
 
 export const FloatingActionButton = (props: FloatingActionButtonProps) => {
   return (

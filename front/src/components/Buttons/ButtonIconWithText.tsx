@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes } from 'react'
+import { ComponentPropsWithRef } from 'react'
 import {
   HiOutlineUsers,
   HiOutlineDocumentText,
@@ -8,7 +8,7 @@ import {
 } from 'react-icons/hi'
 import { styles } from '@/styles/components/Buttons/ButtonIconWithText.styles'
 
-type ButtonIconWithTextProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+type ButtonIconWithTextProps = ComponentPropsWithRef<'button'> & {
   iconType: 'members' | 'memo' | 'share' | 'edit' | 'public'
 }
 
