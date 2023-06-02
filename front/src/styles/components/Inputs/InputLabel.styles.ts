@@ -4,7 +4,6 @@ import { theme } from '@/styles/theme'
 export const styles = {
   label: css`
     display: block;
-    padding-top: 16px;
     font-size: ${theme.fontSize.md};
     cursor: pointer;
   `,

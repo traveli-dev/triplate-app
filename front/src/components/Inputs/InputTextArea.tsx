@@ -1,7 +1,7 @@
-import { ComponentProps } from 'react'
+import { ComponentPropsWithRef } from 'react'
 import { styles } from '@/styles/components/Inputs/InputTextArea.styles'
 
-type InputTextAreaProps = ComponentProps<'textarea'> & {
+type InputTextAreaProps = ComponentPropsWithRef<'textarea'> & {
   placeholder: string
 }
 
