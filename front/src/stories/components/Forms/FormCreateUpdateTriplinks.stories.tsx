@@ -10,4 +10,10 @@ export default meta
 
 type Story = StoryObj<typeof FormCreateUpdateTriplinks>
 
-export const Default: Story = {}
+export const Default: Story = {
+  parameters: {
+    backgrounds: {
+      default: 'white'
+    }
+  }
+}
