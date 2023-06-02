@@ -1,9 +1,9 @@
-import { ReactElement } from 'react'
+import { ReactNode } from 'react'
 import { styles } from '@/styles/components/Inputs/InputLabel.styles'
 
 type InputLabelProps = {
   htmlFor: string
-  children: ReactElement
+  children: ReactNode
   text: string
   subText?: string
 }
