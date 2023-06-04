@@ -1,15 +1,16 @@
-import { ComponentPropsWithRef } from 'react'
+import { ChangeEvent, ComponentPropsWithRef } from 'react'
 import Image from 'next/image'
 import { HiOutlineUpload } from 'react-icons/hi'
 import { useInputImage } from '@/hooks/inputs'
 import { styles } from '@/styles/components/Inputs/InputImage.styles'
 
 type InputImageProps = ComponentPropsWithRef<'input'> & {
-  alt: string
+  src: string
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void
 }
 
-export const InputImage = ({ alt, ...props }: InputImageProps) => {
-  const { inputRef, image, onChangeImage, onClickImage } = useInputImage()
+export const InputImage = ({ src, ...props }: InputImageProps) => {
+  const { inputRef, onClickImage } = useInputImage()
   return (
     <>
       <input
@@ -17,17 +18,11 @@ export const InputImage = ({ alt, ...props }: InputImageProps) => {
         css={styles.hidden}
         ref={inputRef}
         type="file"
-        onChange={onChangeImage}
         {...props}
       />
-      {image ? (
+      {src ? (
         <div css={styles.previewImageWrapper}>
-          <Image
-            alt={alt}
-            css={styles.previewImage}
-            fill
-            src={URL.createObjectURL(image)}
-          />
+          <Image alt="" css={styles.previewImage} fill src={src} />
         </div>
       ) : (
         <button css={styles.uploadImage} onClick={onClickImage}>
