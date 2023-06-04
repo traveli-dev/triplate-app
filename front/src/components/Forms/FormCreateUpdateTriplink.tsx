@@ -1,12 +1,12 @@
 import { useRouter } from 'next/router'
 import { ButtonFill } from '@/components/Buttons'
 import { InputImage, InputLabel, InputText } from '@/components/Inputs'
+import { useFormCreateUpdateTriplink } from '@/hooks/forms'
 import { styles } from '@/styles/components/Forms/FormCreateUpdateTriplinks.styles'
 
-export const FormCreateUpdateTriplinks = () => {
+export const FormCreateUpdateTriplink = () => {
   const router = useRouter()
-  // createした時にレスポンスでtriplinkIdを受け取る
-  const triplinkId = 123
+  const { handleUploadImage, triplinkId } = useFormCreateUpdateTriplink()
 
   return (
     <>
@@ -23,7 +23,7 @@ export const FormCreateUpdateTriplinks = () => {
         </div>
         <div css={styles.layoutInput}>
           <InputLabel htmlFor="image" text="サムネイルの画像">
-            <InputImage alt="" id="image" />
+            <InputImage alt="" id="image" onChange={handleUploadImage} />
           </InputLabel>
         </div>
       </div>
