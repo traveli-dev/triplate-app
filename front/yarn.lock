@@ -5076,6 +5076,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/uuid@npm:^9.0.1":
+  version: 9.0.1
+  resolution: "@types/uuid@npm:9.0.1"
+  checksum: c472b8a77cbeded4bc529220b8611afa39bd64677f507838f8083d8aac8033b1f88cb9ddaa2f8589e0dcd2317291d0f6e1379f82d5ceebd6f74f3b4825288e00
+  languageName: node
+  linkType: hard
+
 "@types/yargs-parser@npm:*":
   version: 21.0.0
   resolution: "@types/yargs-parser@npm:21.0.0"
@@ -14482,6 +14489,7 @@ __metadata:
     "@types/node": 18.15.11
     "@types/react": 18.0.33
     "@types/react-dom": 18.0.11
+    "@types/uuid": ^9.0.1
     "@typescript-eslint/eslint-plugin": 5.57.1
     aria-hidden: ^1.2.3
     babel-loader: 9.1.2
@@ -14518,6 +14526,7 @@ __metadata:
     tsconfig-paths: ^4.2.0
     tua-body-scroll-lock: ^1.2.1
     typescript: 4.9.4
+    uuid: ^9.0.0
     yup: ^1.2.0
   languageName: unknown
   linkType: soft
