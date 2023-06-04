@@ -20,13 +20,14 @@ export type UserType = {
     instagram: string | null
     twitter: string | null
   }
+  uid: string
   createdAt: Timestamp
   updatedAt: Timestamp | null
 }
 
 type CreateUserType = {
   id: string
-  body: Omit<UserType, 'createdAt' | 'updatedAt'>
+  body: Omit<UserType, 'createdAt' | 'updatedAt' | 'uid'>
 }
 
 export const usersApi = baseFirestoreApi.injectEndpoints({
@@ -44,8 +45,9 @@ export const usersApi = baseFirestoreApi.injectEndpoints({
           const isUserExists = snapshot.exists()
           if (!isUserExists) return { data: null }
 
-          const user = snapshot.data()
-          return { data: user }
+          const data = { ...snapshot.data(), uid }
+
+          return { data }
         } catch (error) {
           return { error }
         }
