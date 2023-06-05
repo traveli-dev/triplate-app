@@ -6,7 +6,8 @@ import { styles } from '@/styles/components/Forms/FormCreateUpdateTriplink.style
 
 export const FormCreateUpdateTriplink = () => {
   const router = useRouter()
-  const { handleUploadImage, triplinkId, url } = useFormCreateUpdateTriplink()
+  const { handleUploadImage, triplinkId, url, uploading } =
+    useFormCreateUpdateTriplink()
 
   return (
     <>
@@ -23,7 +24,12 @@ export const FormCreateUpdateTriplink = () => {
         </div>
         <div css={styles.layoutInput}>
           <InputLabel htmlFor="image" text="サムネイルの画像">
-            <InputImage id="image" src={url} onChange={handleUploadImage} />
+            <InputImage
+              id="image"
+              src={url}
+              uploading={uploading}
+              onChange={handleUploadImage}
+            />
           </InputLabel>
         </div>
       </div>

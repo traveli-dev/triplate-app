@@ -6,10 +6,11 @@ import { styles } from '@/styles/components/Inputs/InputImage.styles'
 
 type InputImageProps = ComponentPropsWithRef<'input'> & {
   src: string
+  uploading: boolean
   onChange: (e: ChangeEvent<HTMLInputElement>) => void
 }
 
-export const InputImage = ({ src, ...props }: InputImageProps) => {
+export const InputImage = ({ src, uploading, ...props }: InputImageProps) => {
   const { inputRef, onClickImage } = useInputImage()
   return (
     <>
@@ -27,6 +28,8 @@ export const InputImage = ({ src, ...props }: InputImageProps) => {
       ) : (
         <button css={styles.uploadImage} onClick={onClickImage}>
           <HiOutlineUpload size={24} />
+          {/* TODO: ローディングアニメーション */}
+          {uploading && <>ローディング</>}
           <span>画像をアップロード</span>
         </button>
       )}
