@@ -18,6 +18,7 @@ export const globalStyle = () => css`
 
   a {
     color: ${theme.color.black};
+    text-decoration: none;
   }
 
   button,
