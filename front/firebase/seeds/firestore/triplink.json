@@ -1,42 +1,40 @@
 {
   "triplinks": {
-    "o1PHRC1TGzdX4WAxHSZrdgCIweQ2": {
-      "title": "テストデータ１",
-      "thumbnail": "/images/thumbnail_sample.jpg",
+    "9bcecdd8-fed9-4d72-8a40-b54c7b9ec05b": {
+      "title": "かだといそのうら",
+      "thumbnail": "http://localhost:9199/v0/b/traveli-test.appspot.com/o/images%2Ftriplinks%2F9bcecdd8-fed9-4d72-8a40-b54c7b9ec05b%2Fthumbnail?alt=media",
       "date": [
         "0000.00.00",
         "0000.00.01"
       ],
       "ownerId": "C5Ja2gXGLeIXTjhWZbDiWUWe8Whd"
     },
-    "o2PHRC1TGzdX4WAxHSZrdgCIweQ2": {
-      "title": "テストデータ２",
-      "thumbnail": "/images/thumbnail_sample.jpg",
+    "b533283c-adde-4107-aa0a-943ddccb5278": {
+      "title": "和歌山市ラーメン巡り",
+      "thumbnail": "http://localhost:9199/v0/b/traveli-test.appspot.com/o/images%2Ftriplinks%2Fb533283c-adde-4107-aa0a-943ddccb5278%2Fthumbnail?alt=media",
       "date": [
         "0000.00.00",
         "0000.00.01"
       ],
       "ownerId": "C5Ja2gXGLeIXTjhWZbDiWUWe8Whd"
     },
-    "o3PHRC1TGzdX4WAxHSZrdgCIweQ2": {
-      "title": "テストデータ３",
-      "thumbnail": "/images/thumbnail_sample.jpg",
+    "b21323a4-05f8-42db-9ce7-a2f29946595f": {
+      "title": "神社巡り",
+      "thumbnail": "http://localhost:9199/v0/b/traveli-test.appspot.com/o/images%2Ftriplinks%2Fb21323a4-05f8-42db-9ce7-a2f29946595f%2Fthumbnail?alt=media",
       "date": [
         "0000.00.00",
         "0000.00.01"
       ],
       "ownerId": "C5Ja2gXGLeIXTjhWZbDiWUWe8Whd"
-
     },
-    "o11HRC1TGzdX4WAxHSZrdgCIweQ2": {
-      "title": "テストデータ11",
-      "thumbnail": "/images/thumbnail_sample.jpg",
+    "a0bf63a0-0367-11ee-be56-0242ac120002": {
+      "title": "海遊館",
+      "thumbnail": "http://127.0.0.1:9199/v0/b/traveli-test.appspot.com/o/images%2Ftriplinks%2Fa0bf63a0-0367-11ee-be56-0242ac120002%2Fthumbnail?alt=media",
       "date": [
         "0000.00.00",
         "0000.00.01"
       ],
       "ownerId": "C00a2gXGLeIXTjhWZbDiWUWe8Whd"
-
     }
   }
 }
