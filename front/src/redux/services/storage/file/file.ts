@@ -3,7 +3,6 @@ import { storage } from '@/lib/firebase'
 import { baseStorageApi } from '@/redux/services/storage'
 
 type UploadFileRequestType = {
-  uid?: string
   path: string
   file: File
 }
