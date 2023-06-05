@@ -29,7 +29,7 @@
     },
     "a0bf63a0-0367-11ee-be56-0242ac120002": {
       "title": "海遊館",
-      "thumbnail": "http://127.0.0.1:9199/v0/b/traveli-test.appspot.com/o/images%2Ftriplinks%2Fa0bf63a0-0367-11ee-be56-0242ac120002%2Fthumbnail?alt=media",
+      "thumbnail": "http://localhost:9199/v0/b/traveli-test.appspot.com/o/images%2Ftriplinks%2Fa0bf63a0-0367-11ee-be56-0242ac120002%2Fthumbnail?alt=media",
       "date": [
         "2021.09.11",
         "2021.09.12"
