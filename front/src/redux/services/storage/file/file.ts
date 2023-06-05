@@ -13,8 +13,7 @@ const fileApi = baseStorageApi.injectEndpoints({
     uploadImage: builder.mutation<string, UploadFileRequestType>({
       queryFn: async ({ file, path }) => {
         try {
-          const ext = file.name.split('.').pop()
-          const imageRef = ref(storage, `${path}.${ext}`)
+          const imageRef = ref(storage, path)
 
           await uploadBytes(imageRef, file)
           const url = await getDownloadURL(imageRef)
