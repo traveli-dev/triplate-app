@@ -1,12 +1,12 @@
 import { ChangeEvent, useState } from 'react'
-import { v4 } from 'uuid'
+import { v4 as uuidv4 } from 'uuid'
 import { useAppSelector } from '@/redux/rootStore'
 import { useUploadImageMutation } from '@/redux/services/storage'
 import { currentUserSelectors } from '@/redux/stores'
 import { getTriplinkPath } from '@/utils/storage'
 
 // triplinkIdを事前に生成
-const triplinkId = v4()
+const triplinkId = uuidv4()
 
 export const useFormCreateUpdateTriplink = () => {
   const [uploadImage, { isLoading: uploading }] = useUploadImageMutation()
