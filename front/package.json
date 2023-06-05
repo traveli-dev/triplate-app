@@ -21,8 +21,7 @@
     "build:storybook": "storybook build -o ./build/storybook/",
     "export:firebase": "cd /home/app/firebase && firebase emulators:export --force ./db/local",
     "init:firebase": "./firebase/scripts/initFirebase.sh",
-    "reset:firestore": "./firebase/scripts/resetDb.sh",
-    "reset:storage": "ts-node -r tsconfig-paths/register -P ./firebase/tsconfig.json ./firebase/scripts/resetStorage.ts",
+    "reset:emulator": "./firebase/scripts/resetDb.sh && ./firebase/scripts/resetAuth.sh && ts-node -r tsconfig-paths/register -P ./firebase/tsconfig.json ./firebase/scripts/resetStorage.ts",
     "seeding": "ts-node -r tsconfig-paths/register -P ./firebase/tsconfig.json ./firebase/scripts/seeder.ts"
   },
   "dependencies": {
