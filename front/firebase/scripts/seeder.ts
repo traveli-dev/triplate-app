@@ -15,7 +15,11 @@ try {
   const files = searchFiles(storagePath)
   files.forEach(async (file) => {
     const name = file.name.split('.').slice(0, -1).join('.')
-    await bucket.upload(file.dir, { destination: name, public: true, contentType: 'image/jpeg' })
+    await bucket.upload(file.dir, {
+      destination: name,
+      public: true,
+      contentType: 'image/jpeg'
+    })
   })
 
   // firestore配下のjsonをemulatorにupload

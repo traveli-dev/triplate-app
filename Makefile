@@ -36,6 +36,7 @@ yarn-install:
 seeding:
 	@[ $(env) = "down" ] && docker compose up -d || echo ""
 	docker compose exec node yarn reset:firestore
+	docker compose exec node yarn reset:storage
 	docker compose exec node yarn seeding
 	docker compose exec node yarn export:firebase
 	@[ $(env) = "down" ] && docker compose down || echo "done"
