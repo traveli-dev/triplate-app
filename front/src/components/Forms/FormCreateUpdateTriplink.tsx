@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import { ButtonFill } from '@/components/Buttons'
 import { InputImage, InputLabel, InputText } from '@/components/Inputs'
 import { useFormCreateUpdateTriplink } from '@/hooks/forms'
-import { styles } from '@/styles/components/Forms/FormCreateUpdateTriplinks.styles'
+import { styles } from '@/styles/components/Forms/FormCreateUpdateTriplink.styles'
 
 export const FormCreateUpdateTriplink = () => {
   const router = useRouter()
