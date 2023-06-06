@@ -9,18 +9,18 @@
       "subCollection": {
         "users/C5Ja2gXGLeIXTjhWZbDiWUWe8Whd/joinTrips": {
           "1": {
-            "triplinkId": "o11HRC1TGzdX4WAxHSZrdgCIweQ2"
+            "triplinkId": "a0bf63a0-0367-11ee-be56-0242ac120002"
           }
         },
         "users/C5Ja2gXGLeIXTjhWZbDiWUWe8Whd/myTrips": {
           "1": {
-            "triplinkId": "o1PHRC1TGzdX4WAxHSZrdgCIweQ2"
+            "triplinkId": "9bcecdd8-fed9-4d72-8a40-b54c7b9ec05b"
           },
           "2": {
-            "triplinkId": "o2PHRC1TGzdX4WAxHSZrdgCIweQ2"
+            "triplinkId": "b533283c-adde-4107-aa0a-943ddccb5278"
           },
           "3": {
-            "triplinkId": "o3PHRC1TGzdX4WAxHSZrdgCIweQ2"
+            "triplinkId": "b21323a4-05f8-42db-9ce7-a2f29946595f"
           }
         },
         "users/C5Ja2gXGLeIXTjhWZbDiWUWe8Whd/favorite": {
@@ -37,17 +37,17 @@
       "subCollection": {
         "users/C00a2gXGLeIXTjhWZbDiWUWe8Whd/joinTrips": {
           "1": {
-            "triplinkId": "o1PHRC1TGzdX4WAxHSZrdgCIweQ2"
+            "triplinkId": "9bcecdd8-fed9-4d72-8a40-b54c7b9ec05b"
           }
         },
         "users/C00a2gXGLeIXTjhWZbDiWUWe8Whd/myTrips": {
           "1": {
-            "triplinkId": "o11HRC1TGzdX4WAxHSZrdgCIweQ2"
+            "triplinkId": "a0bf63a0-0367-11ee-be56-0242ac120002"
           }
         },
         "users/C00a2gXGLeIXTjhWZbDiWUWe8Whd/favorite": {
           "1": {
-            "triplinkId": "o2PHRC1TGzdX4WAxHSZrdgCIweQ2"
+            "triplinkId": "b21323a4-05f8-42db-9ce7-a2f29946595f"
           }
         }
       }

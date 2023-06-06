@@ -37,7 +37,7 @@ export type JoinTripType = {
 
 const triplinksApi = baseFirestoreApi.injectEndpoints({
   endpoints: (builder) => ({
-    getMyTrips: builder.query<TriplinkType[], string>({
+    getMyTrips: builder.query<GetTriplinkType[], string>({
       queryFn: async (uid) => {
         try {
           /*triplinkIdのリスト取得*/
@@ -79,7 +79,7 @@ const triplinksApi = baseFirestoreApi.injectEndpoints({
         }
       }
     }),
-    getJoinTrips: builder.query<TriplinkType[], string>({
+    getJoinTrips: builder.query<GetTriplinkType[], string>({
       queryFn: async (uid) => {
         try {
           /*triplinkIdのリスト取得*/
