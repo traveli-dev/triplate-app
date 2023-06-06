@@ -10,5 +10,6 @@ export {
 export {
   useGetJoinTripsQuery,
   useGetMyTripsQuery,
-  type TriplinkType
+  type GetTriplinkType,
+  type CreateTriplinkType
 } from '@/redux/services/firestore/triplinks/triplinks'
