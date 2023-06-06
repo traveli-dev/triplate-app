@@ -7,7 +7,7 @@ import {
   getDocs
 } from 'firebase/firestore'
 import { db } from '@/lib/firebase'
-import { baseFirestoreApi } from '@/redux/services/firestore/baseFirestoreApi'
+import { baseFirestoreApi } from '@/redux/services/firestore'
 
 export type TriplinkType = {
   id: string

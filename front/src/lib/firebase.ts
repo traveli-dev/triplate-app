@@ -33,4 +33,4 @@ if (process.env.NODE_ENV !== 'production') {
   connectAuthEmulator(auth, 'http://localhost:9099', { disableWarnings: true })
 }
 
-export { db, analytics, auth }
+export { db, analytics, auth, storage }

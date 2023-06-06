@@ -6,12 +6,14 @@ type CurrentUserType = {
   name: string
   icon: string | null
   userId: string
+  uid: string
 }
 
 const initialState: CurrentUserType = {
   name: '',
   icon: null,
-  userId: ''
+  userId: '',
+  uid: ''
 }
 
 const currentUserSlice = createSlice({
@@ -26,6 +28,7 @@ const currentUserSlice = createSlice({
           state.icon = action.payload.icon
           state.userId = action.payload.userId
           state.name = action.payload.name
+          state.uid = action.payload.uid
         }
       }
     )

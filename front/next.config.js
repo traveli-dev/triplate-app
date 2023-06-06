@@ -1,5 +1,7 @@
 const withPWA = require('next-pwa')({ dest: 'public' })
 
+const isDev = process.env.NODE_ENV === 'development'
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -17,7 +19,10 @@ const nextConfig = {
       source: '/__/auth/:path*',
       destination: `https://${process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID}.firebaseapp.com/__/auth/:path*`,
     }
-  ]
+  ],
+  images: {
+    domains: [isDev ? 'localhost' : 'firebasestorage.googleapis.com']
+  }
 }
 
 module.exports = process.env.NODE_ENV === 'development' ? nextConfig : withPWA(nextConfig)
