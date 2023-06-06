@@ -4,7 +4,7 @@ import {
   doc,
   DocumentReference,
   getDoc,
-  getDocs,
+  getDocs
   // Timestamp
 } from 'firebase/firestore'
 import { db } from '@/lib/firebase'
