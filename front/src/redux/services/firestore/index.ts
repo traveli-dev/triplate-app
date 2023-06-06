@@ -1,3 +1,5 @@
+export { baseFirestoreApi } from '@/redux/services/firestore/baseFirestoreApi'
+
 // users
 export {
   usersApi,

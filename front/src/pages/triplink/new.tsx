@@ -1,5 +1,5 @@
 import { Container } from '@/components/Containers'
-import { FormCreateUpdateTriplinks } from '@/components/Forms'
+import { FormCreateUpdateTriplink } from '@/components/Forms'
 import { Header } from '@/components/Headers'
 
 const TriplinkNew = () => {
@@ -7,7 +7,7 @@ const TriplinkNew = () => {
     <>
       <Header href="/home" title="新しいトラベリンクの作成" />
       <Container bgColor="white" isFull>
-        <FormCreateUpdateTriplinks />
+        <FormCreateUpdateTriplink />
       </Container>
     </>
   )

@@ -5,10 +5,12 @@ import {
   doc,
   DocumentReference,
   getDoc,
-  getDocs, setDoc, Timestamp
+  getDocs,
+  setDoc,
+  Timestamp
 } from 'firebase/firestore'
-import {db} from '@/lib/firebase'
-import {baseFirestoreApi} from '@/redux/services/firestore/baseFirestoreApi'
+import { db } from '@/lib/firebase'
+import { baseFirestoreApi } from '@/redux/services/firestore'
 
 export type GetTriplinkType = TriplinkType & {
   id: string
@@ -47,12 +49,12 @@ const triplinksApi = baseFirestoreApi.injectEndpoints({
           ) as CollectionReference<MyTripType>
           const myTripsSnap = await getDocs(myTripsRef)
           const triplinkIds = myTripsSnap.docs.map((doc) => {
-            return {...doc.data()}
+            return { ...doc.data() }
           })
 
           /*triplinkIdからtriplinkリストを取得*/
           const data = await Promise.all(
-            triplinkIds.map(async ({triplinkId}) => {
+            triplinkIds.map(async ({ triplinkId }) => {
               const ref = doc(
                 collection(db, 'triplinks'),
                 triplinkId
@@ -61,7 +63,7 @@ const triplinksApi = baseFirestoreApi.injectEndpoints({
               const document = await getDoc(ref)
               if (!document.exists()) return null
 
-              return {...document.data(), id: triplinkId}
+              return { ...document.data(), id: triplinkId }
             })
           )
 
@@ -70,10 +72,10 @@ const triplinksApi = baseFirestoreApi.injectEndpoints({
             (item): item is NonNullable<typeof item> => item !== null
           )
 
-          return {data: filteredData}
+          return { data: filteredData }
         } catch (err) {
           // TODO: エラー処理
-          return {error: err}
+          return { error: err }
         }
       }
     }),
@@ -89,12 +91,12 @@ const triplinksApi = baseFirestoreApi.injectEndpoints({
           ) as CollectionReference<JoinTripType>
           const joinTripsSnap = await getDocs(joinTripsRef)
           const triplinkIds = joinTripsSnap.docs.map((doc) => {
-            return {...doc.data()}
+            return { ...doc.data() }
           })
 
           /*triplinkIdからtriplinkリストを取得*/
           const data = await Promise.all(
-            triplinkIds.map(async ({triplinkId}) => {
+            triplinkIds.map(async ({ triplinkId }) => {
               const ref = doc(
                 collection(db, 'triplinks'),
                 triplinkId
@@ -103,7 +105,7 @@ const triplinksApi = baseFirestoreApi.injectEndpoints({
               const document = await getDoc(ref)
               if (!document.exists()) return null
 
-              return {...document.data(), id: triplinkId}
+              return { ...document.data(), id: triplinkId }
             })
           )
 
@@ -112,23 +114,26 @@ const triplinksApi = baseFirestoreApi.injectEndpoints({
             (item): item is NonNullable<typeof item> => item !== null
           )
 
-          return {data: filteredData}
+          return { data: filteredData }
         } catch (err) {
           // TODO: エラー処理
-          return {error: err}
+          return { error: err }
         }
       }
     }),
     createTrip: builder.mutation<string, CreateTriplinkType>({
-        queryFn: async (arg) => {
+      queryFn: async (arg) => {
         try {
           const ref = await addDoc(collection(db, 'triplinks'), arg)
 
           //userディレクトリのmyTripsにtriplinkIdを追加する
-          const mytriplinkId : MyTripType = {
+          const mytriplinkId: MyTripType = {
             triplinkId: ref.id
           }
-          await setDoc(doc(db, 'users',arg.ownerId,'myTrips',mytriplinkId.triplinkId), mytriplinkId)
+          await setDoc(
+            doc(db, 'users', arg.ownerId, 'myTrips', mytriplinkId.triplinkId),
+            mytriplinkId
+          )
 
           //ローカルストレージの処理
           const myTrips = localStorage.getItem('myTrips')
@@ -145,14 +150,18 @@ const triplinksApi = baseFirestoreApi.injectEndpoints({
             localStorage.setItem('myTrips', myTripList.toString())
           }
 
-          return {data: ref.id}
+          return { data: ref.id }
         } catch (err) {
-          return {error: err}
+          return { error: err }
         }
-      },
+      }
     })
   }),
   overrideExisting: false
 })
 
-export const {useGetMyTripsQuery, useGetJoinTripsQuery, useCreateTripMutation} = triplinksApi
+export const {
+  useGetMyTripsQuery,
+  useGetJoinTripsQuery,
+  useCreateTripMutation
+} = triplinksApi
