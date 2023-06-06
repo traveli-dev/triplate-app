@@ -2,13 +2,13 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { HiViewGrid, HiOutlineViewList } from 'react-icons/hi'
 import { CardTriplink } from '@/components/Cards'
-import { TriplinkType } from '@/redux/services/firestore'
+import {GetTriplinkType} from '@/redux/services/firestore'
 import { styles } from '@/styles/components/Tabs/TabHome.styles'
 
 type TabHomeProps = {
-  myTriplinksData: TriplinkType[]
-  joinTriplinksData: TriplinkType[]
-  favoriteTriplinksData: TriplinkType[]
+  myTriplinksData: GetTriplinkType[]
+  joinTriplinksData: GetTriplinkType[]
+  favoriteTriplinksData: GetTriplinkType[]
 }
 
 export const TabHome = ({
