@@ -21,8 +21,9 @@ export type TriplinkType = {
   title: string
   thumbnail: string
   date: [string, string]
-  createdAt: Timestamp
-  updatedAt: Timestamp | null
+  // TODO: post処理作るときに考える
+  // createdAt: Timestamp
+  // updatedAt: Timestamp | null
 }
 
 export type MyTripType = {
