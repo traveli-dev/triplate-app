@@ -21,9 +21,10 @@ jobs:
 
       - name: 📥 Monorepo install
         uses: ./.github/actions/yarn-nm-install
+        with:
+          cwd: './front'
       
       - name: CI
         working-directory: ./front
         run: |
-          yarn install --immutable
           yarn check
