@@ -23,6 +23,9 @@ jobs:
         uses: ./.github/actions/yarn-nm-install
         with:
           cwd: './front'
+          enable-corepack: false           
+          cache-node-modules: true
+          cache-install-state: true 
       
       - name: CI
         working-directory: ./front
