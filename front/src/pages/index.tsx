@@ -46,7 +46,7 @@ const Index = () => {
           </ButtonFill>
           <ButtonFill onClick={signOutHandler}>サインアウト</ButtonFill>
         </div>
-        <div>CI確認用</div>
+        <div>CI確認</div>
         <div>
           <Link href="/home">/home</Link>
         </div>
