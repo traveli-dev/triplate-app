@@ -4,13 +4,11 @@ import { theme } from '@/styles/theme'
 export const styles = {
   wrapper: css`
     width: 100%;
-    height: 252px;
     padding: 16px;
     background-color: ${theme.color.white};
-
     border-radius: 16px;
   `,
-  head: css`
+  header: css`
     display: flex;
     justify-content: space-between;
   `,
@@ -19,50 +17,56 @@ export const styles = {
     font-size: ${theme.fontSize.sm};
     color: ${theme.color.black};
   `,
-  menuButton: css`
+  iconButton: css`
     width: 24px;
     height: 24px;
+    padding: 0;
   `,
-
-  inputWrapper: css`
-    margin-top: 8px;
-    margin-bottom: 16px;
+  layoutIconButton: css`
+    margin-left: 16px;
   `,
-  inputLink: css`
-    margin-bottom: 16px;
+  popUpWrapper: css`
+    position: absolute;
+    right: 16px;
+    top: 60px;
+    padding: 0px 12px 12px 12px;
+    background-color: ${theme.color.white};
+    border-radius: 16px;
+    border: 2px solid ${theme.color.outlineGray};
   `,
-  inputTime: css`
+  popUpButton: (type?: 'caution') => css`
     display: flex;
-    gap: 200px;
     align-items: center;
-    margin-top: 16px;
+    margin-top: 12px;
+    color: ${type === 'caution' && theme.color.pink};
   `,
-  inputMemo: css`
+  popUpText: css`
+    margin-left: 16px;
+    font-size: ${theme.fontSize.sm};
+    width: 100%;
+  `,
+  input: css`
+    padding: 11px 16px;
+  `,
+  inputItemWrapper: css`
     display: flex;
-    gap: 11px;
     align-items: center;
-    margin-top: 16px;
+    margin-top: 12px;
   `,
-  initButton: css`
-    width: 24px;
-    height: 24px;
+  readonly: css`
+    /* TODO:カラー調整する時に変数化 */
+    background-color: #e1e1e1;
+    &:hover,
+    &:focus {
+      outline: none;
+    }
   `,
-  inputWithX: css`
-    display: flex;
-    gap: 100px;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 16px;
+  hidden: css`
+    /* 読み上げなし、フォームの送信は可能 */
+    display: none;
   `,
-
-  foot: css`
-    display: flex;
-    gap: 15px;
-    align-items: center;
-    font-size: ${theme.fontSize.md};
+  layoutInputItem: css`
+    margin-left: 16px;
+    flex-grow: 1;
   `
 }
-
-export const link = css`
-  height: 300px !important;
-`

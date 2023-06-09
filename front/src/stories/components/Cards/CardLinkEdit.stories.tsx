@@ -9,9 +9,6 @@ const meta: Meta<typeof CardLinkEdit> = {
     },
     label: {
       description: 'ラベルが入ります'
-    },
-    id: {
-      description: 'idが入ります'
     }
   },
   tags: ['autodocs']
@@ -24,8 +21,7 @@ type Story = StoryObj<typeof CardLinkEdit>
 export const GoogleMap: Story = {
   args: {
     cardType: 'map',
-    label: 'ラベル',
-    id: 1
+    label: 'ラベル'
   },
   parameters: {
     backgrounds: {
@@ -37,8 +33,7 @@ export const GoogleMap: Story = {
 export const Link: Story = {
   args: {
     cardType: 'link',
-    label: 'ラベル',
-    id: 2
+    label: 'ラベル'
   },
   parameters: {
     backgrounds: {
