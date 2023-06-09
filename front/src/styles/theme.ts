@@ -5,6 +5,7 @@ const color = {
   blue: '#4272ef',
   pink: '#f3377e',
   hoverBlue: '#5a88ff',
+  hoverBlack: '#262C34',
   hoverPink: '#f15d96',
   bgGray: '#f2f2f2',
   bgBlue: '#eaf0ff',

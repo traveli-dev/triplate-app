@@ -10,7 +10,7 @@ type InputAvatarProps = ComponentPropsWithRef<'input'> & {
 
 export const InputAvatar = ({ alt, ...props }: InputAvatarProps) => {
   const { inputRef, image, onChangeImage, onClickImage } = useInputImage()
-  
+
   return (
     <>
       <input
