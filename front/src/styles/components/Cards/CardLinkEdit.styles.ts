@@ -27,12 +27,12 @@ export const styles = {
   `,
   popUpWrapper: css`
     position: absolute;
-    right: 16px;
     top: 60px;
+    right: 16px;
     padding: 0px 12px 12px 12px;
     background-color: ${theme.color.white};
-    border-radius: 16px;
     border: 2px solid ${theme.color.outlineGray};
+    border-radius: 16px;
   `,
   popUpButton: (type?: 'caution') => css`
     display: flex;
@@ -41,9 +41,9 @@ export const styles = {
     color: ${type === 'caution' && theme.color.pink};
   `,
   popUpText: css`
+    width: 100%;
     margin-left: 16px;
     font-size: ${theme.fontSize.sm};
-    width: 100%;
   `,
   input: css`
     padding: 11px 16px;
@@ -56,17 +56,13 @@ export const styles = {
   readonly: css`
     /* TODO:カラー調整する時に変数化 */
     background-color: #e1e1e1;
-    &:hover,
-    &:focus {
-      outline: none;
-    }
   `,
   hidden: css`
     /* 読み上げなし、フォームの送信は可能 */
     display: none;
   `,
   layoutInputItem: css`
-    margin-left: 16px;
     flex-grow: 1;
+    margin-left: 16px;
   `
 }
