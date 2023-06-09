@@ -9,22 +9,26 @@ import {
   HiOutlineX
 } from 'react-icons/hi'
 import { InputText } from '@/components/Inputs'
-import { styles } from '@/styles/components/Cards/CardLinkEdit.styles'
+import { styles } from '@/styles/components/Cards/CardTriplinkEdit.styles'
 
-type CardLinkEditProps = {
+type CardTriplinkEditProps = {
   cardType: 'map' | 'link'
   label: string
 }
 
-export const CardLinkEdit = ({ cardType, label }: CardLinkEditProps) => {
+export const CardTriplinkEdit = ({
+  cardType,
+  label
+}: CardTriplinkEditProps) => {
   const [timeHidden, setTimeHidden] = useState(false)
   const [memoHidden, setMemoHidden] = useState(false)
   const [open, setOpen] = useState(false)
+
   return (
     <div css={styles.wrapper}>
       <div css={styles.header}>
         <div css={styles.label}>{label}</div>
-        <button css={styles.iconButton} onClick={() => setOpen((v) => !v)}>
+        <button css={styles.iconButton} onClick={() => setOpen(true)}>
           {open ? <HiOutlineX size={24} /> : <HiDotsVertical size={24} />}
         </button>
       </div>
@@ -34,8 +38,8 @@ export const CardLinkEdit = ({ cardType, label }: CardLinkEditProps) => {
             <button
               css={styles.popUpButton()}
               onClick={() => {
-                setTimeHidden((v) => !v)
-                setOpen((v) => !v)
+                setTimeHidden(false)
+                setOpen(false)
               }}
             >
               <HiOutlineClock size={20} />
@@ -46,8 +50,8 @@ export const CardLinkEdit = ({ cardType, label }: CardLinkEditProps) => {
             <button
               css={styles.popUpButton()}
               onClick={() => {
-                setMemoHidden((v) => !v)
-                setOpen((v) => !v)
+                setMemoHidden(false)
+                setOpen(false)
               }}
             >
               <HiOutlineDocumentText size={20} />
@@ -56,7 +60,7 @@ export const CardLinkEdit = ({ cardType, label }: CardLinkEditProps) => {
           )}
           <button
             css={styles.popUpButton('caution')}
-            onClick={() => setOpen((v) => !v)}
+            onClick={() => setOpen(false)}
           >
             <HiOutlineTrash size={20} />
             <span css={styles.popUpText}>カードを削除</span>
@@ -88,7 +92,10 @@ export const CardLinkEdit = ({ cardType, label }: CardLinkEditProps) => {
         <div css={styles.layoutIconButton}>
           <button
             css={styles.iconButton}
-            onClick={() => setTimeHidden((v) => !v)}
+            onClick={() => {
+              setTimeHidden(true)
+              setOpen(false)
+            }}
           >
             <HiOutlineX size={24} />
           </button>
@@ -102,7 +109,10 @@ export const CardLinkEdit = ({ cardType, label }: CardLinkEditProps) => {
         <div css={styles.layoutIconButton}>
           <button
             css={styles.iconButton}
-            onClick={() => setMemoHidden((v) => !v)}
+            onClick={() => {
+              setMemoHidden(true)
+              setOpen(false)
+            }}
           >
             <HiOutlineX size={24} />
           </button>

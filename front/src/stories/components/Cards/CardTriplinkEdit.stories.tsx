@@ -1,8 +1,8 @@
-import { CardLinkEdit } from '@/components/Cards'
+import { CardTriplinkEdit } from '@/components/Cards'
 import type { StoryObj, Meta } from '@storybook/react'
 
-const meta: Meta<typeof CardLinkEdit> = {
-  component: CardLinkEdit,
+const meta: Meta<typeof CardTriplinkEdit> = {
+  component: CardTriplinkEdit,
   argTypes: {
     cardType: {
       description: 'cardTypeが入ります'
@@ -16,7 +16,7 @@ const meta: Meta<typeof CardLinkEdit> = {
 
 export default meta
 
-type Story = StoryObj<typeof CardLinkEdit>
+type Story = StoryObj<typeof CardTriplinkEdit>
 
 export const GoogleMap: Story = {
   args: {
