@@ -1,2 +1,2 @@
-export { FormCreate } from '@/components/Forms/FormCreate'
+export { FormCreateUpdateTriplink } from '@/components/Forms/FormCreateUpdateTriplink'
 export { FormAuthority } from '@/components/Forms/FormAuthority'

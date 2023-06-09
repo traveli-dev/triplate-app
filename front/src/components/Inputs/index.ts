@@ -1,3 +1,5 @@
 export { InputText } from '@/components/Inputs/InputText'
 export { InputImage } from '@/components/Inputs/InputImage'
 export { InputTextWithIcon } from '@/components/Inputs/InputTextWithIcon'
+export { InputTextArea } from '@/components/Inputs/InputTextArea'
+export { InputLabel } from '@/components/Inputs/InputLabel'

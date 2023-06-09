@@ -11,6 +11,7 @@ import {
 import type { Preview } from '@storybook/react'
 import { globalStyle } from '../src/styles/globalStyle'
 import { theme } from '../src/styles/theme'
+import googlemapsReactWrapperDecorator from './googleMapsDecorator'
 
 const preview: Preview = {
   parameters: {
@@ -57,7 +58,8 @@ const preview: Preview = {
         <Global styles={globalStyle} />
         <Story />
       </>
-    )
+    ),
+    googlemapsReactWrapperDecorator
   ]
 }
 

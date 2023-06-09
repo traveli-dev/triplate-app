@@ -18,6 +18,7 @@ export const globalStyle = () => css`
 
   a {
     color: ${theme.color.black};
+    text-decoration: none;
   }
 
   button,
@@ -29,6 +30,7 @@ export const globalStyle = () => css`
   }
 
   button {
+    color: ${theme.color.black};
     cursor: pointer;
     background-color: transparent;
     border: none;

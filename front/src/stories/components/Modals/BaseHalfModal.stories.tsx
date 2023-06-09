@@ -16,6 +16,12 @@ const meta: Meta<typeof BaseHalfModal> = {
     },
     title: {
       description: 'modalを説明するh1'
+    },
+    isBlur: {
+      description: 'overlay要素をグレーで表示するか'
+    },
+    usage: {
+      description: 'id（string）'
     }
   },
   tags: ['autodocs']

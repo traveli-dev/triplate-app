@@ -4,8 +4,14 @@ import type { StoryObj, Meta } from '@storybook/react'
 const meta: Meta<typeof TabHome> = {
   component: TabHome,
   argTypes: {
-    data: {
-      description: 'triplinkデータの配列'
+    myTriplinksData: {
+      description: 'myTriplinksDataの配列'
+    },
+    joinTriplinksData: {
+      description: 'joinTriplinksDataの配列'
+    },
+    favoriteTriplinksData: {
+      description: 'favoriteTriplinksDataの配列'
     }
   },
   tags: ['autodocs']
@@ -17,24 +23,38 @@ type Story = StoryObj<typeof TabHome>
 
 export const Default: Story = {
   args: {
-    data: [
+    myTriplinksData: [
       {
-        id: 'abc',
-        ownerId: 'opanchu',
-        title: 'いつメンの京都旅行',
-        thumbnail: '/images/user_sample.jpeg',
-        date: ['2023.03.25', '2023.03.27'],
-        ownerName: 'おぱんちゅうさぎ',
-        ownerIcon: '/images/user_sample.jpeg'
+        id: 'o1PHRC1TGzdX4WAxHSZrdgCIweQ2',
+        ownerId: 'C5Ja2gXGLeIXTjhWZbDiWUWe8Whd',
+        title: 'テストデータ１',
+        thumbnail: '/images/thumbnail_sample.jpg',
+        date: ['0000.00.00', '0000.00.01']
       },
       {
-        id: 'def',
-        ownerId: 'usagi',
-        title: '鳥取４人旅',
-        thumbnail: '/images/user_sample.jpeg',
-        date: ['2023.03.25', '2023.03.27'],
-        ownerName: 'うさぎ',
-        ownerIcon: '/images/user_sample.jpeg'
+        id: 'o2PHRC1TGzdX4WAxHSZrdgCIweQ2',
+        ownerId: 'C5Ja2gXGLeIXTjhWZbDiWUWe8Whd',
+        title: 'テストデータ２',
+        thumbnail: '/images/thumbnail_sample.jpg',
+        date: ['0000.00.00', '0000.00.01']
+      }
+    ],
+    joinTriplinksData: [
+      {
+        id: 'o1PHRC1TGzdX4WAxHSZrdgCIweQ2',
+        ownerId: 'C5Ja2gXGLeIXTjhWZbDiWUWe8Whd',
+        title: 'テストデータ１',
+        thumbnail: '/images/thumbnail_sample.jpg',
+        date: ['0000.00.00', '0000.00.01']
+      }
+    ],
+    favoriteTriplinksData: [
+      {
+        id: 'o1PHRC1TGzdX4WAxHSZrdgCIweQ2',
+        ownerId: 'C5Ja2gXGLeIXTjhWZbDiWUWe8Whd',
+        title: 'テストデータ１',
+        thumbnail: '/images/thumbnail_sample.jpg',
+        date: ['0000.00.00', '0000.00.01']
       }
     ]
   }
@@ -42,6 +62,8 @@ export const Default: Story = {
 
 export const NoData: Story = {
   args: {
-    data: []
+    myTriplinksData: [],
+    joinTriplinksData: [],
+    favoriteTriplinksData: []
   }
 }

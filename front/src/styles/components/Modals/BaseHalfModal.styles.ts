@@ -3,7 +3,7 @@ import { theme } from '@/styles/theme'
 import { mq } from '@/styles/utils'
 
 export const styles = {
-  overlay: (isOpen: boolean) => css`
+  overlay: (isOpen: boolean, isBlur: boolean) => css`
     position: fixed;
     top: 0;
     bottom: 0;
@@ -13,7 +13,7 @@ export const styles = {
     justify-content: center;
     width: 68rem;
     pointer-events: ${isOpen ? 'auto' : 'none'};
-    background-color: rgba(0, 0, 0, 0.25);
+    background-color: ${isBlur ? 'rgba(0, 0, 0, 0.25)' : 'transparent'};
     opacity: ${isOpen ? 1 : 0};
     transition: opacity ease-out 0.3s;
     ${mq('sm')} {
@@ -28,7 +28,7 @@ export const styles = {
     box-sizing: border-box;
     width: 100%;
     max-width: ${theme.breakpoint.md};
-    padding: 32px 30px;
+    padding: 32px 16px;
     margin: 0;
     background-color: ${theme.color.white};
     border-radius: 32px 32px 0 0;

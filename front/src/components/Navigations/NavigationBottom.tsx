@@ -8,11 +8,14 @@ import {
   HiGlobe,
   HiUser
 } from 'react-icons/hi'
+import { useAppSelector } from '@/redux/rootStore'
+import { currentUserSelectors } from '@/redux/stores'
 import { styles } from '@/styles/components/Navigations/NavigationBottom.styles'
 
 export const NavigationBottom = () => {
   const router = useRouter()
   const currentPath = router.pathname
+  const currentUserData = useAppSelector(currentUserSelectors.currentUserData)
 
   return (
     <nav css={styles.wrapper}>
@@ -32,24 +35,23 @@ export const NavigationBottom = () => {
         </li>
         <li css={styles.nav}>
           <Link
-            css={[styles.navItem, currentPath === '/search' && styles.focus]}
-            href="search"
+            css={[styles.navItem, currentPath === '/explore' && styles.focus]}
+            href="explore"
           >
-            {currentPath === '/search' ? (
+            {currentPath === '/explore' ? (
               <HiGlobe size={24} />
             ) : (
               <HiOutlineGlobe size={24} />
             )}
-
             <p>みんなのたび</p>
           </Link>
         </li>
         <li css={styles.nav}>
           <Link
-            css={[styles.navItem, currentPath === '/mypage' && styles.focus]}
-            href="mypage"
+            css={[styles.navItem, currentPath === '/[userId]' && styles.focus]}
+            href={currentUserData.userId}
           >
-            {currentPath === '/mypage' ? (
+            {currentPath === '/[userId]' ? (
               <HiUser size={24} />
             ) : (
               <HiOutlineUser size={24} />

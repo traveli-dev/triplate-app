@@ -1,4 +1,5 @@
-import { ButtonIconWithText } from '@/components/Buttons'
+import { useRouter } from 'next/router'
+import { ButtonIconRound, ButtonIconWithText } from '@/components/Buttons'
 import { Container } from '@/components/Containers'
 import { ImageThumbnail } from '@/components/Images'
 import {
@@ -12,6 +13,9 @@ import { useDisclosure } from '@/hooks/modals'
 import { styles } from '@/styles/pages/triplink/[triplinkId]/triplink.styles'
 
 const Triplink = () => {
+  const router = useRouter()
+  const { triplinkId } = router.query
+
   // example
   const data = {
     url: '/images/thumbnail_sample.jpg',
@@ -55,6 +59,7 @@ const Triplink = () => {
 
   return (
     <>
+      <ButtonIconRound icon="back" onClick={() => router.push('/home')} />
       <ImageThumbnail url={data.url} />
       {/* モーダル */}
       <div css={styles.modalWrapper}>
@@ -71,7 +76,11 @@ const Triplink = () => {
         </Container>
         <ModalMember isOpen={memberIsOpen} onClose={memberOnClose} />
         <ModalEdit isOpen={editIsOpen} onClose={editOnClose} />
-        <ModalMemo isOpen={memoIsOpen} onClose={memoOnClose} />
+        <ModalMemo
+          isOpen={memoIsOpen}
+          triplinkId={String(triplinkId)}
+          onClose={memoOnClose}
+        />
         <ModalShare isOpen={shareIsOpen} onClose={shareOnClose} />
         <TabDaysWithTriplink triplinks={data.triplinks} />
       </div>

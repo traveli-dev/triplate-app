@@ -9,6 +9,7 @@ type BaseHalfModalProps = {
   isOpen: boolean
   title: string
   usage: string
+  isBlur?: boolean
 }
 
 export const BaseHalfModal = ({
@@ -16,13 +17,14 @@ export const BaseHalfModal = ({
   children,
   onClose,
   title,
-  usage
+  usage,
+  isBlur = true
 }: BaseHalfModalProps) => {
   const { ref } = useHalfModal(isOpen, onClose)
 
   return (
     <>
-      <div css={styles.overlay(isOpen)}></div>
+      <div css={styles.overlay(isOpen, isBlur)}></div>
       <div
         aria-describedby={`modal-body-${usage}`}
         aria-labelledby={`modal-title-${usage}`}
