@@ -21,12 +21,13 @@ jobs:
 
       - name: 📥 Monorepo install
         uses: ./.github/actions/yarn-nm-install
-      - name: Get yarn cache
-        id: yarn-cache
-        run: echo "YARN_CACHE_DIR=$(yarn cache dir)" >> "${GITHUB_OUTPUT}"
+        with:
+          cwd: './front'
+          enable-corepack: false           
+          cache-node-modules: true
+          cache-install-state: true 
       
       - name: CI
         working-directory: ./front
         run: |
-          yarn install --immutable
           yarn check

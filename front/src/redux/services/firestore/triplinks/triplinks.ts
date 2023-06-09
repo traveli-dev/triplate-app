@@ -5,32 +5,41 @@ import {
   DocumentReference,
   getDoc,
   getDocs
+  // Timestamp
 } from 'firebase/firestore'
 import { db } from '@/lib/firebase'
 import { baseFirestoreApi } from '@/redux/services/firestore'
 
-export type TriplinkType = {
+export type GetTriplinkType = TriplinkType & {
   id: string
+}
+
+export type CreateTriplinkType = Omit<TriplinkType, 'updatedAt'>
+
+export type TriplinkType = {
   ownerId: string
   title: string
   thumbnail: string
   date: [string, string]
+  // TODO: post処理作るときに考える
+  // createdAt: Timestamp
+  // updatedAt: Timestamp | null
 }
 
 export type MyTripType = {
-  tripId: string
+  triplinkId: string
 }
 
 export type JoinTripType = {
-  tripId: string
+  triplinkId: string
 }
 
 const triplinksApi = baseFirestoreApi.injectEndpoints({
   endpoints: (builder) => ({
-    getMyTrips: builder.query<TriplinkType[], string>({
+    getMyTrips: builder.query<GetTriplinkType[], string>({
       queryFn: async (uid) => {
         try {
-          /*tripIdのリスト取得*/
+          /*triplinkIdのリスト取得*/
           const myTripsRef = collection(
             db,
             'users',
@@ -38,22 +47,22 @@ const triplinksApi = baseFirestoreApi.injectEndpoints({
             'myTrips'
           ) as CollectionReference<MyTripType>
           const myTripsSnap = await getDocs(myTripsRef)
-          const tripIds = myTripsSnap.docs.map((doc) => {
+          const triplinkIds = myTripsSnap.docs.map((doc) => {
             return { ...doc.data() }
           })
 
-          /*tripIdからtriplinkリストを取得*/
+          /*triplinkIdからtriplinkリストを取得*/
           const data = await Promise.all(
-            tripIds.map(async ({ tripId }) => {
+            triplinkIds.map(async ({ triplinkId }) => {
               const ref = doc(
                 collection(db, 'triplinks'),
-                tripId
+                triplinkId
               ) as DocumentReference<Omit<TriplinkType, 'id'>>
 
               const document = await getDoc(ref)
               if (!document.exists()) return null
 
-              return { ...document.data(), id: tripId }
+              return { ...document.data(), id: triplinkId }
             })
           )
 
@@ -69,10 +78,10 @@ const triplinksApi = baseFirestoreApi.injectEndpoints({
         }
       }
     }),
-    getJoinTrips: builder.query<TriplinkType[], string>({
+    getJoinTrips: builder.query<GetTriplinkType[], string>({
       queryFn: async (uid) => {
         try {
-          /*tripIdのリスト取得*/
+          /*triplinkIdのリスト取得*/
           const joinTripsRef = collection(
             db,
             'users',
@@ -80,22 +89,22 @@ const triplinksApi = baseFirestoreApi.injectEndpoints({
             'joinTrips'
           ) as CollectionReference<JoinTripType>
           const joinTripsSnap = await getDocs(joinTripsRef)
-          const tripIds = joinTripsSnap.docs.map((doc) => {
+          const triplinkIds = joinTripsSnap.docs.map((doc) => {
             return { ...doc.data() }
           })
 
-          /*tripIdからtriplinkリストを取得*/
+          /*triplinkIdからtriplinkリストを取得*/
           const data = await Promise.all(
-            tripIds.map(async ({ tripId }) => {
+            triplinkIds.map(async ({ triplinkId }) => {
               const ref = doc(
                 collection(db, 'triplinks'),
-                tripId
+                triplinkId
               ) as DocumentReference<Omit<TriplinkType, 'id'>>
 
               const document = await getDoc(ref)
               if (!document.exists()) return null
 
-              return { ...document.data(), id: tripId }
+              return { ...document.data(), id: triplinkId }
             })
           )
 
