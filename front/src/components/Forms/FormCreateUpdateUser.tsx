@@ -1,5 +1,10 @@
 import { ButtonFill } from '@/components/Buttons'
-import { InputLabel, InputText, InputTextArea } from '@/components/Inputs'
+import {
+  InputAvatar,
+  InputLabel,
+  InputText,
+  InputTextArea
+} from '@/components/Inputs'
 import { styles } from '@/styles/components/Forms/FormCreateUpdateUser.styles'
 
 export const FormCreateUpdateUser = () => {
@@ -8,6 +13,16 @@ export const FormCreateUpdateUser = () => {
 
   return (
     <form>
+      <div css={styles.avatarWrapper}>
+        <InputAvatar
+          src=""
+          uploading={false}
+          onChange={() => {
+            console.error('e')
+          }}
+        />
+        <button css={styles.avatarChangeButton}>変更する</button>
+      </div>
       <div css={styles.layoutInput}>
         <InputLabel
           htmlFor="userId"
