@@ -20,19 +20,22 @@ export type UserType = {
     instagram: string | null
     twitter: string | null
   }
-  uid: string
   createdAt: Timestamp
   updatedAt: Timestamp | null
 }
 
+type GetUserType = UserType & {
+  uid: string
+}
+
 type CreateUserType = {
-  id: string
-  body: Omit<UserType, 'createdAt' | 'updatedAt' | 'uid'>
+  uid: string
+  body: Omit<UserType, 'updatedAt'>
 }
 
 export const usersApi = baseFirestoreApi.injectEndpoints({
   endpoints: (builder) => ({
-    getUser: builder.query<UserType | null, string>({
+    getUser: builder.query<GetUserType | null, string>({
       queryFn: async (uid) => {
         try {
           const ref = doc(
@@ -55,9 +58,9 @@ export const usersApi = baseFirestoreApi.injectEndpoints({
       providesTags: ['User']
     }),
     createUser: builder.mutation<string, CreateUserType>({
-      queryFn: async ({ id, body }) => {
+      queryFn: async ({ uid, body }) => {
         try {
-          await setDoc(doc(db, 'users', id), {
+          await setDoc(doc(db, 'users', uid), {
             ...body,
             createdAt: serverTimestamp()
           })
