@@ -37,7 +37,9 @@ export const useCheckAuth = () => {
       if (user) {
         dispatch(
           setUser({
-            uid: user.uid
+            uid: user.uid,
+            email: user.email,
+            icon: user.photoURL
           })
         )
 
@@ -63,7 +65,9 @@ export const useCheckAuth = () => {
       } else {
         dispatch(
           setUser({
-            uid: null
+            uid: null,
+            icon: null,
+            email: null
           })
         )
         // ユーザ登録必須ページにいる場合はトップページにリダイレクト
