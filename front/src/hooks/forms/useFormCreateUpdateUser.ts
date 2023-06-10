@@ -47,7 +47,7 @@ export const useFormCreateUpdateUser = (user: UserData) => {
     handleSubmit,
     setValue,
     control,
-    formState: { errors }
+    formState: { errors, isDirty, isValid }
   } = useForm<UserUpdateBodyType>({
     resolver: yupResolver(schema),
     // 入力要素が少ないのではじめからonChange時にバリデーションを発火させる
@@ -87,6 +87,8 @@ export const useFormCreateUpdateUser = (user: UserData) => {
     uploading,
     handleUploadImage,
     errors,
+    isDirty,
+    isValid,
     currentIcon
   }
 }

@@ -23,9 +23,11 @@ export const InputAvatar = ({ src, uploading, ...props }: InputAvatarProps) => {
         {...props}
       />
       {src ? (
-        <div css={styles.previewImageWrapper}>
-          <Image alt="" css={styles.previewImage} fill src={src} />
-        </div>
+        <button onClick={onClickImage}>
+          <div css={styles.previewImageWrapper}>
+            <Image alt="" css={styles.previewImage} fill src={src} />
+          </div>
+        </button>
       ) : (
         <button css={styles.uploadImage} onClick={onClickImage}>
           <HiOutlineUpload size={24} />

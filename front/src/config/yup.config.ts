@@ -19,13 +19,11 @@ yup.addMethod<StringSchema>(
 )
 
 // 空文字をnullに変換
-yup.addMethod<StringSchema>(
-  yup.string,
-  'convertToNull',
-  function () {
-    return this.transform((value, originalValue) => (originalValue === '' ? null : value))
-  }
-)
+yup.addMethod<StringSchema>(yup.string, 'convertToNull', function () {
+  return this.transform((value, originalValue) =>
+    originalValue === '' ? null : value
+  )
+})
 
 declare module 'yup' {
   interface StringSchema {

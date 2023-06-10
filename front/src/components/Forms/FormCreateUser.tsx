@@ -32,6 +32,8 @@ export const FormCreateUser = ({
     handleSubmit,
     onSubmit,
     currentIcon,
+    isDirty,
+    isValid,
     errors
   } = useFormCreateUpdateUser({
     icon: authUser.icon,
@@ -75,7 +77,9 @@ export const FormCreateUser = ({
           </div>
           <div css={styles.layoutSubmitButton}>
             <ButtonOutline
-              disabled={!!errors.userId || !!errors.name}
+              disabled={
+                !!errors.userId || !!errors.name || !isDirty || !isValid
+              }
               icon="none"
               onClick={() => {
                 setWindow('setProfile')
@@ -135,7 +139,7 @@ export const FormCreateUser = ({
           </div>
 
           <div css={styles.layoutSubmitButton}>
-            <ButtonFill onClick={handleSubmit(onSubmit)}>
+            <ButtonFill disabled={!isValid} onClick={handleSubmit(onSubmit)}>
               アカウント作成
             </ButtonFill>
           </div>
