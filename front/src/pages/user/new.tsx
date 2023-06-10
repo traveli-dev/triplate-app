@@ -10,6 +10,7 @@ import {
   InputText,
   InputTextArea
 } from '@/components/Inputs'
+import { useFormCreateUpdateUser } from '@/hooks/forms'
 import { auth } from '@/lib/firebase'
 import { useAppSelector } from '@/redux/rootStore'
 import { authSelectors } from '@/redux/stores'
@@ -19,6 +20,19 @@ const UserNew = () => {
   const router = useRouter()
   const authUser = useAppSelector(authSelectors.currentAuthUser)
   const [window, setWindow] = useState<'setName' | 'setProfile'>('setName')
+
+  const {
+    handleUploadImage,
+    uploading,
+    register,
+    handleSubmit,
+    onSubmit,
+    currentIcon
+  } = useFormCreateUpdateUser({
+    icon: authUser.icon,
+    uid: authUser.uid ?? '',
+    email: authUser.email ?? ''
+  })
 
   const deleteAuthHandler = () => {
     if (auth.currentUser) {
@@ -53,7 +67,11 @@ const UserNew = () => {
                   >
                     <div css={styles.userIdWrapper}>
                       <span>https://triplate.app/</span>
-                      <InputText id="userId" placeholder="triplate" />
+                      <InputText
+                        id="userId"
+                        placeholder="triplate"
+                        {...register('userId')}
+                      />
                     </div>
                   </InputLabel>
                 </div>
@@ -63,7 +81,11 @@ const UserNew = () => {
                     subText="いつでも変更できます"
                     text="表示される名前"
                   >
-                    <InputText id="name" placeholder="表示される名前を入力" />
+                    <InputText
+                      id="name"
+                      placeholder="表示される名前を入力"
+                      {...register('name')}
+                    />
                   </InputLabel>
                 </div>
                 <div css={styles.layoutSubmitButton}>
@@ -84,11 +106,9 @@ const UserNew = () => {
               <div css={styles.layoutForm}>
                 <div css={styles.avatarWrapper}>
                   <InputAvatar
-                    src=""
-                    uploading={false}
-                    onChange={() => {
-                      console.error('e')
-                    }}
+                    src={currentIcon ?? ''}
+                    uploading={uploading}
+                    onChange={handleUploadImage}
                   />
                   <button css={styles.avatarChangeButton}>変更する</button>
                 </div>
@@ -110,7 +130,11 @@ const UserNew = () => {
                         src="/logos/instagram_logo.svg"
                         width={26}
                       />
-                      <InputText id="userId" placeholder="InstagramのURL" />
+                      <InputText
+                        id="userId"
+                        placeholder="InstagramのURL"
+                        {...register('links.instagram')}
+                      />
                     </div>
                     <div css={styles.snsInput}>
                       <Image
@@ -119,13 +143,19 @@ const UserNew = () => {
                         src="/logos/twitter_logo.svg"
                         width={26}
                       />
-                      <InputText id="sns" placeholder="TwitterのURL" />
+                      <InputText
+                        id="sns"
+                        placeholder="TwitterのURL"
+                        {...register('links.twitter')}
+                      />
                     </div>
                   </InputLabel>
                 </div>
 
                 <div css={styles.layoutSubmitButton}>
-                  <ButtonFill>アカウント作成</ButtonFill>
+                  <ButtonFill onClick={handleSubmit(onSubmit)}>
+                    アカウント作成
+                  </ButtonFill>
                 </div>
               </div>
             )}

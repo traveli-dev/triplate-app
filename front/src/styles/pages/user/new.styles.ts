@@ -36,6 +36,10 @@ export const styles = {
   avatarChangeButton: css`
     margin-top: 8px;
     font-size: ${theme.fontSize.md};
+    &:hover,
+    &:focus {
+      color: ${theme.color.hoverBlack};
+    }
   `,
   layoutInput: css`
     padding-top: 16px;

@@ -38,8 +38,8 @@ export const useCheckAuth = () => {
         dispatch(
           setUser({
             uid: user.uid,
-            email: user.email,
-            icon: user.photoURL
+            email: user.providerData[0].email,
+            icon: user.providerData[0].photoURL
           })
         )
 

@@ -5,7 +5,7 @@ import {
   InputText,
   InputTextArea
 } from '@/components/Inputs'
-import { useFormCreateUser } from '@/hooks/forms'
+import { useFormCreateUpdateUser } from '@/hooks/forms'
 import { styles } from '@/styles/components/Forms/FormUpdateUser.styles'
 
 // TODO: 引っ張ってくる可能性が高い
@@ -19,7 +19,7 @@ type FormUpdateUserProps = {
 export const FormUpdateUser = ({ data }: FormUpdateUserProps) => {
   // TODO: disabled
   // const [disabled, setDisabled] = useState(false)
-  const { url, uploading, handleUploadImage } = useFormCreateUser(data)
+  const { url, uploading, handleUploadImage } = useFormCreateUpdateUser(data)
 
   return (
     <div>

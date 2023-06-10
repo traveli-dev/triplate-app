@@ -30,8 +30,13 @@ type GetUserType = UserType & {
 
 type CreateUserType = {
   uid: string
-  body: Omit<UserType, 'updatedAt'>
+  body: Omit<UserType, 'createdAt' | 'updatedAt'>
 }
+
+export type UserUpdateBodyType = Omit<
+  UserType,
+  'email' | 'updatedAt' | 'createdAt'
+>
 
 export const usersApi = baseFirestoreApi.injectEndpoints({
   endpoints: (builder) => ({
