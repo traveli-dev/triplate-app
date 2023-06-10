@@ -11,7 +11,7 @@ import { useUploadImageMutation } from '@/redux/services/storage'
 import { getProfilePath } from '@/utils/storage'
 
 type UserData = {
-  icon: string | null
+  icon: string
   uid: string
   email: string
 }
@@ -47,9 +47,11 @@ export const useFormCreateUpdateUser = (user: UserData) => {
     handleSubmit,
     setValue,
     control,
-    formState: { errors, isDirty, isValid }
+    formState: { errors }
   } = useForm<UserUpdateBodyType>({
     resolver: yupResolver(schema),
+    // 入力要素が少ないのではじめからonChange時にバリデーションを発火させる
+    mode: 'onChange',
     defaultValues: {
       userId: '',
       name: '',
@@ -66,8 +68,6 @@ export const useFormCreateUpdateUser = (user: UserData) => {
     control,
     name: 'icon'
   })
-
-  const disabled = !isValid || !isDirty
 
   const onSubmit: SubmitHandler<UserUpdateBodyType> = async (data) => {
     await createUser({
@@ -87,8 +87,7 @@ export const useFormCreateUpdateUser = (user: UserData) => {
     uploading,
     handleUploadImage,
     errors,
-    currentIcon,
-    disabled
+    currentIcon
   }
 }
 
@@ -109,12 +108,13 @@ const schema = yup.object({
     instagram: yup
       .string()
       .nullable()
-      .max(30, '正しいアカウント名を指定してください')
+      .convertToNull()
       // 半角英数とアンダーバー，ピリオドは最初と最後以外可
       .matches(/^(?!\.)[\w.]+(?<!\.)$/, '正しいアカウント名を指定してください'),
     twitter: yup
       .string()
       .nullable()
+      .convertToNull()
       .min(5, '正しいアカウント名を指定してください')
       .max(15, '正しいアカウント名を指定してください')
       // 半角英数とアンダースコアのみ
