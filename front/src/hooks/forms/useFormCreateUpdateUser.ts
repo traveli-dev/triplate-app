@@ -2,7 +2,7 @@ import { ChangeEvent } from 'react'
 import { SubmitHandler, useForm, useWatch } from 'react-hook-form'
 import { useRouter } from 'next/router'
 import { yupResolver } from '@hookform/resolvers/yup'
-import * as yup from 'yup'
+import yup from '@/config/yup.config'
 import {
   UserUpdateBodyType,
   useCreateUserMutation
@@ -47,7 +47,7 @@ export const useFormCreateUpdateUser = (user: UserData) => {
     handleSubmit,
     setValue,
     control,
-    formState: { errors }
+    formState: { errors, isDirty, isValid }
   } = useForm<UserUpdateBodyType>({
     resolver: yupResolver(schema),
     defaultValues: {
@@ -67,6 +67,8 @@ export const useFormCreateUpdateUser = (user: UserData) => {
     name: 'icon'
   })
 
+  const disabled = !isValid || !isDirty
+
   const onSubmit: SubmitHandler<UserUpdateBodyType> = async (data) => {
     await createUser({
       uid: user.uid,
@@ -85,85 +87,37 @@ export const useFormCreateUpdateUser = (user: UserData) => {
     uploading,
     handleUploadImage,
     errors,
-    currentIcon
+    currentIcon,
+    disabled
   }
 }
 
 const schema = yup.object({
   userId: yup
     .string()
-
-    .test('max_length', (value, { createError }) => {
-      const max = 15
-      // valueがない場合はrequiredに引っかかるのでスキップ
-      if (!value) return true
-
-      if (value.length > max) {
-        return createError({
-          message: `ユーザIDを、あと${value.length - max}文字短くしてください`,
-          path: 'userId'
-        })
-      }
-
-      return true
-    })
+    .maxLength(15, 'ユーザID')
     .matches(
-      /^[a-z0-9]+$/,
-      'ユーザー名には半角小文字英数字とアンダースコア（_）のみ使用できます'
+      // 半角英数とアンダースコアのみ
+      /^[\w]+$/,
+      'ユーザー名には半角英数字とアンダースコア（_）のみ使用できます'
     )
     .required('ユーザIDは必須です'),
-  name: yup
-    .string()
-    // nameは40文字以下
-    .test('max_length', (value, { createError }) => {
-      const max = 40
-      // valueがない場合はrequiredに引っかかるのでスキップ
-      if (!value) return true
-
-      if (value.length > max) {
-        return createError({
-          message: `名前を、あと${value.length - max}文字短くしてください`,
-          path: 'name'
-        })
-      }
-
-      return true
-    })
-    .required('名前は必須です'),
+  name: yup.string().maxLength(15, '名前').required('表示される名前は必須です'),
   icon: yup.string().required('ユーザアイコンは必須です'),
-  description: yup
-    .string()
-    .nullable()
-    // TODO: 自己紹介の
-    // 自己紹介は160文字以下
-    .test('max_length', (value, { createError }) => {
-      const max = 160
-      // valueがない場合はrequiredに引っかかるのでスキップ
-      if (!value) return true
-
-      if (value.length > max) {
-        return createError({
-          message: `名前を、あと${value.length - max}文字短くしてください`,
-          path: 'name'
-        })
-      }
-
-      return true
-    }),
+  description: yup.string().nullable().maxLength(150, '自己紹介'),
   links: yup.object().shape({
     instagram: yup
       .string()
       .nullable()
-      .matches(/^https?:\/\/(www\.)?instagram\.com/, {
-        message: 'InstagramのプロフィールのURLを入力してください',
-        excludeEmptyString: true
-      }),
+      .max(30, '正しいアカウント名を指定してください')
+      // 半角英数とアンダーバー，ピリオドは最初と最後以外可
+      .matches(/^(?!\.)[\w.]+(?<!\.)$/, '正しいアカウント名を指定してください'),
     twitter: yup
       .string()
       .nullable()
-      .matches(/^https?:\/\/(mobile\.|www\.)?twitter\.com/, {
-        message: 'TwitterのプロフィールのURLを入力してください',
-        excludeEmptyString: true
-      })
+      .min(5, '正しいアカウント名を指定してください')
+      .max(15, '正しいアカウント名を指定してください')
+      // 半角英数とアンダースコアのみ
+      .matches(/^[\w]+$/, '正しいアカウント名を指定してください')
   })
 })

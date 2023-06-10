@@ -122,7 +122,11 @@ const UserNew = () => {
                   </InputLabel>
                 </div>
                 <div css={styles.layoutInput}>
-                  <InputLabel htmlFor="sns" subText="任意" text="SNSリンク">
+                  <InputLabel
+                    htmlFor="sns"
+                    subText="任意"
+                    text="SNSアカウントのリンク"
+                  >
                     <div css={styles.snsInput}>
                       <Image
                         alt="Instagramのロゴ"
@@ -131,7 +135,7 @@ const UserNew = () => {
                         width={26}
                       />
                       <InputText
-                        id="userId"
+                        id="sns"
                         placeholder="InstagramのURL"
                         {...register('links.instagram')}
                       />
@@ -144,7 +148,6 @@ const UserNew = () => {
                         width={26}
                       />
                       <InputText
-                        id="sns"
                         placeholder="TwitterのURL"
                         {...register('links.twitter')}
                       />
