@@ -5,21 +5,29 @@ import {
   InputText,
   InputTextArea
 } from '@/components/Inputs'
-import { styles } from '@/styles/components/Forms/FormCreateUpdateUser.styles'
+import { useFormCreateUser } from '@/hooks/forms'
+import { styles } from '@/styles/components/Forms/FormUpdateUser.styles'
 
-export const FormCreateUpdateUser = () => {
+// TODO: 引っ張ってくる可能性が高い
+type FormUpdateUserProps = {
+  data: {
+    icon: string | null
+    uid: string
+  }
+}
+
+export const FormUpdateUser = ({ data }: FormUpdateUserProps) => {
   // TODO: disabled
   // const [disabled, setDisabled] = useState(false)
+  const { url, uploading, handleUploadImage } = useFormCreateUser(data)
 
   return (
-    <form>
+    <div>
       <div css={styles.avatarWrapper}>
         <InputAvatar
-          src=""
-          uploading={false}
-          onChange={() => {
-            console.error('e')
-          }}
+          src={url}
+          uploading={uploading}
+          onChange={handleUploadImage}
         />
         <button css={styles.avatarChangeButton}>変更する</button>
       </div>
@@ -52,6 +60,6 @@ export const FormCreateUpdateUser = () => {
       <div css={styles.layoutSubmitButton}>
         <ButtonFill>アカウント作成</ButtonFill>
       </div>
-    </form>
+    </div>
   )
 }
