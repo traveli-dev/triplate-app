@@ -105,21 +105,21 @@ const UserNew = () => {
                   <InputLabel htmlFor="sns" subText="任意" text="SNSリンク">
                     <div css={styles.snsInput}>
                       <Image
-                        alt="Twitterのロゴ"
-                        height={26}
-                        src="/logos/twitter_logo.svg"
-                        width={26}
-                      />
-                      <InputText id="sns" placeholder="TwitterのURL" />
-                    </div>
-                    <div css={styles.snsInput}>
-                      <Image
                         alt="Instagramのロゴ"
                         height={26}
                         src="/logos/instagram_logo.svg"
                         width={26}
                       />
                       <InputText id="userId" placeholder="InstagramのURL" />
+                    </div>
+                    <div css={styles.snsInput}>
+                      <Image
+                        alt="Twitterのロゴ"
+                        height={26}
+                        src="/logos/twitter_logo.svg"
+                        width={26}
+                      />
+                      <InputText id="sns" placeholder="TwitterのURL" />
                     </div>
                   </InputLabel>
                 </div>
