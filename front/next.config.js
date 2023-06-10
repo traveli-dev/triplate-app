@@ -21,7 +21,7 @@ const nextConfig = {
     }
   ],
   images: {
-    domains: [isDev ? 'localhost' : 'firebasestorage.googleapis.com']
+    domains: [isDev ? 'localhost' : 'firebasestorage.googleapis.com', 'lh3.googleusercontent.com']
   }
 }
 
