@@ -1,14 +1,13 @@
 import Link from 'next/link'
 import { HiOutlineQuestionMarkCircle } from 'react-icons/hi'
+import { CardExplore } from '@/components/Cards'
 import { Container } from '@/components/Containers'
 import { NavigationBottom } from '@/components/Navigations'
-import { styles } from '@/styles/pages/explore/index.styles'
 import { useGetAllExploresQuery } from '@/redux/services/firestore/explores'
-import { CardExplore } from '@/components/Cards'
-
+import { styles } from '@/styles/pages/explore/index.styles'
 
 const Explore = () => {
-  const {data: exploresData, isLoading} = useGetAllExploresQuery()
+  const { data: exploresData, isLoading } = useGetAllExploresQuery()
   return (
     <>
       <Container bgColor="white" isFull>
@@ -18,21 +17,17 @@ const Explore = () => {
             <HiOutlineQuestionMarkCircle size={18} />
           </Link>
         </div>
-{
-  !exploresData || isLoading ? (
-    <>LOADING</>
-  ) : (
-    <>
-    {exploresData.map((data,_) => (
-      <div  key={_} css={styles.exploreList}>
-        <CardExplore data={data}/>
-      </div>
-      ))}
-    </>
-  )
-}
-      
-
+        {!exploresData || isLoading ? (
+          <>LOADING</>
+        ) : (
+          <>
+            {exploresData.map((data, _) => (
+              <div css={styles.exploreList} key={_}>
+                <CardExplore data={data} />
+              </div>
+            ))}
+          </>
+        )}
       </Container>
       <NavigationBottom />
     </>

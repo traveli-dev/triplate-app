@@ -1,36 +1,35 @@
-import { theme } from "@/styles/theme";
-import { css } from "@emotion/react";
+import { css } from '@emotion/react'
+import { theme } from '@/styles/theme'
 
 export const styles = {
-wrapper:css`
-            position: relative;
-        width: 100%;
-        height: 360px;
-        border-radius: 24px;
+  wrapper: css`
+    position: relative;
+    width: 100%;
+    height: 360px;
+  `,
 
-`,
-
-    card: css`
+  card: css`
     object-fit: cover;
-    `,
-    textWrapper: css`
-        position: absolute;
-        bottom: 0;
-        padding: 16px;
-        z-index: 100;
-        color: ${theme.color.white};
-    `,
-    title: css`
-        font-size: ${theme.fontSize.xl};
-        font-weight: 600;
-        margin-bottom: 3px;
-    `,
-    day: css`
-        font-size: ${theme.fontSize.sm};
-                margin-bottom: 3px;
-    `,
-    keywords: css`
-        font-size: ${theme.fontSize.sm};
-            margin-bottom: 3px;
-    `
+        border-radius: 24px;
+  `,
+  textWrapper: css`
+    position: absolute;
+    bottom: 0;
+    z-index: 100;
+    padding: 16px;
+    color: ${theme.color.white};
+  `,
+  title: css`
+    margin-bottom: 3px;
+    font-size: ${theme.fontSize.xl};
+    font-weight: 600;
+  `,
+  day: css`
+    margin-bottom: 3px;
+    font-size: ${theme.fontSize.sm};
+  `,
+  keywords: css`
+    margin-bottom: 3px;
+    font-size: ${theme.fontSize.sm};
+  `
 }

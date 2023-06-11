@@ -11,7 +11,7 @@ export const styles = {
     padding: 24px 0;
     font-size: ${theme.fontSize.lg};
   `,
-      exploreList: css`
-        padding-bottom: 16px;
-    `,
+  exploreList: css`
+    padding-bottom: 16px;
+  `
 }
