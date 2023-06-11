@@ -85,6 +85,7 @@ export const useFormCreateUpdateUser = ({ auth, userData }: UserData) => {
     setDisabled(true)
     try {
       userData ? await update(data) : await create(data)
+      setDisabled(false)
     } catch (e) {
       setDisabled(false)
       // TODO: errorハンドリング
@@ -109,7 +110,8 @@ export const useFormCreateUpdateUser = ({ auth, userData }: UserData) => {
       uid: auth.uid,
       body: data
     }).unwrap()
-    router.push('/home')
+    // TODO: トースト出す？
+    alert('更新しました')
   }
 
   return {

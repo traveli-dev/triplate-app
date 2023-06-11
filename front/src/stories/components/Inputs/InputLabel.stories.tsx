@@ -29,7 +29,13 @@ export const Default: Story = {
     htmlFor: 'name',
     text: '表示されるなまえ',
     subText: 'いつでも変更できます',
-    children: <InputText id="name" placeholder="表示されるなまえを入力" />
+    children: (
+      <InputText
+        id="name"
+        isInvalid={false}
+        placeholder="表示されるなまえを入力"
+      />
+    )
   },
   parameters: {
     backgrounds: {
