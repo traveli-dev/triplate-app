@@ -117,7 +117,10 @@ export const usersApi = baseFirestoreApi.injectEndpoints({
         try {
           const ref = doc(collection(db, 'users'), uid)
 
-          await updateDoc(ref, body)
+          await updateDoc(ref, {
+            ...body,
+            updatedAt: serverTimestamp()
+          })
 
           return {
             data: 'OK'

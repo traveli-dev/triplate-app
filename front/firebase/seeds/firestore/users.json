@@ -1,11 +1,14 @@
 {
   "users": {
     "C5Ja2gXGLeIXTjhWZbDiWUWe8Whd": {
-      "id": "C5Ja2gXGLeIXTjhWZbDiWUWe8Whd",
       "name": "み ゆ う",
       "icon": "http://localhost:9199/v0/b/traveli-test.appspot.com/o/images%2Fusers%2FC5Ja2gXGLeIXTjhWZbDiWUWe8Whd%2Fprofiles%2Ficon?alt=media",
       "userId": "ma_ma_hima",
       "description": "Designer & Engineer デジタルデトックスなたびがスキ",
+      "createdAt": {
+        "_seconds": 1589998976,
+        "_nanoseconds": 490000000
+      },
       "links": {
         "instagram": null,
         "twitter": null
@@ -33,7 +36,6 @@
       }
     },
     "C00a2gXGLeIXTjhWZbDiWUWe8Whd": {
-      "id": "C00a2gXGLeIXTjhWZbDiWUWe8Whd",
       "name": "testUser1",
       "icon": "http://localhost:9199/v0/b/traveli-test.appspot.com/o/images%2Fusers%2FC00a2gXGLeIXTjhWZbDiWUWe8Whd%2Fprofiles%2Ficon?alt=media",
       "userId": "userid01",
@@ -41,6 +43,10 @@
       "links": {
         "instagram": null,
         "twitter": null
+      },
+      "createdAt": {
+        "_seconds": 1589998976,
+        "_nanoseconds": 490000000
       },
       "subCollection": {
         "users/C00a2gXGLeIXTjhWZbDiWUWe8Whd/joinTrips": {

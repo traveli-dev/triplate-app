@@ -17,5 +17,8 @@ export const styles = {
       outline: 2px solid
         ${isInvalid ? theme.color.red : theme.color.outlineGray};
     }
+    &:disabled {
+      background-color: ${theme.color.outlineGray};
+    }
   `
 }
