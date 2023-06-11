@@ -53,15 +53,14 @@ export const useCheckAuth = () => {
         dispatch(
           setUser({
             uid: user.uid,
-            email: user.providerData[0].email,
             icon: user.providerData[0].photoURL
           })
         )
 
         // ユーザ登録済みか確認する
-        const { data } = await dispatch(
+        const data = await dispatch(
           usersApi.endpoints.getUser.initiate(user.uid)
-        )
+        ).unwrap()
         const isRegisteredUser = !!data?.userId || false
 
         // 認証必要ページは，ユーザ未登録の場合はトップにリダイレクト

@@ -13,7 +13,6 @@ import { getProfilePath } from '@/utils/storage'
 type UserData = {
   icon: string
   uid: string
-  email: string
 }
 
 export const useFormCreateUpdateUser = (user: UserData) => {
@@ -38,7 +37,10 @@ export const useFormCreateUpdateUser = (user: UserData) => {
         }
       }
     } catch (e) {
-      console.error(e)
+      // TODO: エラーハンドリング
+      alert(
+        '画像アップロードに失敗しました。大変お手数ですが、再度お試しください'
+      )
     }
   }
 
@@ -68,16 +70,22 @@ export const useFormCreateUpdateUser = (user: UserData) => {
     control,
     name: 'icon'
   })
+  const currentUserId = useWatch({
+    control,
+    name: 'userId'
+  })
 
   const onSubmit: SubmitHandler<UserUpdateBodyType> = async (data) => {
-    await createUser({
-      uid: user.uid,
-      body: {
-        ...data,
-        email: user.email
-      }
-    }).unwrap()
-    router.push('/home')
+    try {
+      await createUser({
+        uid: user.uid,
+        body: data
+      }).unwrap()
+      router.push('/home')
+    } catch (e) {
+      // TODO: errorハンドリング
+      alert('ユーザ登録に失敗しました。大変お手数ですが、再度お試しください')
+    }
   }
 
   return {
@@ -89,6 +97,7 @@ export const useFormCreateUpdateUser = (user: UserData) => {
     errors,
     isDirty,
     isValid,
+    currentUserId,
     currentIcon
   }
 }
@@ -99,9 +108,9 @@ const schema = yup.object({
     .maxLength(15, 'ユーザID')
     .required('ユーザIDは必須です')
     .matches(
-      // 半角英数とアンダースコアのみ
-      /^[\w]+$/,
-      'ユーザー名には半角英数字とアンダースコア（_）のみ使用できます'
+      // 半角小文字英数とアンダースコアのみ
+      /^[a-z0-9_]+$/,
+      'ユーザー名には半角小文字英数字とアンダースコア（_）のみ使用できます'
     ),
   name: yup.string().maxLength(15, '名前').required('表示される名前は必須です'),
   icon: yup.string().required('ユーザアイコンは必須です'),

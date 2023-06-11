@@ -1,20 +1,12 @@
 {
-  "index": {
+  "indexes": {
     "users": {
       "subCollection": {
-        "index/users/userId/": {
+        "indexes/users/userId/": {
           "ma_ma_hima": {
             "user": "C5Ja2gXGLeIXTjhWZbDiWUWe8Whd"
           },
-          "userID01": {
-            "user": "C00a2gXGLeIXTjhWZbDiWUWe8Whd"
-          }
-        },
-        "index/users/email/": {
-          "test@example.com": {
-            "user": "C5Ja2gXGLeIXTjhWZbDiWUWe8Whd"
-          },
-          "test2@example.com": {
+          "userid01": {
             "user": "C00a2gXGLeIXTjhWZbDiWUWe8Whd"
           }
         }

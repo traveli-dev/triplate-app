@@ -16,3 +16,6 @@ export {
   type GetTriplinkType,
   type CreateTriplinkType
 } from '@/redux/services/firestore/triplinks/triplinks'
+
+// indexes
+export { useCheckUniqueUserIdQuery } from '@/redux/services/firestore/indexes/indexes'

@@ -9,6 +9,8 @@ import {
   InputTextArea
 } from '@/components/Inputs'
 import { useFormCreateUpdateUser } from '@/hooks/forms'
+import { useAppDispath } from '@/redux/rootStore'
+import { indexesApi } from '@/redux/services/firestore/indexes/indexes'
 import { styles } from '@/styles/components/Forms/FormCreateUser.styles'
 
 type FormCreateUserProps = {
@@ -17,7 +19,6 @@ type FormCreateUserProps = {
   authUser: {
     icon: string
     uid: string
-    email: string
   }
 }
 
@@ -26,6 +27,20 @@ export const FormCreateUser = ({
   authUser,
   setWindow
 }: FormCreateUserProps) => {
+  const dispatch = useAppDispath()
+
+  const checkUniqueness = async () => {
+    const isUnique = await dispatch(
+      indexesApi.endpoints.checkUniqueUserId.initiate(currentUserId)
+    ).unwrap()
+
+    if (isUnique) {
+      setWindow('setProfile')
+    } else {
+      alert(`ユーザー名「${currentUserId}」はすでに使用されています`)
+    }
+  }
+
   const {
     handleUploadImage,
     uploading,
@@ -35,11 +50,11 @@ export const FormCreateUser = ({
     currentIcon,
     isDirty,
     isValid,
+    currentUserId,
     errors
   } = useFormCreateUpdateUser({
     icon: authUser.icon,
-    uid: authUser.uid,
-    email: authUser.email
+    uid: authUser.uid
   })
 
   return (
@@ -94,9 +109,7 @@ export const FormCreateUser = ({
                 !!errors.userId || !!errors.name || !isDirty || !isValid
               }
               icon="none"
-              onClick={() => {
-                setWindow('setProfile')
-              }}
+              onClick={checkUniqueness}
             >
               次へ進む
             </ButtonOutline>
@@ -133,7 +146,7 @@ export const FormCreateUser = ({
             <InputLabel
               htmlFor="instagram"
               subText="任意"
-              text="SNSアカウントのリンク"
+              text="SNSアカウントのユーザ名"
             >
               <div css={styles.snsInput}>
                 <Image
@@ -146,7 +159,7 @@ export const FormCreateUser = ({
                 <InputText
                   id="instagram"
                   isInvalid={!!errors.links && !!errors.links.instagram}
-                  placeholder="InstagramのURL"
+                  placeholder="@なしで入力"
                   {...register('links.instagram')}
                 />
               </div>
@@ -172,7 +185,7 @@ export const FormCreateUser = ({
                 <InputText
                   id="twitter"
                   isInvalid={!!errors.links && !!errors.links.twitter}
-                  placeholder="TwitterのURL"
+                  placeholder="@なしで入力"
                   {...register('links.twitter')}
                 />
               </div>

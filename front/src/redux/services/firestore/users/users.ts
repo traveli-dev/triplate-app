@@ -1,3 +1,4 @@
+import { FirebaseError } from 'firebase/app'
 import {
   DocumentReference,
   Timestamp,
@@ -11,7 +12,6 @@ import { db } from '@/lib/firebase'
 import { baseFirestoreApi } from '@/redux/services/firestore'
 
 export type UserType = {
-  email: string
   icon: string | null
   name: string
   userId: string
@@ -77,16 +77,12 @@ export const usersApi = baseFirestoreApi.injectEndpoints({
           // uniqueなフィールドをindexに登録
           const indexUserIdRef = doc(
             db,
-            'index',
+            'indexes',
             'users',
             'userId',
             body.userId
           )
           batch.set(indexUserIdRef, {
-            user: uid
-          })
-          const indexEmailRef = doc(db, 'index', 'users', 'email', body.email)
-          batch.set(indexEmailRef, {
             user: uid
           })
 
@@ -95,7 +91,19 @@ export const usersApi = baseFirestoreApi.injectEndpoints({
           return {
             data: 'OK'
           }
-        } catch (error) {
+        } catch (err) {
+          let error
+
+          if (err instanceof FirebaseError) {
+            error = {
+              code: err.code
+            }
+          } else {
+            error = {
+              code: 'unexpected-error'
+            }
+          }
+
           return { error }
         }
       },

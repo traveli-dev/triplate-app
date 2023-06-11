@@ -22,7 +22,7 @@ const UserNew = () => {
 
   return (
     <div>
-      {!authUser.uid || !authUser.icon || !authUser.email ? (
+      {!authUser.uid || !authUser.icon ? (
         <p>ログインに失敗しました。大変お手数ですが、再度お試しください</p>
       ) : (
         <>
@@ -38,8 +38,7 @@ const UserNew = () => {
             <FormCreateUser
               authUser={{
                 icon: authUser.icon,
-                uid: authUser.uid,
-                email: authUser.email
+                uid: authUser.uid
               }}
               setWindow={setWindow}
               window={window}

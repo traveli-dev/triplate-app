@@ -3,13 +3,11 @@ import { RootState } from '@/redux/rootStore'
 
 export type AuthType = {
   uid: string | null
-  email: string | null
   icon: string | null
 }
 
 const initialState: AuthType = {
   uid: null,
-  email: null,
   icon: null
 }
 
@@ -19,7 +17,6 @@ const authSlice = createSlice({
   reducers: {
     setUser: (state, action: PayloadAction<AuthType>) => {
       state.uid = action.payload.uid
-      state.email = action.payload.email
       state.icon = action.payload.icon
     }
   }

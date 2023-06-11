@@ -5,7 +5,6 @@
       "name": "み ゆ う",
       "icon": "http://localhost:9199/v0/b/traveli-test.appspot.com/o/images%2Fusers%2FC5Ja2gXGLeIXTjhWZbDiWUWe8Whd%2Fprofiles%2Ficon?alt=media",
       "userId": "ma_ma_hima",
-      "email": "test@example.com",
       "subCollection": {
         "users/C5Ja2gXGLeIXTjhWZbDiWUWe8Whd/joinTrips": {
           "1": {
@@ -32,8 +31,7 @@
       "id": "C00a2gXGLeIXTjhWZbDiWUWe8Whd",
       "name": "testUser1",
       "icon": "http://localhost:9199/v0/b/traveli-test.appspot.com/o/images%2Fusers%2FC00a2gXGLeIXTjhWZbDiWUWe8Whd%2Fprofiles%2Ficon?alt=media",
-      "userId": "userID01",
-      "email": "test2@example.com",
+      "userId": "userid01",
       "subCollection": {
         "users/C00a2gXGLeIXTjhWZbDiWUWe8Whd/joinTrips": {
           "1": {
