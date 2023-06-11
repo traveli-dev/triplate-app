@@ -3,20 +3,10 @@ import { theme } from '@/styles/theme'
 
 export const styles = {
   layoutForm: css`
-    padding: 38px 0 0 0;
+    padding: 40px 0 64px 0;
   `,
   layoutErrorMessage: css`
     margin-top: 4px;
-  `,
-  kv: css`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 200px;
-    height: 200px;
-    margin: 0 auto 38px auto;
-    font-size: ${theme.fontSize.xl};
-    background-color: ${theme.color.bgGray};
   `,
   avatarWrapper: css`
     display: flex;

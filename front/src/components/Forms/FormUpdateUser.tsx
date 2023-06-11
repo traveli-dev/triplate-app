@@ -35,7 +35,7 @@ export const FormUpdateUser = ({ data, authUser }: FormUpdateUserProps) => {
   } = useFormCreateUpdateUser({ userData: data, auth: authUser })
 
   return (
-    <div>
+    <div css={styles.layoutForm}>
       <div css={styles.avatarWrapper}>
         <InputAvatar
           src={currentIcon}
@@ -47,7 +47,7 @@ export const FormUpdateUser = ({ data, authUser }: FormUpdateUserProps) => {
       <div css={styles.layoutInput}>
         <InputLabel
           htmlFor="userId"
-          subText="後から変更できません"
+          subText="変更できません"
           text="ユーザID"
         >
           <div css={styles.userIdWrapper}>
@@ -65,7 +65,6 @@ export const FormUpdateUser = ({ data, authUser }: FormUpdateUserProps) => {
       <div css={styles.layoutInput}>
         <InputLabel
           htmlFor="name"
-          subText="いつでも変更できます"
           text="表示される名前"
         >
           <InputText
