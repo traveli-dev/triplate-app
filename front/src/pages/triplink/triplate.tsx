@@ -1,4 +1,6 @@
+import Image from 'next/image'
 import { HiDotsVertical } from 'react-icons/hi'
+import { ButtonFill } from '@/components/Buttons'
 import { Container } from '@/components/Containers'
 import { TabDaysWithTriplink } from '@/components/Tabs'
 import { TravelListItemType } from '@/components/Tabs/TabDaysWithTriplink'
@@ -33,6 +35,23 @@ const Triplate = () => {
         </div>
         <div css={styles.tab}></div>
         <TabDaysWithTriplink tabType="view" triplinks={_triplinks} />
+      </div>
+      
+      <div css={styles.userProfileCardWrapper}>
+        <div  css={styles.userProfileWrapper}>
+          <div css={styles.userAvatarWrapper}>
+          <Image src={'/images/user_sample.jpeg'}  alt={''} fill css={styles.userAvatar}/>
+        </div>
+        <div>
+            <div css={styles.userName}>み ゆ う</div>
+            <div css={styles.userId}>@ma_ma_hima</div>
+          </div>
+        </div>
+      <div  css={styles.userStatus}>DESCRIPTIONが入りますDESCRIPTIONが入ります</div>
+      <div css={styles.userFF}>3 フォロー | 12 フォロワー</div>
+      <div css={styles.buttonFollow}>
+        <ButtonFill>フォロー</ButtonFill>
+      </div>
       </div>
     </Container>
   )
