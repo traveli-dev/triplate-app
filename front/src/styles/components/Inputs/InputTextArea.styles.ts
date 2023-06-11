@@ -2,7 +2,7 @@ import { css } from '@emotion/react'
 import { theme } from '@/styles/theme'
 
 export const styles = {
-  textarea: css`
+  textarea: (isInvalid: boolean) => css`
     box-sizing: border-box;
     width: 100%;
     height: 72px;
@@ -13,10 +13,12 @@ export const styles = {
     background-color: ${theme.color.bgGray};
     border: 0;
     border-radius: 16px;
+    outline: ${isInvalid ? `2px solid ${theme.color.red}` : 'none'};
 
     &:hover,
     &:focus {
-      outline: 2px solid ${theme.color.outlineGray};
+      outline: 2px solid
+        ${isInvalid ? theme.color.red : theme.color.outlineGray};
     }
   `
 }

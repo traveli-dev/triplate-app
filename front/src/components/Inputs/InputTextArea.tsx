@@ -3,15 +3,16 @@ import { styles } from '@/styles/components/Inputs/InputTextArea.styles'
 
 type InputTextAreaProps = ComponentPropsWithRef<'textarea'> & {
   placeholder: string
+  isInvalid: boolean
 }
 
 export const InputTextArea = forwardRef<
   HTMLTextAreaElement,
   InputTextAreaProps
->(({ placeholder, ...props }, ref) => {
+>(({ placeholder, isInvalid, ...props }, ref) => {
   return (
     <textarea
-      css={styles.textarea}
+      css={styles.textarea(isInvalid)}
       placeholder={placeholder}
       ref={ref}
       {...props}

@@ -57,6 +57,7 @@ export const FormCreateUser = ({
                 <span>https://triplate.app/</span>
                 <InputText
                   id="userId"
+                  isInvalid={!!errors.userId}
                   placeholder="triplate"
                   {...register('userId')}
                 />
@@ -76,6 +77,7 @@ export const FormCreateUser = ({
             >
               <InputText
                 id="name"
+                isInvalid={!!errors.name}
                 placeholder="表示される名前を入力"
                 {...register('name')}
               />
@@ -114,6 +116,7 @@ export const FormCreateUser = ({
             <InputLabel htmlFor="description" subText="任意" text="自己紹介">
               <InputTextArea
                 id="description"
+                isInvalid={!!errors.description}
                 placeholder="自己紹介"
                 {...register('description')}
               />
@@ -142,6 +145,7 @@ export const FormCreateUser = ({
                 <span>instagram.com/</span>
                 <InputText
                   id="instagram"
+                  isInvalid={!!errors.links && !!errors.links.instagram}
                   placeholder="InstagramのURL"
                   {...register('links.instagram')}
                 />
@@ -167,6 +171,7 @@ export const FormCreateUser = ({
                 <span>twitter.com/</span>
                 <InputText
                   id="twitter"
+                  isInvalid={!!errors.links && !!errors.links.twitter}
                   placeholder="TwitterのURL"
                   {...register('links.twitter')}
                 />

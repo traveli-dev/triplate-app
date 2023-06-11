@@ -97,12 +97,12 @@ const schema = yup.object({
   userId: yup
     .string()
     .maxLength(15, 'ユーザID')
+    .required('ユーザIDは必須です')
     .matches(
       // 半角英数とアンダースコアのみ
       /^[\w]+$/,
       'ユーザー名には半角英数字とアンダースコア（_）のみ使用できます'
-    )
-    .required('ユーザIDは必須です'),
+    ),
   name: yup.string().maxLength(15, '名前').required('表示される名前は必須です'),
   icon: yup.string().required('ユーザアイコンは必須です'),
   description: yup
@@ -115,13 +115,13 @@ const schema = yup.object({
       .string()
       .nullable()
       .convertToNull()
+      .max(30, '正しいアカウント名を指定してください')
       // 半角英数とアンダーバー，ピリオドは最初と最後以外可
       .matches(/^(?!\.)[\w.]+(?<!\.)$/, '正しいアカウント名を指定してください'),
     twitter: yup
       .string()
       .nullable()
       .convertToNull()
-      .min(5, '正しいアカウント名を指定してください')
       .max(15, '正しいアカウント名を指定してください')
       // 半角英数とアンダースコアのみ
       .matches(/^[\w]+$/, '正しいアカウント名を指定してください')
