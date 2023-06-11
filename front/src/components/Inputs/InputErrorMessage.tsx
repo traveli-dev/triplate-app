@@ -1,15 +1,16 @@
+import { ReactNode } from 'react'
 import { HiOutlineExclamationCircle } from 'react-icons/hi'
 import { styles } from '@/styles/components/Inputs/InputErrorMessage.styles'
 
 type InputErrorMessageProps = {
-  message: string
+  children: ReactNode
 }
 
-export const InputErrorMessage = ({ message }: InputErrorMessageProps) => {
+export const InputErrorMessage = ({ children }: InputErrorMessageProps) => {
   return (
     <div css={styles.wrapper}>
       <HiOutlineExclamationCircle css={styles.icon} size={20} />
-      <p css={styles.message}>{message}</p>
+      <p css={styles.message}>{children}</p>
     </div>
   )
 }

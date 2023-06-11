@@ -5,6 +5,9 @@ export const styles = {
   layoutForm: css`
     padding: 38px 0 0 0;
   `,
+  layoutErrorMessage: css`
+    margin-top: 4px;
+  `,
   kv: css`
     display: flex;
     align-items: center;

@@ -4,7 +4,7 @@ import type { StoryObj, Meta } from '@storybook/react'
 const meta: Meta<typeof InputErrorMessage> = {
   component: InputErrorMessage,
   argTypes: {
-    message: {
+    children: {
       description: 'エラー文'
     }
   },
@@ -17,7 +17,7 @@ type Story = StoryObj<typeof InputErrorMessage>
 
 export const Default: Story = {
   args: {
-    message: 'ミスってるよ文字ミスってるよ文字ミスってるよ'
+    children: 'ミスってるよ文字ミスってるよ文字ミスってるよ'
   },
   parameters: {
     backgrounds: {

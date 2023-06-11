@@ -9,7 +9,7 @@ yup.addMethod<StringSchema>(
     return this.test('maxLength', function (value) {
       if (value && value.length > max) {
         return this.createError({
-          message: `${name}を、あと${value.length - max}文字短くしてください`,
+          message: `${name}をあと${value.length - max}文字短くしてください`,
           path: this.path
         })
       }

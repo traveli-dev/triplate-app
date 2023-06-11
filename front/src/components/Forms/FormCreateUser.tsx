@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { ButtonFill, ButtonOutline } from '@/components/Buttons'
 import {
   InputAvatar,
+  InputErrorMessage,
   InputLabel,
   InputText,
   InputTextArea
@@ -61,6 +62,11 @@ export const FormCreateUser = ({
                 />
               </div>
             </InputLabel>
+            {!!errors.userId && (
+              <div css={styles.layoutErrorMessage}>
+                <InputErrorMessage>{errors.userId.message}</InputErrorMessage>
+              </div>
+            )}
           </div>
           <div css={styles.layoutInput}>
             <InputLabel
@@ -74,6 +80,11 @@ export const FormCreateUser = ({
                 {...register('name')}
               />
             </InputLabel>
+            {!!errors.name && (
+              <div css={styles.layoutErrorMessage}>
+                <InputErrorMessage>{errors.name.message}</InputErrorMessage>
+              </div>
+            )}
           </div>
           <div css={styles.layoutSubmitButton}>
             <ButtonOutline
@@ -103,6 +114,13 @@ export const FormCreateUser = ({
             <InputLabel htmlFor="description" subText="任意" text="自己紹介">
               <InputTextArea id="description" placeholder="自己紹介" />
             </InputLabel>
+            {!!errors.description && (
+              <div css={styles.layoutErrorMessage}>
+                <InputErrorMessage>
+                  {errors.description.message}
+                </InputErrorMessage>
+              </div>
+            )}
           </div>
           <div css={styles.layoutInput}>
             <InputLabel

@@ -4,7 +4,7 @@ import { theme } from '@/styles/theme'
 export const styles = {
   wrapper: css`
     display: flex;
-    align-items: top;
+    align-items: flex-start;
     color: ${theme.color.red};
   `,
   icon: css`
@@ -12,6 +12,7 @@ export const styles = {
     margin-right: 8px;
   `,
   message: css`
+    margin-top: 1px;
     font-size: ${theme.fontSize.sm};
     line-height: 20px;
   `
