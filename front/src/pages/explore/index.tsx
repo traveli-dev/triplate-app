@@ -3,11 +3,11 @@ import { HiOutlineQuestionMarkCircle } from 'react-icons/hi'
 import { CardExplore } from '@/components/Cards'
 import { Container } from '@/components/Containers'
 import { NavigationBottom } from '@/components/Navigations'
-import { useGetAllExploresQuery } from '@/redux/services/firestore/explores'
+import { useGetAllTriplatesQuery } from '@/redux/services/firestore/triplates'
 import { styles } from '@/styles/pages/explore/index.styles'
 
 const Explore = () => {
-  const { data: exploresData, isLoading } = useGetAllExploresQuery()
+  const { data, isLoading } = useGetAllTriplatesQuery()
   return (
     <>
       <Container bgColor="white" isFull>
@@ -17,11 +17,11 @@ const Explore = () => {
             <HiOutlineQuestionMarkCircle size={18} />
           </Link>
         </div>
-        {!exploresData || isLoading ? (
+        {!data || isLoading ? (
           <>LOADING</>
         ) : (
           <>
-            {exploresData.map((data, _) => (
+            {data.map((data, _) => (
               <div css={styles.exploreList} key={_}>
                 <CardExplore data={data} />
               </div>

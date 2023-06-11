@@ -1,9 +1,9 @@
 import Image from 'next/image'
-import { ExploreType } from '@/redux/services/firestore/explores'
+import { TriplateType } from '@/redux/services/firestore/triplates'
 import { styles } from '@/styles/components/Cards/CardExplore.styles'
 
 type CardExploreProps = {
-  data: ExploreType
+  data: TriplateType
 }
 
 export const CardExplore = ({ data }: CardExploreProps) => {
