@@ -11,6 +11,23 @@ export const indexesApi = baseFirestoreApi.injectEndpoints({
     checkUniqueUserId: builder.query<boolean, string>({
       queryFn: async (userId) => {
         try {
+          // 予約されている名前は使用不可
+          const reservedWords = [
+            'explore',
+            'home',
+            'settings',
+            'help',
+            'notifications',
+            'settings',
+            'auth',
+            'reader',
+            'support',
+            'privacy',
+            '_app',
+            '_document'
+          ]
+          if (reservedWords.includes(userId)) return { data: false }
+
           const ref = doc(
             collection(db, 'indexes', 'users', 'userId'),
             userId
