@@ -113,3 +113,127 @@ export const styles = {
     transform: translateX(-30%);
   `
 }
+
+export const viewStyles = {
+  wrapper: css`
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+
+    background-color: ${theme.color.white};
+  `,
+  tabs: css`
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-y: scroll;
+    background-color: ${theme.color.white};
+    scroll-behavior: smooth;
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  `,
+  tabSwitch: css`
+    display: none;
+    &:checked {
+      & ~ div {
+        transform: translateX(30%);
+      }
+      & + label {
+        font-weight: 600;
+        color: ${theme.color.white};
+        background-color: ${theme.color.black};
+        & + div {
+          order: 1;
+          height: auto;
+          pointer-events: auto;
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      & ~ label::after {
+        transform: translateX(-100%);
+      }
+      & + label::after {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  `,
+  tabLabel: css`
+    position: relative;
+    width: 72px;
+    height: 30px;
+    padding: 0 12px;
+    margin-right: 8px;
+    font-size: ${theme.fontSize.md};
+    line-height: 30px;
+    color: ${theme.color.gray};
+    text-align: center;
+    white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+    background-color: ${theme.color.white};
+    border: 2px solid ${theme.color.outlineGray};
+    border-radius: 100px;
+    transition: cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
+    -webkit-tap-highlight-color: transparent;
+
+    &:hover,
+    &:focus {
+      background: ${theme.color.white};
+      ${mq('sm')} {
+        background: none;
+      }
+    }
+  `,
+  tabContent: css`
+    position: absolute;
+    top: 42px;
+    width: 100%;
+    height: 100% !important;
+    pointer-events: none;
+    background-color: ${theme.color.white};
+    opacity: 0;
+    transition: transform 0.3s 80ms, opacity 0.3s 80ms;
+    transform: translateX(-30%);
+  `
+}
+
+export const contentStyles = {
+  thumbnail: css`
+    position: relative !important;
+    width: 100%;
+    height: 329px;
+    margin-top: 32px;
+    border: 0;
+    border-radius: 24px;
+    object-fit: cover;
+  `,
+  tag: css`
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    p {
+      margin-left: 8px;
+      font-size: ${theme.fontSize.md};
+      font-weight: 600;
+    }
+  `,
+  description: css`
+    margin: 10px 0;
+    font-size: ${theme.fontSize.sm};
+  `,
+  linkButton: css`
+    display: flex;
+
+    gap: 8px;
+  `,
+  day: css`
+    margin-top: 40px;
+    font-size: ${theme.fontSize.lg};
+    font-weight: 600;
+  `,
+  item: css`
+    margin-top: 16px;
+  `
+}

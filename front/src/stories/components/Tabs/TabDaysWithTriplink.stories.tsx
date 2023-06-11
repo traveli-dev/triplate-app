@@ -1,4 +1,5 @@
 import { TabDaysWithTriplink } from '@/components/Tabs'
+import { TravelListItemType } from '@/components/Tabs/TabDaysWithTriplink'
 import type { StoryObj, Meta } from '@storybook/react'
 
 const meta: Meta<typeof TabDaysWithTriplink> = {
@@ -6,6 +7,9 @@ const meta: Meta<typeof TabDaysWithTriplink> = {
   argTypes: {
     triplinks: {
       description: 'triplinkデータの配列が入ります'
+    },
+    tabType: {
+      description: 'tabTypeが入ります'
     }
   },
   tags: ['autodocs']
@@ -13,21 +17,35 @@ const meta: Meta<typeof TabDaysWithTriplink> = {
 
 export default meta
 
-type Story = StoryObj<typeof TabDaysWithTriplink>
+const items: TravelListItemType[] = [
+  { icon: 'map', title: 'タイトル１', date: '18:00', memo: 'memomemo' },
+  { icon: 'link', title: 'タイトル２', date: '18:00', memo: '' },
+  { icon: 'ledger', title: 'タイトル３', date: '', memo: 'memomemo' },
+  { icon: 'map', title: 'タイトル４', date: '', memo: '' }
+]
 
-export const Default: Story = {
+type Story = StoryObj<typeof TabDaysWithTriplink>
+export const Edit: Story = {
   args: {
     triplinks: [
-      { day: 1, name: 'aaa' },
-      { day: 2, name: 'bbb' },
-      { day: 3, name: 'ccc' },
-      { day: 4, name: 'ddd' },
-      { day: 5, name: 'eee' },
-      { day: 6, name: 'fff' },
-      { day: 7, name: 'ggg' },
-      { day: 8, name: 'hhh' },
-      { day: 9, name: 'iii' },
-      { day: 10, name: 'jjj' }
-    ]
+      { day: 1, name: 'aaa', linkList: items },
+      { day: 2, name: 'bbb', linkList: items },
+      { day: 3, name: 'ccc', linkList: items },
+      { day: 4, name: 'ddd', linkList: items },
+      { day: 5, name: 'eee', linkList: items }
+    ],
+    tabType: 'edit'
+  }
+}
+export const View: Story = {
+  args: {
+    triplinks: [
+      { day: 1, name: 'aaa', linkList: items },
+      { day: 2, name: 'bbb', linkList: items },
+      { day: 3, name: 'ccc', linkList: items },
+      { day: 4, name: 'ddd', linkList: items },
+      { day: 5, name: 'eee', linkList: items }
+    ],
+    tabType: 'view'
   }
 }
