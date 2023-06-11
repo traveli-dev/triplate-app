@@ -4,22 +4,27 @@ import { useRouter } from 'next/router'
 import { yupResolver } from '@hookform/resolvers/yup'
 import yup from '@/config/yup.config'
 import {
-  UserUpdateBodyType,
-  useCreateUserMutation
+  UserRequestBodyType,
+  useCreateUserMutation,
+  useUpdateUserMutation
 } from '@/redux/services/firestore'
 import { useUploadImageMutation } from '@/redux/services/storage'
 import { getProfilePath } from '@/utils/storage'
 
 type UserData = {
-  icon: string
-  uid: string
+  auth: {
+    icon: string
+    uid: string
+  }
+  userData?: UserRequestBodyType
 }
 
-export const useFormCreateUpdateUser = (user: UserData) => {
+export const useFormCreateUpdateUser = ({ auth, userData }: UserData) => {
   const router = useRouter()
   const [disabled, setDisabled] = useState(false)
   const [uploadImage, { isLoading: uploading }] = useUploadImageMutation()
   const [createUser] = useCreateUserMutation()
+  const [updateUser] = useUpdateUserMutation()
 
   const handleUploadImage = async (e: ChangeEvent<HTMLInputElement>) => {
     try {
@@ -28,7 +33,7 @@ export const useFormCreateUpdateUser = (user: UserData) => {
 
         const res = await uploadImage({
           file,
-          path: getProfilePath(user.uid)
+          path: getProfilePath(auth.uid)
         })
 
         if ('error' in res && res.error === 'error') throw Error
@@ -51,18 +56,18 @@ export const useFormCreateUpdateUser = (user: UserData) => {
     setValue,
     control,
     formState: { errors, isDirty, isValid }
-  } = useForm<UserUpdateBodyType>({
+  } = useForm<UserRequestBodyType>({
     resolver: yupResolver(schema),
-    // submitボタンが別windowにあるのでonChange時にバリデーションを発火させる
-    mode: 'onChange',
+    // ユーザ作成時はsubmitボタンが別windowにあるのでonChange時にバリデーションを発火させる
+    mode: userData ? 'onSubmit' : 'onChange',
     defaultValues: {
-      userId: '',
-      name: '',
-      icon: user.icon,
-      description: '',
+      userId: userData ? userData.userId : '',
+      name: userData ? userData.name : '',
+      icon: userData ? userData.icon : auth.icon,
+      description: userData ? userData.description : '',
       links: {
-        instagram: '',
-        twitter: ''
+        instagram: userData ? userData.links.instagram : '',
+        twitter: userData ? userData.links.twitter : ''
       }
     }
   })
@@ -76,19 +81,35 @@ export const useFormCreateUpdateUser = (user: UserData) => {
     name: 'userId'
   })
 
-  const onSubmit: SubmitHandler<UserUpdateBodyType> = async (data) => {
+  const onSubmit: SubmitHandler<UserRequestBodyType> = async (data) => {
     setDisabled(true)
     try {
-      await createUser({
-        uid: user.uid,
-        body: data
-      }).unwrap()
-      router.push('/home')
+      userData ? await update(data) : await create(data)
     } catch (e) {
       setDisabled(false)
       // TODO: errorハンドリング
-      alert('ユーザ登録に失敗しました。大変お手数ですが、再度お試しください')
+      alert(
+        `ユーザ${
+          userData ? '情報の更新' : '登録'
+        }に失敗しました。大変お手数ですが、再度お試しください`
+      )
     }
+  }
+
+  const create = async (data: UserRequestBodyType) => {
+    await createUser({
+      uid: auth.uid,
+      body: data
+    }).unwrap()
+    router.push('/home')
+  }
+
+  const update = async (data: UserRequestBodyType) => {
+    await updateUser({
+      uid: auth.uid,
+      body: data
+    }).unwrap()
+    router.push('/home')
   }
 
   return {

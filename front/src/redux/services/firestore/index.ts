@@ -5,8 +5,9 @@ export {
   usersApi,
   useGetUserQuery,
   useCreateUserMutation,
+  useUpdateUserMutation,
   type UserType,
-  type UserUpdateBodyType
+  type UserRequestBodyType
 } from '@/redux/services/firestore/users/users'
 
 // triplinks

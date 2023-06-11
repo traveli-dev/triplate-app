@@ -54,8 +54,10 @@ export const FormCreateUser = ({
     disabled,
     errors
   } = useFormCreateUpdateUser({
-    icon: authUser.icon,
-    uid: authUser.uid
+    auth: {
+      icon: authUser.icon,
+      uid: authUser.uid
+    }
   })
 
   return (

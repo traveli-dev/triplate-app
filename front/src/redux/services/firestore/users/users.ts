@@ -6,13 +6,14 @@ import {
   doc,
   getDoc,
   serverTimestamp,
+  updateDoc,
   writeBatch
 } from 'firebase/firestore'
 import { db } from '@/lib/firebase'
 import { baseFirestoreApi } from '@/redux/services/firestore'
 
 export type UserType = {
-  icon: string | null
+  icon: string
   name: string
   userId: string
   description: string | null
@@ -30,13 +31,15 @@ type GetUserType = UserType & {
 
 type CreateUserType = {
   uid: string
-  body: Omit<UserType, 'createdAt' | 'updatedAt'>
+  body: UserRequestBodyType
 }
 
-export type UserUpdateBodyType = Omit<
-  UserType,
-  'email' | 'updatedAt' | 'createdAt'
->
+type UpdateUserType = {
+  uid: string
+  body: UserRequestBodyType
+}
+
+export type UserRequestBodyType = Omit<UserType, 'updatedAt' | 'createdAt'>
 
 export const usersApi = baseFirestoreApi.injectEndpoints({
   endpoints: (builder) => ({
@@ -108,9 +111,38 @@ export const usersApi = baseFirestoreApi.injectEndpoints({
         }
       },
       invalidatesTags: (_result, error) => (error ? [] : ['User'])
+    }),
+    updateUser: builder.mutation<string, UpdateUserType>({
+      queryFn: async ({ uid, body }) => {
+        try {
+          const ref = doc(collection(db, 'users'), uid)
+
+          await updateDoc(ref, body)
+
+          return {
+            data: 'OK'
+          }
+        } catch (err) {
+          let error
+
+          if (err instanceof FirebaseError) {
+            error = {
+              code: err.code
+            }
+          } else {
+            error = {
+              code: 'unexpected-error'
+            }
+          }
+
+          return { error }
+        }
+      },
+      invalidatesTags: (_result, error) => (error ? [] : ['User'])
     })
   }),
   overrideExisting: false
 })
 
-export const { useGetUserQuery, useCreateUserMutation } = usersApi
+export const { useGetUserQuery, useCreateUserMutation, useUpdateUserMutation } =
+  usersApi
