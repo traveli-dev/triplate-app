@@ -1,4 +1,4 @@
-import { collection, getDocs } from 'firebase/firestore'
+import { collection, getDocs, CollectionReference } from 'firebase/firestore'
 import { db } from '@/lib/firebase'
 import { baseFirestoreApi } from '@/redux/services/firestore'
 
@@ -9,8 +9,8 @@ export type GetExploreType = ExploreType & {
 export type ExploreType = {
   title: string
   day: string
-  keywords: string[]
   thumbnail: string
+  keywords: string[]
 }
 
 const exploresApi = baseFirestoreApi.injectEndpoints({
@@ -18,13 +18,13 @@ const exploresApi = baseFirestoreApi.injectEndpoints({
     getAllExplores: builder.query<ExploreType[], void>({
       queryFn: async () => {
         try {
-          const snapshot = await getDocs(collection(db, 'explores'))
-
-          const ret = snapshot.docs.map((doc) => {
-            return { ...doc.data() } as ExploreType
+          const ref = collection(db, 'explores') as CollectionReference<ExploreType>
+          const snapshot = await getDocs(ref)
+          const data = snapshot.docs.map((doc) => {
+            return { ...doc.data() }
           })
 
-          return { data: ret }
+          return { data }
         } catch (err) {
           // TODO: エラー処理
           return { error: err }
