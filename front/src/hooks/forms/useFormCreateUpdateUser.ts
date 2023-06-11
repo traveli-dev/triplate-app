@@ -1,4 +1,4 @@
-import { ChangeEvent } from 'react'
+import { ChangeEvent, useState } from 'react'
 import { SubmitHandler, useForm, useWatch } from 'react-hook-form'
 import { useRouter } from 'next/router'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -17,6 +17,7 @@ type UserData = {
 
 export const useFormCreateUpdateUser = (user: UserData) => {
   const router = useRouter()
+  const [disabled, setDisabled] = useState(false)
   const [uploadImage, { isLoading: uploading }] = useUploadImageMutation()
   const [createUser] = useCreateUserMutation()
 
@@ -76,6 +77,7 @@ export const useFormCreateUpdateUser = (user: UserData) => {
   })
 
   const onSubmit: SubmitHandler<UserUpdateBodyType> = async (data) => {
+    setDisabled(true)
     try {
       await createUser({
         uid: user.uid,
@@ -83,6 +85,7 @@ export const useFormCreateUpdateUser = (user: UserData) => {
       }).unwrap()
       router.push('/home')
     } catch (e) {
+      setDisabled(false)
       // TODO: errorハンドリング
       alert('ユーザ登録に失敗しました。大変お手数ですが、再度お試しください')
     }
@@ -97,6 +100,7 @@ export const useFormCreateUpdateUser = (user: UserData) => {
     errors,
     isDirty,
     isValid,
+    disabled,
     currentUserId,
     currentIcon
   }

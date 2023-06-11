@@ -51,6 +51,7 @@ export const FormCreateUser = ({
     isDirty,
     isValid,
     currentUserId,
+    disabled,
     errors
   } = useFormCreateUpdateUser({
     icon: authUser.icon,
@@ -200,7 +201,10 @@ export const FormCreateUser = ({
           </div>
 
           <div css={styles.layoutSubmitButton}>
-            <ButtonFill disabled={!isValid} onClick={handleSubmit(onSubmit)}>
+            <ButtonFill
+              disabled={!isValid || disabled}
+              onClick={handleSubmit(onSubmit)}
+            >
               アカウント作成
             </ButtonFill>
           </div>
