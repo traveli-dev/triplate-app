@@ -20,8 +20,6 @@ type FormUpdateUserProps = {
 }
 
 export const FormUpdateUser = ({ data, authUser }: FormUpdateUserProps) => {
-  // TODO: disabled
-  // const [disabled, setDisabled] = useState(false)
   const {
     register,
     handleSubmit,
