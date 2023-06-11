@@ -5,8 +5,7 @@ export const styles = {
   input: (isInvalid: boolean) => css`
     box-sizing: border-box;
     width: 100%;
-    height: 48px;
-    padding: 0 16px;
+    padding: 15px 16px;
     font-size: ${theme.fontSize.md};
     background-color: ${theme.color.bgGray};
     border: 0;
