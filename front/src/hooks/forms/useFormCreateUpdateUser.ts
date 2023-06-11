@@ -50,7 +50,7 @@ export const useFormCreateUpdateUser = (user: UserData) => {
     formState: { errors, isDirty, isValid }
   } = useForm<UserUpdateBodyType>({
     resolver: yupResolver(schema),
-    // 入力要素が少ないのではじめからonChange時にバリデーションを発火させる
+    // submitボタンが別windowにあるのでonChange時にバリデーションを発火させる
     mode: 'onChange',
     defaultValues: {
       userId: '',

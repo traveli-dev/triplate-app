@@ -5,7 +5,7 @@ import {
   doc,
   getDoc,
   serverTimestamp,
-  setDoc
+  writeBatch
 } from 'firebase/firestore'
 import { db } from '@/lib/firebase'
 import { baseFirestoreApi } from '@/redux/services/firestore'
@@ -65,10 +65,32 @@ export const usersApi = baseFirestoreApi.injectEndpoints({
     createUser: builder.mutation<string, CreateUserType>({
       queryFn: async ({ uid, body }) => {
         try {
-          await setDoc(doc(db, 'users', uid), {
+          const batch = writeBatch(db)
+
+          // user情報を登録
+          const docRef = doc(db, 'users', uid)
+          batch.set(docRef, {
             ...body,
             createdAt: serverTimestamp()
           })
+
+          // uniqueなフィールドをindexに登録
+          const indexUserIdRef = doc(
+            db,
+            'index',
+            'users',
+            'userId',
+            body.userId
+          )
+          batch.set(indexUserIdRef, {
+            user: uid
+          })
+          const indexEmailRef = doc(db, 'index', 'users', 'email', body.email)
+          batch.set(indexEmailRef, {
+            user: uid
+          })
+
+          await batch.commit()
 
           return {
             data: 'OK'
