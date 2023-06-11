@@ -10,7 +10,7 @@ export const styles = {
 
   card: css`
     object-fit: cover;
-        border-radius: 24px;
+    border-radius: 24px;
   `,
   textWrapper: css`
     position: absolute;

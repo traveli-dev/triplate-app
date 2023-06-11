@@ -2,23 +2,22 @@ import { collection, getDocs, CollectionReference } from 'firebase/firestore'
 import { db } from '@/lib/firebase'
 import { baseFirestoreApi } from '@/redux/services/firestore'
 
-export type GetExploreType = ExploreType & {
-  id: string
-}
-
-export type ExploreType = {
+export type TriplateType = {
   title: string
   day: string
   thumbnail: string
   keywords: string[]
 }
 
-const exploresApi = baseFirestoreApi.injectEndpoints({
+const triplatesApi = baseFirestoreApi.injectEndpoints({
   endpoints: (builder) => ({
-    getAllExplores: builder.query<ExploreType[], void>({
+    getAllTriplates: builder.query<TriplateType[], void>({
       queryFn: async () => {
         try {
-          const ref = collection(db, 'explores') as CollectionReference<ExploreType>
+          const ref = collection(
+            db,
+            'triplates'
+          ) as CollectionReference<TriplateType>
           const snapshot = await getDocs(ref)
           const data = snapshot.docs.map((doc) => {
             return { ...doc.data() }
@@ -34,4 +33,4 @@ const exploresApi = baseFirestoreApi.injectEndpoints({
   }),
   overrideExisting: false
 })
-export const { useGetAllExploresQuery } = exploresApi
+export const { useGetAllTriplatesQuery } = triplatesApi

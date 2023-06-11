@@ -21,7 +21,7 @@ export const Default: Story = {
       title: 'いつメンの京都旅行',
       day: '２泊３日',
       thumbnail: '/images/user_sample.jpeg',
-      keywords:['海遊館','海遊館']
+      keywords: ['海遊館', '海遊館']
     }
   }
 }
