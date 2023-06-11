@@ -10,5 +10,6 @@ export const createTestUserIfNotExsists = async () => {
       path.join(process.cwd(), 'firebase/seeds/auth/test-user.json')
     )
     await admin.auth().createUser(testUser)
+    await admin.auth().setCustomUserClaims(testUser.uid, { admin: true })
   }
 }

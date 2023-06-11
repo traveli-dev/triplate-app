@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { auth } from '@/lib/firebase'
+import { clearAll } from '@/redux/actions'
 import { useAppDispath, useAppSelector } from '@/redux/rootStore'
 import { usersApi } from '@/redux/services/firestore'
 import { authSelectors, setUser } from '@/redux/stores'
@@ -35,6 +36,20 @@ export const useCheckAuth = () => {
 
       // ログイン中
       if (user) {
+        // google認証済みでない場合，adminユーザでなければ認証を削除してトップにリダイレクト
+        // google認証以外の自己サインイン防止
+        if (user.providerData[0].providerId !== 'google.com') {
+          const idTokenResult = await user.getIdTokenResult()
+          const isAdmin = idTokenResult.claims.admin
+
+          if (!isAdmin) {
+            await user.delete()
+            dispatch(clearAll())
+            router.push('/')
+            return
+          }
+        }
+
         dispatch(
           setUser({
             uid: user.uid,
@@ -63,13 +78,7 @@ export const useCheckAuth = () => {
 
         // ログアウト or 未認証ユーザ
       } else {
-        dispatch(
-          setUser({
-            uid: null,
-            icon: null,
-            email: null
-          })
-        )
+        dispatch(clearAll())
         // ユーザ登録必須ページにいる場合はトップページにリダイレクト
         if (isCurrentPageRequireUserRegistration) {
           router.push('/')
