@@ -42,9 +42,13 @@ export const styles = {
   snsInput: css`
     display: flex;
     align-items: center;
-    margin-bottom: 12px;
     img {
-      margin-right: 16px;
+      margin-right: 8px;
+    }
+    span {
+      margin-right: 8px;
+      font-size: ${theme.fontSize.sm};
+      color: ${theme.color.gray};
     }
   `,
   userIdWrapper: css`

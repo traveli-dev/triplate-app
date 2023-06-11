@@ -5,7 +5,6 @@ export const styles = {
   label: css`
     display: block;
     font-size: ${theme.fontSize.md};
-    cursor: pointer;
   `,
   subText: css`
     margin-left: 16px;

@@ -105,7 +105,11 @@ const schema = yup.object({
     .required('ユーザIDは必須です'),
   name: yup.string().maxLength(15, '名前').required('表示される名前は必須です'),
   icon: yup.string().required('ユーザアイコンは必須です'),
-  description: yup.string().nullable().maxLength(150, '自己紹介'),
+  description: yup
+    .string()
+    .maxLength(150, '自己紹介')
+    .nullable()
+    .convertToNull(),
   links: yup.object().shape({
     instagram: yup
       .string()

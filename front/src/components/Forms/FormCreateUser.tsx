@@ -112,7 +112,11 @@ export const FormCreateUser = ({
           </div>
           <div css={styles.layoutInput}>
             <InputLabel htmlFor="description" subText="任意" text="自己紹介">
-              <InputTextArea id="description" placeholder="自己紹介" />
+              <InputTextArea
+                id="description"
+                placeholder="自己紹介"
+                {...register('description')}
+              />
             </InputLabel>
             {!!errors.description && (
               <div css={styles.layoutErrorMessage}>
@@ -124,7 +128,7 @@ export const FormCreateUser = ({
           </div>
           <div css={styles.layoutInput}>
             <InputLabel
-              htmlFor="sns"
+              htmlFor="instagram"
               subText="任意"
               text="SNSアカウントのリンク"
             >
@@ -135,12 +139,24 @@ export const FormCreateUser = ({
                   src="/logos/instagram_logo.svg"
                   width={26}
                 />
+                <span>instagram.com/</span>
                 <InputText
-                  id="sns"
+                  id="instagram"
                   placeholder="InstagramのURL"
                   {...register('links.instagram')}
                 />
               </div>
+            </InputLabel>
+            {!!errors.links && !!errors.links.instagram && (
+              <div css={styles.layoutErrorMessage}>
+                <InputErrorMessage>
+                  {errors.links.instagram.message}
+                </InputErrorMessage>
+              </div>
+            )}
+          </div>
+          <div css={styles.layoutInput}>
+            <label htmlFor="twitter">
               <div css={styles.snsInput}>
                 <Image
                   alt="Twitterのロゴ"
@@ -148,12 +164,21 @@ export const FormCreateUser = ({
                   src="/logos/twitter_logo.svg"
                   width={26}
                 />
+                <span>twitter.com/</span>
                 <InputText
+                  id="twitter"
                   placeholder="TwitterのURL"
                   {...register('links.twitter')}
                 />
               </div>
-            </InputLabel>
+            </label>
+            {!!errors.links && !!errors.links.twitter && (
+              <div css={styles.layoutErrorMessage}>
+                <InputErrorMessage>
+                  {errors.links.twitter.message}
+                </InputErrorMessage>
+              </div>
+            )}
           </div>
 
           <div css={styles.layoutSubmitButton}>

@@ -1,5 +1,6 @@
 import { css } from '@emotion/react'
 import { theme } from '@/styles/theme'
+import { linkHoverAnimationBottom } from '@/styles/utils'
 
 export const styles = {
   cancelButton: css`
@@ -12,5 +13,6 @@ export const styles = {
     &:focus {
       color: ${theme.color.hoverBlack};
     }
+    ${linkHoverAnimationBottom}
   `
 }
