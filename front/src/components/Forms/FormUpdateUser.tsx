@@ -45,11 +45,7 @@ export const FormUpdateUser = ({ data, authUser }: FormUpdateUserProps) => {
         <button css={styles.avatarChangeButton}>変更する</button>
       </div>
       <div css={styles.layoutInput}>
-        <InputLabel
-          htmlFor="userId"
-          subText="変更できません"
-          text="ユーザID"
-        >
+        <InputLabel htmlFor="userId" subText="変更できません" text="ユーザID">
           <div css={styles.userIdWrapper}>
             <span>https://triplate.app/</span>
             <InputText
@@ -63,10 +59,7 @@ export const FormUpdateUser = ({ data, authUser }: FormUpdateUserProps) => {
         </InputLabel>
       </div>
       <div css={styles.layoutInput}>
-        <InputLabel
-          htmlFor="name"
-          text="表示される名前"
-        >
+        <InputLabel htmlFor="name" text="表示される名前">
           <InputText
             id="name"
             {...register('name')}
