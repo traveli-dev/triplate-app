@@ -21,4 +21,3 @@ export {
   useGetAllTriplatesQuery,
   type TriplateType
 } from '@/redux/services/firestore/triplates/triplates'
-
