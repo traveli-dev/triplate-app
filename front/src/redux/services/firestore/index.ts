@@ -15,3 +15,10 @@ export {
   type GetTriplinkType,
   type CreateTriplinkType
 } from '@/redux/services/firestore/triplinks/triplinks'
+
+//triplates
+export {
+  useGetAllTriplatesQuery,
+  type TriplateType
+} from '@/redux/services/firestore/triplates/triplates'
+

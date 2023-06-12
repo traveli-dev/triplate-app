@@ -3,7 +3,7 @@ import { HiOutlineQuestionMarkCircle } from 'react-icons/hi'
 import { CardExplore } from '@/components/Cards'
 import { Container } from '@/components/Containers'
 import { NavigationBottom } from '@/components/Navigations'
-import { useGetAllTriplatesQuery } from '@/redux/services/firestore/triplates'
+import { useGetAllTriplatesQuery } from '@/redux/services/firestore'
 import { styles } from '@/styles/pages/explore/index.styles'
 
 const Explore = () => {
