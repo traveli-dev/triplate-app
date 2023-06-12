@@ -21,8 +21,8 @@ const Explore = () => {
           <>LOADING</>
         ) : (
           <>
-            {data.map((data, _) => (
-              <div css={styles.exploreList} key={_}>
+            {data.map((data, index) => (
+              <div css={styles.exploreList} key={index}>
                 <CardExplore data={data} />
               </div>
             ))}
