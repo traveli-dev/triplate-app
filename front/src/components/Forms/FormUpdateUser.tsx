@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import { ButtonFill } from '@/components/Buttons'
 import {
-  InputAvatar,
   InputErrorMessage,
+  InputImage,
   InputLabel,
   InputText,
   InputTextArea
@@ -35,8 +35,9 @@ export const FormUpdateUser = ({ data, authUser }: FormUpdateUserProps) => {
   return (
     <div css={styles.layoutForm}>
       <div css={styles.avatarWrapper}>
-        <InputAvatar
+        <InputImage
           src={currentIcon}
+          type="avatar"
           uploading={uploading}
           onChange={handleUploadImage}
         />

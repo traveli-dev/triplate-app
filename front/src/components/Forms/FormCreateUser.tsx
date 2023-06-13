@@ -2,7 +2,7 @@ import { Dispatch, SetStateAction } from 'react'
 import Image from 'next/image'
 import { ButtonFill, ButtonOutline } from '@/components/Buttons'
 import {
-  InputAvatar,
+  InputImage,
   InputErrorMessage,
   InputLabel,
   InputText,
@@ -121,8 +121,9 @@ export const FormCreateUser = ({
       ) : (
         <div css={styles.layoutForm}>
           <div css={styles.avatarWrapper}>
-            <InputAvatar
+            <InputImage
               src={currentIcon ?? ''}
+              type="avatar"
               uploading={uploading}
               onChange={handleUploadImage}
             />

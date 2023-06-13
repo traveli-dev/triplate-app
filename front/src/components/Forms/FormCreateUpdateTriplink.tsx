@@ -35,6 +35,7 @@ export const FormCreateUpdateTriplink = () => {
             <InputImage
               id="image"
               src={url}
+              type="thumbnail"
               uploading={uploading}
               onChange={handleUploadImage}
             />

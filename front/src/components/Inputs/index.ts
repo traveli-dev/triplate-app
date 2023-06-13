@@ -1,6 +1,5 @@
 export { InputText } from '@/components/Inputs/InputText'
-export { InputImage } from '@/components/Inputs/InputImage'
+export { InputImage, type InputImageType } from '@/components/Inputs/InputImage'
 export { InputTextArea } from '@/components/Inputs/InputTextArea'
 export { InputLabel } from '@/components/Inputs/InputLabel'
-export { InputAvatar } from '@/components/Inputs/InputAvatar'
 export { InputErrorMessage } from '@/components/Inputs/InputErrorMessage'
