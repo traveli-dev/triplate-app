@@ -96,9 +96,9 @@ export const FormUpdateUser = ({ data, authUser }: FormUpdateUserProps) => {
           <div css={styles.snsInput}>
             <Image
               alt="Instagramのロゴ"
-              height={26}
+              height={24}
               src="/logos/instagram_logo.svg"
-              width={26}
+              width={24}
             />
             <span>instagram.com/</span>
             <InputText
