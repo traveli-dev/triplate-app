@@ -24,7 +24,7 @@ export const styles = {
     overflow: hidden;
     &:hover,
     &:focus {
-      border: 2px solid ${theme.color.outlineGray};
+      outline: 2px solid ${theme.color.outlineGray};
     }
   `,
   previewWrapper: css`
