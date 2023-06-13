@@ -15,7 +15,7 @@ export const CardExplore = ({ data }: CardExploreProps) => {
       <div css={styles.textWrapper}>
         <div css={styles.title}>{data.title}</div>
         <div css={styles.day}>{data.day}</div>
-        <div css={styles.keywords}>{data.keywords}</div>
+        <div css={styles.keywords}>{data.keywords.join('/')}</div>
       </div>
     </div>
   )
