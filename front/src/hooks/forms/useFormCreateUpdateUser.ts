@@ -58,8 +58,8 @@ export const useFormCreateUpdateUser = ({ auth, userData }: UserData) => {
     formState: { errors, isDirty, isValid }
   } = useForm<UserRequestBodyType>({
     resolver: yupResolver(schema),
-    // ユーザ作成時はsubmitボタンが別windowにあるのでonChange時にバリデーションを発火させる
-    mode: userData ? 'onSubmit' : 'onChange',
+    // formが少ないのでonChangeで発火
+    mode: 'onChange',
     defaultValues: {
       userId: userData ? userData.userId : '',
       name: userData ? userData.name : '',
