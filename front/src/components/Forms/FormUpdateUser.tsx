@@ -28,7 +28,7 @@ export const FormUpdateUser = ({ data, authUser }: FormUpdateUserProps) => {
     handleUploadImage,
     errors,
     isDirty,
-    disabled,
+    isSubmitting,
     currentIcon
   } = useFormCreateUpdateUser({ userData: data, auth: authUser })
 
@@ -145,7 +145,7 @@ export const FormUpdateUser = ({ data, authUser }: FormUpdateUserProps) => {
       </div>
       <div css={styles.layoutSubmitButton}>
         <ButtonFill
-          disabled={disabled || !isDirty}
+          disabled={isSubmitting || !isDirty}
           onClick={handleSubmit(onSubmit)}
         >
           プロフィールを更新

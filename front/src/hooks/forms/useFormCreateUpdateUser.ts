@@ -1,4 +1,4 @@
-import { ChangeEvent, useEffect, useState } from 'react'
+import { ChangeEvent, useEffect } from 'react'
 import { SubmitHandler, useForm, useWatch } from 'react-hook-form'
 import { useRouter } from 'next/router'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -21,7 +21,6 @@ type UserData = {
 
 export const useFormCreateUpdateUser = ({ auth, userData }: UserData) => {
   const router = useRouter()
-  const [disabled, setDisabled] = useState(false)
   const [uploadImage, { isLoading: uploading }] = useUploadImageMutation()
   const [createUser] = useCreateUserMutation()
   const [updateUser] = useUpdateUserMutation()
@@ -56,7 +55,7 @@ export const useFormCreateUpdateUser = ({ auth, userData }: UserData) => {
     setValue,
     control,
     reset,
-    formState: { errors, isDirty, isValid, isSubmitSuccessful }
+    formState: { errors, isDirty, isValid, isSubmitting, isSubmitSuccessful }
   } = useForm<UserRequestBodyType>({
     resolver: yupResolver(schema),
     // formが少ないのでonChangeで発火
@@ -88,15 +87,12 @@ export const useFormCreateUpdateUser = ({ auth, userData }: UserData) => {
     if (isSubmitSuccessful) {
       reset({}, { keepValues: true })
     }
-  }, [isSubmitSuccessful, reset])
+  }, [isSubmitSuccessful])
 
   const onSubmit: SubmitHandler<UserRequestBodyType> = async (data) => {
-    setDisabled(true)
     try {
       userData ? await update(data) : await create(data)
-      setDisabled(false)
     } catch (e) {
-      setDisabled(false)
       // TODO: errorハンドリング
       alert(
         `ユーザ${
@@ -132,7 +128,7 @@ export const useFormCreateUpdateUser = ({ auth, userData }: UserData) => {
     errors,
     isDirty,
     isValid,
-    disabled,
+    isSubmitting,
     currentUserId,
     currentIcon
   }
