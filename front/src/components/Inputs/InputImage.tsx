@@ -10,6 +10,7 @@ type InputImageProps = ComponentPropsWithRef<'input'> & {
   src: string
   uploading: boolean
   type: InputImageType
+  text?: string
   onChange: (e: ChangeEvent<HTMLInputElement>) => void
 }
 
@@ -17,6 +18,7 @@ export const InputImage = ({
   src,
   uploading,
   type,
+  text,
   ...props
 }: InputImageProps) => {
   const { inputRef, onClickImage } = useInputImage()
@@ -38,6 +40,7 @@ export const InputImage = ({
           <div css={styles.previewImage(type)}>
             <Image alt="" css={styles.image} fill src={src} />
           </div>
+          {text && <span css={styles.text}>{text}</span>}
         </button>
       ) : (
         <button css={styles.defaultImage(type)} onClick={onClickImage}>
@@ -53,6 +56,7 @@ export const InputImage = ({
               アップロード
             </span>
           )}
+          {text && <span css={styles.text}>{text}</span>}
         </button>
       )}
     </>

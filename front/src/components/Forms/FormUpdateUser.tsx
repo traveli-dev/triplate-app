@@ -37,11 +37,11 @@ export const FormUpdateUser = ({ data, authUser }: FormUpdateUserProps) => {
       <div css={styles.avatarWrapper}>
         <InputImage
           src={currentIcon}
+          text="変更する"
           type="avatar"
           uploading={uploading}
           onChange={handleUploadImage}
         />
-        <button css={styles.avatarChangeButton}>変更する</button>
       </div>
       <div css={styles.layoutInput}>
         <InputLabel htmlFor="userId" subText="変更できません" text="ユーザID">

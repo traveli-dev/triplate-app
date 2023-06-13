@@ -123,11 +123,11 @@ export const FormCreateUser = ({
           <div css={styles.avatarWrapper}>
             <InputImage
               src={currentIcon ?? ''}
+              text="変更する"
               type="avatar"
               uploading={uploading}
               onChange={handleUploadImage}
             />
-            <button css={styles.avatarChangeButton}>変更する</button>
           </div>
           <div css={styles.layoutInput}>
             <InputLabel htmlFor="description" subText="任意" text="自己紹介">

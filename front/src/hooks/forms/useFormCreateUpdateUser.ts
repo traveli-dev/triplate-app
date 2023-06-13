@@ -39,7 +39,7 @@ export const useFormCreateUpdateUser = ({ auth, userData }: UserData) => {
         if ('error' in res && res.error === 'error') throw Error
 
         if ('data' in res) {
-          setValue('icon', res.data)
+          setValue('icon', res.data, { shouldDirty: true })
         }
       }
     } catch (e) {

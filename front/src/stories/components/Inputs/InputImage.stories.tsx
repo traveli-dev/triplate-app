@@ -15,6 +15,9 @@ const meta: Meta<typeof InputImage> = {
     },
     type: {
       description: 'avatar用の丸いやつかthumbnail用の長方形か'
+    },
+    text: {
+      description: '画像の下に変更するをつけたい時とかに使う'
     }
   },
   tags: ['autodocs']
@@ -29,7 +32,8 @@ export const Default: Story = {
     src: '/images/user_sample.jpeg',
     uploading: false,
     type: 'thumbnail',
-    onChange: () => null
+    onChange: () => null,
+    text: undefined
   },
   parameters: {
     backgrounds: {

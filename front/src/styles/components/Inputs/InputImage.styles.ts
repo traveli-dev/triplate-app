@@ -55,5 +55,14 @@ export const styles = {
     &:focus {
       border: 2px solid ${theme.color.outlineGray};
     }
+  `,
+  text: css`
+    display: inline-block;
+    margin-top: 8px;
+    font-size: ${theme.fontSize.md};
+    &:hover,
+    &:focus {
+      color: ${theme.color.hoverBlack};
+    }
   `
 }
