@@ -16,13 +16,13 @@ export const linkHoverAnimationBottom = css`
   @media screen and (prefers-reduced-motion: reduce) {
     &::before {
       position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    content: '';
-    background-color: ${theme.color.hoverBlack};
-    border-radius: 2px;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      content: '';
+      background-color: ${theme.color.hoverBlack};
+      border-radius: 2px;
       transition: none;
       transform: scaleX(0);
       transform-origin: center;
