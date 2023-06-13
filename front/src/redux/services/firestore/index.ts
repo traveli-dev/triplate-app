@@ -18,5 +18,11 @@ export {
   type CreateTriplinkType
 } from '@/redux/services/firestore/triplinks/triplinks'
 
+//triplates
+export {
+  useGetAllTriplatesQuery,
+  type TriplateType
+} from '@/redux/services/firestore/triplates/triplates'
+
 // indexes
 export { useCheckUniqueUserIdQuery } from '@/redux/services/firestore/indexes/indexes'

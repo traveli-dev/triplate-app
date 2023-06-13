@@ -1,0 +1,37 @@
+{
+    "triplates":{
+        "0bcecdd8-fed9-4d72-8a40-b54c7b9ec05b":{
+            "title":"海遊館",
+            "day":"2泊3日",
+            "keywords":[
+                "海遊館",
+                "海遊館"],
+            "thumbnail": "http://localhost:9199/v0/b/traveli-test.appspot.com/o/images%2Ftriplinks%2Fa0bf63a0-0367-11ee-be56-0242ac120002%2Fthumbnail?alt=media"
+        },
+        "1bcecdd8-fed9-4d72-8a40-b54c7b9ec05b": {
+            "title": "海遊館",
+            "day": "2泊3日",
+            "keywords": [
+                "海遊館",
+                "海遊館"
+            ],
+            "thumbnail": "http://localhost:9199/v0/b/traveli-test.appspot.com/o/images%2Ftriplinks%2Fa0bf63a0-0367-11ee-be56-0242ac120002%2Fthumbnail?alt=media"
+        },"2bcecdd8-fed9-4d72-8a40-b54c7b9ec05b": {
+            "title": "海遊館",
+            "day": "2泊3日",
+            "keywords": [
+                "海遊館",
+                "海遊館"
+            ],
+            "thumbnail": "http://localhost:9199/v0/b/traveli-test.appspot.com/o/images%2Ftriplinks%2Fa0bf63a0-0367-11ee-be56-0242ac120002%2Fthumbnail?alt=media"
+        },"3bcecdd8-fed9-4d72-8a40-b54c7b9ec05b": {
+            "title": "海遊館",
+            "day": "2泊3日",
+            "keywords": [
+                "海遊館",
+                "海遊館"
+            ],
+            "thumbnail": "http://localhost:9199/v0/b/traveli-test.appspot.com/o/images%2Ftriplinks%2Fa0bf63a0-0367-11ee-be56-0242ac120002%2Fthumbnail?alt=media"
+        }
+    }
+}
