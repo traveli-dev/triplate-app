@@ -43,7 +43,7 @@ export const styles = {
     display: flex;
     align-items: center;
     img {
-      margin-right: 8px;
+      margin-right: 16px;
     }
     span {
       margin-right: 16px;
