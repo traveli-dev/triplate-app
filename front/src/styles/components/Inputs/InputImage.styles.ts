@@ -39,7 +39,7 @@ export const styles = {
   `,
   defaultImage: (type: InputImageType) => css`
     ${setShape(type)}
-    font-size: ${theme.fontSize.md};
+    font-size: ${type === 'thumbnail' ? theme.fontSize.md : theme.fontSize.sm};
     font-weight: bold;
     color: ${theme.color.gray};
     cursor: pointer;

@@ -31,7 +31,10 @@ export const InputImage = ({
         {...props}
       />
       {src ? (
-        <button css={styles.previewWrapper} onClick={onClickImage}>
+        <button
+          css={type === 'thumbnail' && styles.previewWrapper}
+          onClick={onClickImage}
+        >
           <div css={styles.previewImage(type)}>
             <Image alt="" css={styles.image} fill src={src} />
           </div>
