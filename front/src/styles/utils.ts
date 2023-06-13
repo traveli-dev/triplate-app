@@ -30,14 +30,13 @@ export const linkHoverAnimationBottom = css`
   }
   &::before {
     position: absolute;
-    bottom: -1.5px;
+    bottom: -4px;
     left: 0;
     width: 100%;
-    height: 3px;
-    margin-top: 1px;
+    height: 2px;
     content: '';
     background-color: ${theme.color.hoverBlack};
-    border-radius: 3px;
+    border-radius: 2px;
     transition: transform 0.3s ease-in-out;
     transform: scaleX(0);
     transform-origin: center;
