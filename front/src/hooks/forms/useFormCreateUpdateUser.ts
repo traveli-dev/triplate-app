@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react'
+import { ChangeEvent, useEffect, useState } from 'react'
 import { SubmitHandler, useForm, useWatch } from 'react-hook-form'
 import { useRouter } from 'next/router'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -55,7 +55,8 @@ export const useFormCreateUpdateUser = ({ auth, userData }: UserData) => {
     handleSubmit,
     setValue,
     control,
-    formState: { errors, isDirty, isValid }
+    reset,
+    formState: { errors, isDirty, isValid, isSubmitSuccessful }
   } = useForm<UserRequestBodyType>({
     resolver: yupResolver(schema),
     // formが少ないのでonChangeで発火
@@ -80,6 +81,14 @@ export const useFormCreateUpdateUser = ({ auth, userData }: UserData) => {
     control,
     name: 'userId'
   })
+
+  // onsubmit後にisdirtyをfalseにする
+  // https://github.com/react-hook-form/react-hook-form/issues/3097
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      reset({}, { keepValues: true })
+    }
+  }, [isSubmitSuccessful, reset])
 
   const onSubmit: SubmitHandler<UserRequestBodyType> = async (data) => {
     setDisabled(true)
