@@ -46,7 +46,7 @@ export const styles = {
       margin-right: 8px;
     }
     span {
-      margin-right: 8px;
+      margin-right: 16px;
       font-size: ${theme.fontSize.sm};
       color: ${theme.color.gray};
     }
