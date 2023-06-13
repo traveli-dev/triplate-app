@@ -1,0 +1,16 @@
+{
+  "indexes": {
+    "users": {
+      "subCollection": {
+        "indexes/users/userId/": {
+          "ma_ma_hima": {
+            "user": "C5Ja2gXGLeIXTjhWZbDiWUWe8Whd"
+          },
+          "userid01": {
+            "user": "C00a2gXGLeIXTjhWZbDiWUWe8Whd"
+          }
+        }
+      }
+    }
+  }
+}

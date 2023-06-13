@@ -2,7 +2,7 @@ import { css } from '@emotion/react'
 import { theme } from '@/styles/theme'
 
 export const styles = {
-  input: css`
+  input: (isInvalid: boolean) => css`
     box-sizing: border-box;
     width: 100%;
     padding: 15px 16px;
@@ -10,10 +10,15 @@ export const styles = {
     background-color: ${theme.color.bgGray};
     border: 0;
     border-radius: 100px;
+    outline: ${isInvalid ? `2px solid ${theme.color.red}` : 'none'};
 
     &:hover,
     &:focus {
-      outline: 2px solid ${theme.color.outlineGray};
+      outline: 2px solid
+        ${isInvalid ? theme.color.red : theme.color.outlineGray};
+    }
+    &:disabled {
+      background-color: ${theme.color.outlineGray};
     }
   `
 }

@@ -1,8 +1,9 @@
-import { StoryObj, ComponentMeta } from '@storybook/react'
 import { ButtonSmall } from '@/components/Buttons'
+import type { StoryObj, Meta } from '@storybook/react'
 
-export default {
+const meta: Meta<typeof ButtonSmall> = {
   component: ButtonSmall,
+  tags: ['autodocs'],
   argTypes: {
     children: {
       description: 'ボタンのラベルが入ります'
@@ -11,9 +12,13 @@ export default {
       description: 'iconの種類が入ります'
     }
   }
-} as ComponentMeta<typeof ButtonSmall>
+}
 
-export const Default: StoryObj = {
+export default meta
+
+type Story = StoryObj<typeof ButtonSmall>
+
+export const Default: Story = {
   args: {
     children: 'ボタンのラベルが入ります',
     icon: 'heart'
