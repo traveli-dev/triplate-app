@@ -53,7 +53,7 @@ export const styles = {
     }
     &:hover,
     &:focus {
-      border: 2px solid ${theme.color.outlineGray};
+      outline: 2px solid ${theme.color.outlineGray};
     }
   `,
   text: css`
