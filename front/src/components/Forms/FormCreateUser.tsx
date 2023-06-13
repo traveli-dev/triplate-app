@@ -181,9 +181,9 @@ export const FormCreateUser = ({
               <div css={styles.snsInput}>
                 <Image
                   alt="Twitterのロゴ"
-                  height={26}
+                  height={24}
                   src="/logos/twitter_logo.svg"
-                  width={26}
+                  width={24}
                 />
                 <span>twitter.com/</span>
                 <InputText
