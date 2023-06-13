@@ -115,8 +115,7 @@ export const useFormCreateUpdateUser = ({ auth, userData }: UserData) => {
       uid: auth.uid,
       body: data
     }).unwrap()
-    // TODO: トースト出す？
-    alert('更新しました')
+    // TODO: トースト出す
   }
 
   return {
