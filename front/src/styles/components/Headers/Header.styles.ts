@@ -14,12 +14,30 @@ export const styles = {
     background-color: ${theme.color.white};
     border-bottom: 2px solid ${theme.color.bgGray};
   `,
-  iconWrapper: css`
+  leftIconWrapper: css`
     position: absolute;
     top: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 40px;
+    height: 40px;
+    text-decoration: none;
+    background-color: ${theme.color.white};
+    border-radius: 50%;
+    transform: translateY(-50%);
+    &:hover,
+    &:focus {
+      background-color: ${theme.color.bgGray};
+    }
+  `,
+  rightIconWrapper: css`
+    position: absolute;
+    top: 50%;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: end;
     width: 40px;
     height: 40px;
     text-decoration: none;
@@ -39,3 +57,8 @@ export const styles = {
     text-align: center;
   `
 }
+
+export const withoutBorder =
+  css`
+  border-bottom:none !important;
+  `
