@@ -58,7 +58,6 @@ export const styles = {
   `
 }
 
-export const withoutBorder =
-  css`
-  border-bottom:none !important;
-  `
+export const withoutBorder = css`
+  border-bottom: none !important;
+`

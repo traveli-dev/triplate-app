@@ -1,12 +1,24 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { HiDotsVertical, HiOutlineDuplicate, HiOutlineHeart, HiOutlinePencil, HiOutlineQuestionMarkCircle, HiOutlineTag } from 'react-icons/hi'
+import {
+  HiOutlineDuplicate,
+  HiOutlineHeart,
+  HiOutlinePencil,
+  HiOutlineQuestionMarkCircle,
+  HiOutlineTag
+} from 'react-icons/hi'
 import { ButtonFill, ButtonWithIcon } from '@/components/Buttons'
 import { CardTripListItem } from '@/components/Cards'
 import { Container } from '@/components/Containers'
-import { TravelListItemType } from '@/components/Tabs/TabDaysWithTriplink'
-import { styles, contentStyles, CardUserProfileStyles, FillButtonStyles, OutlineButtonStyles } from '@/styles/pages/triplink/triplate.styles'
 import { Header } from '@/components/Headers'
+import { TravelListItemType } from '@/components/Tabs/TabDaysWithTriplink'
+import {
+  styles,
+  contentStyles,
+  CardUserProfileStyles,
+  FillButtonStyles,
+  OutlineButtonStyles
+} from '@/styles/pages/triplink/triplate.styles'
 
 const Triplate = () => {
   const items: TravelListItemType[] = [
@@ -15,64 +27,65 @@ const Triplate = () => {
     { icon: 'ledger', title: 'タイトル３', date: '', memo: 'memomemo' },
     { icon: 'map', title: 'タイトル４', date: '', memo: '' }
   ]
-  const thumbnail: string = '/images/thumbnail_sample.jpg'
-  const hashtags: string[] = ['タグ１', 'タグ２', 'タグ３', 'タグ４', 'タグ５', 'タグ６']
+  const thumbnail = '/images/thumbnail_sample.jpg'
+  const hashtags: string[] = [
+    'タグ１',
+    'タグ２',
+    'タグ３',
+    'タグ４',
+    'タグ５',
+    'タグ６'
+  ]
 
   return (
     <Container bgColor="white" isFull>
-      <Header href="/" title={"タイトル"} ToolIcon={HiOutlinePencil} toolHref='/' />
-      <div css={styles.wrapper}>
-        <div css={styles.triplateInfosWrapper}>
-          <div css={styles.thumbnailWrapper}>
-            <Image src={thumbnail} alt={''} fill css={styles.thumbnail} />
-          </div>
-          <div css={styles.title}>タイトル</div>
-          <div css={styles.day}>２泊３日</div>
-          <div css={styles.hashtagsWrapper}>
-            {hashtags.map((hashtag, index) => (
-              <div css={styles.hashtag} key={index}>
-                <p>#{hashtag}</p>
-              </div>
-            ))}
-          </div>
-          <div css={styles.descriptionWrapper}>
-            <p css={styles.description}>
-              DESCRIPTIONDESCRIPTION.DESCRIPTIONDESCRIPTIONDESCRIPTION.DESCRIPTION
-            </p>
-          </div>
+      <Header
+        ToolIcon={HiOutlinePencil}
+        href="/"
+        title="タイトル"
+        toolHref="/"
+      />
+      <div css={styles.triplateInfosWrapper}>
+        <div css={styles.thumbnailWrapper}>
+          <Image alt="" css={styles.thumbnail} fill src={thumbnail} />
         </div>
-
-        <TabContent day={0} tripList={items} thumbnail={thumbnail} />
-        <Link css={styles.linkHelp} href="">
-          <HiOutlineQuestionMarkCircle size={20} />
-          <p>旅のテンプレートをアレンジとは？</p>
-        </Link>
-
-
-        <button css={FillButtonStyles.wrapper}>
-          <HiOutlineDuplicate size={24} />
-          <p>旅のテンプレートをアレンジする！
-          </p>        </button>
-
-
-        <button css={OutlineButtonStyles.wrapper}>
-          <HiOutlineHeart size={24} />
-          <p>
-            お気に入りに登録する
+        <div css={styles.title}>タイトル</div>
+        <div css={styles.day}>２泊３日</div>
+        <div css={styles.hashtagsWrapper}>
+          {hashtags.map((hashtag, index) => (
+            <div css={styles.hashtag} key={index}>
+              <p>#{hashtag}</p>
+            </div>
+          ))}
+        </div>
+        <div css={styles.descriptionWrapper}>
+          <p css={styles.description}>
+            DESCRIPTIONDESCRIPTION.DESCRIPTIONDESCRIPTIONDESCRIPTION.DESCRIPTION
           </p>
-        </button>
-
-
-        <CardUserProfile />
-
+        </div>
       </div>
 
+      <TabContent day={0} thumbnail={thumbnail} tripList={items} />
+      <Link css={styles.linkHelp} href="">
+        <HiOutlineQuestionMarkCircle size={20} />
+        <p>旅のテンプレートをアレンジとは？</p>
+      </Link>
 
+      <button css={FillButtonStyles.wrapper}>
+        <HiOutlineDuplicate size={24} />
+        <p>旅のテンプレートをアレンジする！</p>{' '}
+      </button>
+
+      <button css={OutlineButtonStyles.wrapper}>
+        <HiOutlineHeart size={24} />
+        <p>お気に入りに登録する</p>
+      </button>
+
+      <CardUserProfile />
     </Container>
   )
 }
 export default Triplate
-
 
 type TabContentType = {
   day: number
@@ -94,11 +107,12 @@ const TabContent = ({ day, thumbnail, tripList }: TabContentType) => {
           <HiOutlineTag size={20} />
           <p>タグ</p>
         </div>
-        <div css={contentStyles.description}>説明DESCRIPTION説明DESCRIPTION説明DESCRIPTION</div>
+        <div css={contentStyles.description}>
+          説明DESCRIPTION説明DESCRIPTION説明DESCRIPTION
+        </div>
         <div css={contentStyles.linkButton}>
           <ButtonWithIcon icon="link">Google Map</ButtonWithIcon>
           <ButtonWithIcon icon="link">Instagram</ButtonWithIcon>
-
         </div>
       </div>
       <div css={contentStyles.listItemsWrapper}>
@@ -117,7 +131,6 @@ const TabContent = ({ day, thumbnail, tripList }: TabContentType) => {
           )
         })}
       </div>
-
     </>
   )
 }
@@ -126,13 +139,21 @@ const CardUserProfile = () => {
   return (
     <div css={CardUserProfileStyles.userProfileCardWrapper}>
       <div css={CardUserProfileStyles.userProfileWrapper}>
-        <Image alt="" css={CardUserProfileStyles.userAvatar} height={64} src="/images/user_sample.jpeg" width={64} />
+        <Image
+          alt=""
+          css={CardUserProfileStyles.userAvatar}
+          height={64}
+          src="/images/user_sample.jpeg"
+          width={64}
+        />
         <div>
           <div css={CardUserProfileStyles.userName}>み ゆ う</div>
           <div css={CardUserProfileStyles.userId}>@ma_ma_hima</div>
         </div>
       </div>
-      <div css={CardUserProfileStyles.userStatus}>DESCRIPTIONが入りますDESCRIPTIONが入ります</div>
+      <div css={CardUserProfileStyles.userStatus}>
+        DESCRIPTIONが入りますDESCRIPTIONが入ります
+      </div>
       <div css={CardUserProfileStyles.userFF}>3 フォロー | 12 フォロワー</div>
       <div css={CardUserProfileStyles.buttonFollow}>
         <ButtonFill>フォロー</ButtonFill>
