@@ -7,6 +7,8 @@ const color = {
   hoverBlue: '#5a88ff',
   hoverPink: '#f15d96',
   bgGray: '#f2f2f2',
+  gray100: '#f9f8f8',
+  gray700: '#787878',
   bgBlue: '#eaf0ff',
   outlineGray: '#e1e1e1',
   shadowGray: 'box-shadow(0.4rem 0.4rem 1rem #e4ebee)'
