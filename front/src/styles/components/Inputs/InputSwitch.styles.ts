@@ -29,9 +29,9 @@ export const styles = {
       border-radius: 100%;
       transition: left 0.2s;
     }
-    
+
     &:has(:checked) {
-      background-color: ${theme.color.blue};
+      background-color: ${theme.color.black};
     }
 
     &:has(:checked)::after {

@@ -1,4 +1,5 @@
 import { css } from '@emotion/react'
+import { theme } from '@/styles/theme'
 
 export const styles = {
   formWrapper: css`
@@ -11,5 +12,12 @@ export const styles = {
   `,
   layoutButton: css`
     padding: 32px 0;
+  `,
+  label: css`
+    font-size: ${theme.fontSize.md};
+    font-weight: 300;
+  `,
+  layoutSwitch: css`
+    margin-top: 16px;
   `
 }

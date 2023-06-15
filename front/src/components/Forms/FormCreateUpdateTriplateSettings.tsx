@@ -1,5 +1,10 @@
 import { ButtonFill } from '@/components/Buttons'
-import { InputLabel, InputText, InputTextArea } from '@/components/Inputs'
+import {
+  InputLabel,
+  InputSwitch,
+  InputText,
+  InputTextArea
+} from '@/components/Inputs'
 import { SelectBase } from '@/components/Selects'
 import { styles } from '@/styles/components/Forms/FormCreateUpdateTriplateSettings.styles'
 
@@ -34,6 +39,19 @@ export const FormCreateUpdateTriplateSettings = () => {
         <InputLabel htmlFor="trip" text="タグ">
           <InputText isInvalid={false} placeholder="#お好きなワードをどうぞ" />
         </InputLabel>
+      </div>
+
+      <div css={styles.layoutInput}>
+        <h2 css={styles.label}>公開設定</h2>
+        <div css={styles.layoutSwitch}>
+          <InputSwitch id="switch-one-comment-memo" text="ひとことメモを公開" />
+        </div>
+        <div css={styles.layoutSwitch}>
+          <InputSwitch id="switch-time" text="時間を公開" />
+        </div>
+        <div css={styles.layoutSwitch}>
+          <InputSwitch id="switch-trip-memo" text="旅程のメモを公開" />
+        </div>
       </div>
 
       <div css={styles.layoutButton}>
