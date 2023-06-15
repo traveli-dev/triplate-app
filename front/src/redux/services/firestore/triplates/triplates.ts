@@ -5,7 +5,9 @@ import {
   CollectionReference,
   doc,
   serverTimestamp,
-  setDoc
+  setDoc,
+  DocumentReference,
+  getDoc
 } from 'firebase/firestore'
 import { db } from '@/lib/firebase'
 import { baseFirestoreApi } from '@/redux/services/firestore'
@@ -54,6 +56,26 @@ const triplatesApi = baseFirestoreApi.injectEndpoints({
         }
       }
     }),
+    getTriplateSettings: builder.query<TriplateSettingsType | null, string>({
+      queryFn: async (triplateId) => {
+        try {
+          const ref = doc(
+            collection(db, 'triplates'),
+            triplateId
+          ) as DocumentReference<TriplateSettingsType>
+          const snapshot = await getDoc(ref)
+
+          const triplateExists = snapshot.exists()
+
+          if (!triplateExists) return { data: null }
+
+          return { data: snapshot.data() }
+        } catch (err) {
+          // TODO: エラー処理
+          return { error: err }
+        }
+      }
+    }),
     createTriplateSettings: builder.mutation<
       string,
       CreateTriplateSettingsType
@@ -89,5 +111,8 @@ const triplatesApi = baseFirestoreApi.injectEndpoints({
   }),
   overrideExisting: false
 })
-export const { useGetAllTriplatesQuery, useCreateTriplateSettingsMutation } =
-  triplatesApi
+export const {
+  useGetAllTriplatesQuery,
+  useGetTriplateSettingsQuery,
+  useCreateTriplateSettingsMutation
+} = triplatesApi

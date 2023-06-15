@@ -21,6 +21,7 @@ export {
 //triplates
 export {
   useGetAllTriplatesQuery,
+  useGetTriplateSettingsQuery,
   useCreateTriplateSettingsMutation,
   type TriplateMemoryType,
   type TriplateSettingsType

@@ -11,7 +11,9 @@ import {
 
 const triplateId = uuidv4()
 
-export const useFormCreateUpdateTriplateSettings = () => {
+export const useFormCreateUpdateTriplateSettings = (
+  triplateSettingsData?: TriplateSettingsType
+) => {
   const router = useRouter()
   const [createTriplateSettings] = useCreateTriplateSettingsMutation()
 
@@ -24,13 +26,16 @@ export const useFormCreateUpdateTriplateSettings = () => {
     resolver: yupResolver(schema),
     mode: 'onChange',
     defaultValues: {
-      triplinkId: '',
-      description: '',
-      tags: '',
+      triplinkId: triplateSettingsData?.triplinkId ?? '',
+      description: triplateSettingsData?.description ?? '',
+      tags: triplateSettingsData?.tags ?? '',
       privacySettings: {
-        isMemoPublic: false,
-        isTimePublic: false,
-        isItineraryPublic: false
+        isMemoPublic:
+          triplateSettingsData?.privacySettings.isMemoPublic ?? false,
+        isTimePublic:
+          triplateSettingsData?.privacySettings.isTimePublic ?? false,
+        isItineraryPublic:
+          triplateSettingsData?.privacySettings.isItineraryPublic ?? false
       }
     }
   })

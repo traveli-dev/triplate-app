@@ -8,9 +8,16 @@ import {
 } from '@/components/Inputs'
 import { SelectBase } from '@/components/Selects'
 import { useFormCreateUpdateTriplateSettings } from '@/hooks/forms/useFormCreateUpdateTriplateSettings'
+import { TriplateSettingsType } from '@/redux/services/firestore'
 import { styles } from '@/styles/components/Forms/FormCreateUpdateTriplateSettings.styles'
 
-export const FormCreateUpdateTriplateSettings = () => {
+type FormCreateUpdateTriplateSettingsProps = {
+  data?: TriplateSettingsType
+}
+
+export const FormCreateUpdateTriplateSettings = ({
+  data
+}: FormCreateUpdateTriplateSettingsProps) => {
   const {
     register,
     handleSubmit,
@@ -19,7 +26,7 @@ export const FormCreateUpdateTriplateSettings = () => {
     isValid,
     isDirty,
     isSubmitting
-  } = useFormCreateUpdateTriplateSettings()
+  } = useFormCreateUpdateTriplateSettings(data)
 
   const samples = [
     { name: 'かだといそのうら', id: '9bcecdd8-fed9-4d72-8a40-b54c7b9ec05b' },
