@@ -1,8 +1,10 @@
+import { UseFormRegisterReturn } from 'react-hook-form'
 import { styles } from '@/styles/components/Selects/SelectBase.styles'
 
 type SelectBaseProps = {
   placeholder: string
   isInvalid: boolean
+  register: UseFormRegisterReturn
   options: {
     name: string
     id: string
@@ -12,12 +14,13 @@ type SelectBaseProps = {
 export const SelectBase = ({
   placeholder,
   options,
-  isInvalid
+  isInvalid,
+  register
 }: SelectBaseProps) => {
   return (
     <div css={styles.wrapper}>
-      <select css={styles.select(isInvalid)}>
-        <option css={styles.placeholder} disabled selected value="">
+      <select css={styles.select(isInvalid)} {...register}>
+        <option css={styles.placeholder} disabled value="">
           {placeholder}
         </option>
         {options.map((option) => (

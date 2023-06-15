@@ -19,5 +19,8 @@ export const styles = {
   `,
   layoutSwitch: css`
     margin-top: 16px;
+  `,
+  layoutErrorMessage: css`
+    margin-top: 4px;
   `
 }

@@ -9,6 +9,9 @@ const meta: Meta<typeof SelectBase> = {
     },
     options: {
       description: 'idとnameの配列 nameが表示されidで選択'
+    },
+    register: {
+      description: 'react hook formのregister'
     }
   },
   tags: ['autodocs']

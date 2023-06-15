@@ -9,6 +9,9 @@ const meta: Meta<typeof InputSwitch> = {
     },
     text: {
       description: '何のボタンかを表す名称'
+    },
+    register: {
+      description: 'react hook formのregister'
     }
   },
   tags: ['autodocs']
