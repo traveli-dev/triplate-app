@@ -8,7 +8,7 @@ export const styles = {
     font-weight: 300;
     color: ${theme.color.black};
     text-align: center;
-    background-color: ${theme.color.bgGray};
+    background-color: ${theme.color.gray100};
     border: 0;
     border-radius: 100px;
     & span[id='bold'] {
