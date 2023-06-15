@@ -7,9 +7,6 @@ const meta: Meta<typeof TabDaysWithTriplink> = {
   argTypes: {
     triplinks: {
       description: 'triplinkデータの配列が入ります'
-    },
-    tabType: {
-      description: 'tabTypeが入ります'
     }
   },
   tags: ['autodocs']
@@ -25,7 +22,7 @@ const items: TravelListItemType[] = [
 ]
 
 type Story = StoryObj<typeof TabDaysWithTriplink>
-export const Edit: Story = {
+export const Default: Story = {
   args: {
     triplinks: [
       { day: 1, name: 'aaa', linkList: items },
@@ -33,19 +30,6 @@ export const Edit: Story = {
       { day: 3, name: 'ccc', linkList: items },
       { day: 4, name: 'ddd', linkList: items },
       { day: 5, name: 'eee', linkList: items }
-    ],
-    tabType: 'edit'
-  }
-}
-export const View: Story = {
-  args: {
-    triplinks: [
-      { day: 1, name: 'aaa', linkList: items },
-      { day: 2, name: 'bbb', linkList: items },
-      { day: 3, name: 'ccc', linkList: items },
-      { day: 4, name: 'ddd', linkList: items },
-      { day: 5, name: 'eee', linkList: items }
-    ],
-    tabType: 'view'
+    ]
   }
 }

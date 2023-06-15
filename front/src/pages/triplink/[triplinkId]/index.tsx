@@ -84,7 +84,7 @@ const Triplink = () => {
           onClose={memoOnClose}
         />
         <ModalShare isOpen={shareIsOpen} onClose={shareOnClose} />
-        <TabDaysWithTriplink tabType="edit" triplinks={data.triplinks} />
+        <TabDaysWithTriplink triplinks={data.triplinks} />
       </div>
     </>
   )
