@@ -7,7 +7,8 @@ import {
   serverTimestamp,
   setDoc,
   DocumentReference,
-  getDoc
+  getDoc,
+  updateDoc
 } from 'firebase/firestore'
 import { db } from '@/lib/firebase'
 import { baseFirestoreApi } from '@/redux/services/firestore'
@@ -23,6 +24,7 @@ export type TriplateSettingsType = {
   triplinkId: string
   description: string | undefined
   tags: string
+  isPublished: boolean
   privacySettings: {
     isMemoPublic: boolean
     isTimePublic: boolean
@@ -30,7 +32,7 @@ export type TriplateSettingsType = {
   }
 }
 
-type CreateTriplateSettingsType = {
+type TriplateSettingsRequestType = {
   id: string
   body: TriplateSettingsType
 }
@@ -74,11 +76,12 @@ const triplatesApi = baseFirestoreApi.injectEndpoints({
           // TODO: エラー処理
           return { error: err }
         }
-      }
+      },
+      providesTags: ['TriplateSettings']
     }),
     createTriplateSettings: builder.mutation<
       string,
-      CreateTriplateSettingsType
+      TriplateSettingsRequestType
     >({
       queryFn: async ({ id, body }) => {
         try {
@@ -106,7 +109,41 @@ const triplatesApi = baseFirestoreApi.injectEndpoints({
           }
           return { error }
         }
-      }
+      },
+      invalidatesTags: (_result, error) => (error ? [] : ['TriplateSettings'])
+    }),
+    updateTriplateSettings: builder.mutation<
+      string,
+      TriplateSettingsRequestType
+    >({
+      queryFn: async ({ id, body }) => {
+        try {
+          const ref = doc(collection(db, 'triplates'), id)
+
+          await updateDoc(ref, {
+            ...body,
+            updatedAt: serverTimestamp()
+          })
+
+          return {
+            data: 'OK'
+          }
+        } catch (err) {
+          let error
+
+          if (err instanceof FirebaseError) {
+            error = {
+              code: err.code
+            }
+          } else {
+            error = {
+              code: 'unexpected-error'
+            }
+          }
+          return { error }
+        }
+      },
+      invalidatesTags: (_result, error) => (error ? [] : ['TriplateSettings'])
     })
   }),
   overrideExisting: false
@@ -114,5 +151,6 @@ const triplatesApi = baseFirestoreApi.injectEndpoints({
 export const {
   useGetAllTriplatesQuery,
   useGetTriplateSettingsQuery,
-  useCreateTriplateSettingsMutation
+  useCreateTriplateSettingsMutation,
+  useUpdateTriplateSettingsMutation
 } = triplatesApi

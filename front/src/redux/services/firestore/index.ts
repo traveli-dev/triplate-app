@@ -23,6 +23,7 @@ export {
   useGetAllTriplatesQuery,
   useGetTriplateSettingsQuery,
   useCreateTriplateSettingsMutation,
+  useUpdateTriplateSettingsMutation,
   type TriplateMemoryType,
   type TriplateSettingsType
 } from '@/redux/services/firestore/triplates/triplates'

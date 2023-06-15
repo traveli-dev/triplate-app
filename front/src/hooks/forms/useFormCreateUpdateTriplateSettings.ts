@@ -6,7 +6,8 @@ import { v4 as uuidv4 } from 'uuid'
 import yup from '@/config/yup.config'
 import {
   TriplateSettingsType,
-  useCreateTriplateSettingsMutation
+  useCreateTriplateSettingsMutation,
+  useUpdateTriplateSettingsMutation
 } from '@/redux/services/firestore'
 
 const triplateId = uuidv4()
@@ -16,6 +17,7 @@ export const useFormCreateUpdateTriplateSettings = (
 ) => {
   const router = useRouter()
   const [createTriplateSettings] = useCreateTriplateSettingsMutation()
+  const [updateTriplateSettings] = useUpdateTriplateSettingsMutation()
 
   const {
     register,
@@ -50,12 +52,26 @@ export const useFormCreateUpdateTriplateSettings = (
 
   const onSubmit: SubmitHandler<TriplateSettingsType> = async (data) => {
     try {
-      await createTriplateSettings({ id: triplateId, body: data }).unwrap()
-      router.push(`/triplate/${triplateId}/edit/memory`)
+      triplateSettingsData ? await update(data) : await create(data)
     } catch (e) {
       // TODO: errorハンドリング
       console.error(e)
     }
+  }
+
+  const create = async (data: TriplateSettingsType) => {
+    await createTriplateSettings({
+      id: triplateId,
+      body: { ...data, isPublished: false }
+    }).unwrap()
+    router.push(`/triplate/${triplateId}/edit/memory`)
+  }
+
+  const update = async (data: TriplateSettingsType) => {
+    await updateTriplateSettings({
+      id: triplateId,
+      body: data
+    })
   }
 
   return {
