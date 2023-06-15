@@ -34,10 +34,10 @@ export const styles = {
   rightIconWrapper: css`
     position: absolute;
     top: 50%;
-    right: 0;
+    right: 16px;
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: center;
     width: 40px;
     height: 40px;
     text-decoration: none;
