@@ -1,6 +1,6 @@
-import { styles } from '@/styles/components/Inputs/InputPulldown.styles'
+import { styles } from '@/styles/components/Selects/SelectBase.styles'
 
-type InputPulldownProps = {
+type SelectBaseProps = {
   placeholder: string
   isInvalid: boolean
   options: {
@@ -9,11 +9,11 @@ type InputPulldownProps = {
   }[]
 }
 
-export const InputPulldown = ({
+export const SelectBase = ({
   placeholder,
   options,
   isInvalid
-}: InputPulldownProps) => {
+}: SelectBaseProps) => {
   return (
     <div css={styles.wrapper}>
       <select css={styles.select(isInvalid)}>

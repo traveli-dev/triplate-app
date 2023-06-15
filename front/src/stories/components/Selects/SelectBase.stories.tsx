@@ -1,8 +1,8 @@
-import { InputPulldown } from '@/components/Inputs'
+import { SelectBase } from '@/components/Selects'
 import type { StoryObj, Meta } from '@storybook/react'
 
-const meta: Meta<typeof InputPulldown> = {
-  component: InputPulldown,
+const meta: Meta<typeof SelectBase> = {
+  component: SelectBase,
   argTypes: {
     placeholder: {
       description: 'placeholder'
@@ -16,7 +16,7 @@ const meta: Meta<typeof InputPulldown> = {
 
 export default meta
 
-type Story = StoryObj<typeof InputPulldown>
+type Story = StoryObj<typeof SelectBase>
 
 export const Default: Story = {
   args: {

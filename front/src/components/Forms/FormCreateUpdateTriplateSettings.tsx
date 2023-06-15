@@ -1,10 +1,6 @@
 import { ButtonFill } from '@/components/Buttons'
-import {
-  InputLabel,
-  InputPulldown,
-  InputText,
-  InputTextArea
-} from '@/components/Inputs'
+import { InputLabel, InputText, InputTextArea } from '@/components/Inputs'
+import { SelectBase } from '@/components/Selects'
 import { styles } from '@/styles/components/Forms/FormCreateUpdateTriplateSettings.styles'
 
 export const FormCreateUpdateTriplateSettings = () => {
@@ -22,7 +18,7 @@ export const FormCreateUpdateTriplateSettings = () => {
     <div css={styles.formWrapper}>
       <div css={styles.layoutInput}>
         <InputLabel htmlFor="trip" text="テンプレートにするたび">
-          <InputPulldown
+          <SelectBase
             isInvalid={false}
             options={samples}
             placeholder="たびを選択"
