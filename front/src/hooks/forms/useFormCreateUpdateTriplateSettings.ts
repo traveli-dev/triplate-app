@@ -4,22 +4,16 @@ import { useRouter } from 'next/router'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { v4 as uuidv4 } from 'uuid'
 import yup from '@/config/yup.config'
-
-type TriplateSettingsType = {
-  triplinkId: string
-  description: string | undefined
-  tags: string
-  privacySettings: {
-    isMemoPublic: boolean
-    isTimePublic: boolean
-    isItineraryPublic: boolean
-  }
-}
+import {
+  TriplateSettingsType,
+  useCreateTriplateSettingsMutation
+} from '@/redux/services/firestore'
 
 const triplateId = uuidv4()
 
 export const useFormCreateUpdateTriplateSettings = () => {
   const router = useRouter()
+  const [createTriplateSettings] = useCreateTriplateSettingsMutation()
 
   const {
     register,
@@ -51,7 +45,7 @@ export const useFormCreateUpdateTriplateSettings = () => {
 
   const onSubmit: SubmitHandler<TriplateSettingsType> = async (data) => {
     try {
-      console.warn(data)
+      await createTriplateSettings({ id: triplateId, body: data }).unwrap()
       router.push(`/triplate/${triplateId}/edit/memory`)
     } catch (e) {
       // TODO: errorハンドリング

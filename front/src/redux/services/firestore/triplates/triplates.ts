@@ -1,23 +1,47 @@
-import { collection, getDocs, CollectionReference } from 'firebase/firestore'
+import { FirebaseError } from 'firebase/app'
+import {
+  collection,
+  getDocs,
+  CollectionReference,
+  doc,
+  serverTimestamp,
+  setDoc
+} from 'firebase/firestore'
 import { db } from '@/lib/firebase'
 import { baseFirestoreApi } from '@/redux/services/firestore'
 
-export type TriplateType = {
+export type TriplateMemoryType = {
   title: string
   day: string
   thumbnail: string
   keywords: string[]
 }
 
+export type TriplateSettingsType = {
+  triplinkId: string
+  description: string | undefined
+  tags: string
+  privacySettings: {
+    isMemoPublic: boolean
+    isTimePublic: boolean
+    isItineraryPublic: boolean
+  }
+}
+
+type CreateTriplateSettingsType = {
+  id: string
+  body: TriplateSettingsType
+}
+
 const triplatesApi = baseFirestoreApi.injectEndpoints({
   endpoints: (builder) => ({
-    getAllTriplates: builder.query<TriplateType[], void>({
+    getAllTriplates: builder.query<TriplateMemoryType[], void>({
       queryFn: async () => {
         try {
           const ref = collection(
             db,
             'triplates'
-          ) as CollectionReference<TriplateType>
+          ) as CollectionReference<TriplateMemoryType>
           const snapshot = await getDocs(ref)
           const data = snapshot.docs.map((doc) => {
             return { ...doc.data() }
@@ -29,8 +53,41 @@ const triplatesApi = baseFirestoreApi.injectEndpoints({
           return { error: err }
         }
       }
+    }),
+    createTriplateSettings: builder.mutation<
+      string,
+      CreateTriplateSettingsType
+    >({
+      queryFn: async ({ id, body }) => {
+        try {
+          const ref = doc(collection(db, 'triplates'), id)
+
+          await setDoc(ref, {
+            ...body,
+            createdAt: serverTimestamp()
+          })
+
+          return {
+            data: 'OK'
+          }
+        } catch (err) {
+          let error
+
+          if (err instanceof FirebaseError) {
+            error = {
+              code: err.code
+            }
+          } else {
+            error = {
+              code: 'unexpected-error'
+            }
+          }
+          return { error }
+        }
+      }
     })
   }),
   overrideExisting: false
 })
-export const { useGetAllTriplatesQuery } = triplatesApi
+export const { useGetAllTriplatesQuery, useCreateTriplateSettingsMutation } =
+  triplatesApi
