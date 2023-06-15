@@ -61,13 +61,13 @@ export const useFormCreateUpdateUser = ({ auth, userData }: UserData) => {
     // formが少ないのでonChangeで発火
     mode: 'onChange',
     defaultValues: {
-      userId: userData ? userData.userId : '',
-      name: userData ? userData.name : '',
-      icon: userData ? userData.icon : auth.icon,
-      description: userData ? userData.description : '',
+      userId: userData?.userId ?? '',
+      name: userData?.name ?? '',
+      icon: userData?.icon ?? auth.icon,
+      description: userData?.description ?? '',
       links: {
-        instagram: userData ? userData.links.instagram : '',
-        twitter: userData ? userData.links.twitter : ''
+        instagram: userData?.links.instagram ?? '',
+        twitter: userData?.links.twitter ?? ''
       }
     }
   })
