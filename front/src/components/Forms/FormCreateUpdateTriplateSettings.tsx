@@ -74,7 +74,8 @@ export const FormCreateUpdateTriplateSettings = ({
           <InputText
             isInvalid={false}
             placeholder="#お好きなワードをどうぞ"
-            {...register('tags')}
+            // TODO: tag機能
+            {...register('tags.0')}
           />
         </InputLabel>
         {!!errors.tags && (

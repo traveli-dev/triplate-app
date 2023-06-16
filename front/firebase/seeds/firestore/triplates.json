@@ -1,39 +1,26 @@
 {
-    "triplates":{
-        "0bcecdd8-fed9-4d72-8a40-b54c7b9ec05b":{
-            "title":"海遊館",
-            "day":"2泊3日",
-            "keywords":[
-                "海遊館",
-                "海遊館"],
-            "thumbnail": "http://localhost:9199/v0/b/traveli-test.appspot.com/o/images%2Ftriplinks%2Fa0bf63a0-0367-11ee-be56-0242ac120002%2Fthumbnail?alt=media"
-        },
-        "1bcecdd8-fed9-4d72-8a40-b54c7b9ec05b": {
-            "title": "海遊館",
-            "day": "2泊3日",
-            "keywords": [
-                "海遊館",
-                "海遊館"
-            ],
-            "thumbnail": "http://localhost:9199/v0/b/traveli-test.appspot.com/o/images%2Ftriplinks%2Fa0bf63a0-0367-11ee-be56-0242ac120002%2Fthumbnail?alt=media"
-        },
-        "2bcecdd8-fed9-4d72-8a40-b54c7b9ec05b": {
-            "title": "海遊館",
-            "day": "2泊3日",
-            "keywords": [
-                "海遊館",
-                "海遊館"
-            ],
-            "thumbnail": "http://localhost:9199/v0/b/traveli-test.appspot.com/o/images%2Ftriplinks%2Fa0bf63a0-0367-11ee-be56-0242ac120002%2Fthumbnail?alt=media"
-        },
-        "3bcecdd8-fed9-4d72-8a40-b54c7b9ec05b": {
-            "title": "海遊館",
-            "day": "2泊3日",
-            "keywords": [
-                "海遊館",
-                "海遊館"
-            ],
-            "thumbnail": "http://localhost:9199/v0/b/traveli-test.appspot.com/o/images%2Ftriplinks%2Fa0bf63a0-0367-11ee-be56-0242ac120002%2Fthumbnail?alt=media"
-        }
+  "triplates": {
+    "0bcecdd8-fed9-4d72-8a40-b54c7b9ec05b": {
+      "triplinkId": "a0bf63a0-0367-11ee-be56-0242ac120002",
+      "description": "いつメン３人で海遊館行ったよいつメン３人で海遊館行ったよいつメン３人で",
+      "isPublished": true,
+      "tags": ["太平洋酒場", "太平洋酒場"],
+      "privacySettings": {
+        "isMemoPublic": false,
+        "isTimePublic": false,
+        "isItineraryPublic": false
+      }
+    },
+    "1bcecdd8-fed9-4d72-8a40-b54c7b9ec05b": {
+      "triplinkId": "b21323a4-05f8-42db-9ce7-a2f29946595f",
+      "description": "いつメン３人で神社巡り行ったよいつメン３人で神社めぐり行ったよいつメン３人で",
+      "isPublished": true,
+      "tags": null,
+      "privacySettings": {
+        "isMemoPublic": false,
+        "isTimePublic": false,
+        "isItineraryPublic": false
+      }
     }
+  }
 }

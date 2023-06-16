@@ -23,7 +23,7 @@ export type TriplateMemoryType = {
 export type TriplateSettingsType = {
   triplinkId: string
   description: string | undefined
-  tags: string
+  tags: string[]
   isPublished: boolean
   privacySettings: {
     isMemoPublic: boolean

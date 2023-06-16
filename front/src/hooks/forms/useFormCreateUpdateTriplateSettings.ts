@@ -30,7 +30,7 @@ export const useFormCreateUpdateTriplateSettings = (
     defaultValues: {
       triplinkId: triplateSettingsData?.triplinkId ?? '',
       description: triplateSettingsData?.description ?? '',
-      tags: triplateSettingsData?.tags ?? '',
+      tags: triplateSettingsData?.tags ?? [],
       privacySettings: {
         isMemoPublic:
           triplateSettingsData?.privacySettings.isMemoPublic ?? false,
@@ -87,7 +87,7 @@ export const useFormCreateUpdateTriplateSettings = (
 
 const schema = yup.object({
   triplinkId: yup.string().required('テンプレートにするたびは必須です'),
-  tags: yup.string(),
+  tags: yup.array().of(yup.string()),
   description: yup
     .string()
     .maxLength(150, 'たびの説明')
