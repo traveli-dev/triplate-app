@@ -1,8 +1,6 @@
 import { FirebaseError } from 'firebase/app'
 import {
   collection,
-  getDocs,
-  CollectionReference,
   doc,
   serverTimestamp,
   setDoc,
@@ -20,9 +18,9 @@ export type TriplateMemoryType = {
   keywords: string[]
 }
 
-export type TriplateSettingsType = {
+export type TriplateType = {
   triplinkId: string
-  description: string | undefined
+  description: string | null
   tags: string[]
   isPublished: boolean
   privacySettings: {
@@ -32,39 +30,20 @@ export type TriplateSettingsType = {
   }
 }
 
-type TriplateSettingsRequestType = {
+type TriplateRequestType = {
   id: string
-  body: TriplateSettingsType
+  body: TriplateType
 }
 
 const triplatesApi = baseFirestoreApi.injectEndpoints({
   endpoints: (builder) => ({
-    getAllTriplates: builder.query<TriplateMemoryType[], void>({
-      queryFn: async () => {
-        try {
-          const ref = collection(
-            db,
-            'triplates'
-          ) as CollectionReference<TriplateMemoryType>
-          const snapshot = await getDocs(ref)
-          const data = snapshot.docs.map((doc) => {
-            return { ...doc.data() }
-          })
-
-          return { data }
-        } catch (err) {
-          // TODO: エラー処理
-          return { error: err }
-        }
-      }
-    }),
-    getTriplateSettings: builder.query<TriplateSettingsType | null, string>({
+    getTriplate: builder.query<TriplateType | null, string>({
       queryFn: async (triplateId) => {
         try {
           const ref = doc(
             collection(db, 'triplates'),
             triplateId
-          ) as DocumentReference<TriplateSettingsType>
+          ) as DocumentReference<TriplateType>
           const snapshot = await getDoc(ref)
 
           const triplateExists = snapshot.exists()
@@ -77,12 +56,9 @@ const triplatesApi = baseFirestoreApi.injectEndpoints({
           return { error: err }
         }
       },
-      providesTags: ['TriplateSettings']
+      providesTags: ['Triplate']
     }),
-    createTriplateSettings: builder.mutation<
-      string,
-      TriplateSettingsRequestType
-    >({
+    createTriplate: builder.mutation<string, TriplateRequestType>({
       queryFn: async ({ id, body }) => {
         try {
           const ref = doc(collection(db, 'triplates'), id)
@@ -110,12 +86,9 @@ const triplatesApi = baseFirestoreApi.injectEndpoints({
           return { error }
         }
       },
-      invalidatesTags: (_result, error) => (error ? [] : ['TriplateSettings'])
+      invalidatesTags: (_result, error) => (error ? [] : ['Triplate'])
     }),
-    updateTriplateSettings: builder.mutation<
-      string,
-      TriplateSettingsRequestType
-    >({
+    updateTriplate: builder.mutation<string, TriplateRequestType>({
       queryFn: async ({ id, body }) => {
         try {
           const ref = doc(collection(db, 'triplates'), id)
@@ -143,14 +116,13 @@ const triplatesApi = baseFirestoreApi.injectEndpoints({
           return { error }
         }
       },
-      invalidatesTags: (_result, error) => (error ? [] : ['TriplateSettings'])
+      invalidatesTags: (_result, error) => (error ? [] : ['Triplate'])
     })
   }),
   overrideExisting: false
 })
 export const {
-  useGetAllTriplatesQuery,
-  useGetTriplateSettingsQuery,
-  useCreateTriplateSettingsMutation,
-  useUpdateTriplateSettingsMutation
+  useGetTriplateQuery,
+  useCreateTriplateMutation,
+  useUpdateTriplateMutation
 } = triplatesApi

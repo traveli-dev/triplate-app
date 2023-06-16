@@ -12,21 +12,24 @@ export {
 
 // triplinks
 export {
-  useGetTriplinkQuery,
-  useGetJoinTripsQuery,
-  useGetMyTripsQuery,
+  type TriplinkType,
   type GetTriplinkType,
   type CreateTriplinkType
 } from '@/redux/services/firestore/triplinks/triplinks'
 
+// triplinks/getTrips
+export { useGetMyTripsQuery } from '@/redux/services/firestore/users/myTrips'
+
+// triplinks/joinTrips
+export { useGetJoinTripsQuery } from '@/redux/services/firestore/users/joinTrips'
+
 //triplates
 export {
-  useGetAllTriplatesQuery,
-  useGetTriplateSettingsQuery,
-  useCreateTriplateSettingsMutation,
-  useUpdateTriplateSettingsMutation,
+  useGetTriplateQuery,
+  useCreateTriplateMutation,
+  useUpdateTriplateMutation,
   type TriplateMemoryType,
-  type TriplateSettingsType
+  type TriplateType
 } from '@/redux/services/firestore/triplates/triplates'
 
 // indexes

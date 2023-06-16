@@ -5,26 +5,26 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { v4 as uuidv4 } from 'uuid'
 import yup from '@/config/yup.config'
 import {
-  TriplateSettingsType,
-  useCreateTriplateSettingsMutation,
-  useUpdateTriplateSettingsMutation
+  TriplateType,
+  useCreateTriplateMutation,
+  useUpdateTriplateMutation
 } from '@/redux/services/firestore'
 
 const triplateId = uuidv4()
 
 export const useFormCreateUpdateTriplateSettings = (
-  triplateSettingsData?: TriplateSettingsType
+  triplateSettingsData?: TriplateType
 ) => {
   const router = useRouter()
-  const [createTriplateSettings] = useCreateTriplateSettingsMutation()
-  const [updateTriplateSettings] = useUpdateTriplateSettingsMutation()
+  const [createTriplateSettings] = useCreateTriplateMutation()
+  const [updateTriplateSettings] = useUpdateTriplateMutation()
 
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors, isDirty, isValid, isSubmitting, isSubmitSuccessful }
-  } = useForm<TriplateSettingsType>({
+  } = useForm<TriplateType>({
     resolver: yupResolver(schema),
     mode: 'onChange',
     defaultValues: {
@@ -50,7 +50,7 @@ export const useFormCreateUpdateTriplateSettings = (
     }
   }, [isSubmitSuccessful])
 
-  const onSubmit: SubmitHandler<TriplateSettingsType> = async (data) => {
+  const onSubmit: SubmitHandler<TriplateType> = async (data) => {
     try {
       triplateSettingsData ? await update(data) : await create(data)
     } catch (e) {
@@ -59,7 +59,7 @@ export const useFormCreateUpdateTriplateSettings = (
     }
   }
 
-  const create = async (data: TriplateSettingsType) => {
+  const create = async (data: TriplateType) => {
     await createTriplateSettings({
       id: triplateId,
       body: { ...data, isPublished: false }
@@ -67,7 +67,7 @@ export const useFormCreateUpdateTriplateSettings = (
     router.push(`/triplate/${triplateId}/edit/memory`)
   }
 
-  const update = async (data: TriplateSettingsType) => {
+  const update = async (data: TriplateType) => {
     await updateTriplateSettings({
       id: triplateId,
       body: data

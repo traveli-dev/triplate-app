@@ -2,13 +2,13 @@ import { useRouter } from 'next/router'
 import { Container } from '@/components/Containers'
 import { FormCreateUpdateTriplateSettings } from '@/components/Forms'
 import { Header } from '@/components/Headers'
-import { useGetTriplateSettingsQuery } from '@/redux/services/firestore'
+import { useGetTriplateQuery } from '@/redux/services/firestore'
 
 const TriplateEditSettings = () => {
   const router = useRouter()
   const { triplateId } = router.query
 
-  const { data, isLoading } = useGetTriplateSettingsQuery(String(triplateId))
+  const { data, isLoading } = useGetTriplateQuery(String(triplateId))
 
   return (
     <>

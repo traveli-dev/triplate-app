@@ -8,11 +8,11 @@ import {
 } from '@/components/Inputs'
 import { SelectBase } from '@/components/Selects'
 import { useFormCreateUpdateTriplateSettings } from '@/hooks/forms/useFormCreateUpdateTriplateSettings'
-import { TriplateSettingsType } from '@/redux/services/firestore'
+import { TriplateType } from '@/redux/services/firestore'
 import { styles } from '@/styles/components/Forms/FormCreateUpdateTriplateSettings.styles'
 
 type FormCreateUpdateTriplateSettingsProps = {
-  data?: TriplateSettingsType
+  data?: TriplateType
 }
 
 export const FormCreateUpdateTriplateSettings = ({

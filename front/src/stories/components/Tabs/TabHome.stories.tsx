@@ -30,14 +30,18 @@ export const Default: Story = {
         ownerId: 'C5Ja2gXGLeIXTjhWZbDiWUWe8Whd',
         title: 'テストデータ１',
         thumbnail: '/images/thumbnail_sample.jpg',
-        date: [new Timestamp(1671634800, 0), new Timestamp(1671807600, 0)]
+        date: [new Timestamp(1671634800, 0), new Timestamp(1671807600, 0)],
+        createdAt: new Timestamp(1671634800, 0),
+        updatedAt: null
       },
       {
         id: 'o2PHRC1TGzdX4WAxHSZrdgCIweQ2',
         ownerId: 'C5Ja2gXGLeIXTjhWZbDiWUWe8Whd',
         title: 'テストデータ２',
         thumbnail: '/images/thumbnail_sample.jpg',
-        date: [new Timestamp(1671634800, 0), new Timestamp(1671807600, 0)]
+        date: [new Timestamp(1671634800, 0), new Timestamp(1671807600, 0)],
+        createdAt: new Timestamp(1671634800, 0),
+        updatedAt: null
       }
     ],
     joinTriplinksData: [
@@ -46,7 +50,9 @@ export const Default: Story = {
         ownerId: 'C5Ja2gXGLeIXTjhWZbDiWUWe8Whd',
         title: 'テストデータ１',
         thumbnail: '/images/thumbnail_sample.jpg',
-        date: [new Timestamp(1671634800, 0), new Timestamp(1671807600, 0)]
+        date: [new Timestamp(1671634800, 0), new Timestamp(1671807600, 0)],
+        createdAt: new Timestamp(1671634800, 0),
+        updatedAt: null
       }
     ],
     favoriteTriplinksData: [
@@ -55,7 +61,9 @@ export const Default: Story = {
         ownerId: 'C5Ja2gXGLeIXTjhWZbDiWUWe8Whd',
         title: 'テストデータ１',
         thumbnail: '/images/thumbnail_sample.jpg',
-        date: [new Timestamp(1671634800, 0), new Timestamp(1671807600, 0)]
+        date: [new Timestamp(1671634800, 0), new Timestamp(1671807600, 0)],
+        createdAt: new Timestamp(1671634800, 0),
+        updatedAt: null
       }
     ]
   }
