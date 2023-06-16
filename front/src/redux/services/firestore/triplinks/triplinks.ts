@@ -7,6 +7,7 @@ import {
   getDocs
   // Timestamp
 } from 'firebase/firestore'
+import { Timestamp } from 'firebase/firestore'
 import { db } from '@/lib/firebase'
 import { baseFirestoreApi } from '@/redux/services/firestore'
 
@@ -20,7 +21,7 @@ export type TriplinkType = {
   ownerId: string
   title: string
   thumbnail: string
-  date: [string, string]
+  date: [Timestamp, Timestamp]
   // TODO: post処理作るときに考える
   // createdAt: Timestamp
   // updatedAt: Timestamp | null
