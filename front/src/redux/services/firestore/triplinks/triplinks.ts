@@ -37,6 +37,27 @@ export type JoinTripType = {
 
 const triplinksApi = baseFirestoreApi.injectEndpoints({
   endpoints: (builder) => ({
+    getTriplink: builder.query<GetTriplinkType | null, string>({
+      queryFn: async (triplinkId) => {
+        try {
+          const ref = doc(
+            collection(db, 'triplinks'),
+            triplinkId
+          ) as DocumentReference<TriplinkType>
+
+          const snapshot = await getDoc(ref)
+
+          const isTriplinkExists = snapshot.exists()
+          if (!isTriplinkExists) return { data: null }
+
+          const data = { ...snapshot.data(), id: triplinkId }
+
+          return { data }
+        } catch (error) {
+          return { error }
+        }
+      }
+    }),
     getMyTrips: builder.query<GetTriplinkType[], string>({
       queryFn: async (uid) => {
         try {
@@ -125,4 +146,5 @@ const triplinksApi = baseFirestoreApi.injectEndpoints({
   overrideExisting: false
 })
 
-export const { useGetMyTripsQuery, useGetJoinTripsQuery } = triplinksApi
+export const { useGetTriplinkQuery, useGetMyTripsQuery, useGetJoinTripsQuery } =
+  triplinksApi

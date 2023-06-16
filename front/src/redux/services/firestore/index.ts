@@ -12,6 +12,7 @@ export {
 
 // triplinks
 export {
+  useGetTriplinkQuery,
   useGetJoinTripsQuery,
   useGetMyTripsQuery,
   type GetTriplinkType,
