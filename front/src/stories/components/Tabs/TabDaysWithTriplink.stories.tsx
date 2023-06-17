@@ -1,5 +1,5 @@
 import { TabDaysWithTriplink } from '@/components/Tabs'
-import { TravelListItemType } from '@/components/Tabs/TabDaysWithTriplink'
+import { TravelListItemType } from '@/components/Tabs'
 import type { StoryObj, Meta } from '@storybook/react'
 
 const meta: Meta<typeof TabDaysWithTriplink> = {

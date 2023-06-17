@@ -54,7 +54,6 @@ export const TabDaysWithTriplink = ({
                 <div css={styles.tabContent}>
                   <Container bgColor="blue">{item.name}</Container>
                 </div>
-                f
               </>
             )}
           </React.Fragment>

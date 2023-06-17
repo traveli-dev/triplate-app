@@ -9,7 +9,7 @@ import {
   ModalMember
 } from '@/components/Modals'
 import { TabDaysWithTriplink } from '@/components/Tabs'
-import { TravelListItemType } from '@/components/Tabs/TabDaysWithTriplink'
+import { TravelListItemType } from '@/components/Tabs'
 import { useDisclosure } from '@/hooks/modals'
 import { styles } from '@/styles/pages/triplink/[triplinkId]/triplink.styles'
 
