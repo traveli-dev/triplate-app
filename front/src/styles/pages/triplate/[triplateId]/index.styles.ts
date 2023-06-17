@@ -19,7 +19,7 @@ export const styles = {
   `,
   title: css`
     width: 100%;
-    margin-top: 16px auto 0 auto;
+    margin: 16px auto 0 auto;
     font-size: ${theme.fontSize.md};
     font-weight: 600;
     color: ${theme.color.black};
