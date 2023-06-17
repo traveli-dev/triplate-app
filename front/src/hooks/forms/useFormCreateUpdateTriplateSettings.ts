@@ -6,6 +6,7 @@ import { v4 as uuidv4 } from 'uuid'
 import yup from '@/config/yup.config'
 import {
   TriplateType,
+  GetTriplinkType,
   useCreateTriplateMutation,
   useUpdateTriplateMutation
 } from '@/redux/services/firestore'
@@ -60,9 +61,20 @@ export const useFormCreateUpdateTriplateSettings = (
   }
 
   const create = async (data: TriplateType) => {
+    const triplinkData: GetTriplinkType = JSON.parse(data.triplinkId)
+
+    const body = {
+      ...data,
+      triplinkId: triplinkData.id,
+      title: triplinkData.title,
+      thumbnail: triplinkData.thumbnail,
+      date: triplinkData.date,
+      isPublished: false
+    }
+
     await createTriplateSettings({
       id: triplateId,
-      body: { ...data, isPublished: false }
+      body
     }).unwrap()
     router.push(`/triplate/${triplateId}/edit/memory`)
   }

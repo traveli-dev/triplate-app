@@ -6,7 +6,8 @@ import {
   setDoc,
   DocumentReference,
   getDoc,
-  updateDoc
+  updateDoc,
+  Timestamp
 } from 'firebase/firestore'
 import { db } from '@/lib/firebase'
 import { baseFirestoreApi } from '@/redux/services/firestore'
@@ -20,6 +21,9 @@ export type TriplateMemoryType = {
 
 export type TriplateType = {
   triplinkId: string
+  title: string
+  thumbnail: string
+  date: [Timestamp, Timestamp]
   description: string | null
   tags: string[]
   isPublished: boolean

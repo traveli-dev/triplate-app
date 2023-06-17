@@ -30,8 +30,12 @@ export const FormCreateUpdateTriplateSettings = ({
     isSubmitting
   } = useFormCreateUpdateTriplateSettings(data)
 
-  const formatSelectTrips = (triplinks: GetTriplinkType[]) => {
-    const formatedData = triplinks.map(({ id, title }) => ({ name: title, id }))
+  const formatSelectTrips = (triplinks?: GetTriplinkType[]) => {
+    const formatedData =
+      triplinks?.map((triplink) => ({
+        name: triplink.title,
+        id: JSON.stringify(triplink)
+      })) ?? []
     return formatedData
   }
 

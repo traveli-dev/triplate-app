@@ -18,6 +18,8 @@ export {
 
 // triplinks
 export {
+  triplinksApi,
+  useGetTriplinkQuery,
   type TriplinkType,
   type GetTriplinkType,
   type CreateTriplinkType

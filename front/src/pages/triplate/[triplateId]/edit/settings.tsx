@@ -4,8 +4,7 @@ import { FormCreateUpdateTriplateSettings } from '@/components/Forms'
 import { Header } from '@/components/Headers'
 import { useAppSelector } from '@/redux/rootStore'
 import {
-  useGetJoinTripsWithTriplateCreatedQuery,
-  useGetMyTripsWithTriplateCreatedQuery,
+  useGetMyTriplinksWithTriplateUncreatedQuery,
   useGetTriplateQuery
 } from '@/redux/services/firestore'
 import { currentUserSelectors } from '@/redux/stores'
@@ -15,20 +14,17 @@ const TriplateEditSettings = () => {
   const { triplateId } = router.query
 
   const currentUserData = useAppSelector(currentUserSelectors.currentUserData)
-  const { data: myTripsData, isLoading: isMyTripsDataLoading } =
-    useGetMyTripsWithTriplateCreatedQuery(currentUserData.uid)
-  const { data: joinTripsData, isLoading: isJoinTripsDataLoading } =
-    useGetJoinTripsWithTriplateCreatedQuery(currentUserData.uid)
+
   const { data: triplateData, isLoading: isTriplateDataLoading } =
     useGetTriplateQuery(String(triplateId))
+  const { data: triplinkData, isLoading: isTriplinkDataLoading } =
+    useGetMyTriplinksWithTriplateUncreatedQuery(currentUserData.uid)
 
   const isLoading =
-    !myTripsData ||
-    !joinTripsData ||
     !triplateData ||
-    isMyTripsDataLoading ||
-    isJoinTripsDataLoading ||
-    isTriplateDataLoading
+    !triplinkData ||
+    isTriplateDataLoading ||
+    isTriplinkDataLoading
 
   return (
     <>
@@ -42,7 +38,7 @@ const TriplateEditSettings = () => {
         ) : (
           <FormCreateUpdateTriplateSettings
             data={triplateData}
-            triplinks={[...myTripsData, ...joinTripsData]}
+            triplinks={triplinkData}
           />
         )}
       </Container>

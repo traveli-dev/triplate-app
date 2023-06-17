@@ -1,4 +1,6 @@
-import { Timestamp } from 'firebase/firestore'
+import { Timestamp, getDoc, doc, DocumentReference } from 'firebase/firestore'
+import { db } from '@/lib/firebase'
+import { baseFirestoreApi } from '@/redux/services/firestore/'
 
 export type GetTriplinkType = TriplinkType & {
   id: string
@@ -14,3 +16,28 @@ export type TriplinkType = {
   createdAt: Timestamp
   updatedAt: Timestamp | null
 }
+
+export const triplinksApi = baseFirestoreApi.injectEndpoints({
+  endpoints: (builder) => ({
+    getTriplink: builder.query<TriplinkType, string>({
+      queryFn: async (triplinkId) => {
+        try {
+          const ref = doc(
+            db,
+            'triplinks',
+            triplinkId
+          ) as DocumentReference<TriplinkType>
+          const docs = await getDoc(ref)
+
+          return { data: docs.data() }
+        } catch (err) {
+          // TODO: エラー処理
+          return { error: err }
+        }
+      }
+    })
+  }),
+  overrideExisting: false
+})
+
+export const { useGetTriplinkQuery } = triplinksApi
