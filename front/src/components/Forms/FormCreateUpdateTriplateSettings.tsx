@@ -8,15 +8,17 @@ import {
 } from '@/components/Inputs'
 import { SelectBase } from '@/components/Selects'
 import { useFormCreateUpdateTriplateSettings } from '@/hooks/forms/useFormCreateUpdateTriplateSettings'
-import { TriplateType } from '@/redux/services/firestore'
+import { GetTriplinkType, TriplateType } from '@/redux/services/firestore'
 import { styles } from '@/styles/components/Forms/FormCreateUpdateTriplateSettings.styles'
 
 type FormCreateUpdateTriplateSettingsProps = {
   data?: TriplateType
+  triplinks?: GetTriplinkType[]
 }
 
 export const FormCreateUpdateTriplateSettings = ({
-  data
+  data,
+  triplinks
 }: FormCreateUpdateTriplateSettingsProps) => {
   const {
     register,
@@ -28,15 +30,10 @@ export const FormCreateUpdateTriplateSettings = ({
     isSubmitting
   } = useFormCreateUpdateTriplateSettings(data)
 
-  const samples = [
-    { name: 'かだといそのうら', id: '9bcecdd8-fed9-4d72-8a40-b54c7b9ec05b' },
-    {
-      name: '和歌山市ラーメン巡り',
-      id: 'b533283c-adde-4107-aa0a-943ddccb5278'
-    },
-    { name: '神社巡り', id: 'b21323a4-05f8-42db-9ce7-a2f29946595f' },
-    { name: '海遊館', id: 'a0bf63a0-0367-11ee-be56-0242ac120002' }
-  ]
+  const formatSelectTrips = (triplinks: GetTriplinkType[]) => {
+    const formatedData = triplinks.map(({ id, title }) => ({ name: title, id }))
+    return formatedData
+  }
 
   return (
     <div css={styles.formWrapper}>
@@ -44,7 +41,7 @@ export const FormCreateUpdateTriplateSettings = ({
         <InputLabel htmlFor="trip" text="テンプレートにするたび">
           <SelectBase
             isInvalid={false}
-            options={samples}
+            options={formatSelectTrips(triplinks)}
             placeholder="たびを選択"
             register={register('triplinkId')}
           />

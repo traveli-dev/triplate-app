@@ -10,18 +10,18 @@ export {
   type UserRequestBodyType
 } from '@/redux/services/firestore/users/users'
 
+// users/myTriplinks
+export {
+  useGetMyTriplinksQuery,
+  useGetMyTriplinksWithTriplateUncreatedQuery
+} from '@/redux/services/firestore/users/myTriplinks'
+
 // triplinks
 export {
   type TriplinkType,
   type GetTriplinkType,
   type CreateTriplinkType
 } from '@/redux/services/firestore/triplinks/triplinks'
-
-// triplinks/getTrips
-export { useGetMyTripsQuery } from '@/redux/services/firestore/users/myTrips'
-
-// triplinks/joinTrips
-export { useGetJoinTripsQuery } from '@/redux/services/firestore/users/joinTrips'
 
 //triplates
 export {

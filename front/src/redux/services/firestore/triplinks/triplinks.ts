@@ -14,11 +14,3 @@ export type TriplinkType = {
   createdAt: Timestamp
   updatedAt: Timestamp | null
 }
-
-export type MyTripType = {
-  triplinkId: string
-}
-
-export type JoinTripType = {
-  triplinkId: string
-}
