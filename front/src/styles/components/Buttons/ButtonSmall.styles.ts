@@ -3,20 +3,23 @@ import { theme } from '@/styles/theme'
 
 export const styles = {
   button: css`
-    height: 28px;
+    padding: 8px 0;
+    width: 100%;
     font-size: ${theme.fontSize.sm};
     font-weight: 300;
     color: ${theme.color.black};
     text-align: center;
-    background-color: ${theme.color.bgBlue};
+    background-color: ${theme.color.bgGray};
     border: 0;
     border-radius: 100px;
     & span[id='bold'] {
       font-weight: 600;
     }
   `,
-
-  label_wrapper: css`
+  icon: css`
+    margin-right: 8px;
+  `,
+  labelWrapper: css`
     display: flex;
     gap: 8px;
     align-items: center;
