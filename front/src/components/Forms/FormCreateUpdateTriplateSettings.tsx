@@ -44,6 +44,7 @@ export const FormCreateUpdateTriplateSettings = ({
       <div css={styles.layoutInput}>
         <InputLabel htmlFor="trip" text="テンプレートにするたび">
           <SelectBase
+            disabled={!!data}
             isInvalid={false}
             options={formatSelectTrips(triplinks)}
             placeholder={data ? data.title : 'たびを選択'}

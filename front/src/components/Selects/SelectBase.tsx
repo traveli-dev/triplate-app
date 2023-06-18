@@ -5,6 +5,7 @@ type SelectBaseProps = {
   placeholder: string
   isInvalid: boolean
   register: UseFormRegisterReturn
+  disabled: boolean
   options: {
     name: string
     id: string
@@ -15,11 +16,12 @@ export const SelectBase = ({
   placeholder,
   options,
   isInvalid,
-  register
+  register,
+  disabled
 }: SelectBaseProps) => {
   return (
     <div css={styles.wrapper}>
-      <select css={styles.select(isInvalid)} {...register}>
+      <select css={styles.select(isInvalid)} disabled={disabled} {...register}>
         <option css={styles.placeholder} disabled value="">
           {placeholder}
         </option>
