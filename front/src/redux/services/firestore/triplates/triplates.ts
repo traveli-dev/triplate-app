@@ -7,17 +7,14 @@ import {
   getDoc,
   updateDoc,
   Timestamp,
-  runTransaction
+  runTransaction,
+  CollectionReference,
+  query,
+  where,
+  getDocs
 } from 'firebase/firestore'
 import { db } from '@/lib/firebase'
 import { MyTriplinksType, baseFirestoreApi } from '@/redux/services/firestore'
-
-export type TriplateMemoryType = {
-  title: string
-  day: string
-  thumbnail: string
-  keywords: string[]
-}
 
 export type TriplateType = {
   triplinkId: string
@@ -25,7 +22,7 @@ export type TriplateType = {
   thumbnail: string
   date: [Timestamp, Timestamp]
   description: string | null
-  tags: string[]
+  tags: string[] | null
   isPublished: boolean
   privacySettings: {
     isMemoPublic: boolean
@@ -34,6 +31,10 @@ export type TriplateType = {
   }
   createdAt: Timestamp
   updatedAt: Timestamp | null
+}
+
+export type GetTriplateType = TriplateType & {
+  id: string
 }
 
 type TriplateCreateRequestType = {
@@ -63,6 +64,26 @@ const triplatesApi = baseFirestoreApi.injectEndpoints({
           if (!triplateExists) return { data: null }
 
           return { data: snapshot.data() }
+        } catch (err) {
+          // TODO: エラー処理
+          return { error: err }
+        }
+      },
+      providesTags: ['Triplate']
+    }),
+    getAllPublishedTriplates: builder.query<GetTriplateType[], void>({
+      queryFn: async () => {
+        try {
+          const ref = collection(
+            db,
+            'triplates'
+          ) as CollectionReference<TriplateType>
+          const q = query(ref, where('isPublished', '==', true))
+          const docs = await getDocs(q)
+
+          const data = docs.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+
+          return { data }
         } catch (err) {
           // TODO: エラー処理
           return { error: err }
@@ -156,5 +177,6 @@ const triplatesApi = baseFirestoreApi.injectEndpoints({
 export const {
   useGetTriplateQuery,
   useCreateTriplateMutation,
-  useUpdateTriplateMutation
+  useUpdateTriplateMutation,
+  useGetAllPublishedTriplatesQuery
 } = triplatesApi

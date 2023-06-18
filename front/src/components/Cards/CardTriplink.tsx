@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { Timestamp } from 'firebase/firestore'
 import { styles } from '@/styles/components/Cards/CardTriplink.styles'
-import { formatDate } from '@/utils/formats'
+import { formatDate } from '@/utils/dates'
 
 // 仮置きの型設定
 type CardTriplinkProps = {
