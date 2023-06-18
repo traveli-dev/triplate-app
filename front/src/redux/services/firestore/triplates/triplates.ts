@@ -1,4 +1,3 @@
-import { FirebaseError } from 'firebase/app'
 import {
   collection,
   doc,
@@ -65,18 +64,7 @@ const triplatesApi = baseFirestoreApi.injectEndpoints({
           if (!triplateExists) return { data: null }
 
           return { data: snapshot.data() }
-        } catch (err) {
-          let error
-
-          if (err instanceof FirebaseError) {
-            error = {
-              code: err.code
-            }
-          } else {
-            error = {
-              code: 'unexpected-error'
-            }
-          }
+        } catch (error) {
           return { error }
         }
       },
@@ -95,9 +83,8 @@ const triplatesApi = baseFirestoreApi.injectEndpoints({
           const data = docs.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
 
           return { data }
-        } catch (err) {
-          // TODO: エラー処理
-          return { error: err }
+        } catch (error) {
+          return { error }
         }
       },
       providesTags: ['Triplate']
@@ -136,18 +123,7 @@ const triplatesApi = baseFirestoreApi.injectEndpoints({
           return {
             data: 'OK'
           }
-        } catch (err) {
-          let error
-
-          if (err instanceof FirebaseError) {
-            error = {
-              code: err.code
-            }
-          } else {
-            error = {
-              code: 'unexpected-error'
-            }
-          }
+        } catch (error) {
           return { error }
         }
       },
@@ -166,18 +142,7 @@ const triplatesApi = baseFirestoreApi.injectEndpoints({
           return {
             data: 'OK'
           }
-        } catch (err) {
-          let error
-
-          if (err instanceof FirebaseError) {
-            error = {
-              code: err.code
-            }
-          } else {
-            error = {
-              code: 'unexpected-error'
-            }
-          }
+        } catch (error) {
           return { error }
         }
       },

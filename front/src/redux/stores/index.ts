@@ -19,3 +19,11 @@ export {
   currentUserReducers,
   currentUserSelectors
 } from '@/redux/stores/users/userSlice'
+
+// エラー
+export {
+  errorReducers,
+  setError,
+  clearError
+} from '@/redux/stores/errors/errorSlice'
+export { errorHandler } from '@/redux/stores/errors/errorHandler'

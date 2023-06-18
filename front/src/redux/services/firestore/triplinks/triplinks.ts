@@ -30,9 +30,8 @@ export const triplinksApi = baseFirestoreApi.injectEndpoints({
           const docs = await getDoc(ref)
 
           return { data: docs.data() }
-        } catch (err) {
-          // TODO: エラー処理
-          return { error: err }
+        } catch (error) {
+          return { error }
         }
       }
     })
