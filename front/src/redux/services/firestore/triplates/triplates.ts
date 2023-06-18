@@ -81,6 +81,10 @@ const triplatesApi = baseFirestoreApi.injectEndpoints({
             collection(db, 'users', uid, 'myTriplinks'),
             body.triplinkId
           ) as DocumentReference<MyTriplinksType>
+          const myTriplatesRef = doc(
+            collection(db, 'users', uid, 'myTriplates'),
+            id
+          )
 
           // myTripsにtriplateIdを紐付け
           await runTransaction(db, async (transaction) => {
@@ -89,6 +93,9 @@ const triplatesApi = baseFirestoreApi.injectEndpoints({
               createdAt: serverTimestamp()
             })
             transaction.update(myTripsRef, {
+              triplateId: id
+            })
+            transaction.set(myTriplatesRef, {
               triplateId: id
             })
           })

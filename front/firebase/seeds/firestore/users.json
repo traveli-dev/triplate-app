@@ -31,6 +31,14 @@
             "isAuthor": true,
             "triplateId": "1bcecdd8-fed9-4d72-8a40-b54c7b9ec05b"
           }
+        },
+        "users/C5Ja2gXGLeIXTjhWZbDiWUWe8Whd/myTriplates": {
+          "0bcecdd8-fed9-4d72-8a40-b54c7b9ec05b": {
+            "triplateId": "0bcecdd8-fed9-4d72-8a40-b54c7b9ec05b"
+          },
+          "1bcecdd8-fed9-4d72-8a40-b54c7b9ec05b": {
+            "triplateId": "1bcecdd8-fed9-4d72-8a40-b54c7b9ec05b"
+          }
         }
       }
     },
