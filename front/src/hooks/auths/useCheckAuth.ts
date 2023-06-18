@@ -20,6 +20,7 @@ export const useCheckAuth = () => {
     '/notifications',
     '/settings',
     '/triplate/new',
+    '/triplate/[triplateId]/edit',
     '/triplink'
   ]
 

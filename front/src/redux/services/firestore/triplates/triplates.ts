@@ -18,6 +18,7 @@ import { MyTriplinksType, baseFirestoreApi } from '@/redux/services/firestore'
 
 export type TriplateType = {
   triplinkId: string
+  ownerId: string
   title: string
   thumbnail: string
   date: [Timestamp, Timestamp]
@@ -65,8 +66,18 @@ const triplatesApi = baseFirestoreApi.injectEndpoints({
 
           return { data: snapshot.data() }
         } catch (err) {
-          // TODO: エラー処理
-          return { error: err }
+          let error
+
+          if (err instanceof FirebaseError) {
+            error = {
+              code: err.code
+            }
+          } else {
+            error = {
+              code: 'unexpected-error'
+            }
+          }
+          return { error }
         }
       },
       providesTags: ['Triplate']
@@ -111,6 +122,7 @@ const triplatesApi = baseFirestoreApi.injectEndpoints({
           await runTransaction(db, async (transaction) => {
             transaction.set(triplateRef, {
               ...body,
+              ownerId: uid,
               createdAt: serverTimestamp()
             })
             transaction.update(myTripsRef, {
