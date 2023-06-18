@@ -1,7 +1,7 @@
 {
   "triplates": {
     "0bcecdd8-fed9-4d72-8a40-b54c7b9ec05b": {
-      "title": "和歌山市ラーメン巡り",
+      "title": "和歌山市ラーメン巡り（公開済み）",
       "thumbnail": "http://localhost:9199/v0/b/traveli-test.appspot.com/o/images%2Ftriplinks%2Fb533283c-adde-4107-aa0a-943ddccb5278%2Fthumbnail?alt=media",
       "date": [
         { "_seconds": 1686495600, "_nanoseconds": 0 },
@@ -19,7 +19,7 @@
       }
     },
     "1bcecdd8-fed9-4d72-8a40-b54c7b9ec05b": {
-      "title": "神社巡り",
+      "title": "神社巡り（下書き）",
       "thumbnail": "http://localhost:9199/v0/b/traveli-test.appspot.com/o/images%2Ftriplinks%2Fb21323a4-05f8-42db-9ce7-a2f29946595f%2Fthumbnail?alt=media",
       "date": [
         { "_seconds": 1670684400, "_nanoseconds": 0 },
@@ -28,7 +28,7 @@
       "isOwnerId": "C5Ja2gXGLeIXTjhWZbDiWUWe8Whd",
       "triplinkId": "b21323a4-05f8-42db-9ce7-a2f29946595f",
       "description": "いつメン３人で神社巡り行ったよいつメン３人で神社めぐり行ったよいつメン３人で",
-      "isPublished": true,
+      "isPublished": false,
       "tags": null,
       "privacySettings": {
         "isMemoPublic": false,
