@@ -15,7 +15,7 @@ import {
 
 export type MyTriplinksType = {
   isAuthor: boolean
-  isTriplateCreated: boolean
+  triplateId: string | null
 }
 
 type FormatedTriplinksType = {
@@ -94,7 +94,7 @@ const myTriplinksApi = baseFirestoreApi.injectEndpoints({
             'myTriplinks'
           ) as CollectionReference<MyTriplinksType>
           const triplateUncreatedDocs = await getDocs(
-            query(myTriplinksRef, where('isTriplateCreated', '==', false))
+            query(myTriplinksRef, where('triplateId', '==', null))
           )
           const triplinkIds = triplateUncreatedDocs.docs.map((doc) => doc.id)
 

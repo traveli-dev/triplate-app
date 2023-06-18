@@ -46,7 +46,7 @@ export const FormCreateUpdateTriplateSettings = ({
           <SelectBase
             isInvalid={false}
             options={formatSelectTrips(triplinks)}
-            placeholder="たびを選択"
+            placeholder={data ? data.title : 'たびを選択'}
             register={register('triplinkId')}
           />
         </InputLabel>

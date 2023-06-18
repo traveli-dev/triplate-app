@@ -13,7 +13,8 @@ export {
 // users/myTriplinks
 export {
   useGetMyTriplinksQuery,
-  useGetMyTriplinksWithTriplateUncreatedQuery
+  useGetMyTriplinksWithTriplateUncreatedQuery,
+  type MyTriplinksType
 } from '@/redux/services/firestore/users/myTriplinks'
 
 // triplinks

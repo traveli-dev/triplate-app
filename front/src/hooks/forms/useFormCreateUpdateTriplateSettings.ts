@@ -4,12 +4,14 @@ import { useRouter } from 'next/router'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { v4 as uuidv4 } from 'uuid'
 import yup from '@/config/yup.config'
+import { useAppSelector } from '@/redux/rootStore'
 import {
   TriplateType,
   GetTriplinkType,
   useCreateTriplateMutation,
   useUpdateTriplateMutation
 } from '@/redux/services/firestore'
+import { currentUserSelectors } from '@/redux/stores'
 
 const triplateId = uuidv4()
 
@@ -20,16 +22,18 @@ export const useFormCreateUpdateTriplateSettings = (
   const [createTriplateSettings] = useCreateTriplateMutation()
   const [updateTriplateSettings] = useUpdateTriplateMutation()
 
+  const currentUesrData = useAppSelector(currentUserSelectors.currentUserData)
+
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors, isDirty, isValid, isSubmitting, isSubmitSuccessful }
   } = useForm<TriplateType>({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(triplateSettingsData ? updateSchema : createSchema),
     mode: 'onChange',
     defaultValues: {
-      triplinkId: triplateSettingsData?.triplinkId ?? '',
+      triplinkId: '',
       description: triplateSettingsData?.description ?? '',
       tags: triplateSettingsData?.tags ?? [],
       privacySettings: {
@@ -74,6 +78,7 @@ export const useFormCreateUpdateTriplateSettings = (
 
     await createTriplateSettings({
       id: triplateId,
+      uid: currentUesrData.uid,
       body
     }).unwrap()
     router.push(`/triplate/${triplateId}/edit/memory`)
@@ -97,7 +102,7 @@ export const useFormCreateUpdateTriplateSettings = (
   }
 }
 
-const schema = yup.object({
+const createSchema = yup.object({
   triplinkId: yup.string().required('テンプレートにするたびは必須です'),
   tags: yup.array().of(yup.string()),
   description: yup
@@ -112,4 +117,8 @@ const schema = yup.object({
       .boolean()
       .required('ひとことメモの公開設定は必須です')
   })
+})
+
+const updateSchema = createSchema.shape({
+  triplinkId: yup.string()
 })

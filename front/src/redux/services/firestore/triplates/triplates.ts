@@ -3,14 +3,14 @@ import {
   collection,
   doc,
   serverTimestamp,
-  setDoc,
   DocumentReference,
   getDoc,
   updateDoc,
-  Timestamp
+  Timestamp,
+  runTransaction
 } from 'firebase/firestore'
 import { db } from '@/lib/firebase'
-import { baseFirestoreApi } from '@/redux/services/firestore'
+import { MyTriplinksType, baseFirestoreApi } from '@/redux/services/firestore'
 
 export type TriplateMemoryType = {
   title: string
@@ -32,9 +32,17 @@ export type TriplateType = {
     isTimePublic: boolean
     isItineraryPublic: boolean
   }
+  createdAt: Timestamp
+  updatedAt: Timestamp | null
 }
 
-type TriplateRequestType = {
+type TriplateCreateRequestType = {
+  id: string
+  uid: string
+  body: TriplateType
+}
+
+type TriplateUpdateRequestType = {
   id: string
   body: TriplateType
 }
@@ -62,14 +70,27 @@ const triplatesApi = baseFirestoreApi.injectEndpoints({
       },
       providesTags: ['Triplate']
     }),
-    createTriplate: builder.mutation<string, TriplateRequestType>({
-      queryFn: async ({ id, body }) => {
+    createTriplate: builder.mutation<string, TriplateCreateRequestType>({
+      queryFn: async ({ id, uid, body }) => {
         try {
-          const ref = doc(collection(db, 'triplates'), id)
+          const triplateRef = doc(
+            collection(db, 'triplates'),
+            id
+          ) as DocumentReference<TriplateType>
+          const myTripsRef = doc(
+            collection(db, 'users', uid, 'myTriplinks'),
+            body.triplinkId
+          ) as DocumentReference<MyTriplinksType>
 
-          await setDoc(ref, {
-            ...body,
-            createdAt: serverTimestamp()
+          // myTripsにtriplateIdを紐付け
+          await runTransaction(db, async (transaction) => {
+            transaction.set(triplateRef, {
+              ...body,
+              createdAt: serverTimestamp()
+            })
+            transaction.update(myTripsRef, {
+              triplateId: id
+            })
           })
 
           return {
@@ -92,7 +113,7 @@ const triplatesApi = baseFirestoreApi.injectEndpoints({
       },
       invalidatesTags: (_result, error) => (error ? [] : ['Triplate'])
     }),
-    updateTriplate: builder.mutation<string, TriplateRequestType>({
+    updateTriplate: builder.mutation<string, TriplateUpdateRequestType>({
       queryFn: async ({ id, body }) => {
         try {
           const ref = doc(collection(db, 'triplates'), id)
