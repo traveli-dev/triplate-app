@@ -42,7 +42,8 @@ const myTriplinksApi = baseFirestoreApi.injectEndpoints({
           const myTriplinksDocs = await getDocs(myTriplinksRef)
           const triplinkIds = myTriplinksDocs.docs.map((doc) => doc.id)
 
-          if (triplinkIds.length === 0) return {}
+          if (triplinkIds.length === 0)
+            return { data: { joinTrips: [], myTrips: [] } }
 
           // triplinksコレクションから，自分が参加or作成したtriplinkを配列で取得し，idをキーとするオブジェクトに変換
           const triplinksRef = collection(
@@ -74,10 +75,9 @@ const myTriplinksApi = baseFirestoreApi.injectEndpoints({
             },
             { myTrips: [], joinTrips: [] }
           )
-
           return { data }
-        } catch (err) {
-          return { error: err }
+        } catch (error) {
+          return { error }
         }
       }
     }),
@@ -99,7 +99,7 @@ const myTriplinksApi = baseFirestoreApi.injectEndpoints({
           )
           const triplinkIds = triplateUncreatedDocs.docs.map((doc) => doc.id)
 
-          if (triplinkIds.length === 0) return {}
+          if (triplinkIds.length === 0) return { data: [] }
 
           // triplinksコレクションから，自分が参加or作成したtriplinkを配列で取得し，idをキーとするオブジェクトに変換
           const triplinksRef = collection(

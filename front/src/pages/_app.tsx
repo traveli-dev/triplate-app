@@ -12,20 +12,24 @@ import { globalStyle } from '@/styles/globalStyle'
 import '@/lib/firebase'
 
 const App = ({ Component, pageProps }: AppProps) => {
+  // TODO: 暫定措置 認証修正する時に直す
   const router = useRouter()
-
-  if (!router.isReady) return <>ローディング</>
+  const isReady = router.isReady || router.pathname === '/auth'
 
   return (
     <Provider store={store}>
       <Global styles={globalStyle} />
       <DefaultSeo {...SEO} />
       <Layout>
-        <ErrorBoundary>
-          <CheckAuth>
-            <Component {...pageProps} />
-          </CheckAuth>
-        </ErrorBoundary>
+        {isReady ? (
+          <ErrorBoundary>
+            <CheckAuth>
+              <Component {...pageProps} />
+            </CheckAuth>
+          </ErrorBoundary>
+        ) : (
+          <>ローディング</>
+        )}
       </Layout>
     </Provider>
   )
