@@ -12,6 +12,7 @@ import {
   useUpdateTriplateMutation
 } from '@/redux/services/firestore'
 import { currentUserSelectors } from '@/redux/stores'
+import { formatTimestamp } from '@/utils/dates'
 import { extractTags, joinTags } from '@/utils/tags'
 
 const triplateId = uuidv4()
@@ -79,7 +80,7 @@ export const useFormCreateUpdateTriplateSettings = (
       triplinkId: triplinkData.id,
       title: triplinkData.title,
       thumbnail: triplinkData.thumbnail,
-      date: triplinkData.date,
+      date: formatTimestamp(triplinkData.date),
       isPublished: false
     }
 
