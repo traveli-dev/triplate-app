@@ -1,5 +1,6 @@
 import { Provider } from 'react-redux'
 import type { AppProps } from 'next/app'
+import { useRouter } from 'next/router'
 import { DefaultSeo } from 'next-seo'
 import { Global } from '@emotion/react'
 import { CheckAuth } from '@/components/Auths'
@@ -11,6 +12,10 @@ import { globalStyle } from '@/styles/globalStyle'
 import '@/lib/firebase'
 
 const App = ({ Component, pageProps }: AppProps) => {
+  const router = useRouter()
+
+  if (!router.isReady) return <>ローディング</>
+
   return (
     <Provider store={store}>
       <Global styles={globalStyle} />
@@ -25,8 +30,5 @@ const App = ({ Component, pageProps }: AppProps) => {
     </Provider>
   )
 }
-
-// router.queryの初回undefinedを消す
-App.getInitialProps = async () => ({ pageProps: {} })
 
 export default App
