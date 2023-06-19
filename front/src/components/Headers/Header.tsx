@@ -17,7 +17,6 @@ type HeaderProps = {
   noBorder?: boolean
 }
 
-
 export const Header = ({
   title,
   href,
