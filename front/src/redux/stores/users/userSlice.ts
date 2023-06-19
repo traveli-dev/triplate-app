@@ -4,14 +4,14 @@ import { usersApi } from '@/redux/services/firestore/'
 
 type CurrentUserType = {
   name: string
-  icon: string | null
+  icon: string
   userId: string
   uid: string
 }
 
 const initialState: CurrentUserType = {
   name: '',
-  icon: null,
+  icon: '',
   userId: '',
   uid: ''
 }

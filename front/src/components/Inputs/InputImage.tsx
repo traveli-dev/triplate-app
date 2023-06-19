@@ -4,14 +4,25 @@ import { HiOutlineUpload } from 'react-icons/hi'
 import { useInputImage } from '@/hooks/inputs'
 import { styles } from '@/styles/components/Inputs/InputImage.styles'
 
+export type InputImageType = 'avatar' | 'thumbnail'
+
 type InputImageProps = ComponentPropsWithRef<'input'> & {
   src: string
   uploading: boolean
+  type: InputImageType
+  text?: string
   onChange: (e: ChangeEvent<HTMLInputElement>) => void
 }
 
-export const InputImage = ({ src, uploading, ...props }: InputImageProps) => {
+export const InputImage = ({
+  src,
+  uploading,
+  type,
+  text,
+  ...props
+}: InputImageProps) => {
   const { inputRef, onClickImage } = useInputImage()
+
   return (
     <>
       <input
@@ -22,15 +33,30 @@ export const InputImage = ({ src, uploading, ...props }: InputImageProps) => {
         {...props}
       />
       {src ? (
-        <div css={styles.previewImageWrapper}>
-          <Image alt="" css={styles.previewImage} fill src={src} />
-        </div>
+        <button
+          css={type === 'thumbnail' && styles.previewWrapper}
+          onClick={onClickImage}
+        >
+          <div css={styles.previewImage(type)}>
+            <Image alt="" css={styles.image} fill src={src} />
+          </div>
+          {text && <span css={styles.text}>{text}</span>}
+        </button>
       ) : (
-        <button css={styles.uploadImage} onClick={onClickImage}>
+        <button css={styles.defaultImage(type)} onClick={onClickImage}>
           <HiOutlineUpload size={24} />
           {/* TODO: ローディングアニメーション */}
           {uploading && <>ローディング</>}
-          <span>画像をアップロード</span>
+          {type === 'thumbnail' ? (
+            <span>画像をアップロード</span>
+          ) : (
+            <span>
+              ユーザ画像を
+              <br />
+              アップロード
+            </span>
+          )}
+          {text && <span css={styles.text}>{text}</span>}
         </button>
       )}
     </>

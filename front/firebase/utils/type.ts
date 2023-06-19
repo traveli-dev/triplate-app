@@ -6,6 +6,7 @@ export type TestUserType = {
   displayName: string
   photURL: string
   disabled: boolean
+  uid: string
 }
 
 export type ServiceAccountType = {

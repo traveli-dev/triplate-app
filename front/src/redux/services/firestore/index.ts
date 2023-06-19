@@ -5,7 +5,9 @@ export {
   usersApi,
   useGetUserQuery,
   useCreateUserMutation,
-  type UserType
+  useUpdateUserMutation,
+  type UserType,
+  type UserRequestBodyType
 } from '@/redux/services/firestore/users/users'
 
 // triplinks
@@ -21,3 +23,6 @@ export {
   useGetAllTriplatesQuery,
   type TriplateType
 } from '@/redux/services/firestore/triplates/triplates'
+
+// indexes
+export { useCheckUniqueUserIdQuery } from '@/redux/services/firestore/indexes/indexes'

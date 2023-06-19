@@ -73,6 +73,7 @@ export const CardTriplinkEdit = ({
         <div css={styles.layoutInputItem}>
           <InputText
             css={[styles.input, cardType === 'map' && styles.readonly]}
+            isInvalid={false}
             placeholder="たびに関するURL"
             readOnly={cardType === 'map'}
           />
@@ -81,13 +82,17 @@ export const CardTriplinkEdit = ({
       <div css={styles.inputItemWrapper}>
         <HiOutlinePencilAlt size={20} />
         <div css={styles.layoutInputItem}>
-          <InputText css={styles.input} placeholder="タイトル" />
+          <InputText
+            css={styles.input}
+            isInvalid={false}
+            placeholder="タイトル"
+          />
         </div>
       </div>
       <div css={[styles.inputItemWrapper, timeHidden && styles.hidden]}>
         <HiOutlineClock size={20} />
         <div css={styles.layoutInputItem}>
-          <InputText css={styles.input} placeholder="00:00" />
+          <InputText css={styles.input} isInvalid={false} placeholder="00:00" />
         </div>
         <div css={styles.layoutIconButton}>
           <button
@@ -104,7 +109,11 @@ export const CardTriplinkEdit = ({
       <div css={[styles.inputItemWrapper, memoHidden && styles.hidden]}>
         <HiOutlineDocumentText size={20} />
         <div css={styles.layoutInputItem}>
-          <InputText css={styles.input} placeholder="ひとことメモ" />
+          <InputText
+            css={styles.input}
+            isInvalid={false}
+            placeholder="ひとことメモ"
+          />
         </div>
         <div css={styles.layoutIconButton}>
           <button

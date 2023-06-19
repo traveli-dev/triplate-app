@@ -30,9 +30,14 @@ export const globalStyle = () => css`
   }
 
   button {
+    padding: 0;
     color: ${theme.color.black};
     cursor: pointer;
     background-color: transparent;
     border: none;
+  }
+
+  label {
+    cursor: pointer;
   }
 `

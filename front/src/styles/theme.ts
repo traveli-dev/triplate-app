@@ -1,10 +1,12 @@
 const color = {
   black: '#0f141a',
   gray: '#595959',
+  red: '#CC1818',
   white: '#ffffff',
   blue: '#4272ef',
   pink: '#f3377e',
   hoverBlue: '#5a88ff',
+  hoverBlack: '#262C34',
   hoverPink: '#f15d96',
   bgGray: '#f2f2f2',
   gray100: '#f9f8f8',

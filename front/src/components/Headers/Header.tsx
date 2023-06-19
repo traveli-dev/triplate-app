@@ -1,4 +1,5 @@
 import { IconType } from 'react-icons'
+import { MouseEventHandler } from 'react'
 import Link from 'next/link'
 import { HiOutlineChevronLeft } from 'react-icons/hi'
 import { Container } from '@/components/Containers'
@@ -10,14 +11,17 @@ import {
 type HeaderProps = {
   href?: `/${string}`
   title?: string
+  onClick?: MouseEventHandler<HTMLButtonElement>
   ToolIcon?: IconType
   toolHref?: `/${string}`
   noBorder?: boolean
 }
 
+
 export const Header = ({
   title,
   href,
+  onClick,
   ToolIcon,
   toolHref,
   noBorder
@@ -29,6 +33,11 @@ export const Header = ({
           <Link css={styles.leftIconWrapper} href={href}>
             <HiOutlineChevronLeft size={24} />
           </Link>
+        )}
+        {onClick && (
+          <button css={styles.leftIconWrapper} onClick={onClick}>
+            <HiOutlineChevronLeft size={24} />
+          </button>
         )}
         {title && <h1 css={styles.title}>{title}</h1>}
         {ToolIcon && toolHref && (

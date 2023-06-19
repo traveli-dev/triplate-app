@@ -6,6 +6,9 @@ const meta: Meta<typeof InputText> = {
   argTypes: {
     placeholder: {
       description: 'placeholder要素が入ります'
+    },
+    isInvalid: {
+      description: 'trueの時invalid時のUIになる'
     }
   },
   tags: ['autodocs']
@@ -17,7 +20,8 @@ type Story = StoryObj<typeof InputText>
 
 export const Default: Story = {
   args: {
-    placeholder: 'テキスト'
+    placeholder: 'テキスト',
+    isInvalid: false
   },
   parameters: {
     backgrounds: {

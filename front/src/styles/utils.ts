@@ -10,13 +10,52 @@ export const mq = (breakpointKey: BreakpointKeyType) => {
   return mediaQuery
 }
 
+// リンクテキストのホバーアニメーション（ボーターボトム）
+export const linkHoverAnimationBottom = css`
+  position: relative;
+  @media screen and (prefers-reduced-motion: reduce) {
+    &::before {
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      content: '';
+      background-color: ${theme.color.hoverBlack};
+      border-radius: 2px;
+      transition: none;
+      transform: scaleX(0);
+      transform-origin: center;
+    }
+  }
+  &::before {
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    content: '';
+    background-color: ${theme.color.hoverBlack};
+    border-radius: 2px;
+    transition: transform 0.3s ease-in-out;
+    transform: scaleX(0);
+    transform-origin: center;
+  }
+  &:hover::before,
+  &:focus::before {
+    transform: scaleX(1);
+    transform-origin: center;
+  }
+`
+
+// 波紋と押し込めるやつ
 type ButtonAnimationType = {
   // 値が低いほどより小さく押し込まれれる 0 ~ 1
   scale: number
   // seconds
   transition: `${string}s`
 }
-// 波紋と押し込めるやつ
+
 export const buttonAnimation = ({
   scale,
   transition

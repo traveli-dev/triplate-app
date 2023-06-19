@@ -14,12 +14,20 @@ export const FormCreateUpdateTriplink = () => {
       <div css={styles.formWrapper}>
         <div css={styles.layoutInput}>
           <InputLabel htmlFor="name" text="旅の名前">
-            <InputText id="name" placeholder="ともだちと京都旅行" />
+            <InputText
+              id="name"
+              isInvalid={false}
+              placeholder="ともだちと京都旅行"
+            />
           </InputLabel>
         </div>
         <div css={styles.layoutInput}>
           <InputLabel htmlFor="date" text="日付">
-            <InputText id="name" placeholder="0000/00/00 ~ 0000/00/00" />
+            <InputText
+              id="name"
+              isInvalid={false}
+              placeholder="0000/00/00 ~ 0000/00/00"
+            />
           </InputLabel>
         </div>
         <div css={styles.layoutInput}>
@@ -27,6 +35,7 @@ export const FormCreateUpdateTriplink = () => {
             <InputImage
               id="image"
               src={url}
+              type="thumbnail"
               uploading={uploading}
               onChange={handleUploadImage}
             />

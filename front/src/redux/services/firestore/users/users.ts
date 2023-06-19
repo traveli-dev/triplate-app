@@ -1,3 +1,4 @@
+import { FirebaseError } from 'firebase/app'
 import {
   DocumentReference,
   Timestamp,
@@ -5,14 +6,14 @@ import {
   doc,
   getDoc,
   serverTimestamp,
-  setDoc
+  updateDoc,
+  writeBatch
 } from 'firebase/firestore'
 import { db } from '@/lib/firebase'
 import { baseFirestoreApi } from '@/redux/services/firestore'
 
 export type UserType = {
-  email: string
-  icon: string | null
+  icon: string
   name: string
   userId: string
   description: string | null
@@ -20,19 +21,29 @@ export type UserType = {
     instagram: string | null
     twitter: string | null
   }
-  uid: string
   createdAt: Timestamp
   updatedAt: Timestamp | null
 }
 
-type CreateUserType = {
-  id: string
-  body: Omit<UserType, 'createdAt' | 'updatedAt' | 'uid'>
+type GetUserType = UserType & {
+  uid: string
 }
+
+type CreateUserType = {
+  uid: string
+  body: UserRequestBodyType
+}
+
+type UpdateUserType = {
+  uid: string
+  body: UserRequestBodyType
+}
+
+export type UserRequestBodyType = Omit<UserType, 'updatedAt' | 'createdAt'>
 
 export const usersApi = baseFirestoreApi.injectEndpoints({
   endpoints: (builder) => ({
-    getUser: builder.query<UserType | null, string>({
+    getUser: builder.query<GetUserType | null, string>({
       queryFn: async (uid) => {
         try {
           const ref = doc(
@@ -55,17 +66,78 @@ export const usersApi = baseFirestoreApi.injectEndpoints({
       providesTags: ['User']
     }),
     createUser: builder.mutation<string, CreateUserType>({
-      queryFn: async ({ id, body }) => {
+      queryFn: async ({ uid, body }) => {
         try {
-          await setDoc(doc(db, 'users', id), {
+          const batch = writeBatch(db)
+
+          // user情報を登録
+          const docRef = doc(db, 'users', uid)
+          batch.set(docRef, {
             ...body,
             createdAt: serverTimestamp()
+          })
+
+          // uniqueなフィールドをindexに登録
+          const indexUserIdRef = doc(
+            db,
+            'indexes',
+            'users',
+            'userId',
+            body.userId
+          )
+          batch.set(indexUserIdRef, {
+            user: uid
+          })
+
+          await batch.commit()
+
+          return {
+            data: 'OK'
+          }
+        } catch (err) {
+          let error
+
+          if (err instanceof FirebaseError) {
+            error = {
+              code: err.code
+            }
+          } else {
+            error = {
+              code: 'unexpected-error'
+            }
+          }
+
+          return { error }
+        }
+      },
+      invalidatesTags: (_result, error) => (error ? [] : ['User'])
+    }),
+    updateUser: builder.mutation<string, UpdateUserType>({
+      queryFn: async ({ uid, body }) => {
+        try {
+          const ref = doc(collection(db, 'users'), uid)
+
+          await updateDoc(ref, {
+            ...body,
+            updatedAt: serverTimestamp()
           })
 
           return {
             data: 'OK'
           }
-        } catch (error) {
+        } catch (err) {
+          let error
+
+          if (err instanceof FirebaseError) {
+            error = {
+              code: err.code
+            }
+          } else {
+            error = {
+              code: 'unexpected-error'
+            }
+          }
+
           return { error }
         }
       },
@@ -75,4 +147,5 @@ export const usersApi = baseFirestoreApi.injectEndpoints({
   overrideExisting: false
 })
 
-export const { useGetUserQuery, useCreateUserMutation } = usersApi
+export const { useGetUserQuery, useCreateUserMutation, useUpdateUserMutation } =
+  usersApi

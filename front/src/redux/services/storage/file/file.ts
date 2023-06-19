@@ -20,7 +20,7 @@ const fileApi = baseStorageApi.injectEndpoints({
           return { data: url }
         } catch (error) {
           // TODO: エラー処理
-          return { error: 'error' }
+          return { error }
         }
       }
     })
