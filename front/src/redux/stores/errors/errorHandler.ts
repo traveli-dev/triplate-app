@@ -3,7 +3,8 @@ import { setError } from '@/redux/stores'
 
 export const errorHandler: Middleware = () => (next) => (action) => {
   if (isRejectedWithValue(action)) {
-    // Getリクエスト失敗時
+    // Getリクエスト失敗時のみハンドリング
+    // Create, Updateはボタン押下時にトーストを出す
     if (action.type === 'baseFirestoreApi/executeQuery/rejected') {
       next(
         setError({

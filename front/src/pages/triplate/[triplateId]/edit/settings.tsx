@@ -10,7 +10,10 @@ const TriplateEditSettings = () => {
   const router = useRouter()
   const { triplateId } = router.query
   const currentUserData = useAppSelector(currentUserSelectors.currentUserData)
-  const { data, isLoading } = useGetTriplateQuery(String(triplateId))
+  const { data, isLoading } = useGetTriplateQuery({
+    triplateId: String(triplateId),
+    uid: currentUserData.uid
+  })
 
   return (
     <>
@@ -23,11 +26,7 @@ const TriplateEditSettings = () => {
           <>ローディング</>
         ) : (
           <div>
-            {currentUserData.uid !== data.ownerId ? (
-              <>その操作は許可されていません</>
-            ) : (
-              <FormCreateUpdateTriplateSettings data={data} />
-            )}
+            <FormCreateUpdateTriplateSettings data={data} />
           </div>
         )}
       </Container>

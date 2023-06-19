@@ -1,3 +1,4 @@
+import { FirebaseError } from 'firebase/app'
 import {
   collection,
   doc,
@@ -48,22 +49,36 @@ type TriplateUpdateRequestType = {
   body: TriplateType
 }
 
+type GetTriplateRequestType = {
+  uid?: string
+  triplateId: string
+}
+
 const triplatesApi = baseFirestoreApi.injectEndpoints({
   endpoints: (builder) => ({
-    getTriplate: builder.query<TriplateType | null, string>({
-      queryFn: async (triplateId) => {
+    getTriplate: builder.query<TriplateType | null, GetTriplateRequestType>({
+      queryFn: async ({ triplateId, uid }) => {
         try {
           const ref = doc(
             collection(db, 'triplates'),
             triplateId
           ) as DocumentReference<TriplateType>
-          const snapshot = await getDoc(ref)
+          const document = await getDoc(ref)
 
-          const triplateExists = snapshot.exists()
-
+          const triplateExists = document.exists()
           if (!triplateExists) return { data: null }
 
-          return { data: snapshot.data() }
+          const data = document.data()
+
+          // editページの時はuidがownerIdと一致しない場合403
+          if (!!uid && uid !== data.ownerId) {
+            throw new FirebaseError(
+              'permission-denied',
+              'その操作は許可されていません'
+            )
+          }
+
+          return { data }
         } catch (error) {
           return { error }
         }

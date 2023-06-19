@@ -9,7 +9,9 @@ const TriplateDetails = () => {
   const router = useRouter()
   const { triplateId } = router.query
   const currentUserData = useAppSelector(currentUserSelectors.currentUserData)
-  const { data, isLoading } = useGetTriplateQuery(String(triplateId))
+  const { data, isLoading } = useGetTriplateQuery({
+    triplateId: String(triplateId)
+  })
 
   return (
     <div>
