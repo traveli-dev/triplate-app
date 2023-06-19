@@ -1,5 +1,5 @@
-import { IconType } from 'react-icons'
 import { MouseEventHandler } from 'react'
+import { IconType } from 'react-icons'
 import Link from 'next/link'
 import { HiOutlineChevronLeft } from 'react-icons/hi'
 import { Container } from '@/components/Containers'
