@@ -3,8 +3,7 @@ import { theme } from '@/styles/theme'
 
 export const styles = {
   button: css`
-    padding: 8px 0;
-    width: 100%;
+    padding: 8px;
     font-size: ${theme.fontSize.sm};
     font-weight: 300;
     color: ${theme.color.black};
@@ -21,7 +20,6 @@ export const styles = {
   `,
   labelWrapper: css`
     display: flex;
-    gap: 8px;
     align-items: center;
     justify-content: center;
     padding: 0 8px;
