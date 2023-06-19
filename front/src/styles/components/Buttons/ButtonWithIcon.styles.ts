@@ -1,6 +1,6 @@
 import { css } from '@emotion/react'
 import { theme } from '@/styles/theme'
-
+// TODO:のちに他ボタンと統合
 export const styles = {
   button: css`
     height: 28px;
