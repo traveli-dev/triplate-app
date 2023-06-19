@@ -23,9 +23,11 @@ const Explore = () => {
         ) : (
           <>
             {data.map((data, index) => (
-              <div css={styles.exploreList} key={index}>
-                <CardExplore {...data} />
-              </div>
+              <Link href={`/triplate/${data.id}`} key={index}>
+                <div css={styles.exploreList}>
+                  <CardExplore {...data} />
+                </div>
+              </Link>
             ))}
           </>
         )}
