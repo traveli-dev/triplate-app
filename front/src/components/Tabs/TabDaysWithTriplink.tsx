@@ -2,10 +2,18 @@ import React from 'react'
 import { Container } from '@/components/Containers'
 import { styles } from '@/styles/components/Tabs/TabDaysWithTriplink.styles'
 
+export type TravelListItemType = {
+  icon: 'map' | 'link' | 'ledger'
+  title: string
+  date?: string
+  memo?: string
+}
+
 type TabDaysWithTriplinkProps = {
   triplinks: {
     day: number
     name: string
+    linkList: TravelListItemType[]
   }[]
 }
 
