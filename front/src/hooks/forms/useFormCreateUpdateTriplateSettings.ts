@@ -12,8 +12,11 @@ import {
   useUpdateTriplateMutation
 } from '@/redux/services/firestore'
 import { currentUserSelectors } from '@/redux/stores'
+import { extractTags, joinTags } from '@/utils/tags'
 
 const triplateId = uuidv4()
+
+type InputType = Omit<TriplateType, 'tags'> & { tags: string | null }
 
 export const useFormCreateUpdateTriplateSettings = (
   triplateSettingsData?: TriplateType
@@ -29,13 +32,13 @@ export const useFormCreateUpdateTriplateSettings = (
     handleSubmit,
     reset,
     formState: { errors, isDirty, isValid, isSubmitting, isSubmitSuccessful }
-  } = useForm<TriplateType>({
+  } = useForm<InputType>({
     resolver: yupResolver(triplateSettingsData ? updateSchema : createSchema),
     mode: 'onChange',
     defaultValues: {
       triplinkId: '',
       description: triplateSettingsData?.description ?? '',
-      tags: triplateSettingsData?.tags ?? [],
+      tags: joinTags(triplateSettingsData?.tags),
       privacySettings: {
         isMemoPublic:
           triplateSettingsData?.privacySettings.isMemoPublic ?? false,
@@ -55,9 +58,13 @@ export const useFormCreateUpdateTriplateSettings = (
     }
   }, [isSubmitSuccessful])
 
-  const onSubmit: SubmitHandler<TriplateType> = async (data) => {
+  const onSubmit: SubmitHandler<InputType> = async (data) => {
+    const tags = extractTags(data.tags ?? '')
+
     try {
-      triplateSettingsData ? await update(data) : await create(data)
+      triplateSettingsData
+        ? await update({ ...data, tags })
+        : await create({ ...data, tags })
     } catch (e) {
       // TODO: errorハンドリング
       console.error(e)
@@ -104,7 +111,7 @@ export const useFormCreateUpdateTriplateSettings = (
 
 const createSchema = yup.object({
   triplinkId: yup.string().required('テンプレートにするたびは必須です'),
-  tags: yup.array().of(yup.string()),
+  tags: yup.string().nullable().convertToNull(),
   description: yup
     .string()
     .maxLength(150, 'たびの説明')

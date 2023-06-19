@@ -75,9 +75,9 @@ export const FormCreateUpdateTriplateSettings = ({
         <InputLabel htmlFor="trip" text="タグ">
           <InputText
             isInvalid={false}
-            placeholder="#お好きなワードをどうぞ"
+            placeholder="#お好きなワードをどうぞ。例: #大阪観光 #たこやき"
             // TODO: tag機能
-            {...register('tags.0')}
+            {...register('tags')}
           />
         </InputLabel>
         {!!errors.tags && (
