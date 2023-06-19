@@ -7,7 +7,7 @@ type AvatarProps = {
 }
 
 export const Avatar = ({ url, size }: AvatarProps) => {
-  const imgSize = { sm: 32, md: 50, lg: 150 }
+  const imgSize = { sm: 32, md: 50, lg: 110 }
 
   return (
     <Image
