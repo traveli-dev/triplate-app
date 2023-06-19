@@ -94,7 +94,7 @@ export const useFormCreateUpdateTriplateSettings = (
 
   const update = async (data: TriplateType) => {
     await updateTriplateSettings({
-      id: triplateId,
+      id: String(router.query.triplateId),
       body: data
     })
   }

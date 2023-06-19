@@ -46,7 +46,7 @@ type TriplateCreateRequestType = {
 
 type TriplateUpdateRequestType = {
   id: string
-  body: TriplateType
+  body: Partial<TriplateType>
 }
 
 type GetTriplateRequestType = {
