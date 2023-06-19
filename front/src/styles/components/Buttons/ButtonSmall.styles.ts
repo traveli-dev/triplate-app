@@ -11,6 +11,7 @@ export const styles = {
     background-color: ${theme.color.bgGray};
     border: 0;
     border-radius: 100px;
+    flex-grow: 1; // ボタンをflexで横並びさせたときに、要素が自動的に伸びるように
     & span[id='bold'] {
       font-weight: 600;
     }
