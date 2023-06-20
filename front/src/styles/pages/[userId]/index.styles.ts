@@ -62,14 +62,28 @@ export const styles = {
   header2: css`
     display: flex;
     align-items: center;
-    /* justify-content: space-between; */
+    justify-content: space-between;
+    margin: 24px 0 16px 0;
+  `,
+  heading2: css`
+    display: flex;
+    align-items: center;
+    h2 {
+      font-size: ${theme.fontSize.lg};
+      font-weight: 600;
+    }
     p {
+      margin-left: 16px;
       font-size: ${theme.fontSize.md};
     }
   `,
-  heading2: css`
-    width: 100%;
-    font-size: ${theme.fontSize.lg};
-    font-weight: 600;
+  icon: css`
+    color: ${theme.color.gray};
+  `,
+  iconLink: css`
+    margin-left: 20px;
+  `,
+  layoutCardTriplate: css`
+    padding-bottom: 16px;
   `
 }

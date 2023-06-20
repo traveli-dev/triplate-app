@@ -6,10 +6,12 @@ import {
   HiOutlineCog,
   HiOutlinePencil,
   HiOutlineShare,
-  HiOutlinePlus
+  HiOutlinePlus,
+  HiOutlineChevronRight
 } from 'react-icons/hi'
 import { Avatar } from '@/components/Avatars'
 import { ButtonFill, ButtonSmall } from '@/components/Buttons'
+import { CardTriplate } from '@/components/Cards'
 import { Container } from '@/components/Containers'
 import { NavigationBottom } from '@/components/Navigations'
 import { useAppSelector } from '@/redux/rootStore'
@@ -17,13 +19,10 @@ import { currentUserSelectors } from '@/redux/stores'
 import { styles } from '@/styles/pages/[userId]/index.styles'
 
 const Mypage = () => {
-  // const router = useRouter()
-  // const { userId } = router.query
-  // const triplateId = '123'
+  const router = useRouter()
 
   // TODO: userIdからGETさせる （今は認証ユーザのデータを表示させてるだけ）
   const user = useAppSelector(currentUserSelectors.currentUserData)
-  // console.log(user)
 
   return (
     <>
@@ -34,11 +33,11 @@ const Mypage = () => {
         <div css={styles.header}>
           <h1 css={styles.heading1}>{user.userId}</h1>
           <div>
-            <Link href="/settings">
-              <HiOutlineCog size={18} />
+            <Link css={styles.iconLink} href="/settings">
+              <HiOutlineCog css={styles.icon} size={24} />
             </Link>
-            <Link href="/notifications">
-              <HiOutlineBell size={18} />
+            <Link css={styles.iconLink} href="/notifications">
+              <HiOutlineBell css={styles.icon} size={24} />
             </Link>
           </div>
         </div>
@@ -65,7 +64,12 @@ const Mypage = () => {
         </div>
         {/* user_action */}
         <div css={styles.actionWrapper}>
-          <ButtonSmall Icon={HiOutlinePencil}>プロフィール設定</ButtonSmall>
+          <ButtonSmall
+            Icon={HiOutlinePencil}
+            onClick={() => router.push('/settings/profile?prev=mypage')}
+          >
+            プロフィール設定
+          </ButtonSmall>
           <ButtonSmall Icon={HiOutlineShare}>プロフィール共有</ButtonSmall>
         </div>
         <div css={styles.layoutButtonFill}>
@@ -74,12 +78,27 @@ const Mypage = () => {
           </ButtonFill>
         </div>
         <div css={styles.header2}>
-          <h2 css={styles.heading2}>たびのテンプレート</h2>
-          <p>0</p>
-          <button>
-            <HiOutlinePencil size={24}/>
-          </button>
+          <div css={styles.heading2}>
+            <h2>たびのテンプレート</h2>
+            <p>12</p>
+          </div>
+          <Link css={styles.iconLink} href="/dashboard">
+            <HiOutlineChevronRight css={styles.icon} size={24} />
+          </Link>
         </div>
+        <Link href="/">
+          <div css={styles.layoutCardTriplate}>
+            <CardTriplate
+              data={{
+                title: 'わかやまデート',
+                day: '2泊3日',
+                thumbnail: '/images/thumbnail_sample.jpg',
+                keywords: ['太平洋酒場', '太平洋酒場']
+              }}
+              isSquare
+            />
+          </div>
+        </Link>
       </Container>
       <NavigationBottom />
     </>
