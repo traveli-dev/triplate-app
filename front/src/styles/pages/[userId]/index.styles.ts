@@ -7,13 +7,18 @@ export const styles = {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 24px 0 8px 0;
   `,
   heading1: css`
-    padding: 24px 0;
+    width: 100%;
     font-size: ${theme.fontSize.lg};
     font-weight: 600;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
   `,
   userInfoWrapper: css`
+    padding-top: 16px;
     text-align: center;
   `,
   userName: css`
@@ -85,5 +90,9 @@ export const styles = {
   `,
   layoutCardTriplate: css`
     padding-bottom: 16px;
+  `,
+  layoutButtonFollow: css`
+    margin: 16px auto 0 auto;
+    text-align: center;
   `
 }
