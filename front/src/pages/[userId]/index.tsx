@@ -110,7 +110,7 @@ const Mypage = () => {
             </Link>
           )}
         </div>
-        <Link href="/">
+        <Link href="/triplate/123">
           <div css={styles.layoutCardTriplate}>
             <CardTriplate
               data={{
