@@ -34,6 +34,7 @@ export const FormCreateUpdateTriplateSettings = ({
     const formatedData =
       triplinks?.map((triplink) => ({
         name: triplink.title,
+        // triplinkデータ全体をvalueにする（リクエスト時にパースする）
         id: JSON.stringify(triplink)
       })) ?? []
     return formatedData
@@ -48,12 +49,12 @@ export const FormCreateUpdateTriplateSettings = ({
             isInvalid={false}
             options={formatSelectTrips(triplinks)}
             placeholder={data ? data.title : 'たびを選択'}
-            register={register('triplinkId')}
+            register={register('triplinkData')}
           />
         </InputLabel>
-        {!!errors.triplinkId && (
+        {!!errors.triplinkData && (
           <div css={styles.layoutErrorMessage}>
-            <InputErrorMessage>{errors.triplinkId.message}</InputErrorMessage>
+            <InputErrorMessage>{errors.triplinkData.message}</InputErrorMessage>
           </div>
         )}
       </div>

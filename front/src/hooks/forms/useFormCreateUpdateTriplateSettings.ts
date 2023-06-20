@@ -17,7 +17,10 @@ import { extractTags, joinTags } from '@/utils/tags'
 
 const triplateId = uuidv4()
 
-type InputType = Omit<TriplateType, 'tags'> & { tags: string | null }
+type InputType = Omit<TriplateType, 'tags' | 'triplinkId'> & {
+  tags: string | null
+  triplinkData: string
+}
 
 export const useFormCreateUpdateTriplateSettings = (
   triplateSettingsData?: TriplateType
@@ -37,7 +40,7 @@ export const useFormCreateUpdateTriplateSettings = (
     resolver: yupResolver(triplateSettingsData ? updateSchema : createSchema),
     mode: 'onChange',
     defaultValues: {
-      triplinkId: '',
+      triplinkData: '',
       description: triplateSettingsData?.description ?? '',
       tags: joinTags(triplateSettingsData?.tags),
       privacySettings: {
@@ -60,28 +63,27 @@ export const useFormCreateUpdateTriplateSettings = (
   }, [isSubmitSuccessful])
 
   const onSubmit: SubmitHandler<InputType> = async (data) => {
-    const tags = extractTags(data.tags ?? '')
-
     try {
-      triplateSettingsData
-        ? await update({ ...data, tags })
-        : await create({ ...data, tags })
+      triplateSettingsData ? await update(data) : await create(data)
     } catch (e) {
       // TODO: errorハンドリング
       console.error(e)
     }
   }
 
-  const create = async (data: TriplateType) => {
-    const triplinkData: GetTriplinkType = JSON.parse(data.triplinkId)
+  const create = async (data: InputType) => {
+    const { triplinkData, ...otherData } = data
+    const tags = extractTags(data.tags ?? '')
+    const parsedData: GetTriplinkType = JSON.parse(triplinkData)
 
     const body = {
-      ...data,
-      triplinkId: triplinkData.id,
-      title: triplinkData.title,
-      thumbnail: triplinkData.thumbnail,
-      date: formatTimestamp(triplinkData.date),
-      isPublished: false
+      ...otherData,
+      triplinkId: parsedData.id,
+      title: parsedData.title,
+      thumbnail: parsedData.thumbnail,
+      date: formatTimestamp(parsedData.date),
+      isPublished: false,
+      tags
     }
 
     await createTriplateSettings({
@@ -92,10 +94,16 @@ export const useFormCreateUpdateTriplateSettings = (
     router.push(`/triplate/${triplateId}/edit/memory`)
   }
 
-  const update = async (data: TriplateType) => {
+  const update = async (data: InputType) => {
+    const tags = extractTags(data.tags ?? '')
+
     await updateTriplateSettings({
       id: String(router.query.triplateId),
-      body: data
+      body: {
+        description: data.description,
+        privacySettings: data.privacySettings,
+        tags
+      }
     })
   }
 
@@ -111,7 +119,7 @@ export const useFormCreateUpdateTriplateSettings = (
 }
 
 const createSchema = yup.object({
-  triplinkId: yup.string().required('テンプレートにするたびは必須です'),
+  triplinkData: yup.string().required('テンプレートにするたびは必須です'),
   tags: yup.string().nullable().convertToNull(),
   description: yup
     .string()
@@ -128,5 +136,5 @@ const createSchema = yup.object({
 })
 
 const updateSchema = createSchema.shape({
-  triplinkId: yup.string()
+  triplinkData: yup.string()
 })

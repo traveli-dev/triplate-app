@@ -1,6 +1,6 @@
 import { Timestamp, getDoc, doc, DocumentReference } from 'firebase/firestore'
 import { db } from '@/lib/firebase'
-import { baseFirestoreApi } from '@/redux/services/firestore/'
+import { baseFirestoreApi } from '@/redux/services/firestore'
 
 export type GetTriplinkType = TriplinkType & {
   id: string
