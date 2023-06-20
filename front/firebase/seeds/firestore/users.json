@@ -14,24 +14,31 @@
         "twitter": null
       },
       "subCollection": {
-        "users/C5Ja2gXGLeIXTjhWZbDiWUWe8Whd/joinTrips": {
-          "1": {
-            "triplinkId": "a0bf63a0-0367-11ee-be56-0242ac120002"
+        "users/C5Ja2gXGLeIXTjhWZbDiWUWe8Whd/myTriplinks": {
+          "a0bf63a0-0367-11ee-be56-0242ac120002": {
+            "isAuthor": false,
+            "triplateId": null
+          },
+          "9bcecdd8-fed9-4d72-8a40-b54c7b9ec05b": {
+            "isAuthor": true,
+            "triplateId": null
+          },
+          "b533283c-adde-4107-aa0a-943ddccb5278": {
+            "isAuthor": true,
+            "triplateId": "0bcecdd8-fed9-4d72-8a40-b54c7b9ec05b"
+          },
+          "b21323a4-05f8-42db-9ce7-a2f29946595f": {
+            "isAuthor": true,
+            "triplateId": "1bcecdd8-fed9-4d72-8a40-b54c7b9ec05b"
           }
         },
-        "users/C5Ja2gXGLeIXTjhWZbDiWUWe8Whd/myTrips": {
-          "1": {
-            "triplinkId": "9bcecdd8-fed9-4d72-8a40-b54c7b9ec05b"
+        "users/C5Ja2gXGLeIXTjhWZbDiWUWe8Whd/myTriplates": {
+          "0bcecdd8-fed9-4d72-8a40-b54c7b9ec05b": {
+            "triplateId": "0bcecdd8-fed9-4d72-8a40-b54c7b9ec05b"
           },
-          "2": {
-            "triplinkId": "b533283c-adde-4107-aa0a-943ddccb5278"
-          },
-          "3": {
-            "triplinkId": "b21323a4-05f8-42db-9ce7-a2f29946595f"
+          "1bcecdd8-fed9-4d72-8a40-b54c7b9ec05b": {
+            "triplateId": "1bcecdd8-fed9-4d72-8a40-b54c7b9ec05b"
           }
-        },
-        "users/C5Ja2gXGLeIXTjhWZbDiWUWe8Whd/favorite": {
-
         }
       }
     },
@@ -49,19 +56,14 @@
         "_nanoseconds": 490000000
       },
       "subCollection": {
-        "users/C00a2gXGLeIXTjhWZbDiWUWe8Whd/joinTrips": {
-          "1": {
-            "triplinkId": "9bcecdd8-fed9-4d72-8a40-b54c7b9ec05b"
-          }
-        },
-        "users/C00a2gXGLeIXTjhWZbDiWUWe8Whd/myTrips": {
-          "1": {
-            "triplinkId": "a0bf63a0-0367-11ee-be56-0242ac120002"
-          }
-        },
-        "users/C00a2gXGLeIXTjhWZbDiWUWe8Whd/favorite": {
-          "1": {
-            "triplinkId": "b21323a4-05f8-42db-9ce7-a2f29946595f"
+        "users/C00a2gXGLeIXTjhWZbDiWUWe8Whd/myTriplinks": {
+          "9bcecdd8-fed9-4d72-8a40-b54c7b9ec05b": {
+            "isAuthor": false,
+            "triplateId": null
+          },
+          "a0bf63a0-0367-11ee-be56-0242ac120002": {
+            "isAuthor": true,
+            "triplateId": null
           }
         }
       }

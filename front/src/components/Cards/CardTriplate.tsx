@@ -1,22 +1,32 @@
 import Image from 'next/image'
-import { TriplateType } from '@/redux/services/firestore'
+import { Timestamp } from 'firebase/firestore'
 import { styles } from '@/styles/components/Cards/CardTriplate.styles'
+import { calcStayDuration } from '@/utils/dates'
 
 type CardTriplateProps = {
-  data: TriplateType
+  thumbnail: string
+  title: string
+  date: [Timestamp, Timestamp]
+  tags: string[] | null
   isSquare?: boolean
 }
 
-export const CardTriplate = ({ data, isSquare = false }: CardTriplateProps) => {
+export const CardTriplate = ({
+  thumbnail,
+  title,
+  date,
+  tags,
+  isSquare = false
+}: CardTriplateProps) => {
   return (
     <div css={styles.wrapper(isSquare)}>
       <div css={styles.blendGradation}>
-        <Image alt="" css={styles.card} fill src={data.thumbnail} />
+        <Image alt="" css={styles.card} fill src={thumbnail} />
       </div>
       <div css={styles.textWrapper}>
-        <div css={styles.title}>{data.title}</div>
-        <div css={styles.day}>{data.day}</div>
-        <div css={styles.keywords}>{data.keywords.join('/')}</div>
+        <div css={styles.title}>{title}</div>
+        <div css={styles.day}>{calcStayDuration(date)}</div>
+        {tags && <div css={styles.keywords}>{tags.join('/')}</div>}
       </div>
     </div>
   )

@@ -3,11 +3,12 @@ import { HiOutlineQuestionMarkCircle } from 'react-icons/hi'
 import { CardTriplate } from '@/components/Cards'
 import { Container } from '@/components/Containers'
 import { NavigationBottom } from '@/components/Navigations'
-import { useGetAllTriplatesQuery } from '@/redux/services/firestore'
+import { useGetAllPublishedTriplatesQuery } from '@/redux/services/firestore'
 import { styles } from '@/styles/pages/explore/index.styles'
 
 const Explore = () => {
-  const { data, isLoading } = useGetAllTriplatesQuery()
+  const { data, isLoading } = useGetAllPublishedTriplatesQuery()
+
   return (
     <>
       <Container bgColor="white" isFull>
@@ -22,9 +23,11 @@ const Explore = () => {
         ) : (
           <>
             {data.map((data, index) => (
-              <div css={styles.exploreList} key={index}>
-                <CardTriplate data={data} />
-              </div>
+              <Link href={`/triplate/${data.id}`} key={index}>
+                <div css={styles.exploreList}>
+                  <CardTriplate {...data} />
+                </div>
+              </Link>
             ))}
           </>
         )}

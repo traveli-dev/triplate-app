@@ -1,11 +1,24 @@
+import { Timestamp } from 'firebase/firestore'
 import { CardTriplate } from '@/components/Cards'
 import type { StoryObj, Meta } from '@storybook/react'
 
 const meta: Meta<typeof CardTriplate> = {
   component: CardTriplate,
   argTypes: {
-    data: {
-      description: 'title, thumbnail, day, keywords'
+    title: {
+      description: '見出し'
+    },
+    date: {
+      description: 'timestamp型の配列'
+    },
+    thumbnail: {
+      description: '見出しの画像'
+    },
+    tags: {
+      description: 'タグの配列'
+    },
+    isSquare: {
+      description: '常に長方形にするか否か'
     }
   },
   tags: ['autodocs']
@@ -17,11 +30,9 @@ type Story = StoryObj<typeof CardTriplate>
 
 export const Default: Story = {
   args: {
-    data: {
-      title: 'いつメンの京都旅行',
-      day: '２泊３日',
-      thumbnail: '/images/user_sample.jpeg',
-      keywords: ['海遊館', '海遊館']
-    }
+    title: 'いつメンの京都旅行',
+    date: [new Timestamp(1671634800, 0), new Timestamp(1671807600, 0)],
+    thumbnail: '/images/user_sample.jpeg',
+    tags: ['海遊館', '海遊館']
   }
 }

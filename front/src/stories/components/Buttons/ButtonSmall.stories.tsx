@@ -11,6 +11,9 @@ const meta: Meta<typeof ButtonSmall> = {
     },
     Icon: {
       description: 'アイコンが入ります'
+    },
+    isFit:{
+      description:'trueならflex-grow:0;で要素を伸ばさない、falseならflex-grow:1;で要素を伸ばす'
     }
   }
 }

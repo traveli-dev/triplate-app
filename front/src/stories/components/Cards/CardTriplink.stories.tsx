@@ -1,3 +1,4 @@
+import { Timestamp } from 'firebase/firestore'
 import { CardTriplink } from '@/components/Cards'
 import type { StoryObj, Meta } from '@storybook/react'
 
@@ -20,7 +21,7 @@ export const Default: Story = {
     data: {
       title: 'いつメンの京都旅行',
       thumbnail: '/images/user_sample.jpeg',
-      date: ['2023.03.25', '2023.03.27']
+      date: [new Timestamp(1671634800, 0), new Timestamp(1671807600, 0)]
     }
   }
 }
