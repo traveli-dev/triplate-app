@@ -4,11 +4,12 @@ import { styles } from '@/styles/components/Cards/CardTriplate.styles'
 
 type CardTriplateProps = {
   data: TriplateType
+  isSquare?: boolean
 }
 
-export const CardTriplate = ({ data }: CardTriplateProps) => {
+export const CardTriplate = ({ data, isSquare = false }: CardTriplateProps) => {
   return (
-    <div css={styles.wrapper}>
+    <div css={styles.wrapper(isSquare)}>
       <div css={styles.blendGradation}>
         <Image alt="" css={styles.card} fill src={data.thumbnail} />
       </div>
