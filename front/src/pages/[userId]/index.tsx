@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { NextSeo } from 'next-seo'
+import { Timestamp } from 'firebase/firestore'
 import {
   HiOutlineBell,
   HiOutlineCog,
@@ -27,6 +28,17 @@ const Mypage = () => {
 
   const getUser = { name: 'だいき', userId: 'ma_ma_hima' }
   const isAuth = getUser.userId === currentUser.userId
+
+  const data = {
+    thumbnail:
+      'http://localhost:9199/v0/b/traveli-test.appspot.com/o/images%2Ftriplinks%2Fb533283c-adde-4107-aa0a-943ddccb5278%2Fthumbnail?alt=media',
+    title: 'わかやまデート',
+    date: [new Timestamp(1670684400, 0), new Timestamp(1670770800, 0)] as [
+      Timestamp,
+      Timestamp
+    ],
+    tags: ['太平洋酒場', '太平洋酒場']
+  }
 
   return (
     <>
@@ -112,15 +124,7 @@ const Mypage = () => {
         </div>
         <Link href="/triplate/123">
           <div css={styles.layoutCardTriplate}>
-            <CardTriplate
-              data={{
-                title: 'わかやまデート',
-                day: '2泊3日',
-                thumbnail: '/images/thumbnail_sample.jpg',
-                keywords: ['太平洋酒場', '太平洋酒場']
-              }}
-              isSquare
-            />
+            <CardTriplate {...data} isSquare />
           </div>
         </Link>
       </Container>
