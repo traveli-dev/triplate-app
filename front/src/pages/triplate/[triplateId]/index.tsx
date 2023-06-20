@@ -43,6 +43,7 @@ const TriplateDetails = () => {
       <Header
         ToolIcon={HiOutlinePencil}
         href={`/${userId}`}
+        noBorder
         title="タイトル"
         toolHref={`/triplate/${triplateId}/edit/settings`}
       />
