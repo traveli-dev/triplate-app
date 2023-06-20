@@ -16,10 +16,10 @@ export const ButtonSmall = ({
 }: ButtonSmallProps) => {
   return (
     <button css={styles.button(isFit)} {...props}>
-      <div css={styles.labelWrapper}>
+      <span css={styles.labelWrapper}>
         {Icon && <Icon css={styles.icon} size={20} />}
         {children}
-      </div>
+      </span>
     </button>
   )
 }

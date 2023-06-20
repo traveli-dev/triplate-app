@@ -16,10 +16,10 @@ export const ButtonFill = ({
 }: ButtonFillProps) => {
   return (
     <button css={styles.button(isSquare)} {...props}>
-      <div css={styles.labelWrapper}>
+      <span css={styles.labelWrapper}>
         {Icon && <Icon css={styles.layoutIcon} size={24} />}
         {children}
-      </div>
+      </span>
     </button>
   )
 }
