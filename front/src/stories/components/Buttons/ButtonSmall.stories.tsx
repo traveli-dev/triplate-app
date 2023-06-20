@@ -1,3 +1,4 @@
+import { HiOutlineCog } from 'react-icons/hi'
 import { ButtonSmall } from '@/components/Buttons'
 import type { StoryObj, Meta } from '@storybook/react'
 
@@ -8,8 +9,8 @@ const meta: Meta<typeof ButtonSmall> = {
     children: {
       description: 'ボタンのラベルが入ります'
     },
-    icon: {
-      description: 'iconの種類が入ります'
+    Icon: {
+      description: 'アイコンが入ります'
     }
   }
 }
@@ -21,6 +22,6 @@ type Story = StoryObj<typeof ButtonSmall>
 export const Default: Story = {
   args: {
     children: 'ボタンのラベルが入ります',
-    icon: 'heart'
+    Icon: HiOutlineCog
   }
 }
