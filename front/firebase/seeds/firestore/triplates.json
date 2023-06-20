@@ -1,37 +1,40 @@
 {
-    "triplates":{
-        "0bcecdd8-fed9-4d72-8a40-b54c7b9ec05b":{
-            "title":"海遊館",
-            "day":"2泊3日",
-            "keywords":[
-                "海遊館",
-                "海遊館"],
-            "thumbnail": "http://localhost:9199/v0/b/traveli-test.appspot.com/o/images%2Ftriplinks%2Fa0bf63a0-0367-11ee-be56-0242ac120002%2Fthumbnail?alt=media"
-        },
-        "1bcecdd8-fed9-4d72-8a40-b54c7b9ec05b": {
-            "title": "海遊館",
-            "day": "2泊3日",
-            "keywords": [
-                "海遊館",
-                "海遊館"
-            ],
-            "thumbnail": "http://localhost:9199/v0/b/traveli-test.appspot.com/o/images%2Ftriplinks%2Fa0bf63a0-0367-11ee-be56-0242ac120002%2Fthumbnail?alt=media"
-        },"2bcecdd8-fed9-4d72-8a40-b54c7b9ec05b": {
-            "title": "海遊館",
-            "day": "2泊3日",
-            "keywords": [
-                "海遊館",
-                "海遊館"
-            ],
-            "thumbnail": "http://localhost:9199/v0/b/traveli-test.appspot.com/o/images%2Ftriplinks%2Fa0bf63a0-0367-11ee-be56-0242ac120002%2Fthumbnail?alt=media"
-        },"3bcecdd8-fed9-4d72-8a40-b54c7b9ec05b": {
-            "title": "海遊館",
-            "day": "2泊3日",
-            "keywords": [
-                "海遊館",
-                "海遊館"
-            ],
-            "thumbnail": "http://localhost:9199/v0/b/traveli-test.appspot.com/o/images%2Ftriplinks%2Fa0bf63a0-0367-11ee-be56-0242ac120002%2Fthumbnail?alt=media"
-        }
+  "triplates": {
+    "0bcecdd8-fed9-4d72-8a40-b54c7b9ec05b": {
+      "title": "和歌山市ラーメン巡り（公開済み）",
+      "thumbnail": "http://localhost:9199/v0/b/traveli-test.appspot.com/o/images%2Ftriplinks%2Fb533283c-adde-4107-aa0a-943ddccb5278%2Fthumbnail?alt=media",
+      "date": [
+        { "_seconds": 1686495600, "_nanoseconds": 0 },
+        { "_seconds": 1686582000, "_nanoseconds": 0 }
+      ],
+      "triplinkId": "b533283c-adde-4107-aa0a-943ddccb5278",
+      "description": "いつメン３人で和歌山市ラーメン巡り行ったよいつメン３人で和歌山市ラーメン巡り行ったよいつメン３人で",
+      "isPublished": true,
+      "ownerId": "C5Ja2gXGLeIXTjhWZbDiWUWe8Whd",
+      "tags": ["ラーメン"],
+      "privacySettings": {
+        "isMemoPublic": false,
+        "isTimePublic": false,
+        "isItineraryPublic": false
+      }
+    },
+    "1bcecdd8-fed9-4d72-8a40-b54c7b9ec05b": {
+      "title": "神社巡り（下書き）",
+      "thumbnail": "http://localhost:9199/v0/b/traveli-test.appspot.com/o/images%2Ftriplinks%2Fb21323a4-05f8-42db-9ce7-a2f29946595f%2Fthumbnail?alt=media",
+      "date": [
+        { "_seconds": 1670684400, "_nanoseconds": 0 },
+        { "_seconds": 1670770800, "_nanoseconds": 0 }
+      ],
+      "ownerId": "C5Ja2gXGLeIXTjhWZbDiWUWe8Whd",
+      "triplinkId": "b21323a4-05f8-42db-9ce7-a2f29946595f",
+      "description": "いつメン３人で神社巡り行ったよいつメン３人で神社めぐり行ったよいつメン３人で",
+      "isPublished": false,
+      "tags": null,
+      "privacySettings": {
+        "isMemoPublic": false,
+        "isTimePublic": false,
+        "isItineraryPublic": false
+      }
     }
+  }
 }

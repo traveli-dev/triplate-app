@@ -4,7 +4,13 @@ import { setupListeners } from '@reduxjs/toolkit/dist/query'
 import { ALL_CLEAR } from '@/redux/actions'
 import { baseFirestoreApi } from '@/redux/services/firestore'
 import { baseStorageApi } from '@/redux/services/storage'
-import { authReducer, mapReducer, currentUserReducers } from '@/redux/stores'
+import {
+  authReducer,
+  mapReducer,
+  currentUserReducers,
+  errorReducers,
+  errorHandler
+} from '@/redux/stores'
 
 export type RootState = ReturnType<typeof rootReducer>
 export type AppDispatch = typeof store.dispatch
@@ -16,6 +22,7 @@ const rootReducer = combineReducers({
   auth: authReducer,
   map: mapReducer,
   user: currentUserReducers,
+  error: errorReducers,
   [baseFirestoreApi.reducerPath]: baseFirestoreApi.reducer,
   [baseStorageApi.reducerPath]: baseStorageApi.reducer
 })
@@ -32,7 +39,11 @@ export const store = configureStore({
     getDefaultMiddleware({
       // TODO: createdAtを直した時に直す
       serializableCheck: false
-    }).concat([baseFirestoreApi.middleware, baseStorageApi.middleware])
+    }).concat([
+      baseFirestoreApi.middleware,
+      baseStorageApi.middleware,
+      errorHandler
+    ])
 })
 
 setupListeners(store.dispatch)

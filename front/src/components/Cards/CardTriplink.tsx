@@ -1,12 +1,14 @@
 import Image from 'next/image'
+import { Timestamp } from 'firebase/firestore'
 import { styles } from '@/styles/components/Cards/CardTriplink.styles'
+import { formatDate } from '@/utils/dates'
 
 // 仮置きの型設定
 type CardTriplinkProps = {
   isGrid: boolean
   data: {
     thumbnail: string
-    date?: [string, string]
+    date?: [Timestamp, Timestamp]
     title: string
   }
 }
@@ -19,7 +21,10 @@ export const CardTriplink = ({ data, isGrid }: CardTriplinkProps) => {
       </div>
       <div css={styles.description(isGrid)}>
         <h2 css={styles.title(isGrid)}>{data.title}</h2>
-        <p css={styles.date(isGrid)}>{data.date}</p>
+        <p css={styles.date(isGrid)}>
+          {data.date?.length === 2 &&
+            `${formatDate(data.date[0])} - ${formatDate(data.date[1])}`}
+        </p>
       </div>
     </div>
   )

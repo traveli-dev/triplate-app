@@ -1,20 +1,30 @@
-import { useRouter } from 'next/router'
-import { ButtonFill } from '@/components/Buttons'
+import { Container } from '@/components/Containers'
+import { FormCreateUpdateTriplateSettings } from '@/components/Forms'
 import { Header } from '@/components/Headers'
+import { useAppSelector } from '@/redux/rootStore'
+import { useGetMyTriplinksWithTriplateUncreatedQuery } from '@/redux/services/firestore'
+import { currentUserSelectors } from '@/redux/stores'
 
 const Triplate = () => {
-  const router = useRouter()
-  const userId = 'ma_ma_hima'
-  // createしたときのレスポンスでidを受け取る
-  const triplateId = 123
+  const currentUserData = useAppSelector(currentUserSelectors.currentUserData)
+
+  const { data, isLoading } = useGetMyTriplinksWithTriplateUncreatedQuery(
+    currentUserData.uid
+  )
 
   return (
     <>
-      <Header href={`/${userId}`} title="旅のテンプレートを公開" />
-      <h2>公開するたび</h2>
-      <ButtonFill onClick={() => router.push(`/triplate/${triplateId}`)}>
-        たびのテンプレートを公開
-      </ButtonFill>
+      <Header
+        href={`/${currentUserData.userId}`}
+        title="たびのテンプレートを公開"
+      />
+      <Container bgColor="white" isFull>
+        {!data || isLoading ? (
+          <>ローディング</>
+        ) : (
+          <FormCreateUpdateTriplateSettings triplinks={data} />
+        )}
+      </Container>
     </>
   )
 }

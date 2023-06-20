@@ -29,6 +29,14 @@ export const globalStyle = () => css`
     font-size: 100%;
   }
 
+  select {
+    cursor: pointer;
+    border: 0;
+    outline: 0;
+    box-shadow: none;
+    appearance: none;
+  }
+
   button {
     padding: 0;
     color: ${theme.color.black};

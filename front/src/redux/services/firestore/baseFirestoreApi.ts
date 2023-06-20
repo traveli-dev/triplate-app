@@ -4,6 +4,6 @@ import { createApi, fakeBaseQuery } from '@reduxjs/toolkit/query/react'
 export const baseFirestoreApi = createApi({
   reducerPath: 'baseFirestoreApi',
   baseQuery: fakeBaseQuery(),
-  tagTypes: ['User'],
+  tagTypes: ['User', 'Triplate'],
   endpoints: () => ({})
 })

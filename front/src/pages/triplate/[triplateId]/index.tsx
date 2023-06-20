@@ -20,6 +20,7 @@ import {
 const TriplateDetails = () => {
   const router = useRouter()
   const { triplateId } = router.query
+
   const userId = 'ma_ma_hima'
 
   const items: TravelListItemType[] = [
