@@ -11,27 +11,65 @@ export const styles = {
   heading1: css`
     padding: 24px 0;
     font-size: ${theme.fontSize.lg};
+    font-weight: 600;
   `,
-  wrapper: css`
+  userInfoWrapper: css`
+    text-align: center;
+  `,
+  userName: css`
+    font-weight: 600;
+    font-size: ${theme.fontSize.md};
+    margin: 16px 0 0 0;
+  `,
+  userDescription: css`
+    line-height: 1.4;
+    font-size: ${theme.fontSize.sm};
+    margin: 8px 0 0 0;
+  `,
+  ffWrapper: css`
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 8px 0 0 0;
   `,
-  content: css`
-    width: 400px;
-    ${mq('sm')} {
-      max-width: 300px;
+  ffLink: css`
+    padding: 4px 0;
+  `,
+  ffNumber: css`
+    font-weight: 600;
+    font-size: ${theme.fontSize.md};
+  `,
+  ffText: css`
+    font-weight: 300;
+    margin-left: 8px;
+    font-size: ${theme.fontSize.sm};
+  `,
+  ffBorder: css`
+    display: inline-block;
+    height: 20px;
+    width: 1px;
+    margin: 0 8px;
+    background-color: ${theme.color.black};
+  `,
+  actionWrapper: css`
+    margin: 24px 0 0 0;
+    display: flex;
+    gap: 10px;
+  `,
+  layoutButtonFill: css`
+    margin-top: 12px;
+  `,
+  header2: css`
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    p {
+      font-size: ${theme.fontSize.md};
     }
   `,
-  user: css`
-    padding: 32px 0;
-    & > h1 {
-      margin: 16px 0;
-      font-size: ${theme.fontSize.lg};
-    }
-    & > p {
-      margin: 16px 0;
-      font-size: ${theme.fontSize.xs};
-    }
+  heading2: css`
+    width: 100%;
+    font-size: ${theme.fontSize.lg};
+    font-weight: 600;
   `
 }
