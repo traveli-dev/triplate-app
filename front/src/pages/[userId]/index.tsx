@@ -25,7 +25,7 @@ const Mypage = () => {
   // TODO: userIdからGETさせる （今は認証ユーザのデータを表示させてるだけ）
   const currentUser = useAppSelector(currentUserSelectors.currentUserData)
 
-  const getUser = { name: 'だいき', userId: 'ma_ma_ima' }
+  const getUser = { name: 'だいき', userId: 'ma_ma_hima' }
   const isAuth = getUser.userId === currentUser.userId
 
   return (
