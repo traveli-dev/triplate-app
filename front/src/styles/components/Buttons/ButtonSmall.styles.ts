@@ -2,11 +2,10 @@ import { css } from '@emotion/react'
 import { theme } from '@/styles/theme'
 
 export const styles = {
-  button: css`
-    flex-grow: 1;
+  button: (isFit: boolean) => css`
+    flex-grow: ${isFit ? 0 : 1};
     padding: 8px;
     font-size: ${theme.fontSize.sm};
-    font-weight: 300;
     color: ${theme.color.black};
     text-align: center;
     background-color: ${theme.color.bgGray};
