@@ -1,6 +1,5 @@
 import { css } from '@emotion/react'
 import { theme } from '@/styles/theme'
-import { mq } from '@/styles/utils'
 
 export const styles = {
   header: css`
@@ -11,10 +10,10 @@ export const styles = {
   `,
   heading1: css`
     width: 100%;
+    overflow: hidden;
     font-size: ${theme.fontSize.lg};
     font-weight: 600;
     text-overflow: ellipsis;
-    overflow: hidden;
     white-space: nowrap;
   `,
   userInfoWrapper: css`
@@ -22,14 +21,14 @@ export const styles = {
     text-align: center;
   `,
   userName: css`
-    font-weight: 600;
-    font-size: ${theme.fontSize.md};
     margin: 16px 0 0 0;
+    font-size: ${theme.fontSize.md};
+    font-weight: 600;
   `,
   userDescription: css`
-    line-height: 1.4;
-    font-size: ${theme.fontSize.sm};
     margin: 8px 0 0 0;
+    font-size: ${theme.fontSize.sm};
+    line-height: 1.4;
   `,
   ffWrapper: css`
     display: flex;
@@ -41,25 +40,25 @@ export const styles = {
     padding: 4px 0;
   `,
   ffNumber: css`
-    font-weight: 600;
     font-size: ${theme.fontSize.md};
+    font-weight: 600;
   `,
   ffText: css`
-    font-weight: 300;
     margin-left: 8px;
     font-size: ${theme.fontSize.sm};
+    font-weight: 300;
   `,
   ffBorder: css`
     display: inline-block;
-    height: 20px;
     width: 1px;
+    height: 20px;
     margin: 0 8px;
     background-color: ${theme.color.black};
   `,
   actionWrapper: css`
-    margin: 24px 0 0 0;
     display: flex;
     gap: 10px;
+    margin: 24px 0 0 0;
   `,
   layoutButtonFill: css`
     margin-top: 12px;

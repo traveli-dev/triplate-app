@@ -4,9 +4,9 @@ import { buttonAnimation } from '@/styles/utils'
 
 export const styles = {
   button: (isSquare: boolean) => css`
+    display: flex;
     width: 100%;
     padding: 16px 0;
-    display: flex;
     font-size: ${theme.fontSize.md};
     font-weight: 600;
     color: ${theme.color.white};

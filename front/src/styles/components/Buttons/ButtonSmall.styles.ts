@@ -3,6 +3,7 @@ import { theme } from '@/styles/theme'
 
 export const styles = {
   button: css`
+    flex-grow: 1;
     padding: 8px;
     font-size: ${theme.fontSize.sm};
     font-weight: 300;
@@ -10,8 +11,7 @@ export const styles = {
     text-align: center;
     background-color: ${theme.color.bgGray};
     border: 0;
-    border-radius: 100px;
-    flex-grow: 1; // ボタンをflexで横並びさせたときに、要素が自動的に伸びるように
+    border-radius: 100px; /* ボタンをflexで横並びさせたときに、要素が自動的に伸びるように */
     & span[id='bold'] {
       font-weight: 600;
     }
