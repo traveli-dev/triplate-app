@@ -1,9 +1,9 @@
 import { Timestamp } from 'firebase/firestore'
-import { CardExplore } from '@/components/Cards'
+import { CardTriplate } from '@/components/Cards'
 import type { StoryObj, Meta } from '@storybook/react'
 
-const meta: Meta<typeof CardExplore> = {
-  component: CardExplore,
+const meta: Meta<typeof CardTriplate> = {
+  component: CardTriplate,
   argTypes: {
     title: {
       description: '見出し'
@@ -16,6 +16,9 @@ const meta: Meta<typeof CardExplore> = {
     },
     tags: {
       description: 'タグの配列'
+    },
+    isSquare: {
+      description: '常に長方形にするか否か'
     }
   },
   tags: ['autodocs']
@@ -23,7 +26,7 @@ const meta: Meta<typeof CardExplore> = {
 
 export default meta
 
-type Story = StoryObj<typeof CardExplore>
+type Story = StoryObj<typeof CardTriplate>
 
 export const Default: Story = {
   args: {

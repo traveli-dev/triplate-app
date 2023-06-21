@@ -1,37 +1,97 @@
 import { css } from '@emotion/react'
 import { theme } from '@/styles/theme'
-import { mq } from '@/styles/utils'
 
 export const styles = {
   header: css`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 24px 0 8px 0;
   `,
   heading1: css`
-    padding: 24px 0;
+    width: 100%;
+    overflow: hidden;
     font-size: ${theme.fontSize.lg};
+    font-weight: 600;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   `,
-  wrapper: css`
+  userInfoWrapper: css`
+    padding-top: 16px;
+    text-align: center;
+  `,
+  userName: css`
+    margin: 16px 0 0 0;
+    font-size: ${theme.fontSize.md};
+    font-weight: 600;
+  `,
+  userDescription: css`
+    margin: 8px 0 0 0;
+    font-size: ${theme.fontSize.sm};
+    line-height: 1.4;
+  `,
+  ffWrapper: css`
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 8px 0 0 0;
   `,
-  content: css`
-    width: 400px;
-    ${mq('sm')} {
-      max-width: 300px;
-    }
+  ffLink: css`
+    padding: 4px 0;
   `,
-  user: css`
-    padding: 32px 0;
-    & > h1 {
-      margin: 16px 0;
+  ffNumber: css`
+    font-size: ${theme.fontSize.md};
+    font-weight: 600;
+  `,
+  ffText: css`
+    margin-left: 8px;
+    font-size: ${theme.fontSize.sm};
+    font-weight: 300;
+  `,
+  ffBorder: css`
+    display: inline-block;
+    width: 1px;
+    height: 20px;
+    margin: 0 8px;
+    background-color: ${theme.color.black};
+  `,
+  actionWrapper: css`
+    display: flex;
+    gap: 10px;
+    margin: 24px 0 0 0;
+  `,
+  layoutButtonFill: css`
+    margin-top: 12px;
+  `,
+  header2: css`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 24px 0 16px 0;
+  `,
+  heading2: css`
+    display: flex;
+    align-items: center;
+    h2 {
       font-size: ${theme.fontSize.lg};
+      font-weight: 600;
     }
-    & > p {
-      margin: 16px 0;
-      font-size: ${theme.fontSize.xs};
+    p {
+      margin-left: 16px;
+      font-size: ${theme.fontSize.md};
     }
+  `,
+  icon: css`
+    color: ${theme.color.gray};
+  `,
+  iconLink: css`
+    margin-left: 20px;
+  `,
+  layoutCardTriplate: css`
+    padding-bottom: 16px;
+  `,
+  layoutButtonFollow: css`
+    margin: 16px auto 0 auto;
+    text-align: center;
   `
 }

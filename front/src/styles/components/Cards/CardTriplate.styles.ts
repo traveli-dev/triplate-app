@@ -3,12 +3,12 @@ import { theme } from '@/styles/theme'
 import { mq } from '@/styles/utils'
 
 export const styles = {
-  wrapper: css`
+  wrapper: (isSquare: boolean) => css`
     position: relative;
     width: 100%;
     aspect-ratio: 2/1;
     ${mq('sm')} {
-      aspect-ratio: 1/1;
+      aspect-ratio: ${isSquare ? '2/1' : '1/1'};
     }
     background-image: linear-gradient(
       180deg,

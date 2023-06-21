@@ -1,23 +1,25 @@
 import Image from 'next/image'
 import { Timestamp } from 'firebase/firestore'
-import { styles } from '@/styles/components/Cards/CardExplore.styles'
+import { styles } from '@/styles/components/Cards/CardTriplate.styles'
 import { calcStayDuration } from '@/utils/dates'
 
-type CardExploreProps = {
+type CardTriplateProps = {
   thumbnail: string
   title: string
   date: [Timestamp, Timestamp]
   tags: string[] | null
+  isSquare?: boolean
 }
 
-export const CardExplore = ({
+export const CardTriplate = ({
   thumbnail,
   title,
   date,
-  tags
-}: CardExploreProps) => {
+  tags,
+  isSquare = false
+}: CardTriplateProps) => {
   return (
-    <div css={styles.wrapper}>
+    <div css={styles.wrapper(isSquare)}>
       <div css={styles.blendGradation}>
         <Image alt="" css={styles.card} fill src={thumbnail} />
       </div>

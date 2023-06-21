@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { HiOutlineQuestionMarkCircle } from 'react-icons/hi'
-import { CardExplore } from '@/components/Cards'
+import { CardTriplate } from '@/components/Cards'
 import { Container } from '@/components/Containers'
 import { NavigationBottom } from '@/components/Navigations'
 import { useGetAllPublishedTriplatesQuery } from '@/redux/services/firestore'
@@ -25,7 +25,7 @@ const Explore = () => {
             {data.map((data, index) => (
               <Link href={`/triplate/${data.id}`} key={index}>
                 <div css={styles.exploreList}>
-                  <CardExplore {...data} />
+                  <CardTriplate {...data} />
                 </div>
               </Link>
             ))}
