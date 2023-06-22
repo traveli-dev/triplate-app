@@ -1,3 +1,4 @@
+import { useContext } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { signInWithEmailAndPassword } from 'firebase/auth'
@@ -7,11 +8,13 @@ import { ButtonIconWIthTextHorizontal } from '@/components/Buttons/ButtonIconWit
 import { Container } from '@/components/Containers'
 import { Header } from '@/components/Headers'
 import { ModalMember } from '@/components/Modals'
+import { ToastTypes } from '@/components/Toasts'
 import { useSignOut } from '@/hooks/auths'
 import { useDisclosure } from '@/hooks/modals'
 import { auth } from '@/lib/firebase'
 import { useAppSelector } from '@/redux/rootStore'
 import { currentUserSelectors } from '@/redux/stores'
+import { ToastContext } from 'src/components/Toasts'
 
 const Index = () => {
   const router = useRouter()
@@ -26,6 +29,11 @@ const Index = () => {
     router.push('/home')
   }
 
+  const showToast = useContext(ToastContext)
+  const openToast = (text: string, toastType: ToastTypes) => {
+    showToast && showToast(text, toastType)
+  }
+
   return (
     <>
       <Header href="/" title="GoogleMapから追加" />
@@ -37,6 +45,9 @@ const Index = () => {
           </ul>
         </div>
         <div>
+          <button onClick={() => openToast('Hello Toast', 'success')}>
+            <h1>トースト</h1>
+          </button>
           <ButtonFill
             onClick={() => {
               router.push('/auth?redirectUri=/user/new')

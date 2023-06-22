@@ -1,41 +1,43 @@
-import {css} from "@emotion/react";
-import {theme} from "@/styles/theme";
-
+import { css } from '@emotion/react'
+import { theme } from '@/styles/theme'
 
 export const styles = {
-  toastWrapper:(type:string)=> css`
+  toastWrapper: (type: string, visible: boolean) => css`
+    position: fixed;
+    top: 0px;
+    z-index: 1000;
     display: flex;
-    align-content: center;
     column-gap: 16px;
+    align-content: center;
     width: 100%;
     height: fit-content;
     padding: 8px 16px;
-    ${(type == 'success') &&
+    ${type == 'success' &&
     css`
       color: ${theme.color.toastGreen};
       background-color: ${theme.color.toastBgGreen};
       border: 2px solid ${theme.color.toastGreen};
-    `
-    }
-    ${(type == 'error') &&
-    css`  
+    `}
+    ${type == 'error' &&
+    css`
       color: ${theme.color.toastRed};
       background-color: ${theme.color.toastBgRed};
       border: 2px solid ${theme.color.toastRed};
-    `
-    }
+    `}
     border-radius: 8px;
+
+    opacity: ${visible ? 1 : 0};
   `,
   iconWrapper: css`
     width: 24px;
     height: 24px;
     margin: auto 0;
   `,
-  message: css`
+  text: css`
     width: calc(100% - 40px);
-    font-weight: 600;
-    font-size: ${theme.fontSize.md};
-    overflow-wrap: break-word;
     margin: auto 0;
-  `,
+    font-size: ${theme.fontSize.md};
+    font-weight: 600;
+    overflow-wrap: break-word;
+  `
 }

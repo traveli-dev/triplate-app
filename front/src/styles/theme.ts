@@ -14,10 +14,10 @@ const color = {
   bgBlue: '#eaf0ff',
   outlineGray: '#e1e1e1',
   shadowGray: 'box-shadow(0.4rem 0.4rem 1rem #e4ebee)',
-  toastBgGreen:'#F4FFFE',
-  toastGreen:'#01C0B2',
-  toastBgRed:'#FCE7E7',
-  toastRed:'#CC1818'
+  toastBgGreen: '#F4FFFE',
+  toastGreen: '#01C0B2',
+  toastBgRed: '#FCE7E7',
+  toastRed: '#CC1818'
 } as const
 
 const fontSize = {

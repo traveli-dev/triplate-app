@@ -4,6 +4,7 @@ import { DefaultSeo } from 'next-seo'
 import { Global } from '@emotion/react'
 import { CheckAuth } from '@/components/Auths'
 import { Layout } from '@/components/Layouts'
+import { ToastProvider } from '@/components/Toasts'
 import { SEO } from '@/config/next-seo.config'
 import { store } from '@/redux/rootStore'
 import { globalStyle } from '@/styles/globalStyle'
@@ -16,7 +17,9 @@ const App = ({ Component, pageProps }: AppProps) => {
       <DefaultSeo {...SEO} />
       <Layout>
         <CheckAuth>
-          <Component {...pageProps} />
+          <ToastProvider>
+            <Component {...pageProps} />
+          </ToastProvider>
         </CheckAuth>
       </Layout>
     </Provider>

@@ -23,6 +23,7 @@ module.exports = {
     '@typescript-eslint/no-var-requires': 'off',
     // jsxの属性で変数じゃないものはダブルクウォートにする
     // <Components string="string" />
+    '@typescript-eslint/no-non-null-assertion':'off',
     'react/jsx-curly-brace-presence': [
       'warn',
       {
