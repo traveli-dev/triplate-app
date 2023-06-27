@@ -4,7 +4,7 @@ import { styles } from '@/styles/components/Toasts/Toast.styles'
 
 type ToastProps = {
   text: string
-  toastType: ToastTypes
+  type: ToastTypes
   hideToast: () => void
   visible: boolean
 }
@@ -12,7 +12,7 @@ export type ToastTypes = 'success' | 'error'
 
 export const Toast: FC<ToastProps> = ({
   text,
-  toastType,
+  type,
   hideToast,
   visible
 }: ToastProps) => {
@@ -32,15 +32,14 @@ export const Toast: FC<ToastProps> = ({
       // タイムアウト識別子を保存。この後clearTimeoutが実行されなければ5秒後にトーストが非表示になる
       setTimeoutId(id);
     }
-    console.log(visible);
     
   }, [visible, text]);
 
   return (
-    <div css={styles.toastWrapper(toastType, visible)}>
+    <div css={styles.toastWrapper(type, visible)}>
       <div css={styles.iconWrapper}>
-        {toastType == 'success' && <HiOutlineCheckCircle size={24} />}
-        {toastType == 'error' && <HiOutlineXCircle size={24} />}
+        {type == 'success' && <HiOutlineCheckCircle size={24} />}
+        {type == 'error' && <HiOutlineXCircle size={24} />}
       </div>
       <p css={styles.text}>{text}</p>
     </div>

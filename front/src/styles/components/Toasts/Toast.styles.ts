@@ -5,8 +5,8 @@ export const styles = {
   toastWrapper: (type: string, visible: boolean) => css`
     
     transition: transform ease-out 0.3s, opacity ease-out 0.3s;
-    transform: ${visible ? 'translateY(0)' : 'translateY(-60px)'};
     position: fixed;
+    transform: ${visible ? 'translateY(0)' : 'translateY(-60px)'};
     top: 0px;
     z-index: 1000;
     display: flex;
@@ -29,9 +29,8 @@ export const styles = {
     `}
       border-radius: 8px;
 
+  
     opacity: ${visible ? 1 : 0};
-    // 『opacity 0』だと非表示でもイベントが発行されるので、visibilityを追加して非表示の際にイベントが発行されないようにする
-    //visibility: ${visible ? "visible" : "hidden"};
   `,
   iconWrapper: css`
     width: 24px;

@@ -1,4 +1,3 @@
-import { useContext } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { signInWithEmailAndPassword } from 'firebase/auth'
@@ -8,14 +7,12 @@ import { ButtonIconWIthTextHorizontal } from '@/components/Buttons/ButtonIconWit
 import { Container } from '@/components/Containers'
 import { Header } from '@/components/Headers'
 import { ModalMember } from '@/components/Modals'
-import { ToastTypes } from '@/components/Toasts'
 import { useSignOut } from '@/hooks/auths'
 import { useDisclosure } from '@/hooks/modals'
+import { useToast } from '@/hooks/toasts'
 import { auth } from '@/lib/firebase'
 import { useAppSelector } from '@/redux/rootStore'
 import { currentUserSelectors } from '@/redux/stores'
-import { ToastContext } from 'src/components/Toasts'
-import { useToast } from '@/hooks/toasts'
 
 const Index = () => {
   const router = useRouter()
