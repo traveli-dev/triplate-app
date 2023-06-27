@@ -15,6 +15,7 @@ import { auth } from '@/lib/firebase'
 import { useAppSelector } from '@/redux/rootStore'
 import { currentUserSelectors } from '@/redux/stores'
 import { ToastContext } from 'src/components/Toasts'
+import { useToast } from '@/hooks/toasts'
 
 const Index = () => {
   const router = useRouter()
@@ -29,10 +30,7 @@ const Index = () => {
     router.push('/home')
   }
 
-  const showToast = useContext(ToastContext)
-  const openToast = (text: string, toastType: ToastTypes) => {
-    showToast && showToast(text, toastType)
-  }
+  const {openToast} = useToast()
 
   return (
     <>
@@ -45,7 +43,7 @@ const Index = () => {
           </ul>
         </div>
         <div>
-          <button onClick={() => openToast('Hello Toast', 'success')}>
+          <button onClick={() => openToast('Hello Toast', 'error')}>
             <h1>トースト</h1>
           </button>
           <ButtonFill
