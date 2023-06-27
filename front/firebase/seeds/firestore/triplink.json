@@ -7,6 +7,46 @@
         { "_seconds": 1671634800, "_nanoseconds": 0 },
         { "_seconds": 1671807600, "_nanoseconds": 0 }
       ],
+      "members": [
+        "C5Ja2gXGLeIXTjhWZbDiWUWe8Whd",
+        "C00a2gXGLeIXTjhWZbDiWUWe8Whd"
+      ],
+      "tabimemo": {
+        "budget": 50000,
+        "items": ["着替え", "日傘", "洗顔"],
+        "memo": "チェックイン20時、チェックアウト10時"
+      },
+      "links": [
+        [
+          {
+            "url": "https://www.daiwaroynet.jp/wakayama/",
+            "name": "ダイワロイネットホテル和歌山",
+            "time": {
+              "_seconds": 1671706800,
+              "_nanoseconds": 0
+            },
+            "memo": null
+          }
+        ],
+        [
+          {
+            "url": "https://www.jalan.net/kankou/spt_30201cd2110078178/",
+            "name": "加太温泉",
+            "time": {
+              "_seconds": 1671760800,
+              "_nanoseconds": 0
+            },
+            "memo": "受付14:30終了"
+          },
+          {
+            "url": "https://tabelog.com/wakayama/A3001/A300101/30009129/",
+            "name": "満幸商店",
+            "time": null,
+            "memo": "あわしま丼が美味しいらしい"
+          }
+        ],
+        []
+      ],
       "ownerId": "C5Ja2gXGLeIXTjhWZbDiWUWe8Whd"
     },
     "b533283c-adde-4107-aa0a-943ddccb5278": {
@@ -16,6 +56,13 @@
         { "_seconds": 1686495600, "_nanoseconds": 0 },
         { "_seconds": 1686582000, "_nanoseconds": 0 }
       ],
+      "members": ["C5Ja2gXGLeIXTjhWZbDiWUWe8Whd"],
+      "tabimemo": {
+        "budget": "",
+        "items": [],
+        "memo": null
+      },
+      "links": [[], []],
       "ownerId": "C5Ja2gXGLeIXTjhWZbDiWUWe8Whd"
     },
     "b21323a4-05f8-42db-9ce7-a2f29946595f": {
@@ -25,6 +72,13 @@
         { "_seconds": 1670684400, "_nanoseconds": 0 },
         { "_seconds": 1670770800, "_nanoseconds": 0 }
       ],
+      "members": ["C5Ja2gXGLeIXTjhWZbDiWUWe8Whd"],
+      "tabimemo": {
+        "budget": null,
+        "items": [],
+        "memo": null
+      },
+      "links": [[], []],
       "ownerId": "C5Ja2gXGLeIXTjhWZbDiWUWe8Whd"
     },
     "a0bf63a0-0367-11ee-be56-0242ac120002": {
@@ -34,6 +88,16 @@
         { "_seconds": 1631286000, "_nanoseconds": 0 },
         { "_seconds": 1631372400, "_nanoseconds": 0 }
       ],
+      "members": [
+        "C5Ja2gXGLeIXTjhWZbDiWUWe8Whd",
+        "C00a2gXGLeIXTjhWZbDiWUWe8Whd"
+      ],
+      "tabimemo": {
+        "budget": null,
+        "items": [],
+        "memo": null
+      },
+      "links": [[], []],
       "ownerId": "C00a2gXGLeIXTjhWZbDiWUWe8Whd"
     }
   }
