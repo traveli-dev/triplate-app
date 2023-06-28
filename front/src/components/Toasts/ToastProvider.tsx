@@ -13,19 +13,19 @@ type Props = {
   children: ReactNode
 }
 
-type ContextType = (message: string, toastType: ToastTypes) => void
+type ContextType = (message: string, type: ToastTypes) => void
 export const ToastContext = createContext<ContextType | undefined>(undefined)
 
 export const ToastProvider: FC<Props> = ({ children }) => {
   const [visible, setVisible] = useState(false)
   const [text, setText] = useState('') // トーストで表示するメッセージ
-  const [toastType, setToastType] = useState<ToastTypes>('success') // トーストで表示するメッセージ
+  const [type, setToastType] = useState<ToastTypes>('success') // トーストで表示するメッセージ
   const [showPortal, setShowPortal] = useState(false)
 
-  const showToast = (message: string, toastType: ToastTypes) => {
+  const showToast = (message: string, type: ToastTypes) => {
     setVisible(true) // トーストが表示状態になる
     setText(message)
-    setToastType(toastType) // トーストにメッセージがセットされる
+    setToastType(type) // トーストにメッセージがセットされる
   }
 
   const hideToast = useCallback(() => setVisible(false), [])
@@ -45,7 +45,7 @@ export const ToastProvider: FC<Props> = ({ children }) => {
         <Toast
           hideToast={hideToast}
           text={text}
-          toastType={toastType}
+          type={type}
           visible={visible}
         />,
         document.getElementById('__next')!
