@@ -20,8 +20,9 @@ export type TriplinkType = {
     items: string[]
     memo: string | null
   }
-  links: {
-    [id: number]: {
+  itineraries: {
+    [key: `day${number}`]: {
+      id: number
       isSecret: boolean
       url: string | null
       name: string

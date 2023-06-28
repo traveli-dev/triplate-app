@@ -25,6 +25,23 @@ export type TriplateType = {
   description: string | null
   tags: string[] | null
   isPublished: boolean
+  memories: {
+    [key: `day${number}`]: {
+      itineraryId: number | null
+      thumbnail: string | null
+      description: string | null
+    }
+  }
+  itineraries: {
+    [key: `day${number}`]: {
+      id: number
+      isSecret: boolean
+      url: string | null
+      name: string
+      time: Timestamp | null
+      memo: string | null
+    }
+  }
   privacySettings: {
     isMemoPublic: boolean
     isTimePublic: boolean

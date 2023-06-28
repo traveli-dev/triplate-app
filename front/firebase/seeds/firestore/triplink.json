@@ -16,9 +16,10 @@
         "items": ["自撮り棒", "日傘"],
         "memo": null
       },
-      "links": {
-        "1": [
+      "itineraries": {
+        "day1": [
           {
+            "id": 0,
             "isSecret": false,
             "url": "https://maps.google.com/?cid=13121875705491233800",
             "name": "京都駅",
@@ -29,6 +30,7 @@
             "memo": "駅に着いたら荷物預ける"
           },
           {
+            "id": 1,
             "isSecret": false,
             "url": "https://maps.google.com/?cid=6059551674669155929",
             "name": "京都水族館",
@@ -36,6 +38,7 @@
             "memo": null
           },
           {
+            "id": 2,
             "isSecret": false,
             "url": "https://maps.google.com/?cid=14940864174397642651",
             "name": "アパホテル〈京都駅前〉",
@@ -46,8 +49,9 @@
             "memo": "荷物の回収忘れない"
           }
         ],
-        "2": [
+        "day2": [
           {
+            "id": 0,
             "isSecret": false,
             "url": "https://maps.google.com/?cid=14940864174397642651",
             "name": "アパホテル〈京都駅前〉",
@@ -58,6 +62,7 @@
             "memo": null
           },
           {
+            "id": 1,
             "isSecret": false,
             "url": "https://maps.google.com/?cid=13159134450370243740",
             "name": "錦市場",
@@ -65,6 +70,7 @@
             "memo": null
           },
           {
+            "id": 2,
             "isSecret": false,
             "url": null,
             "name": "ホテルで夕食",
@@ -75,8 +81,9 @@
             "memo": null
           }
         ],
-        "3": [
+        "day3": [
           {
+            "id": 0,
             "isSecret": false,
             "url": "https://maps.google.com/?cid=14940864174397642651",
             "name": "アパホテル〈京都駅前〉",
@@ -87,6 +94,7 @@
             "memo": null
           },
           {
+            "id": 1,
             "isSecret": false,
             "url": "https://maps.google.com/?cid=5767768846672272791",
             "name": "ぱんだの散歩",
@@ -94,6 +102,7 @@
             "memo": "みたらし団子"
           },
           {
+            "id": 2,
             "isSecret": false,
             "url": null,
             "name": "新幹線乗って帰る",
@@ -104,6 +113,7 @@
             "memo": null
           },
           {
+            "id": 3,
             "isSecret": true,
             "url": "http://rps.ana.co.jp/web/ncnv/uu/asm/all3216.php",
             "name": "新幹線webチケット",
@@ -130,8 +140,8 @@
         "items": ["着替え", "日傘", "洗顔"],
         "memo": "チェックイン20時、チェックアウト10時"
       },
-      "links": {
-        "1": [
+      "itineraries": {
+        "day1": [
           {
             "isSecret": false,
             "url": "https://www.daiwaroynet.jp/wakayama/",
@@ -143,7 +153,7 @@
             "memo": null
           }
         ],
-        "2": [
+        "day2": [
           {
             "isSecret": false,
             "url": "https://www.jalan.net/kankou/spt_30201cd2110078178/",
@@ -162,7 +172,7 @@
             "memo": "あわしま丼が美味しいらしい"
           }
         ],
-        "3": []
+        "day3": []
       },
       "ownerId": "C5Ja2gXGLeIXTjhWZbDiWUWe8Whd"
     },
@@ -179,7 +189,7 @@
         "items": [],
         "memo": null
       },
-      "links": { "1": [], "2": [] },
+      "itineraries": { "day1": [], "day2": [] },
       "ownerId": "C5Ja2gXGLeIXTjhWZbDiWUWe8Whd"
     },
     "b21323a4-05f8-42db-9ce7-a2f29946595f": {
@@ -195,7 +205,7 @@
         "items": [],
         "memo": null
       },
-      "links": { "1": [], "2": [] },
+      "itineraries": { "day1": [], "day2": [] },
       "ownerId": "C5Ja2gXGLeIXTjhWZbDiWUWe8Whd"
     },
     "a0bf63a0-0367-11ee-be56-0242ac120002": {
@@ -214,7 +224,7 @@
         "items": [],
         "memo": null
       },
-      "links": { "1": [], "2": [] },
+      "itineraries": { "day1": [], "day2": [] },
       "ownerId": "C00a2gXGLeIXTjhWZbDiWUWe8Whd"
     }
   }
