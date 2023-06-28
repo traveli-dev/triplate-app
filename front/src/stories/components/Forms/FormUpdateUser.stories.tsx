@@ -1,3 +1,4 @@
+import { Timestamp } from 'firebase/firestore'
 import { FormUpdateUser } from '@/components/Forms'
 import type { StoryObj, Meta } from '@storybook/react'
 
@@ -28,7 +29,9 @@ export const Default: Story = {
       links: {
         instagram: null,
         twitter: null
-      }
+      },
+      createdAt: new Timestamp(1671634800, 0),
+      updatedAt: null
     },
     authUser: {
       uid: 'aiueo',

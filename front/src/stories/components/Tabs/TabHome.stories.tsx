@@ -32,7 +32,14 @@ export const Default: Story = {
         thumbnail: '/images/thumbnail_sample.jpg',
         date: [new Timestamp(1671634800, 0), new Timestamp(1671807600, 0)],
         createdAt: new Timestamp(1671634800, 0),
-        updatedAt: null
+        updatedAt: null,
+        members: [],
+        tabimemo: {
+          budget: null,
+          items: [],
+          memo: null
+        },
+        itineraries: {}
       },
       {
         id: 'o2PHRC1TGzdX4WAxHSZrdgCIweQ2',
@@ -41,7 +48,14 @@ export const Default: Story = {
         thumbnail: '/images/thumbnail_sample.jpg',
         date: [new Timestamp(1671634800, 0), new Timestamp(1671807600, 0)],
         createdAt: new Timestamp(1671634800, 0),
-        updatedAt: null
+        updatedAt: null,
+        members: [],
+        tabimemo: {
+          budget: null,
+          items: [],
+          memo: null
+        },
+        itineraries: {}
       }
     ],
     joinTriplinksData: [
@@ -52,7 +66,14 @@ export const Default: Story = {
         thumbnail: '/images/thumbnail_sample.jpg',
         date: [new Timestamp(1671634800, 0), new Timestamp(1671807600, 0)],
         createdAt: new Timestamp(1671634800, 0),
-        updatedAt: null
+        updatedAt: null,
+        members: [],
+        tabimemo: {
+          budget: null,
+          items: [],
+          memo: null
+        },
+        itineraries: {}
       }
     ],
     favoriteTriplinksData: [
@@ -63,7 +84,14 @@ export const Default: Story = {
         thumbnail: '/images/thumbnail_sample.jpg',
         date: [new Timestamp(1671634800, 0), new Timestamp(1671807600, 0)],
         createdAt: new Timestamp(1671634800, 0),
-        updatedAt: null
+        updatedAt: null,
+        members: [],
+        tabimemo: {
+          budget: null,
+          items: [],
+          memo: null
+        },
+        itineraries: {}
       }
     ]
   }

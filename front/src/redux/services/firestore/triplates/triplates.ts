@@ -21,7 +21,7 @@ export type TriplateType = {
   ownerId: string
   title: string
   thumbnail: string
-  date: [Timestamp, Timestamp]
+  date: [Timestamp, Timestamp | null]
   description: string | null
   tags: string[] | null
   isPublished: boolean

@@ -7,6 +7,7 @@
       "description": "Designer & Engineer デジタルデトックスなたびがスキ",
       "followCount": 1,
       "followerCount": 1,
+      "notificationCount": 0,
       "createdAt": {
         "_seconds": 1589998976,
         "_nanoseconds": 490000000
@@ -64,7 +65,8 @@
               "_nanoseconds": 490000000
             }
           }
-        }
+        },
+        "users/C5Ja2gXGLeIXTjhWZbDiWUWe8Whd/notifications": {}
       }
     },
     "C00a2gXGLeIXTjhWZbDiWUWe8Whd": {
@@ -74,6 +76,7 @@
       "description": "私の自己紹介",
       "followCount": 1,
       "followerCount": 1,
+      "notificationCount": 0,
       "links": {
         "instagram": null,
         "twitter": null

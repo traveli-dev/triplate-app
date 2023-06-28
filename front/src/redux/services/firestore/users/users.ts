@@ -18,6 +18,7 @@ export type UserType = {
   description: string | null
   followCount: number
   followerCount: number
+  notificationCount: number
   links: {
     instagram: string | null
     twitter: string | null
@@ -32,15 +33,18 @@ type GetUserType = UserType & {
 
 type CreateUserType = {
   uid: string
-  body: UserRequestBodyType
+  body: Omit<UserRequestBodyType, 'updatedAt'>
 }
 
 type UpdateUserType = {
   uid: string
-  body: UserRequestBodyType
+  body: Omit<UserRequestBodyType, 'createdAt'>
 }
 
-export type UserRequestBodyType = Omit<UserType, 'updatedAt' | 'createdAt'>
+export type UserRequestBodyType = Omit<
+  UserType,
+  'followCount' | 'followerCount' | 'notificationCount'
+>
 
 export const usersApi = baseFirestoreApi.injectEndpoints({
   endpoints: (builder) => ({
