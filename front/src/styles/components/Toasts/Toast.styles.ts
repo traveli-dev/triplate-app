@@ -3,10 +3,7 @@ import { theme } from '@/styles/theme'
 
 export const styles = {
   toastWrapper: (type: string, visible: boolean) => css`
-    
-    transition: transform ease-out 0.3s, opacity ease-out 0.3s;
     position: fixed;
-    transform: ${visible ? 'translateY(0)' : 'translateY(-60px)'};
     top: 0px;
     z-index: 1000;
     display: flex;
@@ -15,6 +12,11 @@ export const styles = {
     width: 100%;
     height: fit-content;
     padding: 8px 16px;
+    border-radius: 8px;
+    opacity: ${visible ? 1 : 0};
+
+    transition: transform ease-out 0.3s, opacity ease-out 0.3s;
+    transform: ${visible ? 'translateY(0)' : 'translateY(-60px)'};
     ${type == 'success' &&
     css`
       color: ${theme.color.toastGreen};
@@ -27,10 +29,6 @@ export const styles = {
       background-color: ${theme.color.toastBgRed};
       border: 2px solid ${theme.color.toastRed};
     `}
-      border-radius: 8px;
-
-  
-    opacity: ${visible ? 1 : 0};
   `,
   iconWrapper: css`
     width: 24px;

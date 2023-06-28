@@ -27,7 +27,7 @@ const Index = () => {
     router.push('/home')
   }
 
-  const {openToast} = useToast()
+  const { openToast } = useToast()
 
   return (
     <>
