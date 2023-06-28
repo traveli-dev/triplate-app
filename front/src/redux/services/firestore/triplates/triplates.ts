@@ -65,8 +65,12 @@ const triplatesApi = baseFirestoreApi.injectEndpoints({
           ) as DocumentReference<TriplateType>
           const document = await getDoc(ref)
 
-          const triplateExists = document.exists()
-          if (!triplateExists) return { data: null }
+          if (!document.exists()) {
+            throw new FirebaseError(
+              'not-found',
+              'このページはすでに削除されているか、URLが間違っている可能性があります。'
+            )
+          }
 
           const data = document.data()
 
