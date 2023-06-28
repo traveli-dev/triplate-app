@@ -14,9 +14,8 @@ export const styles = {
     padding: 8px 16px;
     border-radius: 8px;
     opacity: ${visible ? 1 : 0};
-
-    transition: transform ease-out 0.3s, opacity ease-out 0.3s;
-    transform: ${visible ? 'translateY(0)' : 'translateY(-60px)'};
+    transition: transform ease 0.3s, opacity ease 0.3s;
+    transform: ${visible ? 'translateY(60px)' : 'translateY(-30px)'};
     ${type == 'success' &&
     css`
       color: ${theme.color.toastGreen};

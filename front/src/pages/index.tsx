@@ -40,9 +40,6 @@ const Index = () => {
           </ul>
         </div>
         <div>
-          <button onClick={() => openToast('Hello Toast', 'error')}>
-            <h1>トースト</h1>
-          </button>
           <ButtonFill
             onClick={() => {
               router.push('/auth?redirectUri=/user/new')
@@ -71,6 +68,13 @@ const Index = () => {
         title="aaaa"
         onClick={onOpen}
       />
+      <button onClick={() => openToast('Hello Toast', 'success')}>
+        <h1>トーストSUCCESS</h1>
+      </button>
+      <br />
+      <button onClick={() => openToast('Hello Toast', 'error')}>
+        <h1>トーストERROR</h1>
+      </button>
 
       {process.env.NODE_ENV === 'development' && (
         <ButtonFill onClick={signInTestUser}>
