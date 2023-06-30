@@ -6,7 +6,9 @@ import {
   authReducer,
   mapReducer,
   currentUserReducer,
-  toastReducer
+  toastReducer,
+  errorReducer,
+  errorHandler
 } from '@/redux/features'
 import { baseFirestoreApi } from '@/redux/services/firestore'
 import { baseStorageApi } from '@/redux/services/storage'
@@ -22,6 +24,7 @@ const rootReducer = combineReducers({
   map: mapReducer,
   user: currentUserReducer,
   toast: toastReducer,
+  error: errorReducer,
   [baseFirestoreApi.reducerPath]: baseFirestoreApi.reducer,
   [baseStorageApi.reducerPath]: baseStorageApi.reducer
 })
@@ -38,7 +41,11 @@ export const store = configureStore({
     getDefaultMiddleware({
       // TODO: createdAtを直した時に直す
       serializableCheck: false
-    }).concat([baseFirestoreApi.middleware, baseStorageApi.middleware])
+    }).concat([
+      baseFirestoreApi.middleware,
+      baseStorageApi.middleware,
+      errorHandler
+    ])
 })
 
 setupListeners(store.dispatch)

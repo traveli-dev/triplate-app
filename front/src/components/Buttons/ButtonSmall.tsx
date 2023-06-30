@@ -1,29 +1,25 @@
 import { ComponentPropsWithRef } from 'react'
-import {
-  HiOutlineShare,
-  HiOutlineHeart,
-  HiOutlineDuplicate
-} from 'react-icons/hi'
+import { IconType } from 'react-icons'
 import { styles } from '@/styles/components/Buttons/ButtonSmall.styles'
 
 type ButtonSmallProps = ComponentPropsWithRef<'button'> & {
   children: string
-  icon: 'share' | 'heart' | 'copy'
+  Icon?: IconType
+  isFit?: boolean
 }
 
-export const ButtonSmall = ({ icon, children, ...props }: ButtonSmallProps) => {
+export const ButtonSmall = ({
+  Icon,
+  children,
+  isFit = false,
+  ...props
+}: ButtonSmallProps) => {
   return (
-    <button css={styles.button} {...props}>
-      <div css={styles.label_wrapper}>
-        {icon == 'share' && <HiOutlineShare size={20} />}
-        {icon == 'heart' && <HiOutlineHeart size={20} />}
-        {icon == 'copy' && <HiOutlineDuplicate size={20} />}
-        {icon == 'heart' ? (
-          <span id="bold">{children}</span>
-        ) : (
-          <span>{children}</span>
-        )}
-      </div>
+    <button css={styles.button(isFit)} {...props}>
+      <span css={styles.labelWrapper}>
+        {Icon && <Icon css={styles.icon} size={20} />}
+        {children}
+      </span>
     </button>
   )
 }

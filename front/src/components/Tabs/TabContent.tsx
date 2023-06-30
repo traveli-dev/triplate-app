@@ -1,6 +1,6 @@
 import Image from 'next/image'
-import { HiOutlineTag } from 'react-icons/hi'
-import { ButtonWithIcon } from '@/components/Buttons'
+import { HiOutlineTag, HiOutlineLink } from 'react-icons/hi'
+import { ButtonSmall } from '@/components/Buttons'
 import { CardTripListItem } from '@/components/Cards'
 import { TravelListItemType } from '@/components/Tabs'
 import { styles } from '@/styles/components/Tabs/TabContent.styles'
@@ -29,8 +29,9 @@ export const TabContent = ({ day, thumbnail, tripList }: TabContentType) => {
           ちょっとお金かかるけどショーみたほうがいいで！
         </p>
         <div css={styles.linkButton}>
-          <ButtonWithIcon icon="link">Google Map</ButtonWithIcon>
-          <ButtonWithIcon icon="link">Instagram</ButtonWithIcon>
+          <ButtonSmall Icon={HiOutlineLink} isFit>
+            Google Map
+          </ButtonSmall>
         </div>
       </div>
       <div css={styles.listItemsWrapper}>

@@ -17,9 +17,6 @@ export const styles = {
       background: #fff;
       border: 2px solid ${theme.color.bgGray};
       border-radius: 100px;
-      outline: 0;
-      box-shadow: none;
-      appearance: none;
       &:hover,
       &:focus {
         background-color: ${theme.color.bgGray};

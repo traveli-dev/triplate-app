@@ -1,4 +1,3 @@
-import { FirebaseError } from 'firebase/app'
 import {
   DocumentReference,
   Timestamp,
@@ -94,19 +93,7 @@ export const usersApi = baseFirestoreApi.injectEndpoints({
           return {
             data: 'OK'
           }
-        } catch (err) {
-          let error
-
-          if (err instanceof FirebaseError) {
-            error = {
-              code: err.code
-            }
-          } else {
-            error = {
-              code: 'unexpected-error'
-            }
-          }
-
+        } catch (error) {
           return { error }
         }
       },
@@ -125,19 +112,7 @@ export const usersApi = baseFirestoreApi.injectEndpoints({
           return {
             data: 'OK'
           }
-        } catch (err) {
-          let error
-
-          if (err instanceof FirebaseError) {
-            error = {
-              code: err.code
-            }
-          } else {
-            error = {
-              code: 'unexpected-error'
-            }
-          }
-
+        } catch (error) {
           return { error }
         }
       },

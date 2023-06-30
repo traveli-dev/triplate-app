@@ -23,10 +23,10 @@ export const Header = ({
   onClick,
   ToolIcon,
   toolHref,
-  noBorder
+  noBorder = false
 }: HeaderProps) => {
   return (
-    <header css={noBorder ? styles.header : [styles.header, withoutBorder]}>
+    <header css={[styles.header, noBorder && withoutBorder]}>
       <Container bgColor="none">
         {href && (
           <Link css={styles.leftIconWrapper} href={href}>

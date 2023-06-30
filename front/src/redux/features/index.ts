@@ -28,3 +28,11 @@ export {
   toastSelectors,
   type ToastType
 } from '@/redux/features/toasts/toastSlice'
+
+// エラー
+export {
+  errorReducer,
+  setError,
+  clearError
+} from '@/redux/features/errors/errorSlice'
+export { errorHandler } from '@/redux/features/errors/errorHandler'

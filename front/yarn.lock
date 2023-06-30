@@ -14496,6 +14496,7 @@ __metadata:
     aria-hidden: ^1.2.3
     babel-loader: 9.1.2
     concurrently: ^8.2.0
+    date-fns: ^2.30.0
     eslint: 8.37.0
     eslint-config-next: 13.3.0
     eslint-config-prettier: 8.8.0

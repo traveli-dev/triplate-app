@@ -20,6 +20,7 @@ import {
 const TriplateDetails = () => {
   const router = useRouter()
   const { triplateId } = router.query
+
   const userId = 'ma_ma_hima'
 
   const items: TravelListItemType[] = [
@@ -43,6 +44,7 @@ const TriplateDetails = () => {
       <Header
         ToolIcon={HiOutlinePencil}
         href={`/${userId}`}
+        noBorder
         title="タイトル"
         toolHref={`/triplate/${triplateId}/edit/settings`}
       />
