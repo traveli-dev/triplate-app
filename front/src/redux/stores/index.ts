@@ -16,6 +16,14 @@ export type { CenterAddressType } from '@/redux/stores/maps/mapSlice'
 
 // ユーザ情報
 export {
-  currentUserReducers,
+  currentUserReducer,
   currentUserSelectors
 } from '@/redux/stores/users/userSlice'
+
+// トースト
+export {
+  showToast,
+  hideToast,
+  toastReducer,
+  toastSelectors
+} from '@/redux/stores/toasts/toastSlice'

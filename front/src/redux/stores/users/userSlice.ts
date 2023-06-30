@@ -42,4 +42,4 @@ export const currentUserSelectors = {
   currentUserData: createSelector(stateSelector, (state) => state)
 }
 
-export const currentUserReducers = currentUserSlice.reducer
+export const currentUserReducer = currentUserSlice.reducer
