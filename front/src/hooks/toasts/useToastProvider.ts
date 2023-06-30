@@ -8,8 +8,8 @@ export const useToastProvider = () => {
   const ref = useRef<Element | null>(null)
 
   useEffect(() => {
+    // トーストが表示されていたら，3秒で消す（cssのアニメーションの秒数）
     if (toast.visible) {
-      // トーストが表示されていたら，3秒で消す（cssのアニメーションの秒数）
       const timeoutId = setTimeout(() => {
         dispatch(hideToast())
       }, 3000)
