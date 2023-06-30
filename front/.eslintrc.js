@@ -22,8 +22,7 @@ module.exports = {
     // next.config.jsでrequire使うのでoff
     '@typescript-eslint/no-var-requires': 'off',
     // jsxの属性で変数じゃないものはダブルクウォートにする
-    // <Components string="string" />
-    '@typescript-eslint/no-non-null-assertion':'off',
+    // <Components string="string" /> 
     'react/jsx-curly-brace-presence': [
       'warn',
       {

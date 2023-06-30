@@ -25,5 +25,6 @@ export {
   showToast,
   hideToast,
   toastReducer,
-  toastSelectors
+  toastSelectors,
+  type ToastType
 } from '@/redux/features/toasts/toastSlice'

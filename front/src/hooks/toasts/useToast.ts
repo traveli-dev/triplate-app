@@ -1,10 +1,11 @@
-import { useContext } from 'react'
-import { ToastContext, ToastTypes } from '@/components/Toasts'
+import { showToast } from '@/redux/features'
+import { useAppDispath } from '@/redux/store'
 
 export const useToast = () => {
-  const showToast = useContext(ToastContext)
-  const openToast = (text: string, toastType: ToastTypes) => {
-    showToast && showToast(text, toastType)
+  const dispatch = useAppDispath()
+
+  const openToast = (message: string, type: 'error' | 'success') => {
+    dispatch(showToast({ type, message }))
   }
 
   return { openToast }

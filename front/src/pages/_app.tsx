@@ -17,10 +17,9 @@ const App = ({ Component, pageProps }: AppProps) => {
       <DefaultSeo {...SEO} />
       <Layout>
         <CheckAuth>
-          <ToastProvider>
-            <Component {...pageProps} />
-          </ToastProvider>
+          <Component {...pageProps} />
         </CheckAuth>
+        <ToastProvider />
       </Layout>
     </Provider>
   )

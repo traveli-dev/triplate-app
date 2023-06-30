@@ -3,16 +3,14 @@ import { RootState } from '@/redux/store'
 
 export type ToastType = {
   visible: boolean
-  type: string
+  type: 'error' | 'success'
   message: string
-  timeoutId: number | null
 }
 
 const initialState: ToastType = {
   visible: false,
-  type: '',
-  message: '',
-  timeoutId: null
+  type: 'success',
+  message: ''
 }
 
 const toastSlice = createSlice({
@@ -23,13 +21,9 @@ const toastSlice = createSlice({
       state.visible = true
       state.type = action.payload.type
       state.message = action.payload.message
-      state.timeoutId = action.payload.timerId
     },
     hideToast(state) {
       state.visible = false
-      state.type = ''
-      state.message = ''
-      state.timeoutId = null
     }
   }
 })
@@ -39,7 +33,7 @@ export const { showToast, hideToast } = toastSlice.actions
 const stateSelector = (state: RootState) => state.toast
 
 export const toastSelectors = {
-  currentCenter: createSelector(stateSelector, (state) => state)
+  toast: createSelector(stateSelector, (state) => state)
 }
 
 export const toastReducer = toastSlice.reducer

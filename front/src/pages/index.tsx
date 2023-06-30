@@ -68,7 +68,7 @@ const Index = () => {
         title="aaaa"
         onClick={onOpen}
       />
-      <button onClick={() => openToast('Hello Toast', 'success')}>
+      <button onClick={() => openToast('hello toast', 'success')}>
         <h1>トーストSUCCESS</h1>
       </button>
       <br />
