@@ -2,7 +2,7 @@ import { DocumentReference, collection, doc, getDoc } from 'firebase/firestore'
 import { db } from '@/lib/firebase'
 import { baseFirestoreApi } from '@/redux/services/firestore'
 
-type IndexType = {
+type IndexCollectionType = {
   user: string
 }
 
@@ -31,7 +31,7 @@ export const indexesApi = baseFirestoreApi.injectEndpoints({
           const ref = doc(
             collection(db, 'indexes', 'users', 'userId'),
             userId
-          ) as DocumentReference<IndexType>
+          ) as DocumentReference<IndexCollectionType>
 
           const snapshot = await getDoc(ref)
 

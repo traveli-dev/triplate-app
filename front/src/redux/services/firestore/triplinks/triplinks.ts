@@ -3,13 +3,13 @@ import { Timestamp, getDoc, doc, DocumentReference } from 'firebase/firestore'
 import { db } from '@/lib/firebase'
 import { baseFirestoreApi } from '@/redux/services/firestore'
 
-export type GetTriplinkType = TriplinkType & {
+export type GetTriplinkType = TriplinkCollectionType & {
   id: string
 }
 
-export type CreateTriplinkType = Omit<TriplinkType, 'updatedAt'>
+export type CreateTriplinkType = Omit<TriplinkCollectionType, 'updatedAt'>
 
-export type TriplinkType = {
+export type TriplinkCollectionType = {
   ownerId: string
   title: string
   thumbnail: string
@@ -43,7 +43,7 @@ export const triplinksApi = baseFirestoreApi.injectEndpoints({
             db,
             'triplinks',
             triplinkId
-          ) as DocumentReference<TriplinkType>
+          ) as DocumentReference<TriplinkCollectionType>
           const docs = await getDoc(ref)
 
           if (!docs.exists()) {

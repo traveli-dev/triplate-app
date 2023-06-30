@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from 'uuid'
 import yup from '@/config/yup.config'
 import { useAppSelector } from '@/redux/rootStore'
 import {
-  TriplateType,
+  TriplateCollectionType,
   GetTriplinkType,
   useCreateTriplateMutation,
   useUpdateTriplateMutation
@@ -17,13 +17,13 @@ import { extractTags, joinTags } from '@/utils/tags'
 
 const triplateId = uuidv4()
 
-type InputType = Omit<TriplateType, 'tags' | 'triplinkId'> & {
+type InputType = Omit<TriplateCollectionType, 'tags' | 'triplinkId'> & {
   tags: string | null
   triplinkData: string
 }
 
 export const useFormCreateUpdateTriplateSettings = (
-  triplateSettingsData?: TriplateType
+  triplateSettingsData?: TriplateCollectionType
 ) => {
   const router = useRouter()
   const [createTriplateSettings] = useCreateTriplateMutation()

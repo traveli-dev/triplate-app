@@ -10,10 +10,10 @@ import { db } from '@/lib/firebase'
 import {
   baseFirestoreApi,
   GetTriplinkType,
-  TriplinkType
+  TriplinkCollectionType
 } from '@/redux/services/firestore'
 
-export type MyTriplinksType = {
+export type MyTriplinksCollectionType = {
   isAuthor: boolean
   triplateId: string | null
 }
@@ -38,7 +38,7 @@ const myTriplinksApi = baseFirestoreApi.injectEndpoints({
             'users',
             uid,
             'myTriplinks'
-          ) as CollectionReference<MyTriplinksType>
+          ) as CollectionReference<MyTriplinksCollectionType>
           const myTriplinksDocs = await getDocs(myTriplinksRef)
           const triplinkIds = myTriplinksDocs.docs.map((doc) => doc.id)
 
@@ -49,7 +49,7 @@ const myTriplinksApi = baseFirestoreApi.injectEndpoints({
           const triplinksRef = collection(
             db,
             'triplinks'
-          ) as CollectionReference<TriplinkType>
+          ) as CollectionReference<TriplinkCollectionType>
           const triplinksQuery = query(
             triplinksRef,
             where(documentId(), 'in', triplinkIds)
@@ -93,7 +93,7 @@ const myTriplinksApi = baseFirestoreApi.injectEndpoints({
             'users',
             uid,
             'myTriplinks'
-          ) as CollectionReference<MyTriplinksType>
+          ) as CollectionReference<MyTriplinksCollectionType>
           const triplateUncreatedDocs = await getDocs(
             query(myTriplinksRef, where('triplateId', '==', null))
           )
@@ -105,7 +105,7 @@ const myTriplinksApi = baseFirestoreApi.injectEndpoints({
           const triplinksRef = collection(
             db,
             'triplinks'
-          ) as CollectionReference<TriplinkType>
+          ) as CollectionReference<TriplinkCollectionType>
           const triplinksQuery = query(
             triplinksRef,
             where(documentId(), 'in', triplinkIds)

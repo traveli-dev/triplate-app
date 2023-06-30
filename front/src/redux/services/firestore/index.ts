@@ -6,7 +6,7 @@ export {
   useGetUserQuery,
   useCreateUserMutation,
   useUpdateUserMutation,
-  type UserType,
+  type UserCollectionType,
   type UserRequestBodyType
 } from '@/redux/services/firestore/users/users'
 
@@ -14,14 +14,14 @@ export {
 export {
   useGetMyTriplinksQuery,
   useGetMyTriplinksWithTriplateUncreatedQuery,
-  type MyTriplinksType
+  type MyTriplinksCollectionType
 } from '@/redux/services/firestore/users/myTriplinks'
 
 // triplinks
 export {
   triplinksApi,
   useGetTriplinkQuery,
-  type TriplinkType,
+  type TriplinkCollectionType,
   type GetTriplinkType,
   type CreateTriplinkType
 } from '@/redux/services/firestore/triplinks/triplinks'
@@ -32,7 +32,7 @@ export {
   useCreateTriplateMutation,
   useUpdateTriplateMutation,
   useGetAllPublishedTriplatesQuery,
-  type TriplateType,
+  type TriplateCollectionType,
   type GetTriplateType
 } from '@/redux/services/firestore/triplates/triplates'
 

@@ -11,7 +11,7 @@ import {
 import { db } from '@/lib/firebase'
 import { baseFirestoreApi } from '@/redux/services/firestore'
 
-export type UserType = {
+export type UserCollectionType = {
   icon: string
   name: string
   userId: string
@@ -27,7 +27,7 @@ export type UserType = {
   updatedAt: Timestamp | null
 }
 
-type GetUserType = UserType & {
+type GetUserType = UserCollectionType & {
   uid: string
 }
 
@@ -42,7 +42,7 @@ type UpdateUserType = {
 }
 
 export type UserRequestBodyType = Omit<
-  UserType,
+  UserCollectionType,
   'followCount' | 'followerCount' | 'notificationCount'
 >
 
@@ -54,7 +54,7 @@ export const usersApi = baseFirestoreApi.injectEndpoints({
           const ref = doc(
             collection(db, 'users'),
             uid
-          ) as DocumentReference<UserType>
+          ) as DocumentReference<UserCollectionType>
 
           const snapshot = await getDoc(ref)
 

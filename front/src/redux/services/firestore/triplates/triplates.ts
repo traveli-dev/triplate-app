@@ -14,9 +14,12 @@ import {
   getDocs
 } from 'firebase/firestore'
 import { db } from '@/lib/firebase'
-import { MyTriplinksType, baseFirestoreApi } from '@/redux/services/firestore'
+import {
+  MyTriplinksCollectionType,
+  baseFirestoreApi
+} from '@/redux/services/firestore'
 
-export type TriplateType = {
+export type TriplateCollectionType = {
   triplinkId: string
   ownerId: string
   title: string
@@ -51,19 +54,19 @@ export type TriplateType = {
   updatedAt: Timestamp | null
 }
 
-export type GetTriplateType = TriplateType & {
+export type GetTriplateType = TriplateCollectionType & {
   id: string
 }
 
 type TriplateCreateRequestType = {
   id: string
   uid: string
-  body: TriplateType
+  body: TriplateCollectionType
 }
 
 type TriplateUpdateRequestType = {
   id: string
-  body: Partial<TriplateType>
+  body: Partial<TriplateCollectionType>
 }
 
 type GetTriplateRequestType = {
@@ -73,13 +76,16 @@ type GetTriplateRequestType = {
 
 const triplatesApi = baseFirestoreApi.injectEndpoints({
   endpoints: (builder) => ({
-    getTriplate: builder.query<TriplateType | null, GetTriplateRequestType>({
+    getTriplate: builder.query<
+      TriplateCollectionType | null,
+      GetTriplateRequestType
+    >({
       queryFn: async ({ triplateId, uid }) => {
         try {
           const ref = doc(
             collection(db, 'triplates'),
             triplateId
-          ) as DocumentReference<TriplateType>
+          ) as DocumentReference<TriplateCollectionType>
           const document = await getDoc(ref)
 
           if (!document.exists()) {
@@ -112,7 +118,7 @@ const triplatesApi = baseFirestoreApi.injectEndpoints({
           const ref = collection(
             db,
             'triplates'
-          ) as CollectionReference<TriplateType>
+          ) as CollectionReference<TriplateCollectionType>
           const q = query(ref, where('isPublished', '==', true))
           const docs = await getDocs(q)
 
@@ -131,11 +137,11 @@ const triplatesApi = baseFirestoreApi.injectEndpoints({
           const triplateRef = doc(
             collection(db, 'triplates'),
             id
-          ) as DocumentReference<TriplateType>
+          ) as DocumentReference<TriplateCollectionType>
           const myTripsRef = doc(
             collection(db, 'users', uid, 'myTriplinks'),
             body.triplinkId
-          ) as DocumentReference<MyTriplinksType>
+          ) as DocumentReference<MyTriplinksCollectionType>
           const myTriplatesRef = doc(
             collection(db, 'users', uid, 'myTriplates'),
             id

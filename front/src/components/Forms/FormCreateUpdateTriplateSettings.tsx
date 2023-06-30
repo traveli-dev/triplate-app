@@ -8,11 +8,14 @@ import {
 } from '@/components/Inputs'
 import { SelectBase } from '@/components/Selects'
 import { useFormCreateUpdateTriplateSettings } from '@/hooks/forms/useFormCreateUpdateTriplateSettings'
-import { GetTriplinkType, TriplateType } from '@/redux/services/firestore'
+import {
+  GetTriplinkType,
+  TriplateCollectionType
+} from '@/redux/services/firestore'
 import { styles } from '@/styles/components/Forms/FormCreateUpdateTriplateSettings.styles'
 
 type FormCreateUpdateTriplateSettingsProps = {
-  data?: TriplateType
+  data?: TriplateCollectionType
   triplinks?: GetTriplinkType[]
 }
 
