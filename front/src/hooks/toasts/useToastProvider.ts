@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import { hideToast, toastSelectors } from '@/redux/features'
 import { useAppDispath, useAppSelector } from '@/redux/store'
 
@@ -6,7 +6,6 @@ export const useToastProvider = () => {
   const toast = useAppSelector(toastSelectors.toast)
   const dispatch = useAppDispath()
   const ref = useRef<Element | null>(null)
-  const [documentMounted, setDocumentMounted] = useState(false)
 
   useEffect(() => {
     if (toast.visible) {
@@ -20,9 +19,8 @@ export const useToastProvider = () => {
   }, [toast, dispatch])
 
   useEffect(() => {
-    setDocumentMounted(true)
     ref.current = document.getElementById('__next')
   }, [])
 
-  return { toast, documentMounted, ref }
+  return { toast, ref }
 }
