@@ -3,7 +3,11 @@ import { Toast } from '@/components/Toasts'
 import { useToastProvider } from '@/hooks/toasts/useToastProvider'
 
 export const ToastProvider = () => {
-  const { toastContainer, toast } = useToastProvider()
+  const { toast, documentMounted, ref } = useToastProvider()
 
-  return toastContainer && createPortal(<Toast {...toast} />, toastContainer)
+  return documentMounted && ref.current ? (
+    createPortal(<Toast {...toast} />, ref.current)
+  ) : (
+    <div></div>
+  )
 }
