@@ -4,8 +4,8 @@ import { Header } from '@/components/Headers'
 import { ModalConfirmAddress, ModalSearchMap } from '@/components/Modals'
 import { useLoadMap } from '@/hooks/maps'
 import { useDisclosure } from '@/hooks/modals'
-import { useAppSelector } from '@/redux/rootStore'
-import { mapSelectors } from '@/redux/stores'
+import { mapSelectors } from '@/redux/features'
+import { useAppSelector } from '@/redux/store'
 
 const TriplinkEditLocation = () => {
   const router = useRouter()

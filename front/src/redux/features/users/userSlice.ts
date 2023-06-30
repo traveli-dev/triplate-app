@@ -1,6 +1,6 @@
 import { createSlice, createSelector } from '@reduxjs/toolkit'
-import { RootState } from '@/redux/rootStore'
 import { usersApi } from '@/redux/services/firestore/'
+import { RootState } from '@/redux/store'
 
 type CurrentUserType = {
   name: string

@@ -11,8 +11,8 @@ import { useSignOut } from '@/hooks/auths'
 import { useDisclosure } from '@/hooks/modals'
 import { useToast } from '@/hooks/toasts'
 import { auth } from '@/lib/firebase'
-import { useAppSelector } from '@/redux/rootStore'
-import { currentUserSelectors } from '@/redux/stores'
+import { currentUserSelectors } from '@/redux/features'
+import { useAppSelector } from '@/redux/store'
 
 const Index = () => {
   const router = useRouter()

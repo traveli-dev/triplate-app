@@ -3,8 +3,8 @@ import { ButtonOutline } from '@/components/Buttons'
 import { Header } from '@/components/Headers'
 import { ModalAddPlace } from '@/components/Modals'
 import { useDisclosure } from '@/hooks/modals'
-import { useAppSelector } from '@/redux/rootStore'
-import { mapSelectors } from '@/redux/stores'
+import { mapSelectors } from '@/redux/features'
+import { useAppSelector } from '@/redux/store'
 
 const TriplinkEdit = () => {
   const router = useRouter()

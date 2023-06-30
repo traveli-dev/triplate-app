@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/router'
 import { auth } from '@/lib/firebase'
 import { clearAll } from '@/redux/actions'
-import { useAppDispath } from '@/redux/rootStore'
+import { useAppDispath } from '@/redux/store'
 
 export const useSignOut = () => {
   const router = useRouter()

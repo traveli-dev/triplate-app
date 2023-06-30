@@ -6,7 +6,7 @@ import { CheckAuth } from '@/components/Auths'
 import { Layout } from '@/components/Layouts'
 import { ToastProvider } from '@/components/Toasts'
 import { SEO } from '@/config/next-seo.config'
-import { store } from '@/redux/rootStore'
+import { store } from '@/redux/store'
 import { globalStyle } from '@/styles/globalStyle'
 import '@/lib/firebase'
 

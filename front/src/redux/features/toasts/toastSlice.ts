@@ -1,5 +1,5 @@
 import { createSelector, createSlice } from '@reduxjs/toolkit'
-import { RootState } from '@/redux/rootStore'
+import { RootState } from '@/redux/store'
 
 export type ToastType = {
   visible: boolean

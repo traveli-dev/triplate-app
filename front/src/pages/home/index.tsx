@@ -3,12 +3,12 @@ import { FloatingActionButton } from '@/components/Buttons'
 import { Container } from '@/components/Containers'
 import { NavigationBottom } from '@/components/Navigations'
 import { TabHome } from '@/components/Tabs'
-import { useAppSelector } from '@/redux/rootStore'
+import { authSelectors } from '@/redux/features'
 import {
   useGetJoinTripsQuery,
   useGetMyTripsQuery
 } from '@/redux/services/firestore'
-import { authSelectors } from '@/redux/stores'
+import { useAppSelector } from '@/redux/store'
 import { styles } from '@/styles/pages/home/index.styles'
 
 const Home = () => {

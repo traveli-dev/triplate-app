@@ -1,6 +1,6 @@
 import { useCheckAuth } from '@/hooks/auths'
-import { useAppSelector } from '@/redux/rootStore'
-import { authSelectors, currentUserSelectors } from '@/redux/stores'
+import { authSelectors, currentUserSelectors } from '@/redux/features'
+import { useAppSelector } from '@/redux/store'
 
 type CheckAuthProps = {
   children: React.ReactNode

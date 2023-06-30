@@ -2,9 +2,9 @@ import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { auth } from '@/lib/firebase'
 import { clearAll } from '@/redux/actions'
-import { useAppDispath, useAppSelector } from '@/redux/rootStore'
+import { authSelectors, setUser } from '@/redux/features'
 import { usersApi } from '@/redux/services/firestore'
-import { authSelectors, setUser } from '@/redux/stores'
+import { useAppDispath, useAppSelector } from '@/redux/store'
 import { onAuthStateChanged } from '@/utils/firebase'
 
 export const useCheckAuth = () => {
