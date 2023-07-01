@@ -65,7 +65,7 @@ export const useModalSearchMap = (mapRef: google.maps.Map) => {
     places.getDetails(
       {
         placeId: data.place_id,
-        fields: ['formatted_address', 'geometry', 'name']
+        fields: ['formatted_address', 'geometry', 'name', 'url']
       },
       (prediction, status) => {
         if (status === 'OK') {

@@ -5,6 +5,9 @@
       "icon": "http://localhost:9199/v0/b/traveli-test.appspot.com/o/images%2Fusers%2FC5Ja2gXGLeIXTjhWZbDiWUWe8Whd%2Fprofiles%2Ficon?alt=media",
       "userId": "ma_ma_hima",
       "description": "Designer & Engineer デジタルデトックスなたびがスキ",
+      "followCount": 1,
+      "followerCount": 1,
+      "notificationCount": 0,
       "createdAt": {
         "_seconds": 1589998976,
         "_nanoseconds": 490000000
@@ -30,6 +33,10 @@
           "b21323a4-05f8-42db-9ce7-a2f29946595f": {
             "isAuthor": true,
             "triplateId": "1bcecdd8-fed9-4d72-8a40-b54c7b9ec05b"
+          },
+          "90a41cc4-94a8-4c25-b6d1-b23121cd54cf": {
+            "isAuthor": true,
+            "triplateId": null
           }
         },
         "users/C5Ja2gXGLeIXTjhWZbDiWUWe8Whd/myTriplates": {
@@ -38,8 +45,28 @@
           },
           "1bcecdd8-fed9-4d72-8a40-b54c7b9ec05b": {
             "triplateId": "1bcecdd8-fed9-4d72-8a40-b54c7b9ec05b"
+          },
+          "060b3ff3-0b5a-4d8f-8c4f-13168750dfe1": {
+            "triplateId": "060b3ff3-0b5a-4d8f-8c4f-13168750dfe1"
           }
-        }
+        },
+        "users/C5Ja2gXGLeIXTjhWZbDiWUWe8Whd/follows": {
+          "C00a2gXGLeIXTjhWZbDiWUWe8Whd": {
+            "createdAt": {
+              "_seconds": 1589998976,
+              "_nanoseconds": 490000000
+            }
+          }
+        },
+        "users/C5Ja2gXGLeIXTjhWZbDiWUWe8Whd/followers": {
+          "C00a2gXGLeIXTjhWZbDiWUWe8Whd": {
+            "createdAt": {
+              "_seconds": 1589998976,
+              "_nanoseconds": 490000000
+            }
+          }
+        },
+        "users/C5Ja2gXGLeIXTjhWZbDiWUWe8Whd/notifications": {}
       }
     },
     "C00a2gXGLeIXTjhWZbDiWUWe8Whd": {
@@ -47,6 +74,9 @@
       "icon": "http://localhost:9199/v0/b/traveli-test.appspot.com/o/images%2Fusers%2FC00a2gXGLeIXTjhWZbDiWUWe8Whd%2Fprofiles%2Ficon?alt=media",
       "userId": "userid01",
       "description": "私の自己紹介",
+      "followCount": 1,
+      "followerCount": 1,
+      "notificationCount": 0,
       "links": {
         "instagram": null,
         "twitter": null
@@ -64,6 +94,22 @@
           "a0bf63a0-0367-11ee-be56-0242ac120002": {
             "isAuthor": true,
             "triplateId": null
+          }
+        },
+        "users/C00a2gXGLeIXTjhWZbDiWUWe8Whd/follows": {
+          "C5Ja2gXGLeIXTjhWZbDiWUWe8Whd": {
+            "createdAt": {
+              "_seconds": 1589998976,
+              "_nanoseconds": 490000000
+            }
+          }
+        },
+        "users/C00a2gXGLeIXTjhWZbDiWUWe8Whd/followers": {
+          "C5Ja2gXGLeIXTjhWZbDiWUWe8Whd": {
+            "createdAt": {
+              "_seconds": 1589998976,
+              "_nanoseconds": 490000000
+            }
           }
         }
       }

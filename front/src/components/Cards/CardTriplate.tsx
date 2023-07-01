@@ -6,7 +6,7 @@ import { calcStayDuration } from '@/utils/dates'
 type CardTriplateProps = {
   thumbnail: string
   title: string
-  date: [Timestamp, Timestamp]
+  date: [Timestamp, Timestamp | null]
   tags: string[] | null
   isSquare?: boolean
 }

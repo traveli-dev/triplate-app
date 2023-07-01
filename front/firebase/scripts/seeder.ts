@@ -26,7 +26,9 @@ try {
   const dirPath = path.join(process.cwd(), 'firebase/seeds/firestore/')
   const jsons = searchFiles(dirPath)
   jsons.forEach(async (json) => {
-    await restore(json.dir, { dates: ['date', 'createdAt', 'updatedAt'] })
+    await restore(json.dir, {
+      dates: ['date', 'time', 'createdAt', 'updatedAt']
+    })
   })
 } catch (e) {
   console.error(e)

@@ -1,3 +1,4 @@
+import { FirebaseError } from 'firebase/app'
 import { Timestamp, getDoc, doc, DocumentReference } from 'firebase/firestore'
 import { db } from '@/lib/firebase'
 import { baseFirestoreApi } from '@/redux/services/firestore'
@@ -12,14 +13,30 @@ export type TriplinkType = {
   ownerId: string
   title: string
   thumbnail: string
-  date: [Timestamp, Timestamp]
+  date: [Timestamp, Timestamp | null]
+  members: string[]
+  tabimemo: {
+    budget: number | null
+    items: string[]
+    memo: string | null
+  }
+  itineraries: {
+    [key: `day${number}`]: {
+      id: number
+      isSecret: boolean
+      url: string | null
+      name: string
+      time: Timestamp | null
+      memo: string | null
+    }
+  }
   createdAt: Timestamp
   updatedAt: Timestamp | null
 }
 
 export const triplinksApi = baseFirestoreApi.injectEndpoints({
   endpoints: (builder) => ({
-    getTriplink: builder.query<TriplinkType, string>({
+    getTriplink: builder.query<GetTriplinkType, string>({
       queryFn: async (triplinkId) => {
         try {
           const ref = doc(
@@ -29,7 +46,19 @@ export const triplinksApi = baseFirestoreApi.injectEndpoints({
           ) as DocumentReference<TriplinkType>
           const docs = await getDoc(ref)
 
-          return { data: docs.data() }
+          if (!docs.exists()) {
+            throw new FirebaseError(
+              'not-found',
+              'このページはすでに削除されているか、URLが間違っている可能性があります。'
+            )
+          }
+
+          const data = {
+            ...docs.data(),
+            id: docs.id
+          }
+
+          return { data }
         } catch (error) {
           return { error }
         }

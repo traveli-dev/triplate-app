@@ -8,7 +8,7 @@ type CardTriplinkProps = {
   isGrid: boolean
   data: {
     thumbnail: string
-    date?: [Timestamp, Timestamp]
+    date?: [Timestamp, Timestamp | null]
     title: string
   }
 }
@@ -23,7 +23,9 @@ export const CardTriplink = ({ data, isGrid }: CardTriplinkProps) => {
         <h2 css={styles.title(isGrid)}>{data.title}</h2>
         <p css={styles.date(isGrid)}>
           {data.date?.length === 2 &&
-            `${formatDate(data.date[0])} - ${formatDate(data.date[1])}`}
+            `${formatDate(data.date[0])} ${
+              data.date[1] && ` - ${formatDate(data.date[1])}`
+            }`}
         </p>
       </div>
     </div>

@@ -21,10 +21,27 @@ export type TriplateType = {
   ownerId: string
   title: string
   thumbnail: string
-  date: [Timestamp, Timestamp]
+  date: [Timestamp, Timestamp | null]
   description: string | null
   tags: string[] | null
   isPublished: boolean
+  memories: {
+    [key: `day${number}`]: {
+      itineraryId: number | null
+      thumbnail: string | null
+      description: string | null
+    }
+  }
+  itineraries: {
+    [key: `day${number}`]: {
+      id: number
+      isSecret: boolean
+      url: string | null
+      name: string
+      time: Timestamp | null
+      memo: string | null
+    }
+  }
   privacySettings: {
     isMemoPublic: boolean
     isTimePublic: boolean
@@ -65,8 +82,12 @@ const triplatesApi = baseFirestoreApi.injectEndpoints({
           ) as DocumentReference<TriplateType>
           const document = await getDoc(ref)
 
-          const triplateExists = document.exists()
-          if (!triplateExists) return { data: null }
+          if (!document.exists()) {
+            throw new FirebaseError(
+              'not-found',
+              'このページはすでに削除されているか、URLが間違っている可能性があります。'
+            )
+          }
 
           const data = document.data()
 
