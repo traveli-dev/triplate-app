@@ -1,7 +1,7 @@
 import { HiOutlineCheckCircle, HiOutlineXCircle } from 'react-icons/hi'
 import { styles } from '@/styles/components/Toasts/Toast.styles'
 
-type ToastProps = {
+export type ToastProps = {
   message: string
   visible: boolean
   type: 'success' | 'error'
