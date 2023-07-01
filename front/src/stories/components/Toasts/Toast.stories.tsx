@@ -23,7 +23,7 @@ type Story = StoryObj<typeof Toast>
 export const Success: Story = {
   args: {
     visible: true,
-    message: '下書きを作成しました',
+    message: 'プロフィールを保存しましたプロフィールを保存しました',
     type: 'success'
   }
 }
@@ -31,7 +31,7 @@ export const Success: Story = {
 export const Error: Story = {
   args: {
     visible: true,
-    message: 'エラーが発生しました',
+    message: 'アップロードに失敗しました',
     type: 'error'
   }
 }
@@ -55,7 +55,7 @@ const ToastWithAnimation = ({ message, type }: ToastProps) => {
 export const WithAnimation: Story = {
   args: {
     type: 'success',
-    message: '下書きを作成しました'
+    message: 'プロフィールを保存しましたプロフィールを保存しました'
   },
   render: (args) => {
     return <ToastWithAnimation {...args} />
