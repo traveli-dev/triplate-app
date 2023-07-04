@@ -3,7 +3,7 @@ export { baseFirestoreApi } from '@/redux/services/firestore/baseFirestoreApi'
 // users
 export {
   usersApi,
-  useGetUserQuery,
+  useGetUserByUidQuery,
   useCreateUserMutation,
   useUpdateUserMutation,
   type UserType,

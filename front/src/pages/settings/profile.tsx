@@ -3,14 +3,14 @@ import { Container } from '@/components/Containers'
 import { FormUpdateUser } from '@/components/Forms'
 import { Header } from '@/components/Headers'
 import { currentUserSelectors } from '@/redux/features'
-import { useGetUserQuery } from '@/redux/services/firestore'
+import { useGetUserByUidQuery } from '@/redux/services/firestore'
 import { useAppSelector } from '@/redux/store'
 
 const SettingsProfile = () => {
   const router = useRouter()
   const { prev } = router.query
   const currentUserData = useAppSelector(currentUserSelectors.currentUserData)
-  const { data, isLoading } = useGetUserQuery(currentUserData.uid)
+  const { data, isLoading } = useGetUserByUidQuery(currentUserData.uid)
 
   return (
     <>

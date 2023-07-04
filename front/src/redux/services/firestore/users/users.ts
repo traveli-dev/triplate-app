@@ -48,7 +48,7 @@ export type UserRequestBodyType = Omit<
 
 export const usersApi = baseFirestoreApi.injectEndpoints({
   endpoints: (builder) => ({
-    getUser: builder.query<GetUserType | null, string>({
+    getUserByUid: builder.query<GetUserType | null, string>({
       queryFn: async (uid) => {
         try {
           const ref = doc(
@@ -128,5 +128,5 @@ export const usersApi = baseFirestoreApi.injectEndpoints({
   overrideExisting: false
 })
 
-export const { useGetUserQuery, useCreateUserMutation, useUpdateUserMutation } =
+export const { useGetUserByUidQuery, useCreateUserMutation, useUpdateUserMutation } =
   usersApi
