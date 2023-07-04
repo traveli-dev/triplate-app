@@ -4,12 +4,18 @@ import {
   collection,
   doc,
   getDoc,
+  query,
   serverTimestamp,
   updateDoc,
-  writeBatch
+  where,
+  writeBatch,
+  CollectionReference,
+  getDocs,
+
 } from 'firebase/firestore'
 import { db } from '@/lib/firebase'
 import { baseFirestoreApi } from '@/redux/services/firestore'
+import { FirebaseError } from 'firebase/app'
 
 export type UserType = {
   icon: string
@@ -70,63 +76,89 @@ export const usersApi = baseFirestoreApi.injectEndpoints({
       },
       providesTags: ['User']
     }),
-    createUser: builder.mutation<string, CreateUserType>({
-      queryFn: async ({ uid, body }) => {
+    getUserByUserId: builder.query<GetUserType, string>({
+      queryFn: async (userId) => {
         try {
-          const batch = writeBatch(db)
+          const ref = collection(db, 'users') as CollectionReference<UserType>
+          
+          const q = query(ref, where('userId', '==', userId))
 
-          // user情報を登録
-          const docRef = doc(db, 'users', uid)
-          batch.set(docRef, {
-            ...body,
-            createdAt: serverTimestamp()
-          })
+          const snapshot = await getDocs(q)
 
-          // uniqueなフィールドをindexに登録
-          const indexUserIdRef = doc(
-            db,
-            'indexes',
-            'users',
-            'userId',
-            body.userId
-          )
-          batch.set(indexUserIdRef, {
-            user: uid
-          })
-
-          await batch.commit()
-
-          return {
-            data: 'OK'
+          const data = snapshot.docs.map((doc)=> ({...doc.data(), uid: doc.id}))
+          console.log(data)
+          
+          if (data.length === 0) {
+            throw new FirebaseError(
+              'not-found',
+              'このページはすでに削除されているか、URLが間違っている可能性があります。'
+            )
           }
-        } catch (error) {
-          return { error }
-        }
-      },
-      invalidatesTags: (_result, error) => (error ? [] : ['User'])
+
+          return { data:data[0] }
+  } catch(error) {
+    return { error }
+  }
+},
+  providesTags: ['User']
     }),
-    updateUser: builder.mutation<string, UpdateUserType>({
-      queryFn: async ({ uid, body }) => {
-        try {
-          const ref = doc(collection(db, 'users'), uid)
+createUser: builder.mutation<string, CreateUserType>({
+  queryFn: async ({ uid, body }) => {
+    try {
+      const batch = writeBatch(db)
 
-          await updateDoc(ref, {
-            ...body,
-            updatedAt: serverTimestamp()
-          })
+      // user情報を登録
+      const docRef = doc(db, 'users', uid)
+      batch.set(docRef, {
+        ...body,
+        createdAt: serverTimestamp()
+      })
 
-          return {
-            data: 'OK'
-          }
-        } catch (error) {
-          return { error }
+      // uniqueなフィールドをindexに登録
+      const indexUserIdRef = doc(
+        db,
+        'indexes',
+        'users',
+        'userId',
+        body.userId
+      )
+      batch.set(indexUserIdRef, {
+        user: uid
+      })
+
+      await batch.commit()
+
+      return {
+        data: 'OK'
+      }
+    } catch (error) {
+      return { error }
+    }
+  },
+  invalidatesTags: (_result, error) => (error ? [] : ['User'])
+}),
+  updateUser: builder.mutation<string, UpdateUserType>({
+    queryFn: async ({ uid, body }) => {
+      try {
+        const ref = doc(collection(db, 'users'), uid)
+
+        await updateDoc(ref, {
+          ...body,
+          updatedAt: serverTimestamp()
+        })
+
+        return {
+          data: 'OK'
         }
-      },
-      invalidatesTags: (_result, error) => (error ? [] : ['User'])
-    })
+      } catch (error) {
+        return { error }
+      }
+    },
+    invalidatesTags: (_result, error) => (error ? [] : ['User'])
+  })
   }),
-  overrideExisting: false
+overrideExisting: false
 })
 
-export const { useGetUserByUidQuery, useCreateUserMutation, useUpdateUserMutation } =
+export const { useGetUserByUidQuery, useGetUserByUserIdQuery, useCreateUserMutation, useUpdateUserMutation } =
   usersApi
