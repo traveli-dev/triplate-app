@@ -4,7 +4,8 @@ import { theme } from '@/styles/theme'
 export const styles = {
   toastWrapper: (type: string, visible: boolean) => css`
     position: fixed;
-    top: 0px;
+    top: 0;
+    left: 0;
     z-index: 1000;
     display: flex;
     column-gap: 16px;
