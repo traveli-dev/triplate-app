@@ -60,7 +60,7 @@ export const useCheckAuth = () => {
 
         // ユーザ登録済みか確認する
         const data = await dispatch(
-          usersApi.endpoints.getUser.initiate(user.uid)
+          usersApi.endpoints.getUserByUid.initiate(user.uid)
         ).unwrap()
         const isRegisteredUser = !!data?.userId || false
 

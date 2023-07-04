@@ -22,7 +22,7 @@ const currentUserSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addMatcher(
-      usersApi.endpoints.getUser.matchFulfilled,
+      usersApi.endpoints.getUserByUid.matchFulfilled,
       (state, action) => {
         if (action.payload) {
           state.icon = action.payload.icon
