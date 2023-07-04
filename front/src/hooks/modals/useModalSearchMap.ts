@@ -1,6 +1,6 @@
 import { ChangeEvent, CompositionEvent, useState } from 'react'
-import { useAppDispath } from '@/redux/rootStore'
-import { setCenterAddress } from '@/redux/stores/'
+import { setCenterAddress } from '@/redux/features/'
+import { useAppDispath } from '@/redux/store'
 
 export const useModalSearchMap = (mapRef: google.maps.Map) => {
   // 検索候補を表示するCSSを上書きするのが難しいので，その部分だけライブラリを使わずに実装する

@@ -9,9 +9,10 @@ import { Header } from '@/components/Headers'
 import { ModalMember } from '@/components/Modals'
 import { useSignOut } from '@/hooks/auths'
 import { useDisclosure } from '@/hooks/modals'
+import { useToast } from '@/hooks/toasts'
 import { auth } from '@/lib/firebase'
-import { useAppSelector } from '@/redux/rootStore'
-import { currentUserSelectors } from '@/redux/stores'
+import { currentUserSelectors } from '@/redux/features'
+import { useAppSelector } from '@/redux/store'
 
 const Index = () => {
   const router = useRouter()
@@ -25,6 +26,8 @@ const Index = () => {
     await signInWithEmailAndPassword(auth, 'test@example.com', 'password')
     router.push('/home')
   }
+
+  const { openToast } = useToast()
 
   return (
     <>
@@ -65,6 +68,13 @@ const Index = () => {
         title="aaaa"
         onClick={onOpen}
       />
+      <button onClick={() => openToast('hello toast', 'success')}>
+        <h1>トーストSUCCESS</h1>
+      </button>
+      <br />
+      <button onClick={() => openToast('Hello Toast', 'error')}>
+        <h1>トーストERROR</h1>
+      </button>
 
       {process.env.NODE_ENV === 'development' && (
         <ButtonFill onClick={signInTestUser}>

@@ -4,14 +4,14 @@ import { useRouter } from 'next/router'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { v4 as uuidv4 } from 'uuid'
 import yup from '@/config/yup.config'
-import { useAppSelector } from '@/redux/rootStore'
+import { currentUserSelectors } from '@/redux/features'
 import {
   TriplateType,
   GetTriplinkType,
   useCreateTriplateMutation,
   useUpdateTriplateMutation
 } from '@/redux/services/firestore'
-import { currentUserSelectors } from '@/redux/stores'
+import { useAppSelector } from '@/redux/store'
 import { formatTimestamp } from '@/utils/dates'
 import { extractTags, joinTags } from '@/utils/tags'
 

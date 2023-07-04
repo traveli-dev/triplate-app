@@ -2,9 +2,9 @@ import { useRouter } from 'next/router'
 import { Container } from '@/components/Containers'
 import { FormCreateUpdateTriplateSettings } from '@/components/Forms'
 import { Header } from '@/components/Headers'
-import { useAppSelector } from '@/redux/rootStore'
+import { currentUserSelectors } from '@/redux/features'
 import { useGetTriplateQuery } from '@/redux/services/firestore'
-import { currentUserSelectors } from '@/redux/stores'
+import { useAppSelector } from '@/redux/store'
 
 const TriplateEditSettings = () => {
   const router = useRouter()

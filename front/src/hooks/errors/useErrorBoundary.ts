@@ -1,5 +1,5 @@
-import { useAppDispath, useAppSelector } from '@/redux/rootStore'
-import { clearError, errorSelectors } from '@/redux/stores/errors/errorSlice'
+import { clearError, errorSelectors } from '@/redux/features/errors/errorSlice'
+import { useAppDispath, useAppSelector } from '@/redux/store'
 
 type FirebaseErrorCode =
   | 'ok'

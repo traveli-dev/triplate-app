@@ -1,9 +1,9 @@
 import { Container } from '@/components/Containers'
 import { FormCreateUpdateTriplateSettings } from '@/components/Forms'
 import { Header } from '@/components/Headers'
-import { useAppSelector } from '@/redux/rootStore'
+import { currentUserSelectors } from '@/redux/features'
 import { useGetMyTriplinksWithTriplateUncreatedQuery } from '@/redux/services/firestore'
-import { currentUserSelectors } from '@/redux/stores'
+import { useAppSelector } from '@/redux/store'
 
 const Triplate = () => {
   const currentUserData = useAppSelector(currentUserSelectors.currentUserData)

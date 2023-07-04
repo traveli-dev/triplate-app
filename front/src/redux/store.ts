@@ -2,15 +2,16 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import { setupListeners } from '@reduxjs/toolkit/dist/query'
 import { ALL_CLEAR } from '@/redux/actions'
-import { baseFirestoreApi } from '@/redux/services/firestore'
-import { baseStorageApi } from '@/redux/services/storage'
 import {
   authReducer,
   mapReducer,
-  currentUserReducers,
-  errorReducers,
+  currentUserReducer,
+  toastReducer,
+  errorReducer,
   errorHandler
-} from '@/redux/stores'
+} from '@/redux/features'
+import { baseFirestoreApi } from '@/redux/services/firestore'
+import { baseStorageApi } from '@/redux/services/storage'
 
 export type RootState = ReturnType<typeof rootReducer>
 export type AppDispatch = typeof store.dispatch
@@ -21,8 +22,9 @@ export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
 const rootReducer = combineReducers({
   auth: authReducer,
   map: mapReducer,
-  user: currentUserReducers,
-  error: errorReducers,
+  user: currentUserReducer,
+  toast: toastReducer,
+  error: errorReducer,
   [baseFirestoreApi.reducerPath]: baseFirestoreApi.reducer,
   [baseStorageApi.reducerPath]: baseStorageApi.reducer
 })

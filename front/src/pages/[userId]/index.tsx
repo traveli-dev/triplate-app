@@ -16,8 +16,8 @@ import { CardTriplate } from '@/components/Cards'
 import { Container } from '@/components/Containers'
 import { Header } from '@/components/Headers'
 import { NavigationBottom } from '@/components/Navigations'
-import { useAppSelector } from '@/redux/rootStore'
-import { currentUserSelectors } from '@/redux/stores'
+import { currentUserSelectors } from '@/redux/features'
+import { useAppSelector } from '@/redux/store'
 import { styles } from '@/styles/pages/[userId]/index.styles'
 
 const Mypage = () => {
