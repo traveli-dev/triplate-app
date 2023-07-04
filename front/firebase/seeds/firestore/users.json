@@ -50,7 +50,7 @@
             "triplateId": "060b3ff3-0b5a-4d8f-8c4f-13168750dfe1"
           }
         },
-        "users/C5Ja2gXGLeIXTjhWZbDiWUWe8Whd/follows": {
+        "users/C5Ja2gXGLeIXTjhWZbDiWUWe8Whd/following": {
           "C00a2gXGLeIXTjhWZbDiWUWe8Whd": {
             "createdAt": {
               "_seconds": 1589998976,
@@ -96,7 +96,7 @@
             "triplateId": null
           }
         },
-        "users/C00a2gXGLeIXTjhWZbDiWUWe8Whd/follows": {
+        "users/C00a2gXGLeIXTjhWZbDiWUWe8Whd/following": {
           "C5Ja2gXGLeIXTjhWZbDiWUWe8Whd": {
             "createdAt": {
               "_seconds": 1589998976,
