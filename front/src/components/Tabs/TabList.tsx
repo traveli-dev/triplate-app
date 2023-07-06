@@ -8,8 +8,10 @@ type TabListProps = {
 export const TabList = forwardRef<HTMLDivElement, TabListProps>(
   ({ children }, ref) => {
     return (
-      <div css={styles.tabList} ref={ref} role="tablist">
-        {children}
+      <div css={styles.tabListWrapper}>
+        <div css={styles.tabList} ref={ref} role="tablist">
+          {children}
+        </div>
       </div>
     )
   }

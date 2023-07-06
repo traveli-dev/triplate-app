@@ -1,19 +1,33 @@
+import { theme } from '@/styles/theme'
 import { css } from '@emotion/react'
 
 export const styles = {
   tab: css`
+    position: relative;
+    flex-shrink: 0;
     border: none;
-    background-color: #576066;
-    border-radius: 8px 8px 0 0;
+    background-color: ${theme.color.white};
     font-size: 14px;
-    font-weight: bold;
-    padding: 4px 12px;
+    width: 88px;
+    padding: 12px;
+    scroll-snap-align: start;
+
     &[aria-selected='true'] {
-      background-color: #ffffff;
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0px;
+        left: 0;
+        width: 88px;
+        height: 3px;
+        border-radius: 3px;
+        background-color: ${theme.color.black};
+      }
+      font-weight: bold;
     }
     &[aria-selected='false'] {
       &:hover {
-        background-color: #ffffff;
+        background-color: ${theme.color.bgGray};
         cursor: pointer;
       }
     }

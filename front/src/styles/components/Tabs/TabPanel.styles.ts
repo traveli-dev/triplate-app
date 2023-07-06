@@ -1,9 +1,9 @@
 import { css } from '@emotion/react'
+import { theme } from '@/styles/theme'
 
 export const styles = {
   tabPanel: css`
-    background-color: #ffffff;
-    border-radius: 0 8px 8px 8px;
-    padding: 32px 16px;
+    background-color: ${theme.color.bgGray};
+    padding: 16px;
   `
 }

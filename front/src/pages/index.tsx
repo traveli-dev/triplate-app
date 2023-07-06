@@ -1,19 +1,18 @@
+import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import { HiOutlineQrcode } from 'react-icons/hi'
-import { ButtonFill } from '@/components/Buttons'
-import { ButtonIconWIthTextHorizontal } from '@/components/Buttons/ButtonIconWithTextHorizontal'
+import { ButtonFill, ButtonIconWIthTextHorizontal } from '@/components/Buttons'
 import { Container } from '@/components/Containers'
 import { Header } from '@/components/Headers'
 import { ModalMember } from '@/components/Modals'
+import { Tab, TabList, TabPanel, Tabs } from '@/components/Tabs'
 import { useSignOut } from '@/hooks/auths'
 import { useDisclosure } from '@/hooks/modals'
 import { auth } from '@/lib/firebase'
 import { useAppSelector } from '@/redux/rootStore'
 import { currentUserSelectors } from '@/redux/stores'
-import { Tab, TabList, TabPanel, Tabs } from '@/components/Tabs'
-import { useEffect, useRef, useState } from 'react'
 
 const Index = () => {
   const router = useRouter()
@@ -32,7 +31,6 @@ const Index = () => {
   const [selectedTab, setSelectedTab] = useState<SelectedTab>('tab-1')
   const [focusedTab, setFocusedTab] = useState<SelectedTab>('tab-1')
   const tabListRef = useRef<HTMLDivElement>(null)
-  const tabsRef = useRef<HTMLDivElement>(null)
   const data = {
     day1: [
       {
@@ -103,7 +101,247 @@ const Index = () => {
         id: 0,
         isSecret: false,
         url: 'https://maps.google.com/?cid=14940864174397642651',
-        name: 'アパホテル〈京都駅前〉',
+        name: 'ぱんだの散歩',
+        time: {
+          _seconds: 1698372000,
+          _nanoseconds: 0
+        },
+        memo: null
+      },
+      {
+        id: 1,
+        isSecret: false,
+        url: 'https://maps.google.com/?cid=5767768846672272791',
+        name: 'ぱんだの散歩',
+        time: null,
+        memo: 'みたらし団子'
+      },
+      {
+        id: 2,
+        isSecret: false,
+        url: null,
+        name: '新幹線乗って帰る',
+        time: {
+          _seconds: 1698404400,
+          _nanoseconds: 0
+        },
+        memo: null
+      },
+      {
+        id: 3,
+        isSecret: true,
+        url: 'http://rps.ana.co.jp/web/ncnv/uu/asm/all3216.php',
+        name: '新幹線webチケット',
+        time: null,
+        memo: null
+      }
+    ],
+    day4: [
+      {
+        id: 0,
+        isSecret: false,
+        url: 'https://maps.google.com/?cid=14940864174397642651',
+        name: 'ぱんだの散歩',
+        time: {
+          _seconds: 1698372000,
+          _nanoseconds: 0
+        },
+        memo: null
+      },
+      {
+        id: 1,
+        isSecret: false,
+        url: 'https://maps.google.com/?cid=5767768846672272791',
+        name: 'ぱんだの散歩',
+        time: null,
+        memo: 'みたらし団子'
+      },
+      {
+        id: 2,
+        isSecret: false,
+        url: null,
+        name: '新幹線乗って帰る',
+        time: {
+          _seconds: 1698404400,
+          _nanoseconds: 0
+        },
+        memo: null
+      },
+      {
+        id: 3,
+        isSecret: true,
+        url: 'http://rps.ana.co.jp/web/ncnv/uu/asm/all3216.php',
+        name: '新幹線webチケット',
+        time: null,
+        memo: null
+      }
+    ],
+    day5: [
+      {
+        id: 0,
+        isSecret: false,
+        url: 'https://maps.google.com/?cid=14940864174397642651',
+        name: 'ぱんだの散歩',
+        time: {
+          _seconds: 1698372000,
+          _nanoseconds: 0
+        },
+        memo: null
+      },
+      {
+        id: 1,
+        isSecret: false,
+        url: 'https://maps.google.com/?cid=5767768846672272791',
+        name: 'ぱんだの散歩',
+        time: null,
+        memo: 'みたらし団子'
+      },
+      {
+        id: 2,
+        isSecret: false,
+        url: null,
+        name: '新幹線乗って帰る',
+        time: {
+          _seconds: 1698404400,
+          _nanoseconds: 0
+        },
+        memo: null
+      },
+      {
+        id: 3,
+        isSecret: true,
+        url: 'http://rps.ana.co.jp/web/ncnv/uu/asm/all3216.php',
+        name: '新幹線webチケット',
+        time: null,
+        memo: null
+      }
+    ],
+    day6: [
+      {
+        id: 0,
+        isSecret: false,
+        url: 'https://maps.google.com/?cid=14940864174397642651',
+        name: 'ぱんだの散歩',
+        time: {
+          _seconds: 1698372000,
+          _nanoseconds: 0
+        },
+        memo: null
+      },
+      {
+        id: 1,
+        isSecret: false,
+        url: 'https://maps.google.com/?cid=5767768846672272791',
+        name: 'ぱんだの散歩',
+        time: null,
+        memo: 'みたらし団子'
+      },
+      {
+        id: 2,
+        isSecret: false,
+        url: null,
+        name: '新幹線乗って帰る',
+        time: {
+          _seconds: 1698404400,
+          _nanoseconds: 0
+        },
+        memo: null
+      },
+      {
+        id: 3,
+        isSecret: true,
+        url: 'http://rps.ana.co.jp/web/ncnv/uu/asm/all3216.php',
+        name: '新幹線webチケット',
+        time: null,
+        memo: null
+      }
+    ],
+    day7: [
+      {
+        id: 0,
+        isSecret: false,
+        url: 'https://maps.google.com/?cid=14940864174397642651',
+        name: 'ぱんだの散歩',
+        time: {
+          _seconds: 1698372000,
+          _nanoseconds: 0
+        },
+        memo: null
+      },
+      {
+        id: 1,
+        isSecret: false,
+        url: 'https://maps.google.com/?cid=5767768846672272791',
+        name: 'ぱんだの散歩',
+        time: null,
+        memo: 'みたらし団子'
+      },
+      {
+        id: 2,
+        isSecret: false,
+        url: null,
+        name: '新幹線乗って帰る',
+        time: {
+          _seconds: 1698404400,
+          _nanoseconds: 0
+        },
+        memo: null
+      },
+      {
+        id: 3,
+        isSecret: true,
+        url: 'http://rps.ana.co.jp/web/ncnv/uu/asm/all3216.php',
+        name: '新幹線webチケット',
+        time: null,
+        memo: null
+      }
+    ],
+    day8: [
+      {
+        id: 0,
+        isSecret: false,
+        url: 'https://maps.google.com/?cid=14940864174397642651',
+        name: 'ぱんだの散歩',
+        time: {
+          _seconds: 1698372000,
+          _nanoseconds: 0
+        },
+        memo: null
+      },
+      {
+        id: 1,
+        isSecret: false,
+        url: 'https://maps.google.com/?cid=5767768846672272791',
+        name: 'ぱんだの散歩',
+        time: null,
+        memo: 'みたらし団子'
+      },
+      {
+        id: 2,
+        isSecret: false,
+        url: null,
+        name: '新幹線乗って帰る',
+        time: {
+          _seconds: 1698404400,
+          _nanoseconds: 0
+        },
+        memo: null
+      },
+      {
+        id: 3,
+        isSecret: true,
+        url: 'http://rps.ana.co.jp/web/ncnv/uu/asm/all3216.php',
+        name: '新幹線webチケット',
+        time: null,
+        memo: null
+      }
+    ],
+    day9: [
+      {
+        id: 0,
+        isSecret: false,
+        url: 'https://maps.google.com/?cid=14940864174397642651',
+        name: 'ぱんだの散歩',
         time: {
           _seconds: 1698372000,
           _nanoseconds: 0
@@ -172,6 +410,18 @@ const Index = () => {
     }
   }, [focusedTab])
 
+  const scrollToTab = (tabName: `tab-${number}`) => {
+    const currentTabList = tabListRef.current as HTMLElement
+
+    const t = tabName.replace('tab-', '')
+    const tabIndex = parseInt(t)
+
+    currentTabList.children[tabIndex - 1].scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    })
+  }
+
   return (
     <>
       <Header href="/" title="GoogleMapから追加" />
@@ -182,6 +432,7 @@ const Index = () => {
               <Tab
                 focusedTab={focusedTab}
                 key={index}
+                scrollToTab={scrollToTab}
                 selectedTab={selectedTab}
                 setSelectedTab={setSelectedTab}
                 tabName={`tab-${index + 1}`}
