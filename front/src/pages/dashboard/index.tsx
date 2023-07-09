@@ -1,5 +1,15 @@
+import { Container } from '@/components/Containers'
+import { Header } from '@/components/Headers'
+
 const Index = () => {
-  return <p>triplateの管理画面です</p>
+  return (
+    <>
+      <Header href="/settings" title="たびのテンプレートを管理" />
+      <Container bgColor="white" isFull>
+        <h1>aaa</h1>
+      </Container>
+    </>
+  )
 }
 
 export default Index
