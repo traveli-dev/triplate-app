@@ -1,5 +1,5 @@
 import { createSlice, createSelector, PayloadAction } from '@reduxjs/toolkit'
-import { RootState } from '@/redux/rootStore'
+import { RootState } from '@/redux/store'
 
 export type ErrorType = {
   code: string | null
@@ -31,4 +31,4 @@ export const errorSelectors = {
   error: createSelector(stateSelector, (state) => state)
 }
 
-export const errorReducers = errorSlice.reducer
+export const errorReducer = errorSlice.reducer

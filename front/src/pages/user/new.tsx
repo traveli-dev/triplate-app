@@ -4,8 +4,8 @@ import { Container } from '@/components/Containers'
 import { FormCreateUser } from '@/components/Forms'
 import { Header } from '@/components/Headers'
 import { auth } from '@/lib/firebase'
-import { useAppSelector } from '@/redux/rootStore'
-import { authSelectors } from '@/redux/stores'
+import { authSelectors } from '@/redux/features'
+import { useAppSelector } from '@/redux/store'
 import { styles } from '@/styles/pages/user/new.styles'
 
 const UserNew = () => {

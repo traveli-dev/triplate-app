@@ -1,5 +1,5 @@
 import { Middleware, isRejectedWithValue } from '@reduxjs/toolkit'
-import { setError } from '@/redux/stores'
+import { setError } from '@/redux/features'
 
 export const errorHandler: Middleware = () => (next) => (action) => {
   if (isRejectedWithValue(action)) {

@@ -8,8 +8,8 @@ import {
   HiGlobe,
   HiUser
 } from 'react-icons/hi'
-import { useAppSelector } from '@/redux/rootStore'
-import { currentUserSelectors } from '@/redux/stores'
+import { currentUserSelectors } from '@/redux/features'
+import { useAppSelector } from '@/redux/store'
 import { styles } from '@/styles/components/Navigations/NavigationBottom.styles'
 
 export const NavigationBottom = () => {

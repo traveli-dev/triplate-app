@@ -9,8 +9,8 @@ import {
   InputTextArea
 } from '@/components/Inputs'
 import { useFormCreateUpdateUser } from '@/hooks/forms'
-import { useAppDispath } from '@/redux/rootStore'
 import { indexesApi } from '@/redux/services/firestore/indexes/indexes'
+import { useAppDispath } from '@/redux/store'
 import { styles } from '@/styles/components/Forms/FormCreateUser.styles'
 
 type FormCreateUserProps = {
