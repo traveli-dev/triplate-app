@@ -7,6 +7,6 @@ export const styles = {
     background-color: ${type === 'triplink'
       ? theme.color.bgGray
       : theme.color.white};
-    padding: ${type === 'triplink' ? '16px' : '32px 0px'};
+    padding: ${type === 'triplink' ? '16px' : '16px 0'};
   `
 }

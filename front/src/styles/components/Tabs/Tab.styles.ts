@@ -10,7 +10,7 @@ export const styles = {
     background-color: ${theme.color.white};
     font-size: 14px;
     width: 88px;
-    padding: 12px;
+    padding: ${type === 'triplink' ? '12px' : '64px 12px 12px 12px'};
     scroll-snap-align: start;
 
     &[aria-selected='true'] {
@@ -30,7 +30,10 @@ export const styles = {
     }
     &[aria-selected='false'] {
       &:hover {
-        background-color: ${theme.color.bgGray};
+        color: ${type === 'triplink' ? theme.color.black : theme.color.gray700};
+        background-color: ${type === 'triplink'
+          ? theme.color.bgGray
+          : theme.color.white};
         cursor: pointer;
       }
     }
