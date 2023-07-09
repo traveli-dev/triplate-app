@@ -10,13 +10,13 @@ import {
 import { CardUserProfile } from '@/components/Cards'
 import { Container } from '@/components/Containers'
 import { Header } from '@/components/Headers'
+import { TabTriplate } from '@/components/Tabs'
+import { TriplateType } from '@/redux/services/firestore'
 import {
   FillButtonStyles,
   OutlineButtonStyles,
   styles
 } from '@/styles/pages/triplate/[triplateId]/index.styles'
-import { TabTriplate } from '@/components/Tabs'
-import { TriplateType } from '@/redux/services/firestore'
 
 const TriplateDetails = () => {
   const router = useRouter()
