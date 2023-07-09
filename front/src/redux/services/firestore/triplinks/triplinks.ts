@@ -28,7 +28,7 @@ export type TriplinkType = {
       name: string
       time: Timestamp | null
       memo: string | null
-    }
+    }[]
   }
   createdAt: Timestamp
   updatedAt: Timestamp | null
