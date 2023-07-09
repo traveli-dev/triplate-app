@@ -10,13 +10,26 @@ export {
   type UserType,
   type UserRequestBodyType
 } from '@/redux/services/firestore/users/users'
+// users/following
+export {
+  useGetFollowingQuery
 
+} from '@/redux/services/firestore/users/following'
+// users/follower
+export {
+  useGetFollowersQuery
+} from '@/redux/services/firestore/users/followers'
 // users/myTriplinks
 export {
   useGetMyTriplinksQuery,
   useGetMyTriplinksWithTriplateUncreatedQuery,
   type MyTriplinksType
 } from '@/redux/services/firestore/users/myTriplinks'
+
+// users/myTriplates
+export {
+
+} from '@/redux/services/firestore/users/myTriplates'
 
 // triplinks
 export {

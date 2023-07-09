@@ -17,9 +17,9 @@ import { Container } from '@/components/Containers'
 import { Header } from '@/components/Headers'
 import { NavigationBottom } from '@/components/Navigations'
 import { currentUserSelectors } from '@/redux/features'
+import { useGetUserByUserIdQuery } from '@/redux/services/firestore'
 import { useAppSelector } from '@/redux/store'
 import { styles } from '@/styles/pages/[userId]/index.styles'
-import { useGetUserByUserIdQuery } from '@/redux/services/firestore'
 
 const Mypage = () => {
   const router = useRouter()
@@ -68,12 +68,12 @@ const Mypage = () => {
             </p>
             <div css={styles.ffWrapper}>
               <Link css={styles.ffLink} href={`${data.userId}/following`}>
-                <span css={styles.ffNumber}>3</span>
+                <span css={styles.ffNumber}>{data.followingCount}</span>
                 <span css={styles.ffText}>フォロー</span>
               </Link>
               <span css={styles.ffBorder} />
               <Link css={styles.ffLink} href={`${data.userId}/follower`}>
-                <span css={styles.ffNumber}>12</span>
+                  <span css={styles.ffNumber}>{data.followerCount}</span>
                 <span css={styles.ffText}>フォロワー</span>
               </Link>
             </div>
