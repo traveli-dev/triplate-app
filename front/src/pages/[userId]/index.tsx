@@ -6,7 +6,7 @@ import {
   HiOutlineBell,
   HiOutlineCog,
   HiOutlinePencil,
-  HiOutlineShare,
+  HiOutlineDuplicate,
   HiOutlinePlus,
   HiOutlineChevronRight
 } from 'react-icons/hi'
@@ -16,12 +16,15 @@ import { CardTriplate } from '@/components/Cards'
 import { Container } from '@/components/Containers'
 import { Header } from '@/components/Headers'
 import { NavigationBottom } from '@/components/Navigations'
+import { useCopyTextToClipboard } from '@/hooks/copy/useCopyTextToClipBoard'
 import { currentUserSelectors } from '@/redux/features'
 import { useAppSelector } from '@/redux/store'
 import { styles } from '@/styles/pages/[userId]/index.styles'
 
 const Mypage = () => {
   const router = useRouter()
+
+  const { copyTextToClipboard } = useCopyTextToClipboard()
 
   // TODO: userIdからGETさせる （今は認証ユーザのデータを表示させてるだけ）
   const currentUser = useAppSelector(currentUserSelectors.currentUserData)
@@ -94,7 +97,14 @@ const Mypage = () => {
               >
                 プロフィール設定
               </ButtonSmall>
-              <ButtonSmall Icon={HiOutlineShare}>プロフィール共有</ButtonSmall>
+              <ButtonSmall
+                Icon={HiOutlineDuplicate}
+                onClick={() => {
+                  copyTextToClipboard(`https://triplate.app${router.asPath}`)
+                }}
+              >
+                プロフィール共有
+              </ButtonSmall>
             </div>
             <div css={styles.layoutButtonFill}>
               <ButtonFill Icon={HiOutlinePlus} isSquare>

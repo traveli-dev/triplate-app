@@ -37,7 +37,12 @@ export const styles = {
     margin: 8px 0 0 0;
   `,
   ffLink: css`
-    padding: 4px 0;
+    padding: 4px 16px;
+    background-color: ${theme.renewalColor.white};
+    border-radius: 100px;
+    &:hover{
+      background-color: ${theme.renewalColor.hoverGray};
+    }
   `,
   ffNumber: css`
     font-size: ${theme.fontSize.md};
@@ -86,6 +91,15 @@ export const styles = {
   `,
   iconLink: css`
     margin-left: 20px;
+    padding: 8px;
+    background-color: ${theme.renewalColor.white};
+    border-radius: 100px;
+    &:hover {
+      background-color: ${theme.renewalColor.hoverGray};
+    }
+    &:focus {
+      background-color: ${theme.renewalColor.white};
+    }
   `,
   layoutCardTriplate: css`
     padding-bottom: 16px;
