@@ -9,7 +9,6 @@ import {
   ModalMember
 } from '@/components/Modals'
 import { TabTriplink } from '@/components/Tabs'
-import { TravelListItemType } from '@/components/Tabs'
 import { useDisclosure } from '@/hooks/modals'
 import { TriplinkType } from '@/redux/services/firestore'
 import { styles } from '@/styles/pages/triplink/[triplinkId]/triplink.styles'
@@ -18,15 +17,7 @@ const Triplink = () => {
   const router = useRouter()
   const { triplinkId } = router.query
 
-  // example
-  const items: TravelListItemType[] = [
-    { icon: 'map', title: 'タイトル１', date: '18:00', memo: 'memomemo' },
-    { icon: 'link', title: 'タイトル２', date: '18:00', memo: '' },
-    { icon: 'ledger', title: 'タイトル３', date: '', memo: 'memomemo' },
-    { icon: 'map', title: 'タイトル４', date: '', memo: '' }
-  ]
   type Itineraries = Pick<TriplinkType, 'itineraries'>
-
   const data: Itineraries = {
     itineraries: {
       day1: [

@@ -49,5 +49,8 @@ export const styles = {
   `,
   item: css`
     margin-top: 16px;
+  `,
+  layoutCardTripListItem: css`
+    margin-bottom: 16px;
   `
 }

@@ -4,12 +4,7 @@ import { useTabNavigation } from '@/hooks/tabs'
 import type { TriplinkType } from '@/redux/services/firestore'
 import { styles } from '@/styles/components/Tabs/TabTriplink.styles'
 
-export type TravelListItemType = {
-  icon: 'map' | 'link' | 'ledger'
-  title: string
-  date?: string
-  memo?: string
-}
+
 type Itineraries = Pick<TriplinkType, 'itineraries'>
 type Triplinks = Itineraries['itineraries']
 type TabTriplinkProps = {

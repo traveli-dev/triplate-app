@@ -10,25 +10,19 @@ import {
 import { CardUserProfile } from '@/components/Cards'
 import { Container } from '@/components/Containers'
 import { Header } from '@/components/Headers'
-import { TabContent, TravelListItemType } from '@/components/Tabs'
 import {
   FillButtonStyles,
   OutlineButtonStyles,
   styles
 } from '@/styles/pages/triplate/[triplateId]/index.styles'
+import { TabTriplate } from '@/components/Tabs'
+import { TriplateType } from '@/redux/services/firestore'
 
 const TriplateDetails = () => {
   const router = useRouter()
   const { triplateId } = router.query
 
   const userId = 'ma_ma_hima'
-
-  const items: TravelListItemType[] = [
-    { icon: 'map', title: 'タイトル１', date: '18:00', memo: 'memomemo' },
-    { icon: 'link', title: 'タイトル２', date: '18:00', memo: '' },
-    { icon: 'ledger', title: 'タイトル３', date: '', memo: 'memomemo' },
-    { icon: 'map', title: 'タイトル４', date: '', memo: '' }
-  ]
   const thumbnail = '/images/thumbnail_sample.jpg'
   const hashtags: string[] = [
     'タグ１',
@@ -38,6 +32,115 @@ const TriplateDetails = () => {
     'タグ５',
     'タグ６'
   ]
+  type Itineraries = Pick<TriplateType, 'itineraries'>
+  type Memories = Pick<TriplateType, 'memories'>
+  const data: Itineraries & Memories = {
+    memories: {
+      day1: {
+        itineraryId: 0,
+        thumbnail: '/images/thumbnail_sample.jpg',
+        description: 'aaaa'
+      },
+      day2: {
+        itineraryId: 1,
+        thumbnail: '/images/thumbnail_sample.jpg',
+        description: 'bbbb'
+      },
+      day3: {
+        itineraryId: 1,
+        thumbnail: '/images/thumbnail_sample.jpg',
+        description: 'cccc'
+      }
+    },
+    itineraries: {
+      day1: [
+        {
+          id: 0,
+          isSecret: false,
+          url: 'https://maps.google.com/?cid=13121875705491233800',
+          name: '京都駅',
+          time: null,
+          memo: '駅に着いたら荷物預ける'
+        },
+        {
+          id: 1,
+          isSecret: false,
+          url: 'https://maps.google.com/?cid=6059551674669155929',
+          name: '京都水族館',
+          time: null,
+          memo: null
+        },
+        {
+          id: 2,
+          isSecret: false,
+          url: 'https://maps.google.com/?cid=14940864174397642651',
+          name: 'アパホテル〈京都駅前〉',
+          time: null,
+          memo: '荷物の回収忘れない'
+        }
+      ],
+      day2: [
+        {
+          id: 0,
+          isSecret: false,
+          url: 'https://maps.google.com/?cid=14940864174397642651',
+          name: 'アパホテル〈京都駅前〉',
+          time: null,
+          memo: null
+        },
+        {
+          id: 1,
+          isSecret: false,
+          url: 'https://maps.google.com/?cid=13159134450370243740',
+          name: '錦市場',
+          time: null,
+          memo: null
+        },
+        {
+          id: 2,
+          isSecret: false,
+          url: null,
+          name: 'ホテルで夕食',
+          time: null,
+          memo: null
+        }
+      ],
+      day3: [
+        {
+          id: 0,
+          isSecret: false,
+          url: 'https://maps.google.com/?cid=14940864174397642651',
+          name: 'ぱんだの散歩',
+          time: null,
+          memo: null
+        },
+        {
+          id: 1,
+          isSecret: false,
+          url: 'https://maps.google.com/?cid=5767768846672272791',
+          name: 'ぱんだの散歩',
+          time: null,
+          memo: 'みたらし団子'
+        },
+        {
+          id: 2,
+          isSecret: false,
+          url: null,
+          name: '新幹線乗って帰る',
+          time: null,
+          memo: null
+        },
+        {
+          id: 3,
+          isSecret: true,
+          url: 'http://rps.ana.co.jp/web/ncnv/uu/asm/all3216.php',
+          name: '新幹線webチケット',
+          time: null,
+          memo: null
+        }
+      ]
+    }
+  }
 
   return (
     <>
@@ -66,8 +169,8 @@ const TriplateDetails = () => {
             いつメン３人で京都行ったよいつメン３人で京都行ったよいつメン３人で
           </p>
         </div>
-
-        <TabContent day={0} thumbnail={thumbnail} tripList={items} />
+        <TabTriplate itineraries={data.itineraries} memories={data.memories} />
+        {/* <TabContent day={0} thumbnail={thumbnail} tripList={items} /> */}
         <Link css={styles.linkHelp} href="">
           <HiOutlineQuestionMarkCircle size={20} />
           <p>旅のテンプレートをアレンジとは？</p>
