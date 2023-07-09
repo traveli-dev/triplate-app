@@ -66,5 +66,6 @@ export const styles = {
   `,
   text: css`
     font-size: ${theme.fontSize.md};
+    width: 100%;
   `
 }
