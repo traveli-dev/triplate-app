@@ -1,12 +1,17 @@
+import { FirebaseError } from 'firebase/app'
 import {
   DocumentReference,
   Timestamp,
   collection,
   doc,
   getDoc,
+  query,
   serverTimestamp,
   updateDoc,
-  writeBatch
+  where,
+  writeBatch,
+  CollectionReference,
+  getDocs
 } from 'firebase/firestore'
 import { db } from '@/lib/firebase'
 import { baseFirestoreApi } from '@/redux/services/firestore'
@@ -16,7 +21,7 @@ export type UserType = {
   name: string
   userId: string
   description: string | null
-  followCount: number
+  followingCount: number
   followerCount: number
   notificationCount: number
   links: {
@@ -43,12 +48,12 @@ type UpdateUserType = {
 
 export type UserRequestBodyType = Omit<
   UserType,
-  'followCount' | 'followerCount' | 'notificationCount'
+  'followingCount' | 'followerCount' | 'notificationCount'
 >
 
 export const usersApi = baseFirestoreApi.injectEndpoints({
   endpoints: (builder) => ({
-    getUser: builder.query<GetUserType | null, string>({
+    getUserByUid: builder.query<GetUserType | null, string>({
       queryFn: async (uid) => {
         try {
           const ref = doc(
@@ -64,6 +69,34 @@ export const usersApi = baseFirestoreApi.injectEndpoints({
           const data = { ...snapshot.data(), uid }
 
           return { data }
+        } catch (error) {
+          return { error }
+        }
+      },
+      providesTags: ['User']
+    }),
+    getUserByUserId: builder.query<GetUserType, string>({
+      queryFn: async (userId) => {
+        try {
+          const ref = collection(db, 'users') as CollectionReference<UserType>
+
+          const q = query(ref, where('userId', '==', userId))
+
+          const snapshot = await getDocs(q)
+
+          const data = snapshot.docs.map((doc) => ({
+            ...doc.data(),
+            uid: doc.id
+          }))
+
+          if (data.length === 0) {
+            throw new FirebaseError(
+              'not-found',
+              'このページはすでに削除されているか、URLが間違っている可能性があります。'
+            )
+          }
+
+          return { data: data[0] }
         } catch (error) {
           return { error }
         }
@@ -128,5 +161,9 @@ export const usersApi = baseFirestoreApi.injectEndpoints({
   overrideExisting: false
 })
 
-export const { useGetUserQuery, useCreateUserMutation, useUpdateUserMutation } =
-  usersApi
+export const {
+  useGetUserByUidQuery,
+  useGetUserByUserIdQuery,
+  useCreateUserMutation,
+  useUpdateUserMutation
+} = usersApi

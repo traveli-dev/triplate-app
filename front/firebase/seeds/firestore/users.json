@@ -5,7 +5,7 @@
       "icon": "http://localhost:9199/v0/b/traveli-test.appspot.com/o/images%2Fusers%2FC5Ja2gXGLeIXTjhWZbDiWUWe8Whd%2Fprofiles%2Ficon?alt=media",
       "userId": "ma_ma_hima",
       "description": "Designer & Engineer デジタルデトックスなたびがスキ",
-      "followCount": 1,
+      "followingCount": 1,
       "followerCount": 1,
       "notificationCount": 0,
       "createdAt": {
@@ -41,75 +41,138 @@
         },
         "users/C5Ja2gXGLeIXTjhWZbDiWUWe8Whd/myTriplates": {
           "0bcecdd8-fed9-4d72-8a40-b54c7b9ec05b": {
-            "triplateId": "0bcecdd8-fed9-4d72-8a40-b54c7b9ec05b"
+            "thumbnail": "http://localhost:9199/v0/b/traveli-test.appspot.com/o/images%2Ftriplinks%2Fb21323a4-05f8-42db-9ce7-a2f29946595f%2Fthumbnail?alt=media",
+            "title": "いつメンで京都旅行",
+            "date": [
+              {
+                "_seconds": 1589998976,
+                "_nanoseconds": 490000000
+              },
+              {
+                "_seconds": 1589998976,
+                "_nanoseconds": 490000000
+              }
+            ],
+            "tags": [
+              "太平洋酒場",
+              "太平洋酒場",
+              "太平洋酒場"
+            ],
+            "isPublished": true
           },
           "1bcecdd8-fed9-4d72-8a40-b54c7b9ec05b": {
-            "triplateId": "1bcecdd8-fed9-4d72-8a40-b54c7b9ec05b"
+            "thumbnail": "http://localhost:9199/v0/b/traveli-test.appspot.com/o/images%2Ftriplinks%2Fb21323a4-05f8-42db-9ce7-a2f29946595f%2Fthumbnail?alt=media",
+            "title": "和歌山市ラーメン巡り（公開済み）",
+            "date": [
+              {
+                "_seconds": 1589998976,
+                "_nanoseconds": 490000000
+              },
+              {
+                "_seconds": 1589998976,
+                "_nanoseconds": 490000000
+              }
+            ],
+            "tags": [
+              "ラーメン"
+            ],
+            "isPublished": true
           },
           "060b3ff3-0b5a-4d8f-8c4f-13168750dfe1": {
-            "triplateId": "060b3ff3-0b5a-4d8f-8c4f-13168750dfe1"
+            "thumbnail": "http://localhost:9199/v0/b/traveli-test.appspot.com/o/images%2Ftriplinks%2Fb21323a4-05f8-42db-9ce7-a2f29946595f%2Fthumbnail?alt=media",
+            "title": "神社巡り（下書き）",
+            "date": [
+              {
+                "_seconds": 1589998976,
+                "_nanoseconds": 490000000
+              },
+              {
+                "_seconds": 1589998976,
+                "_nanoseconds": 490000000
+              }
+            ],
+            "tags": null,
+            "isPublished": false
           }
         },
-        "users/C5Ja2gXGLeIXTjhWZbDiWUWe8Whd/follows": {
-          "C00a2gXGLeIXTjhWZbDiWUWe8Whd": {
-            "createdAt": {
-              "_seconds": 1589998976,
-              "_nanoseconds": 490000000
-            }
+        "users/C5Ja2gXGLeIXTjhWZbDiWUWe8Whd/following": {
+          "E00a2gXGLeIXTjhWZbDiWUWe8Whd": {
+            "userName": "ふぉろーしてるくん１",
+            "userId": "follow_siteru",
+            "icon": "http://localhost:9199/v0/b/traveli-test.appspot.com/o/images%2Fusers%2FC00a2gXGLeIXTjhWZbDiWUWe8Whd%2Fprofiles%2Ficon?alt=media"
+          },
+          "F00a2gXGLeIXTjhWZbDiWUWe8Whd": {
+            "userName": "ふぉろーしてるくん２",
+            "userId": "follow_siteru",
+            "icon": "http://localhost:9199/v0/b/traveli-test.appspot.com/o/images%2Fusers%2FC00a2gXGLeIXTjhWZbDiWUWe8Whd%2Fprofiles%2Ficon?alt=media"
+          },
+          "G00a2gXGLeIXTjhWZbDiWUWe8Whd": {
+            "userName": "ふぉろーしてるくん３",
+            "userId": "follow_siteru",
+            "icon": "http://localhost:9199/v0/b/traveli-test.appspot.com/o/images%2Fusers%2FC00a2gXGLeIXTjhWZbDiWUWe8Whd%2Fprofiles%2Ficon?alt=media"
           }
         },
         "users/C5Ja2gXGLeIXTjhWZbDiWUWe8Whd/followers": {
-          "C00a2gXGLeIXTjhWZbDiWUWe8Whd": {
-            "createdAt": {
-              "_seconds": 1589998976,
-              "_nanoseconds": 490000000
-            }
+          "A00a2gXGLeIXTjhWZbDiWUWe8Whd": {
+            "userName": "ふぉろわーくん１",
+            "userId": "follow_sareteru",
+            "icon": "http://localhost:9199/v0/b/traveli-test.appspot.com/o/images%2Fusers%2FC00a2gXGLeIXTjhWZbDiWUWe8Whd%2Fprofiles%2Ficon?alt=media"
           }
         },
-        "users/C5Ja2gXGLeIXTjhWZbDiWUWe8Whd/notifications": {}
+        "B00a2gXGLeIXTjhWZbDiWUWe8Whd": {
+          "userName": "ふぉろわーくん２",
+          "userId": "follow_sareteru",
+          "icon": "http://localhost:9199/v0/b/traveli-test.appspot.com/o/images%2Fusers%2FC00a2gXGLeIXTjhWZbDiWUWe8Whd%2Fprofiles%2Ficon?alt=media"
+        }
+      },
+      "C00a2gXGLeIXTjhWZbDiWUWe8Whd": {
+        "userName": "ふぉろわーくん３",
+        "userId": "follow_sareteru",
+        "icon": "http://localhost:9199/v0/b/traveli-test.appspot.com/o/images%2Fusers%2FC00a2gXGLeIXTjhWZbDiWUWe8Whd%2Fprofiles%2Ficon?alt=media"
       }
     },
-    "C00a2gXGLeIXTjhWZbDiWUWe8Whd": {
-      "name": "testUser1",
-      "icon": "http://localhost:9199/v0/b/traveli-test.appspot.com/o/images%2Fusers%2FC00a2gXGLeIXTjhWZbDiWUWe8Whd%2Fprofiles%2Ficon?alt=media",
-      "userId": "userid01",
-      "description": "私の自己紹介",
-      "followCount": 1,
-      "followerCount": 1,
-      "notificationCount": 0,
-      "links": {
-        "instagram": null,
-        "twitter": null
-      },
-      "createdAt": {
-        "_seconds": 1589998976,
-        "_nanoseconds": 490000000
-      },
-      "subCollection": {
-        "users/C00a2gXGLeIXTjhWZbDiWUWe8Whd/myTriplinks": {
-          "9bcecdd8-fed9-4d72-8a40-b54c7b9ec05b": {
-            "isAuthor": false,
-            "triplateId": null
-          },
-          "a0bf63a0-0367-11ee-be56-0242ac120002": {
-            "isAuthor": true,
-            "triplateId": null
-          }
+    "users/C5Ja2gXGLeIXTjhWZbDiWUWe8Whd/notifications": {}
+  },
+  "C00a2gXGLeIXTjhWZbDiWUWe8Whd": {
+    "name": "testUser1",
+    "icon": "http://localhost:9199/v0/b/traveli-test.appspot.com/o/images%2Fusers%2FC00a2gXGLeIXTjhWZbDiWUWe8Whd%2Fprofiles%2Ficon?alt=media",
+    "userId": "userid01",
+    "description": "私の自己紹介",
+    "followingCount": 1,
+    "followerCount": 1,
+    "notificationCount": 0,
+    "links": {
+      "instagram": null,
+      "twitter": null
+    },
+    "createdAt": {
+      "_seconds": 1589998976,
+      "_nanoseconds": 490000000
+    },
+    "subCollection": {
+      "users/C00a2gXGLeIXTjhWZbDiWUWe8Whd/myTriplinks": {
+        "9bcecdd8-fed9-4d72-8a40-b54c7b9ec05b": {
+          "isAuthor": false,
+          "triplateId": null
         },
-        "users/C00a2gXGLeIXTjhWZbDiWUWe8Whd/follows": {
-          "C5Ja2gXGLeIXTjhWZbDiWUWe8Whd": {
-            "createdAt": {
-              "_seconds": 1589998976,
-              "_nanoseconds": 490000000
-            }
+        "a0bf63a0-0367-11ee-be56-0242ac120002": {
+          "isAuthor": true,
+          "triplateId": null
+        }
+      },
+      "users/C00a2gXGLeIXTjhWZbDiWUWe8Whd/following": {
+        "C5Ja2gXGLeIXTjhWZbDiWUWe8Whd": {
+          "createdAt": {
+            "_seconds": 1589998976,
+            "_nanoseconds": 490000000
           }
-        },
-        "users/C00a2gXGLeIXTjhWZbDiWUWe8Whd/followers": {
-          "C5Ja2gXGLeIXTjhWZbDiWUWe8Whd": {
-            "createdAt": {
-              "_seconds": 1589998976,
-              "_nanoseconds": 490000000
-            }
+        }
+      },
+      "users/C00a2gXGLeIXTjhWZbDiWUWe8Whd/followers": {
+        "C5Ja2gXGLeIXTjhWZbDiWUWe8Whd": {
+          "createdAt": {
+            "_seconds": 1589998976,
+            "_nanoseconds": 490000000
           }
         }
       }
