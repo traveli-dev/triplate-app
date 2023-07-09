@@ -1,8 +1,9 @@
-import { theme } from '@/styles/theme'
 import { css } from '@emotion/react'
+import { TabType } from '@/components/Tabs/TabList'
+import { theme } from '@/styles/theme'
 
 export const styles = {
-  tab: css`
+  tab: (type: TabType) => css`
     position: relative;
     flex-shrink: 0;
     border: none;
@@ -18,9 +19,11 @@ export const styles = {
         position: absolute;
         bottom: 0px;
         left: 0;
-        width: 88px;
-        height: 3px;
-        border-radius: 3px;
+        right: 0;
+        margin: 0 auto;
+        width: ${type === 'triplink' ? '88px' : '8px'};
+        height: ${type === 'triplink' ? '3px' : '4px'};
+        border-radius: 4px;
         background-color: ${theme.color.black};
       }
       font-weight: bold;

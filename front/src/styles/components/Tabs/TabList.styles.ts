@@ -1,4 +1,5 @@
 import { css } from '@emotion/react'
+import type { TabType } from '@/components/Tabs/TabList'
 import { theme } from '@/styles/theme'
 
 export const styles = {
@@ -12,8 +13,9 @@ export const styles = {
     scroll-padding-inline: 32px;
     scroll-behavior: smooth;
   `,
-  tabListWrapper: css`
+  tabListWrapper: (type: TabType) => css`
     width: 100%;
-    border-bottom: 2px solid ${theme.color.outlineGray};
+    border-bottom: ${type === 'triplink' ? '2px' : '0px'} solid
+      ${theme.color.outlineGray};
   `
 }

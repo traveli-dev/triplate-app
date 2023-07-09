@@ -1,14 +1,17 @@
 import { forwardRef } from 'react'
 import { styles } from '@/styles/components/Tabs/TabList.styles'
 
+export type TabType = 'triplink' | 'triplate'
+
 type TabListProps = {
   children: React.ReactNode
+  type: TabType
 }
 
 export const TabList = forwardRef<HTMLDivElement, TabListProps>(
-  ({ children }, ref) => {
+  ({ children, type }, ref) => {
     return (
-      <div css={styles.tabListWrapper}>
+      <div css={styles.tabListWrapper(type)}>
         <div css={styles.tabList} ref={ref} role="tablist">
           {children}
         </div>

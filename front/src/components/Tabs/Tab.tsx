@@ -1,11 +1,12 @@
-import { ComponentPropsWithRef } from 'react'
+import type { TabType } from '@/components/Tabs/TabList'
 import { styles } from '@/styles/components/Tabs/Tab.styles'
 
-type TabProps = ComponentPropsWithRef<'button'> & {
+type TabProps = {
   children: React.ReactNode
   tabName: `tab-${number}`
   selectedTab: `tab-${number}`
   focusedTab: `tab-${number}`
+  type: TabType
   handleTabClick: (tabName: `tab-${number}`) => void
 }
 
@@ -15,18 +16,17 @@ export const Tab = ({
   children,
   selectedTab,
   handleTabClick,
-  ...props
+  type
 }: TabProps) => {
   return (
     <button
       aria-controls={tabName}
       aria-selected={selectedTab === tabName}
-      css={styles.tab}
+      css={styles.tab(type)}
       id={tabName}
       role="tab"
       tabIndex={focusedTab === tabName ? 0 : -1}
       onClick={() => handleTabClick(tabName)}
-      {...props}
     >
       {children}
     </button>
