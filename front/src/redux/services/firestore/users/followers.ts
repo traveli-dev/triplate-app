@@ -1,8 +1,4 @@
-import {
-  collection,
-  CollectionReference,
-  getDocs,
-} from 'firebase/firestore'
+import { collection, CollectionReference, getDocs } from 'firebase/firestore'
 import { db } from '@/lib/firebase'
 import { baseFirestoreApi } from '@/redux/services/firestore'
 
@@ -13,7 +9,7 @@ type FollowerItemType = {
 }
 
 type GetFollowerItemType = FollowerItemType & {
-  id:string
+  id: string
 }
 
 export const followersApi = baseFirestoreApi.injectEndpoints({
@@ -21,20 +17,24 @@ export const followersApi = baseFirestoreApi.injectEndpoints({
     getFollowers: builder.query<GetFollowerItemType[], string>({
       queryFn: async (uid) => {
         try {
-          const ref = collection(db, 'users', uid, 'followers') as CollectionReference<FollowerItemType>
+          const ref = collection(
+            db,
+            'users',
+            uid,
+            'followers'
+          ) as CollectionReference<FollowerItemType>
           const docs = await getDocs(ref)
 
-          const data = docs.docs.map((doc) => ({ ...doc.data(), id:doc.id }))
+          const data = docs.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
 
           return { data }
         } catch (error) {
           return { error }
         }
       }
-    }),
+    })
   }),
   overrideExisting: false
 })
 
 export const { useGetFollowersQuery } = followersApi
-

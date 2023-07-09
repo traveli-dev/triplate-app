@@ -11,14 +11,9 @@ export {
   type UserRequestBodyType
 } from '@/redux/services/firestore/users/users'
 // users/following
-export {
-  useGetFollowingQuery
-
-} from '@/redux/services/firestore/users/following'
+export { useGetFollowingQuery } from '@/redux/services/firestore/users/following'
 // users/follower
-export {
-  useGetFollowersQuery
-} from '@/redux/services/firestore/users/followers'
+export { useGetFollowersQuery } from '@/redux/services/firestore/users/followers'
 // users/myTriplinks
 export {
   useGetMyTriplinksQuery,

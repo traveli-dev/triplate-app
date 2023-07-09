@@ -1,8 +1,4 @@
-import {
-  collection,
-  CollectionReference,
-  getDocs,
-} from 'firebase/firestore'
+import { collection, CollectionReference, getDocs } from 'firebase/firestore'
 import { db } from '@/lib/firebase'
 import { baseFirestoreApi } from '@/redux/services/firestore'
 
@@ -21,7 +17,12 @@ export const followingApi = baseFirestoreApi.injectEndpoints({
     getFollowing: builder.query<GetFollowingItemType[], string>({
       queryFn: async (uid) => {
         try {
-          const ref = collection(db, 'users', uid, 'following') as CollectionReference<FollowingItemType>
+          const ref = collection(
+            db,
+            'users',
+            uid,
+            'following'
+          ) as CollectionReference<FollowingItemType>
           const docs = await getDocs(ref)
 
           const data = docs.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
@@ -31,10 +32,9 @@ export const followingApi = baseFirestoreApi.injectEndpoints({
           return { error }
         }
       }
-    }),
+    })
   }),
   overrideExisting: false
 })
 
 export const { useGetFollowingQuery } = followingApi
-
