@@ -44,7 +44,7 @@ export const TabTriplink = ({ triplinks }: TabTriplinkProps) => {
           tabName={`tab-${index}`}
         >
           {value.map((plan, index) => (
-            <div css={styles.layoutCardTriplinkListItem} key={index}>
+            <div css={styles.layoutCardTripListItem} key={index}>
               <CardTripListItem
                 date={null}
                 icon="map"

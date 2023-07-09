@@ -8,11 +8,11 @@ import {
   ModalShare,
   ModalMember
 } from '@/components/Modals'
-import { TabDaysWithTriplink, TabTriplink } from '@/components/Tabs'
+import { TabTriplink } from '@/components/Tabs'
 import { TravelListItemType } from '@/components/Tabs'
 import { useDisclosure } from '@/hooks/modals'
-import { styles } from '@/styles/pages/triplink/[triplinkId]/triplink.styles'
 import { TriplinkType } from '@/redux/services/firestore'
+import { styles } from '@/styles/pages/triplink/[triplinkId]/triplink.styles'
 
 const Triplink = () => {
   const router = useRouter()
@@ -35,10 +35,7 @@ const Triplink = () => {
           isSecret: false,
           url: 'https://maps.google.com/?cid=13121875705491233800',
           name: '京都駅',
-          time: {
-            _seconds: 1698195600,
-            _nanoseconds: 0
-          },
+          time: null,
           memo: '駅に着いたら荷物預ける'
         },
         {
@@ -54,10 +51,7 @@ const Triplink = () => {
           isSecret: false,
           url: 'https://maps.google.com/?cid=14940864174397642651',
           name: 'アパホテル〈京都駅前〉',
-          time: {
-            _seconds: 1698224400,
-            _nanoseconds: 0
-          },
+          time: null,
           memo: '荷物の回収忘れない'
         }
       ],
@@ -67,10 +61,7 @@ const Triplink = () => {
           isSecret: false,
           url: 'https://maps.google.com/?cid=14940864174397642651',
           name: 'アパホテル〈京都駅前〉',
-          time: {
-            _seconds: 1698285600,
-            _nanoseconds: 0
-          },
+          time: null,
           memo: null
         },
         {
@@ -86,10 +77,7 @@ const Triplink = () => {
           isSecret: false,
           url: null,
           name: 'ホテルで夕食',
-          time: {
-            _seconds: 1698314400,
-            _nanoseconds: 0
-          },
+          time: null,
           memo: null
         }
       ],
@@ -99,10 +87,7 @@ const Triplink = () => {
           isSecret: false,
           url: 'https://maps.google.com/?cid=14940864174397642651',
           name: 'ぱんだの散歩',
-          time: {
-            _seconds: 1698372000,
-            _nanoseconds: 0
-          },
+          time: null,
           memo: null
         },
         {
@@ -118,10 +103,7 @@ const Triplink = () => {
           isSecret: false,
           url: null,
           name: '新幹線乗って帰る',
-          time: {
-            _seconds: 1698404400,
-            _nanoseconds: 0
-          },
+          time: null,
           memo: null
         },
         {
@@ -133,246 +115,210 @@ const Triplink = () => {
           memo: null
         }
       ],
-      day4: [
-        {
-          id: 0,
-          isSecret: false,
-          url: 'https://maps.google.com/?cid=14940864174397642651',
-          name: 'ぱんだの散歩',
-          time: {
-            _seconds: 1698372000,
-            _nanoseconds: 0
-          },
-          memo: null
-        },
-        {
-          id: 1,
-          isSecret: false,
-          url: 'https://maps.google.com/?cid=5767768846672272791',
-          name: 'ぱんだの散歩',
-          time: null,
-          memo: 'みたらし団子'
-        },
-        {
-          id: 2,
-          isSecret: false,
-          url: null,
-          name: '新幹線乗って帰る',
-          time: {
-            _seconds: 1698404400,
-            _nanoseconds: 0
-          },
-          memo: null
-        },
-        {
-          id: 3,
-          isSecret: true,
-          url: 'http://rps.ana.co.jp/web/ncnv/uu/asm/all3216.php',
-          name: '新幹線webチケット',
-          time: null,
-          memo: null
-        }
-      ],
-      day5: [
-        {
-          id: 0,
-          isSecret: false,
-          url: 'https://maps.google.com/?cid=14940864174397642651',
-          name: 'ぱんだの散歩',
-          time: {
-            _seconds: 1698372000,
-            _nanoseconds: 0
-          },
-          memo: null
-        },
-        {
-          id: 1,
-          isSecret: false,
-          url: 'https://maps.google.com/?cid=5767768846672272791',
-          name: 'ぱんだの散歩',
-          time: null,
-          memo: 'みたらし団子'
-        },
-        {
-          id: 2,
-          isSecret: false,
-          url: null,
-          name: '新幹線乗って帰る',
-          time: {
-            _seconds: 1698404400,
-            _nanoseconds: 0
-          },
-          memo: null
-        },
-        {
-          id: 3,
-          isSecret: true,
-          url: 'http://rps.ana.co.jp/web/ncnv/uu/asm/all3216.php',
-          name: '新幹線webチケット',
-          time: null,
-          memo: null
-        }
-      ],
-      day6: [
-        {
-          id: 0,
-          isSecret: false,
-          url: 'https://maps.google.com/?cid=14940864174397642651',
-          name: 'ぱんだの散歩',
-          time: {
-            _seconds: 1698372000,
-            _nanoseconds: 0
-          },
-          memo: null
-        },
-        {
-          id: 1,
-          isSecret: false,
-          url: 'https://maps.google.com/?cid=5767768846672272791',
-          name: 'ぱんだの散歩',
-          time: null,
-          memo: 'みたらし団子'
-        },
-        {
-          id: 2,
-          isSecret: false,
-          url: null,
-          name: '新幹線乗って帰る',
-          time: {
-            _seconds: 1698404400,
-            _nanoseconds: 0
-          },
-          memo: null
-        },
-        {
-          id: 3,
-          isSecret: true,
-          url: 'http://rps.ana.co.jp/web/ncnv/uu/asm/all3216.php',
-          name: '新幹線webチケット',
-          time: null,
-          memo: null
-        }
-      ],
-      day7: [
-        {
-          id: 0,
-          isSecret: false,
-          url: 'https://maps.google.com/?cid=14940864174397642651',
-          name: 'ぱんだの散歩',
-          time: {
-            _seconds: 1698372000,
-            _nanoseconds: 0
-          },
-          memo: null
-        },
-        {
-          id: 1,
-          isSecret: false,
-          url: 'https://maps.google.com/?cid=5767768846672272791',
-          name: 'ぱんだの散歩',
-          time: null,
-          memo: 'みたらし団子'
-        },
-        {
-          id: 2,
-          isSecret: false,
-          url: null,
-          name: '新幹線乗って帰る',
-          time: {
-            _seconds: 1698404400,
-            _nanoseconds: 0
-          },
-          memo: null
-        },
-        {
-          id: 3,
-          isSecret: true,
-          url: 'http://rps.ana.co.jp/web/ncnv/uu/asm/all3216.php',
-          name: '新幹線webチケット',
-          time: null,
-          memo: null
-        }
-      ],
-      day8: [
-        {
-          id: 0,
-          isSecret: false,
-          url: 'https://maps.google.com/?cid=14940864174397642651',
-          name: 'ぱんだの散歩',
-          time: {
-            _seconds: 1698372000,
-            _nanoseconds: 0
-          },
-          memo: null
-        },
-        {
-          id: 1,
-          isSecret: false,
-          url: 'https://maps.google.com/?cid=5767768846672272791',
-          name: 'ぱんだの散歩',
-          time: null,
-          memo: 'みたらし団子'
-        },
-        {
-          id: 2,
-          isSecret: false,
-          url: null,
-          name: '新幹線乗って帰る',
-          time: {
-            _seconds: 1698404400,
-            _nanoseconds: 0
-          },
-          memo: null
-        },
-        {
-          id: 3,
-          isSecret: true,
-          url: 'http://rps.ana.co.jp/web/ncnv/uu/asm/all3216.php',
-          name: '新幹線webチケット',
-          time: null,
-          memo: null
-        }
-      ],
-      day9: [
-        {
-          id: 0,
-          isSecret: false,
-          url: 'https://maps.google.com/?cid=14940864174397642651',
-          name: 'ぱんだの散歩',
-          time: {
-            _seconds: 1698372000,
-            _nanoseconds: 0
-          },
-          memo: null
-        },
-        {
-          id: 1,
-          isSecret: false,
-          url: 'https://maps.google.com/?cid=5767768846672272791',
-          name: 'ぱんだの散歩',
-          time: null,
-          memo: 'みたらし団子'
-        },
-        {
-          id: 2,
-          isSecret: false,
-          url: null,
-          name: '新幹線乗って帰る',
-          time: {
-            _seconds: 1698404400,
-            _nanoseconds: 0
-          },
-          memo: null
-        },
-        {
-          id: 3,
-          isSecret: true,
-          url: 'http://rps.ana.co.jp/web/ncnv/uu/asm/all3216.php',
-          name: '新幹線webチケット',
-          time: null,
-          memo: null
-        }
-      ]
+      // day4: [
+      //   {
+      //     id: 0,
+      //     isSecret: false,
+      //     url: 'https://maps.google.com/?cid=14940864174397642651',
+      //     name: 'ぱんだの散歩',
+      //     time: null,
+      //     memo: null
+      //   },
+      //   {
+      //     id: 1,
+      //     isSecret: false,
+      //     url: 'https://maps.google.com/?cid=5767768846672272791',
+      //     name: 'ぱんだの散歩',
+      //     time: null,
+      //     memo: 'みたらし団子'
+      //   },
+      //   {
+      //     id: 2,
+      //     isSecret: false,
+      //     url: null,
+      //     name: '新幹線乗って帰る',
+      //     time: null,
+      //     memo: null
+      //   },
+      //   {
+      //     id: 3,
+      //     isSecret: true,
+      //     url: 'http://rps.ana.co.jp/web/ncnv/uu/asm/all3216.php',
+      //     name: '新幹線webチケット',
+      //     time: null,
+      //     memo: null
+      //   }
+      // ],
+      // day5: [
+      //   {
+      //     id: 0,
+      //     isSecret: false,
+      //     url: 'https://maps.google.com/?cid=14940864174397642651',
+      //     name: 'ぱんだの散歩',
+      //     time: null,
+      //     memo: null
+      //   },
+      //   {
+      //     id: 1,
+      //     isSecret: false,
+      //     url: 'https://maps.google.com/?cid=5767768846672272791',
+      //     name: 'ぱんだの散歩',
+      //     time: null,
+      //     memo: 'みたらし団子'
+      //   },
+      //   {
+      //     id: 2,
+      //     isSecret: false,
+      //     url: null,
+      //     name: '新幹線乗って帰る',
+      //     time: null,
+      //     memo: null
+      //   },
+      //   {
+      //     id: 3,
+      //     isSecret: true,
+      //     url: 'http://rps.ana.co.jp/web/ncnv/uu/asm/all3216.php',
+      //     name: '新幹線webチケット',
+      //     time: null,
+      //     memo: null
+      //   }
+      // ],
+      // day6: [
+      //   {
+      //     id: 0,
+      //     isSecret: false,
+      //     url: 'https://maps.google.com/?cid=14940864174397642651',
+      //     name: 'ぱんだの散歩',
+      //     time: null,
+      //     memo: null
+      //   },
+      //   {
+      //     id: 1,
+      //     isSecret: false,
+      //     url: 'https://maps.google.com/?cid=5767768846672272791',
+      //     name: 'ぱんだの散歩',
+      //     time: null,
+      //     memo: 'みたらし団子'
+      //   },
+      //   {
+      //     id: 2,
+      //     isSecret: false,
+      //     url: null,
+      //     name: '新幹線乗って帰る',
+      //     time: null,
+      //     memo: null
+      //   },
+      //   {
+      //     id: 3,
+      //     isSecret: true,
+      //     url: 'http://rps.ana.co.jp/web/ncnv/uu/asm/all3216.php',
+      //     name: '新幹線webチケット',
+      //     time: null,
+      //     memo: null
+      //   }
+      // ],
+      // day7: [
+      //   {
+      //     id: 0,
+      //     isSecret: false,
+      //     url: 'https://maps.google.com/?cid=14940864174397642651',
+      //     name: 'ぱんだの散歩',
+      //     time: null,
+      //     memo: null
+      //   },
+      //   {
+      //     id: 1,
+      //     isSecret: false,
+      //     url: 'https://maps.google.com/?cid=5767768846672272791',
+      //     name: 'ぱんだの散歩',
+      //     time: null,
+      //     memo: 'みたらし団子'
+      //   },
+      //   {
+      //     id: 2,
+      //     isSecret: false,
+      //     url: null,
+      //     name: '新幹線乗って帰る',
+      //     time: null,
+      //     memo: null
+      //   },
+      //   {
+      //     id: 3,
+      //     isSecret: true,
+      //     url: 'http://rps.ana.co.jp/web/ncnv/uu/asm/all3216.php',
+      //     name: '新幹線webチケット',
+      //     time: null,
+      //     memo: null
+      //   }
+      // ],
+      // day8: [
+      //   {
+      //     id: 0,
+      //     isSecret: false,
+      //     url: 'https://maps.google.com/?cid=14940864174397642651',
+      //     name: 'ぱんだの散歩',
+      //     time: null,
+      //     memo: null
+      //   },
+      //   {
+      //     id: 1,
+      //     isSecret: false,
+      //     url: 'https://maps.google.com/?cid=5767768846672272791',
+      //     name: 'ぱんだの散歩',
+      //     time: null,
+      //     memo: 'みたらし団子'
+      //   },
+      //   {
+      //     id: 2,
+      //     isSecret: false,
+      //     url: null,
+      //     name: '新幹線乗って帰る',
+      //     time: null,
+      //     memo: null
+      //   },
+      //   {
+      //     id: 3,
+      //     isSecret: true,
+      //     url: 'http://rps.ana.co.jp/web/ncnv/uu/asm/all3216.php',
+      //     name: '新幹線webチケット',
+      //     time: null,
+      //     memo: null
+      //   }
+      // ],
+      // day9: [
+      //   {
+      //     id: 0,
+      //     isSecret: false,
+      //     url: 'https://maps.google.com/?cid=14940864174397642651',
+      //     name: 'ぱんだの散歩',
+      //     time: null,
+      //     memo: null
+      //   },
+      //   {
+      //     id: 1,
+      //     isSecret: false,
+      //     url: 'https://maps.google.com/?cid=5767768846672272791',
+      //     name: 'ぱんだの散歩',
+      //     time: null,
+      //     memo: 'みたらし団子'
+      //   },
+      //   {
+      //     id: 2,
+      //     isSecret: false,
+      //     url: null,
+      //     name: '新幹線乗って帰る',
+      //     time: null,
+      //     memo: null
+      //   },
+      //   {
+      //     id: 3,
+      //     isSecret: true,
+      //     url: 'http://rps.ana.co.jp/web/ncnv/uu/asm/all3216.php',
+      //     name: '新幹線webチケット',
+      //     time: null,
+      //     memo: null
+      //   }
+      // ]
     }
   }
 
