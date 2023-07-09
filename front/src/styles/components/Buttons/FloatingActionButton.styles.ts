@@ -12,15 +12,15 @@ export const styles = {
     justify-content: center;
     width: 64px;
     height: 64px;
-    color: ${theme.color.white};
-    background-color: ${theme.color.blue};
+    color: ${theme.renewalColor.white};
+    background-color: ${theme.renewalColor.black};
     filter: drop-shadow(0 0 0.8px rgba(101, 119, 134, 0.2));
     border-radius: 100px;
     box-shadow: 0 1px 3px 1px rgba(101, 119, 134, 0.25);
 
     &:hover,
     &:focus {
-      background-color: ${theme.color.hoverBlue};
+      background-color: ${theme.renewalColor.hoverBlack};
     }
   `
 }
