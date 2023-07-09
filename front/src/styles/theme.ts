@@ -41,6 +41,7 @@ const renewalColor = {
   white: renewalColorPallet.white,
   black: renewalColorPallet.black,
   gray: renewalColorPallet.gray,
+  lightGray: renewalColorPallet.gray200,
   red: renewalColorPallet.red,
   blue: renewalColorPallet.blue,
   pink: renewalColorPallet.pink,
