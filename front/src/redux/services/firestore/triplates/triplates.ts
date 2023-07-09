@@ -40,7 +40,7 @@ export type TriplateType = {
       name: string
       time: Timestamp | null
       memo: string | null
-    }
+    }[]
   }
   privacySettings: {
     isMemoPublic: boolean

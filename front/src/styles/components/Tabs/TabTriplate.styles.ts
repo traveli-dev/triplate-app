@@ -1,17 +1,20 @@
 import { css } from '@emotion/react'
 import { theme } from '@/styles/theme'
+import { mq } from '@/styles/utils'
 
 export const styles = {
   thumbnail: css`
-    position: relative !important;
-    width: 100%;
-    height: 329px;
-    margin-top: 32px;
-    border: 0;
-    border-radius: 24px;
     object-fit: cover;
+    border-radius: 24px;
   `,
-
+  imgWrapper: css`
+    position: relative;
+    width: 100%;
+    aspect-ratio: 2/1;
+    ${mq('sm')} {
+      aspect-ratio: 1/1;
+    }
+  `,
   descriptionWrapper: css`
     padding: 16px;
     margin-top: 16px;
@@ -36,18 +39,19 @@ export const styles = {
     flex-wrap: wrap;
     gap: 8px;
   `,
-
-  listItemsWrapper: css`
-    padding: 16px;
-    margin-top: 40px;
-    background-color: ${theme.color.gray100};
-    border-radius: 16px;
-  `,
   day: css`
+    margin-bottom: 16px;
     font-size: ${theme.fontSize.lg};
     font-weight: 600;
+    letter-spacing: 0.1em;
   `,
-  item: css`
-    margin-top: 16px;
+  layoutCardTripListItem: css`
+    margin-bottom: 16px;
+  `,
+  cardTripListItemWrapper: css`
+    padding: 16px;
+    margin-top: 32px;
+    background-color: ${theme.color.bgGray};
+    border-radius: 16px;
   `
 }

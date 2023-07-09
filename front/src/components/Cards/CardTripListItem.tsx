@@ -5,8 +5,8 @@ import { styles } from '@/styles/components/Cards/CardTripListItem.styles'
 type CardTripListItemType = {
   icon: 'map' | 'link' | 'ledger'
   title: string
-  date?: string
-  memo?: string
+  date: string | null
+  memo: string | null
 }
 
 export const CardTripListItem = ({
@@ -45,20 +45,22 @@ export const CardTripListItem = ({
       </div>
       <div css={styles.values}>
         <div css={styles.title}>{title}</div>
-        <div css={styles.sub}>
-          {date && (
-            <div css={styles.textWithIcon}>
-              <HiOutlineClock css={styles.iconSmall} size={16} />
-              <p>{date}</p>
-            </div>
-          )}
-          {memo && (
-            <div css={styles.textWithIcon}>
-              <HiOutlineDocumentText css={styles.iconSmall} size={16} />
-              <p>{memo}</p>
-            </div>
-          )}
-        </div>
+        {(date || memo) && (
+          <div css={styles.sub}>
+            {date && (
+              <div css={styles.textWithIcon}>
+                <HiOutlineClock css={styles.iconSmall} size={16} />
+                <p>{date}</p>
+              </div>
+            )}
+            {memo && (
+              <div css={styles.textWithIcon}>
+                <HiOutlineDocumentText css={styles.iconSmall} size={16} />
+                <p>{memo}</p>
+              </div>
+            )}
+          </div>
+        )}
       </div>
     </div>
   )
