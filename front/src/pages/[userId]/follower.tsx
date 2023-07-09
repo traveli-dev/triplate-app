@@ -16,7 +16,7 @@ const Follower = () => {
         {
           data.map((list)=>(
             <>
-            <div>{list.icon}</div>
+            <div>{list.thumbnail}</div>
             <div>{list.userName}</div>
             <div>{list.userId}</div>
             </>
