@@ -1,4 +1,4 @@
-import { ComponentPropsWithRef, Dispatch, SetStateAction } from 'react'
+import { ComponentPropsWithRef } from 'react'
 import { styles } from '@/styles/components/Tabs/Tab.styles'
 
 type TabProps = ComponentPropsWithRef<'button'> & {
@@ -6,8 +6,7 @@ type TabProps = ComponentPropsWithRef<'button'> & {
   tabName: `tab-${number}`
   selectedTab: `tab-${number}`
   focusedTab: `tab-${number}`
-  scrollToTab: (tabName: `tab-${number}`) => void
-  setSelectedTab: Dispatch<SetStateAction<`tab-${number}`>>
+  handleTabClick: (tabName: `tab-${number}`) => void
 }
 
 export const Tab = ({
@@ -15,8 +14,7 @@ export const Tab = ({
   focusedTab,
   children,
   selectedTab,
-  setSelectedTab,
-  scrollToTab,
+  handleTabClick,
   ...props
 }: TabProps) => {
   return (
@@ -27,10 +25,7 @@ export const Tab = ({
       id={tabName}
       role="tab"
       tabIndex={focusedTab === tabName ? 0 : -1}
-      onClick={() => {
-        setSelectedTab(tabName)
-        scrollToTab(tabName)
-      }}
+      onClick={() => handleTabClick(tabName)}
       {...props}
     >
       {children}

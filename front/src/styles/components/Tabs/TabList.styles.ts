@@ -9,6 +9,7 @@ export const styles = {
     display: flex;
     scroll-snap-type: x mandatory;
     overflow-x: scroll;
+    scroll-padding-inline: 32px;
     scroll-behavior: smooth;
   `,
   tabListWrapper: css`
