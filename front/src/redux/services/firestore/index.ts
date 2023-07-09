@@ -28,7 +28,8 @@ export {
 
 // users/myTriplates
 export {
-
+  useGetAllMyTriplatesQuery,
+  useGetMyPublishedTriplatesQuery
 } from '@/redux/services/firestore/users/myTriplates'
 
 // triplinks
