@@ -4,8 +4,8 @@ import { styles } from '@/styles/components/Tabs/TabList.styles'
 export type TabType = 'triplink' | 'triplate'
 
 type TabListProps = {
-  children: React.ReactNode
   type: TabType
+  children: React.ReactNode
 }
 
 export const TabList = forwardRef<HTMLDivElement, TabListProps>(
