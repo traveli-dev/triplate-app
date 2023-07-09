@@ -5,7 +5,7 @@ import { CardTripListItem } from '@/components/Cards'
 import { Tab, TabList, TabPanel, Tabs } from '@/components/Tabs'
 import { useTabNavigation } from '@/hooks/tabs'
 import type { TriplateType } from '@/redux/services/firestore'
-import { styles } from '@/styles/components/Tabs/TabContent.styles'
+import { styles } from '@/styles/components/Tabs/TabTriplate.styles'
 
 type Itineraries = Pick<TriplateType, 'itineraries'>['itineraries']
 type Memories = Pick<TriplateType, 'memories'>['memories']
@@ -21,7 +21,7 @@ export const TabTriplate = ({ itineraries, memories }: TabTriplateProps) => {
 
   return (
     <Tabs>
-      <TabList ref={tabListRef}>
+      <TabList ref={tabListRef} type="triplate">
         {Object.keys(itineraries).map((_, index) => (
           <Tab
             focusedTab={focusedTab}
@@ -29,6 +29,7 @@ export const TabTriplate = ({ itineraries, memories }: TabTriplateProps) => {
             key={index}
             selectedTab={selectedTab}
             tabName={`tab-${index}`}
+            type="triplate"
           >
             {index + 1}日目
           </Tab>
@@ -40,16 +41,18 @@ export const TabTriplate = ({ itineraries, memories }: TabTriplateProps) => {
           panelName={`day-${index + 1}`}
           selectedTab={selectedTab}
           tabName={`tab-${index}`}
+          type="triplate"
         >
           {memories[`day${index + 1}`] && (
             <>
-              <Image
-                alt="thumbnail_image"
-                // css={styles.thumbnail} /
-                height={329}
-                src={memories[`day${index + 1}`].thumbnail ?? ''}
-                width={329}
-              />
+              <div css={styles.imgWrapper}>
+                <Image
+                  alt=""
+                  css={styles.thumbnail}
+                  fill
+                  src={memories[`day${index + 1}`].thumbnail ?? ''}
+                />
+              </div>
               <div css={styles.descriptionWrapper}>
                 <div css={styles.tag}>
                   <HiOutlineTag size={20} />
@@ -68,18 +71,21 @@ export const TabTriplate = ({ itineraries, memories }: TabTriplateProps) => {
               </div>
             </>
           )}
-          {value.map((plan, index) => (
-            <div css={styles.layoutCardTripListItem} key={index}>
-              <CardTripListItem
-                date={null}
-                icon="map"
-                // TODO: iconを動的に
-                memo={plan.memo}
-                title={plan.name}
-                // TODO: date={plan.time}
-              />
-            </div>
-          ))}
+          <div css={styles.cardTripListItemWrapper}>
+            <h2 css={styles.day}>{`Day${index + 1}の旅程`}</h2>
+            {value.map((plan, index) => (
+              <div css={styles.layoutCardTripListItem} key={index}>
+                <CardTripListItem
+                  date={null}
+                  icon="map"
+                  // TODO: iconを動的に
+                  memo={plan.memo}
+                  title={plan.name}
+                  // TODO: date={plan.time}
+                />
+              </div>
+            ))}
+          </div>
         </TabPanel>
       ))}
     </Tabs>
