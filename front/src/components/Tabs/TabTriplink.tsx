@@ -4,7 +4,6 @@ import { useTabNavigation } from '@/hooks/tabs'
 import type { TriplinkType } from '@/redux/services/firestore'
 import { styles } from '@/styles/components/Tabs/TabTriplink.styles'
 
-
 type Itineraries = Pick<TriplinkType, 'itineraries'>
 type Triplinks = Itineraries['itineraries']
 type TabTriplinkProps = {
@@ -18,7 +17,7 @@ export const TabTriplink = ({ triplinks }: TabTriplinkProps) => {
 
   return (
     <Tabs>
-      <TabList ref={tabListRef} type='triplink'>
+      <TabList ref={tabListRef} type="triplink">
         {Object.keys(triplinks).map((_, index) => (
           <Tab
             focusedTab={focusedTab}
@@ -26,7 +25,7 @@ export const TabTriplink = ({ triplinks }: TabTriplinkProps) => {
             key={index}
             selectedTab={selectedTab}
             tabName={`tab-${index}`}
-            type='triplink'
+            type="triplink"
           >
             {index + 1}日目
           </Tab>
@@ -38,7 +37,7 @@ export const TabTriplink = ({ triplinks }: TabTriplinkProps) => {
           panelName={`day-${index + 1}`}
           selectedTab={selectedTab}
           tabName={`tab-${index}`}
-          type='triplink'
+          type="triplink"
         >
           {value.map((plan, index) => (
             <div css={styles.layoutCardTripListItem} key={index}>

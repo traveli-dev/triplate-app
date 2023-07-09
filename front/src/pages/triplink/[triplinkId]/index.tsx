@@ -105,7 +105,7 @@ const Triplink = () => {
           time: null,
           memo: null
         }
-      ],
+      ]
       // day4: [
       //   {
       //     id: 0,

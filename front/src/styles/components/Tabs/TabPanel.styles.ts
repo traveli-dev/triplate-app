@@ -4,9 +4,9 @@ import { theme } from '@/styles/theme'
 
 export const styles = {
   tabPanel: (type: TabType) => css`
+    padding: ${type === 'triplink' ? '16px' : '16px 0'};
     background-color: ${type === 'triplink'
       ? theme.color.bgGray
       : theme.color.white};
-    padding: ${type === 'triplink' ? '16px' : '16px 0'};
   `
 }

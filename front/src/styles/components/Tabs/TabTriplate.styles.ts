@@ -40,9 +40,9 @@ export const styles = {
     gap: 8px;
   `,
   day: css`
+    margin-bottom: 16px;
     font-size: ${theme.fontSize.lg};
     font-weight: 600;
-    margin-bottom: 16px;
     letter-spacing: 0.1em;
   `,
   layoutCardTripListItem: css`
@@ -51,7 +51,7 @@ export const styles = {
   cardTripListItemWrapper: css`
     padding: 16px;
     margin-top: 32px;
-    border-radius: 16px;
     background-color: ${theme.color.bgGray};
+    border-radius: 16px;
   `
 }
