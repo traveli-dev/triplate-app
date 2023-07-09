@@ -1,3 +1,4 @@
+import { FirebaseError } from 'firebase/app'
 import {
   DocumentReference,
   Timestamp,
@@ -10,19 +11,17 @@ import {
   where,
   writeBatch,
   CollectionReference,
-  getDocs,
-
+  getDocs
 } from 'firebase/firestore'
 import { db } from '@/lib/firebase'
 import { baseFirestoreApi } from '@/redux/services/firestore'
-import { FirebaseError } from 'firebase/app'
 
 export type UserType = {
   icon: string
   name: string
   userId: string
   description: string | null
-  followCount: number
+  followingCount: number
   followerCount: number
   notificationCount: number
   links: {
@@ -49,7 +48,7 @@ type UpdateUserType = {
 
 export type UserRequestBodyType = Omit<
   UserType,
-  'followCount' | 'followerCount' | 'notificationCount'
+  'followingCount' | 'followerCount' | 'notificationCount'
 >
 
 export const usersApi = baseFirestoreApi.injectEndpoints({
@@ -80,14 +79,16 @@ export const usersApi = baseFirestoreApi.injectEndpoints({
       queryFn: async (userId) => {
         try {
           const ref = collection(db, 'users') as CollectionReference<UserType>
-          
+
           const q = query(ref, where('userId', '==', userId))
 
           const snapshot = await getDocs(q)
 
-          const data = snapshot.docs.map((doc)=> ({...doc.data(), uid: doc.id}))
-          console.log(data)
-          
+          const data = snapshot.docs.map((doc) => ({
+            ...doc.data(),
+            uid: doc.id
+          }))
+
           if (data.length === 0) {
             throw new FirebaseError(
               'not-found',
@@ -95,70 +96,74 @@ export const usersApi = baseFirestoreApi.injectEndpoints({
             )
           }
 
-          return { data:data[0] }
-  } catch(error) {
-    return { error }
-  }
-},
-  providesTags: ['User']
-    }),
-createUser: builder.mutation<string, CreateUserType>({
-  queryFn: async ({ uid, body }) => {
-    try {
-      const batch = writeBatch(db)
-
-      // user情報を登録
-      const docRef = doc(db, 'users', uid)
-      batch.set(docRef, {
-        ...body,
-        createdAt: serverTimestamp()
-      })
-
-      // uniqueなフィールドをindexに登録
-      const indexUserIdRef = doc(
-        db,
-        'indexes',
-        'users',
-        'userId',
-        body.userId
-      )
-      batch.set(indexUserIdRef, {
-        user: uid
-      })
-
-      await batch.commit()
-
-      return {
-        data: 'OK'
-      }
-    } catch (error) {
-      return { error }
-    }
-  },
-  invalidatesTags: (_result, error) => (error ? [] : ['User'])
-}),
-  updateUser: builder.mutation<string, UpdateUserType>({
-    queryFn: async ({ uid, body }) => {
-      try {
-        const ref = doc(collection(db, 'users'), uid)
-
-        await updateDoc(ref, {
-          ...body,
-          updatedAt: serverTimestamp()
-        })
-
-        return {
-          data: 'OK'
+          return { data: data[0] }
+        } catch (error) {
+          return { error }
         }
-      } catch (error) {
-        return { error }
-      }
-    },
-    invalidatesTags: (_result, error) => (error ? [] : ['User'])
-  })
+      },
+      providesTags: ['User']
+    }),
+    createUser: builder.mutation<string, CreateUserType>({
+      queryFn: async ({ uid, body }) => {
+        try {
+          const batch = writeBatch(db)
+
+          // user情報を登録
+          const docRef = doc(db, 'users', uid)
+          batch.set(docRef, {
+            ...body,
+            createdAt: serverTimestamp()
+          })
+
+          // uniqueなフィールドをindexに登録
+          const indexUserIdRef = doc(
+            db,
+            'indexes',
+            'users',
+            'userId',
+            body.userId
+          )
+          batch.set(indexUserIdRef, {
+            user: uid
+          })
+
+          await batch.commit()
+
+          return {
+            data: 'OK'
+          }
+        } catch (error) {
+          return { error }
+        }
+      },
+      invalidatesTags: (_result, error) => (error ? [] : ['User'])
+    }),
+    updateUser: builder.mutation<string, UpdateUserType>({
+      queryFn: async ({ uid, body }) => {
+        try {
+          const ref = doc(collection(db, 'users'), uid)
+
+          await updateDoc(ref, {
+            ...body,
+            updatedAt: serverTimestamp()
+          })
+
+          return {
+            data: 'OK'
+          }
+        } catch (error) {
+          return { error }
+        }
+      },
+      invalidatesTags: (_result, error) => (error ? [] : ['User'])
+    })
   }),
-overrideExisting: false
+  overrideExisting: false
 })
 
-export const { useGetUserByUidQuery, useGetUserByUserIdQuery, useCreateUserMutation, useUpdateUserMutation } =
-  usersApi
+export const {
+  useGetUserByUidQuery,
+  useGetUserByUserIdQuery,
+  useCreateUserMutation,
+  useUpdateUserMutation
+} = usersApi

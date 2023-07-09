@@ -5,7 +5,7 @@
       "icon": "http://localhost:9199/v0/b/traveli-test.appspot.com/o/images%2Fusers%2FC5Ja2gXGLeIXTjhWZbDiWUWe8Whd%2Fprofiles%2Ficon?alt=media",
       "userId": "ma_ma_hima",
       "description": "Designer & Engineer デジタルデトックスなたびがスキ",
-      "followCount": 1,
+      "followingCount": 1,
       "followerCount": 1,
       "notificationCount": 0,
       "createdAt": {
@@ -52,18 +52,16 @@
         },
         "users/C5Ja2gXGLeIXTjhWZbDiWUWe8Whd/following": {
           "C00a2gXGLeIXTjhWZbDiWUWe8Whd": {
-            "createdAt": {
-              "_seconds": 1589998976,
-              "_nanoseconds": 490000000
-            }
+            "userName": "ふぉろーしてるくん１",
+            "userId": "follow_siteru",
+            "icon": "http://localhost:9199/v0/b/traveli-test.appspot.com/o/images%2Fusers%2FC00a2gXGLeIXTjhWZbDiWUWe8Whd%2Fprofiles%2Ficon?alt=media"
           }
         },
         "users/C5Ja2gXGLeIXTjhWZbDiWUWe8Whd/followers": {
           "C00a2gXGLeIXTjhWZbDiWUWe8Whd": {
-            "createdAt": {
-              "_seconds": 1589998976,
-              "_nanoseconds": 490000000
-            }
+            "userName": "ふぉろわーくん１",
+            "userId": "follow_sareteru",
+            "icon": "http://localhost:9199/v0/b/traveli-test.appspot.com/o/images%2Fusers%2FC00a2gXGLeIXTjhWZbDiWUWe8Whd%2Fprofiles%2Ficon?alt=media"
           }
         },
         "users/C5Ja2gXGLeIXTjhWZbDiWUWe8Whd/notifications": {}
@@ -74,7 +72,7 @@
       "icon": "http://localhost:9199/v0/b/traveli-test.appspot.com/o/images%2Fusers%2FC00a2gXGLeIXTjhWZbDiWUWe8Whd%2Fprofiles%2Ficon?alt=media",
       "userId": "userid01",
       "description": "私の自己紹介",
-      "followCount": 1,
+      "followingCount": 1,
       "followerCount": 1,
       "notificationCount": 0,
       "links": {
