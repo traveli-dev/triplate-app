@@ -15,11 +15,13 @@ export const styles = {
   container: ({
     bgColor,
     isFull,
-    isCenter
+    isCenter,
+    isPaddingNone
   }: Omit<ContainerProps, 'children'>) => css`
     min-height: ${isFull ? 'calc(100vh - 56px)' : 'auto'};
-    padding: 0 16px;
+    padding: 0 ${isPaddingNone ? '0' : '16px'};
     text-align: ${isCenter ? 'center' : 'start'};
     background-color: ${setBgColor({ bgColor })};
+    overflow:hidden;
   `
 }

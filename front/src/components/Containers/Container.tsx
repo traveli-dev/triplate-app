@@ -5,6 +5,7 @@ export type ContainerProps = {
   bgColor: 'white' | 'blue' | 'none'
   isFull?: boolean
   isCenter?: boolean
+  isPaddingNone?: boolean
   children: React.ReactNode
 }
 
