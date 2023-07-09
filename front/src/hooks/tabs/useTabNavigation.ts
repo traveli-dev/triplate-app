@@ -1,5 +1,6 @@
-import { useEffect } from 'react'
-import { TabName, useTabState } from '@/hooks/tabs'
+import { useRef, useState, useEffect } from 'react'
+
+type TabName = `tab-${number}`
 
 const getTabIndex = (tabName: TabName) => {
   const t = tabName.replace('tab-', '')
@@ -8,11 +9,14 @@ const getTabIndex = (tabName: TabName) => {
 }
 
 export const useTabNavigation = (tabLength: number) => {
-  const { selectedTab, setSelectedTab, focusedTab, setFocusedTab, tabListRef } =
-    useTabState()
+  const [selectedTab, setSelectedTab] = useState<TabName>('tab-0')
+  const [focusedTab, setFocusedTab] = useState<TabName>('tab-0')
+  const tabListRef = useRef<HTMLDivElement>(null)
 
   const scrollToTab = (tabName: TabName) => {
-    const currentTabList = tabListRef.current as HTMLElement
+    if (tabListRef.current === null) return
+
+    const currentTabList = tabListRef.current
     const tabIndex = getTabIndex(tabName)
     currentTabList.children[tabIndex].scrollIntoView({
       behavior: 'smooth',
@@ -20,7 +24,7 @@ export const useTabNavigation = (tabLength: number) => {
     })
   }
 
-  const handleTabClick = (tabName: `tab-${number}`) => {
+  const handleTabClick = (tabName: TabName) => {
     setSelectedTab(tabName)
     setFocusedTab(tabName)
     scrollToTab(tabName)
@@ -28,7 +32,9 @@ export const useTabNavigation = (tabLength: number) => {
 
   // focus
   useEffect(() => {
-    const currentTabList = tabListRef.current as HTMLElement
+    if (tabListRef.current === null) return
+
+    const currentTabList = tabListRef.current
 
     const handleKeyDown = (e: KeyboardEvent) => {
       let tabIndex = getTabIndex(focusedTab)
@@ -42,19 +48,17 @@ export const useTabNavigation = (tabLength: number) => {
       }
 
       setFocusedTab(`tab-${tabIndex}`)
-      const nextFocusTab = currentTabList.children[tabIndex] as HTMLElement
-      nextFocusTab.focus()
-    }
-
-    if (currentTabList) {
-      currentTabList.addEventListener('keydown', handleKeyDown)
-    }
-    return () => {
-      if (currentTabList) {
-        currentTabList.removeEventListener('keydown', handleKeyDown)
+      const nextFocusTab = currentTabList.children[tabIndex]
+      if (nextFocusTab instanceof HTMLButtonElement) {
+        nextFocusTab.focus()
       }
     }
-  }, [focusedTab])
+
+    currentTabList.addEventListener('keydown', handleKeyDown)
+    return () => {
+      currentTabList.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [focusedTab, tabListRef])
   return {
     focusedTab,
     tabListRef,

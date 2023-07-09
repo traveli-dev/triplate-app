@@ -7,11 +7,9 @@ import { useTabNavigation } from '@/hooks/tabs'
 import type { TriplateType } from '@/redux/services/firestore'
 import { styles } from '@/styles/components/Tabs/TabTriplate.styles'
 
-type Itineraries = Pick<TriplateType, 'itineraries'>['itineraries']
-type Memories = Pick<TriplateType, 'memories'>['memories']
 type TabTriplateProps = {
-  itineraries: Itineraries
-  memories: Memories
+  itineraries: TriplateType['itineraries']
+  memories: TriplateType['memories']
 }
 
 export const TabTriplate = ({ itineraries, memories }: TabTriplateProps) => {
