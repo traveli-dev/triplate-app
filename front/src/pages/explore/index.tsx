@@ -14,7 +14,7 @@ const Explore = () => {
       <Container bgColor="white" isFull>
         <div css={styles.header}>
           <h1 css={styles.heading1}>みんなのたびテンプレート</h1>
-          <Link href="/help/triplate?prev=explore">
+          <Link css={styles.helpButton} href="/help/triplate?prev=explore">
             <HiOutlineQuestionMarkCircle size={18} />
           </Link>
         </div>

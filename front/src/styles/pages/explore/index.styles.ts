@@ -13,5 +13,16 @@ export const styles = {
   `,
   exploreList: css`
     padding-bottom: 16px;
+  `,
+  helpButton: css`
+    padding: 8px;
+    border-radius: 100px;
+    background-color: ${theme.renewalColor.white};
+    &:hover {
+      background-color: ${theme.renewalColor.hoverGray};
+    }
+    &:focus {
+      background-color: ${theme.renewalColor.white};
+    }
   `
 }
