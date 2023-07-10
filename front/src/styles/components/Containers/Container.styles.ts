@@ -22,6 +22,8 @@ export const styles = {
     padding: 0 ${isPaddingNone ? '0' : '16px'};
     text-align: ${isCenter ? 'center' : 'start'};
     background-color: ${setBgColor({ bgColor })};
+    height: ${isFull ? '100vh' : 'auto'};
     overflow: hidden;
+    // TODO: Containerに背景色を決めさせない
   `
 }
