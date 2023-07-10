@@ -51,7 +51,7 @@ const Settings = () => {
   const otherSettings = [
     {
       title: 'お問い合わせ',
-      path: '/contact',
+      path: '/support',
       icon: HiOutlineMail
     },
     {
