@@ -111,7 +111,6 @@ export const FormCreateUser = ({
               disabled={
                 !!errors.userId || !!errors.name || !isDirty || !isValid
               }
-              icon="none"
               onClick={checkUniqueness}
             >
               次へ進む

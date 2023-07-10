@@ -6,6 +6,9 @@ const meta: Meta<typeof ButtonOutline> = {
   argTypes: {
     children: {
       description: 'ボタンのラベルが入ります'
+    },
+    Icon: {
+      description: 'IconTypeが入ります'
     }
   },
   tags: ['autodocs']
@@ -17,8 +20,7 @@ type Story = StoryObj<typeof ButtonOutline>
 
 export const Default: Story = {
   args: {
-    children: 'ボタンのラベルが入ります',
-    icon: 'plus'
+    children: 'ボタンのラベルが入ります'
   },
   parameters: {
     viewport: {
@@ -29,8 +31,7 @@ export const Default: Story = {
 
 export const Mobile: Story = {
   args: {
-    children: 'ボタンのラベルが入ります',
-    icon: 'plus'
+    children: 'ボタンのラベルが入ります'
   },
   parameters: {
     viewport: { defaultViewport: 'mobile1' }
