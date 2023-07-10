@@ -8,9 +8,9 @@ export const styles = {
     height: 56px;
     font-size: ${theme.fontSize.md};
     font-weight: 600;
-    color: ${theme.color.blue};
-    background-color: ${theme.color.white};
-    border: 2px solid ${theme.color.blue};
+    color: ${theme.renewalColor.black};
+    background-color: ${theme.renewalColor.white};
+    border: 2px solid ${theme.renewalColor.black};
     border-radius: 100px;
 
     &:not([disabled]) {
@@ -18,13 +18,13 @@ export const styles = {
     }
     &:hover,
     &:focus {
-      background-color: ${theme.color.bgBlue};
+      background-color: ${theme.renewalColor.hoverGray};
     }
     &:disabled {
-      color: ${theme.color.gray};
+      color: ${theme.renewalColor.gray};
       cursor: default;
-      background-color: ${theme.color.outlineGray};
-      border-color: ${theme.color.outlineGray};
+      background-color: ${theme.renewalColor.borderGray};
+      border-color: ${theme.renewalColor.borderGray};
     }
   `,
   labelWrapper: css`
