@@ -9,6 +9,7 @@ type ListItemProps = {
   href: string
   IconRight?: IconType
   imgSrc?: string
+  subText?: string
 }
 
 export const ListItem = ({
@@ -16,20 +17,28 @@ export const ListItem = ({
   Icon,
   title,
   IconRight,
+  subText,
   imgSrc
 }: ListItemProps) => {
   return (
-    <li css={styles.listItemWrapper}>
+    <li css={styles.listItemWrapper(imgSrc)}>
       <Link href={href}>
         <div css={styles.item}>
           {Icon && <Icon size={24} />}
           {imgSrc && (
-            <div>
-              <Image alt="" fill src={imgSrc} />
+            <div css={styles.imgWrapper}>
+              <Image alt="" fill src={imgSrc} css={styles.img} />
             </div>
           )}
-          <span>{title}</span>
-          {IconRight && <IconRight size={20} />}
+          <div css={styles.textWrapper}>
+            <span css={styles.title}>{title}</span>
+            {subText && <span css={styles.subText}>{subText}</span>}
+          </div>
+          {IconRight && (
+            <div>
+              <IconRight size={20} />
+            </div>
+          )}
         </div>
       </Link>
     </li>
