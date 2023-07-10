@@ -22,6 +22,6 @@ export const styles = {
     padding: 0 ${isPaddingNone ? '0' : '16px'};
     text-align: ${isCenter ? 'center' : 'start'};
     background-color: ${setBgColor({ bgColor })};
-    overflow:hidden;
+    overflow: hidden;
   `
 }
