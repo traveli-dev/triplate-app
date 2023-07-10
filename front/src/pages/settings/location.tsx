@@ -1,6 +1,6 @@
 import { Container } from '@/components/Containers'
 import { Header } from '@/components/Headers'
-import { InputSwitch } from '@/components/Inputs'
+// import { InputSwitch } from '@/components/Inputs'
 import { styles } from '@/styles/pages/settings/settingsLocation.styles'
 
 const SettingsLocation = () => {
