@@ -21,6 +21,8 @@ export const useTabNavigation = (tabLength: number) => {
     currentTabList.children[tabIndex].scrollIntoView({
       behavior: 'smooth',
       inline: 'nearest'
+      // TODO: triplateのときだけ有効化
+      // block:'nearest'
     })
   }
 

@@ -8,6 +8,7 @@ export const styles = {
     border-radius: 24px;
   `,
   imgWrapper: css`
+    margin: 32px 0 0 0;
     position: relative;
     width: 100%;
     aspect-ratio: 2/1;

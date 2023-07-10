@@ -19,7 +19,7 @@ export const TabTriplate = ({ itineraries, memories }: TabTriplateProps) => {
 
   return (
     <Tabs>
-      <TabList ref={tabListRef} type="triplate">
+      <TabList fitContent ref={tabListRef}>
         {Object.keys(itineraries).map((_, index) => (
           <Tab
             focusedTab={focusedTab}
@@ -27,7 +27,7 @@ export const TabTriplate = ({ itineraries, memories }: TabTriplateProps) => {
             key={index}
             selectedTab={selectedTab}
             tabName={`tab-${index}`}
-            type="triplate"
+            type="simple"
           >
             {index + 1}日目
           </Tab>
@@ -35,11 +35,12 @@ export const TabTriplate = ({ itineraries, memories }: TabTriplateProps) => {
       </TabList>
       {Object.values(itineraries).map((value, index) => (
         <TabPanel
+          bgColor="white"
           key={index}
           panelName={`day-${index + 1}`}
           selectedTab={selectedTab}
           tabName={`tab-${index}`}
-          type="triplate"
+          isPaddingNone
         >
           {memories[`day${index + 1}`] && (
             <>

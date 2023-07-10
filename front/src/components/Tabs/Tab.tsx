@@ -1,13 +1,14 @@
-import type { TabType } from '@/components/Tabs/TabList'
 import { styles } from '@/styles/components/Tabs/Tab.styles'
+
+export type TabType = 'default' | 'two' | 'simple'
 
 type TabProps = {
   children: React.ReactNode
   tabName: `tab-${number}`
   selectedTab: `tab-${number}`
   focusedTab: `tab-${number}`
-  type: TabType
   handleTabClick: (tabName: `tab-${number}`) => void
+  type: TabType
 }
 
 export const Tab = ({
