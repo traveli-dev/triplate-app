@@ -3,12 +3,12 @@ import { theme } from '@/styles/theme'
 
 export const styles = {
   header: css`
-    font-size: ${theme.fontSize.lg};
     padding: 24px 0;
+    font-size: ${theme.fontSize.lg};
   `,
   description: css`
-    font-size: ${theme.fontSize.md};
     margin-bottom: 16px;
+    font-size: ${theme.fontSize.md};
   `,
   layoutButton: css`
     margin-bottom: 32px;

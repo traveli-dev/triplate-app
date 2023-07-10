@@ -40,7 +40,8 @@ export const styles = {
     padding: 4px 16px;
     background-color: ${theme.renewalColor.white};
     border-radius: 100px;
-    &:hover{
+    &:hover,
+    &:focus {
       background-color: ${theme.renewalColor.hoverGray};
     }
   `,
@@ -90,8 +91,8 @@ export const styles = {
     color: ${theme.color.gray};
   `,
   iconLink: css`
-    margin-left: 20px;
     padding: 8px;
+    margin-left: 20px;
     background-color: ${theme.renewalColor.white};
     border-radius: 100px;
     &:hover {

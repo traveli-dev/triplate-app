@@ -9,16 +9,16 @@ export const styles = {
   `,
   layoutFloatingActionButton: css`
     position: fixed;
-    width: 64px;
-    height: 64px;
+    right: 0;
     bottom: 104px;
     left: 669px;
-    right: 0;
+    width: 64px;
+    height: 64px;
     margin: 0 auto;
     ${mq('md')} {
+      right: 16px;
       bottom: 104px;
       left: auto;
-      right: 16px;
     }
   `
 }

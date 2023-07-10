@@ -8,10 +8,10 @@ export const styles = {
     border-radius: 24px;
   `,
   imgWrapper: css`
-    margin: 32px 0 0 0;
     position: relative;
     width: 100%;
     aspect-ratio: 2/1;
+    margin: 32px 0 0 0;
     ${mq('sm')} {
       aspect-ratio: 1/1;
     }

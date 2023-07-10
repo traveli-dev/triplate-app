@@ -36,11 +36,11 @@ export const TabTriplate = ({ itineraries, memories }: TabTriplateProps) => {
       {Object.values(itineraries).map((value, index) => (
         <TabPanel
           bgColor="white"
+          isPaddingNone
           key={index}
           panelName={`day-${index + 1}`}
           selectedTab={selectedTab}
           tabName={`tab-${index}`}
-          isPaddingNone
         >
           {memories[`day${index + 1}`] && (
             <>

@@ -16,8 +16,8 @@ export const styles = {
   `,
   helpButton: css`
     padding: 8px;
-    border-radius: 100px;
     background-color: ${theme.renewalColor.white};
+    border-radius: 100px;
     &:hover {
       background-color: ${theme.renewalColor.hoverGray};
     }

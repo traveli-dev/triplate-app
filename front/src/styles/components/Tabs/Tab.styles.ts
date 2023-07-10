@@ -5,8 +5,8 @@ import { theme } from '@/styles/theme'
 export const styles = {
   tab: (type: TabType) => css`
     position: relative;
-    flex-shrink: 0;
     flex-grow: 1;
+    flex-shrink: 0;
     width: ${(type === 'default' || type === 'simple') && '88px'}${type === 'two' && 'auto'};
     padding: ${(type === 'default' || type === 'two') && '12px'}${type === 'simple' && '64px 12px 12px 12px'};
     font-size: ${theme.fontSize.sm};

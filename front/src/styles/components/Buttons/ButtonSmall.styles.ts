@@ -15,7 +15,8 @@ export const styles = {
     & span[id='bold'] {
       font-weight: 600;
     }
-    &:hover {
+    &:hover,
+    &:focus {
       background-color: ${theme.renewalColor.hoverGray};
       ${mq('sm')} {
         background-color: ${theme.renewalColor.lightGray};

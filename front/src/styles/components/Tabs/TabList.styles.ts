@@ -13,10 +13,10 @@ export const styles = {
     scroll-behavior: smooth;
   `,
   tabListWrapper: (border: boolean) => css`
-    width: 100%;
-    border-bottom: ${border ? '2px' : '0px'} solid ${theme.color.outlineGray};
     position: sticky;
     top: 56px;
     z-index: 99;
+    width: 100%;
+    border-bottom: ${border ? '2px' : '0px'} solid ${theme.color.outlineGray};
   `
 }

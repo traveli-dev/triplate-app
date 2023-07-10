@@ -69,7 +69,7 @@ const Settings = () => {
   return (
     <>
       <Header href={`/${userId}`} title="設定" />
-      <Container isFull bgColor="white" isPaddingNone>
+      <Container bgColor="white" isFull isPaddingNone>
         <h2 css={styles.header}>全般</h2>
         <List border>
           {mainSettings.map((setting, index) => (

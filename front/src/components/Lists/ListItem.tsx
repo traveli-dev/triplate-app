@@ -27,7 +27,7 @@ export const ListItem = ({
           {Icon && <Icon size={24} />}
           {imgSrc && (
             <div css={styles.imgWrapper}>
-              <Image alt="" fill src={imgSrc} css={styles.img} />
+              <Image alt="" css={styles.img} fill src={imgSrc} />
             </div>
           )}
           <div css={styles.textWrapper}>

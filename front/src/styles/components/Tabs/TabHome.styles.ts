@@ -22,11 +22,11 @@ export const styles = {
     margin-bottom: 16px;
   `,
   buttonGrid: css`
+    padding: 8px;
     color: ${theme.renewalColor.black};
     background-color: ${theme.renewalColor.white};
-    padding: 8px;
-    border-radius: 100px;
     border: none;
+    border-radius: 100px;
     &:hover {
       background-color: ${theme.renewalColor.hoverGray};
     }

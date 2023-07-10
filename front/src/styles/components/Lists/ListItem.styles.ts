@@ -5,11 +5,12 @@ import { mq } from '@/styles/utils'
 export const styles = {
   listItemWrapper: (imgSrc: string | undefined) => css`
     a {
-      padding: ${imgSrc ? '10px' : '16px'};
       display: block;
+      padding: ${imgSrc ? '10px' : '16px'};
     }
     background-color: ${theme.renewalColor.white};
-    &:hover {
+    &:hover,
+    &:focus {
       background-color: ${theme.renewalColor.hoverGray};
       ${mq('sm')} {
         background-color: ${theme.renewalColor.white};
@@ -17,31 +18,31 @@ export const styles = {
     }
   `,
   item: css`
-    width: 100%;
     display: flex;
     gap: 16px;
     align-items: center;
+    width: 100%;
   `,
   textWrapper: css`
-    flex-grow: 1;
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
     overflow: hidden;
   `,
   title: css`
-    font-size: ${theme.fontSize.md};
     margin: 0;
-    white-space: nowrap;
     overflow: hidden;
+    font-size: ${theme.fontSize.md};
     text-overflow: ellipsis;
+    white-space: nowrap;
   `,
   subText: css`
     margin: 4px 0 0 0;
+    overflow: hidden;
     font-size: ${theme.fontSize.sm};
     color: ${theme.renewalColor.gray};
-    white-space: nowrap;
-    overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
   `,
   img: css`
     object-fit: cover;
