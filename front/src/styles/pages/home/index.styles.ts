@@ -4,7 +4,7 @@ import { mq } from '@/styles/utils'
 
 export const styles = {
   heading1: css`
-    padding: 24px 0;
+    margin: 24px 0;
     font-size: ${theme.fontSize.lg};
   `,
   layoutFloatingActionButton: css`

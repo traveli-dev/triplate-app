@@ -6,11 +6,14 @@ export const styles = {
     position: fixed;
     top: 0;
     left: 0;
+    right: 0;
+    margin: 0 auto;
     z-index: 1000;
     display: flex;
     column-gap: 16px;
     align-content: center;
-    width: 100%;
+    width: calc(100% - 32px);
+    max-width: 736px; /* 768px - 32px */
     height: fit-content;
     padding: 8px 16px;
     border-radius: 8px;
