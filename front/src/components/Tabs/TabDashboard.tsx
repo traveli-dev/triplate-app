@@ -4,8 +4,9 @@ import { Tab, TabList, TabPanel, Tabs } from '@/components/Tabs'
 import { useTabNavigation } from '@/hooks/tabs'
 
 export const TabDashboard = () => {
+  const invalidScroll = true // scrollIntoViewでy軸方向にscrollさせない
   const { focusedTab, tabListRef, handleTabClick, selectedTab } =
-    useTabNavigation(2)
+    useTabNavigation(2, invalidScroll)
 
   return (
     <Tabs>

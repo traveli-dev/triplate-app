@@ -8,7 +8,7 @@ export const styles = {
     flex-grow: 1;
     flex-shrink: 0;
     width: ${(type === 'default' || type === 'simple') && '88px'}${type === 'two' && 'auto'};
-    padding: ${(type === 'default' || type === 'two') && '12px'}${type === 'simple' && '64px 12px 12px 12px'};
+    height: ${(type === 'default' || type === 'two') && '42px'}${type === 'simple' && '56px'};
     font-size: ${theme.fontSize.sm};
     background-color: ${theme.color.white};
     border: none;

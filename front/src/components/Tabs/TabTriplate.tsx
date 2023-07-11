@@ -14,12 +14,13 @@ type TabTriplateProps = {
 
 export const TabTriplate = ({ itineraries, memories }: TabTriplateProps) => {
   const tabLength = Object.keys(itineraries).length
+  const invalidScroll = true // scrollIntoViewでy軸方向にscrollさせない
   const { focusedTab, tabListRef, handleTabClick, selectedTab } =
-    useTabNavigation(tabLength)
+    useTabNavigation(tabLength, invalidScroll)
 
   return (
     <Tabs>
-      <TabList fitContent ref={tabListRef}>
+      <TabList fitContent ref={tabListRef} isSticky>
         {Object.keys(itineraries).map((_, index) => (
           <Tab
             focusedTab={focusedTab}
@@ -36,7 +37,6 @@ export const TabTriplate = ({ itineraries, memories }: TabTriplateProps) => {
       {Object.values(itineraries).map((value, index) => (
         <TabPanel
           bgColor="white"
-          isPaddingNone
           key={index}
           panelName={`day-${index + 1}`}
           selectedTab={selectedTab}

@@ -12,9 +12,10 @@ export const styles = {
     scroll-padding-inline: 32px;
     scroll-behavior: smooth;
   `,
-  tabListWrapper: (border: boolean) => css`
-    position: sticky;
-    top: 56px;
+  tabListWrapper: (border: boolean, isSticky: boolean) => css`
+    background-color: ${theme.renewalColor.white};
+    position: ${isSticky ? 'sticky' : 'static'};
+    top: ${isSticky ? '56px' : '56px'};
     z-index: 99;
     width: 100%;
     border-bottom: ${border ? '2px' : '0px'} solid ${theme.color.outlineGray};

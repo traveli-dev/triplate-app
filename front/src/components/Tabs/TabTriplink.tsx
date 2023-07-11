@@ -15,7 +15,7 @@ export const TabTriplink = ({ triplinks }: TabTriplinkProps) => {
 
   return (
     <Tabs>
-      <TabList border fitContent ref={tabListRef}>
+      <TabList border fitContent isSticky ref={tabListRef}>
         {Object.keys(triplinks).map((_, index) => (
           <Tab
             focusedTab={focusedTab}
@@ -32,6 +32,7 @@ export const TabTriplink = ({ triplinks }: TabTriplinkProps) => {
       {Object.values(triplinks).map((value, index) => (
         <TabPanel
           bgColor="bgGray"
+          isFull
           key={index}
           panelName={`day-${index + 1}`}
           selectedTab={selectedTab}
