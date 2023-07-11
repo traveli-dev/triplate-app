@@ -52,11 +52,11 @@ const Triplink = () => {
       {/* TODO: 一旦モーダルやめて、スクロールしたらタブが上に止まるように */}
       <div css={styles.modalWrapper}>
         <div css={styles.handler}></div>
-        <Container bgColor="white" isCenter>
-          {!data || isLoading ? (
-            <>LOADING</>
-          ) : (
-            <>
+        {!data || isLoading ? (
+          <>LOADING</>
+        ) : (
+          <>
+            <Container bgColor="white" isCenter>
               <h1 css={styles.title}>{data.title}</h1>
               <p css={styles.date}>
                 {formatDate(data.date[0])}{' '}
@@ -70,10 +70,11 @@ const Triplink = () => {
                 <ButtonIconWithText iconType="share" onClick={shareOnOpen} />
                 <ButtonIconWithText iconType="edit" onClick={editOnOpen} />
               </div>
-              <TabTriplink triplinks={data.itineraries} />
-            </>
-          )}
-        </Container>
+            </Container>
+            <TabTriplink triplinks={data.itineraries} />
+          </>
+        )}
+
         <ModalMember isOpen={memberIsOpen} onClose={memberOnClose} />
         <ModalEdit isOpen={editIsOpen} onClose={editOnClose} />
         <ModalMemo
