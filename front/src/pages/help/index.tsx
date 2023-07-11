@@ -20,7 +20,7 @@ const Help = () => {
         <div css={styles.layoutButton}>
           <ButtonOutline
             Icon={HiOutlineExternalLink}
-            onClick={() => router.push('https://notion.com')}
+            onClick={() => window.open('https://notion.com')}
           >
             ヘルプ
           </ButtonOutline>

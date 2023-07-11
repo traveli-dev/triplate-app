@@ -1,4 +1,3 @@
-import { useRouter } from 'next/router'
 import { HiOutlineExternalLink } from 'react-icons/hi'
 import { ButtonFill, ButtonOutline } from '@/components/Buttons'
 import { Container } from '@/components/Containers'
@@ -6,7 +5,6 @@ import { Header } from '@/components/Headers'
 import { styles } from '@/styles/pages/support/index.styles'
 
 const Support = () => {
-  const router = useRouter()
   return (
     <>
       <Header href="/settings" title="お問い合わせ" />
@@ -19,7 +17,7 @@ const Support = () => {
           <ButtonFill
             Icon={HiOutlineExternalLink}
             onClick={() =>
-              router.push('https://www.google.com/intl/ja_jp/forms/about/')
+              window.open('https://www.google.com/intl/ja_jp/forms/about/')
             }
           >
             GoogleFormでお問い合わせ
@@ -31,7 +29,7 @@ const Support = () => {
         <div css={styles.layoutButton}>
           <ButtonOutline
             Icon={HiOutlineExternalLink}
-            onClick={() => router.push('https://notion.com')}
+            onClick={() => window.open('https://notion.com')}
           >
             ヘルプ
           </ButtonOutline>
