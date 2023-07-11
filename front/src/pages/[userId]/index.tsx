@@ -51,7 +51,7 @@ const Mypage = () => {
       {!isAuth && (
         <Header title={currentUser.userId} onClick={() => router.back()} />
       )}
-      <Container bgColor="white" isFull>
+      <Container bgColor="white">
         {/* header */}
         {isAuth && (
           <div css={styles.header}>

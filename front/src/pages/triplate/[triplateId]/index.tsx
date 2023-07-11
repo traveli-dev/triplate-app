@@ -151,7 +151,8 @@ const TriplateDetails = () => {
         title="タイトル"
         toolHref={`/triplate/${triplateId}/edit/settings`}
       />
-      <Container bgColor="white" isFull>
+
+      <Container bgColor="white">
         <div css={styles.triplateInfosWrapper}>
           <div css={styles.thumbnailWrapper}>
             <Image alt="" css={styles.thumbnail} fill src={thumbnail} />
@@ -169,7 +170,11 @@ const TriplateDetails = () => {
             いつメン３人で京都行ったよいつメン３人で京都行ったよいつメン３人で
           </p>
         </div>
+      </Container>
+      <div css={styles.layoutTabTriplate}>
         <TabTriplate itineraries={data.itineraries} memories={data.memories} />
+      </div>
+      <Container bgColor="white">
         {/* <TabContent day={0} thumbnail={thumbnail} tripList={items} /> */}
         <Link css={styles.linkHelp} href="">
           <HiOutlineQuestionMarkCircle size={20} />
