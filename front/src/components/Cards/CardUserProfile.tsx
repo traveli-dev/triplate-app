@@ -24,7 +24,9 @@ export const CardUserProfile = ({ userData }: CardUserProfileProps) => {
         </div>
       </div>
       <div css={styles.userStatus}>{userData.description}</div>
-      <div css={styles.userFF}>{userData.followingCount} フォロー | {userData.followerCount} フォロワー</div>
+      <div css={styles.userFF}>
+        {userData.followingCount} フォロー | {userData.followerCount} フォロワー
+      </div>
       {/* TODO:フォロー */}
       <div css={styles.buttonFollow}>
         <ButtonFill>フォロー</ButtonFill>
