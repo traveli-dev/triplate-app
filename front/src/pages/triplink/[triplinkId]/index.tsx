@@ -10,7 +10,7 @@ import {
 } from '@/components/Modals'
 import { TabTriplink } from '@/components/Tabs'
 import { useDisclosure } from '@/hooks/modals'
-import { TriplinkType, useGetTriplinkQuery } from '@/redux/services/firestore'
+import { useGetTriplinkQuery } from '@/redux/services/firestore'
 import { styles } from '@/styles/pages/triplink/[triplinkId]/triplink.styles'
 import { formatDate } from '@/utils/dates'
 
@@ -53,19 +53,26 @@ const Triplink = () => {
       <div css={styles.modalWrapper}>
         <div css={styles.handler}></div>
         <Container bgColor="white" isCenter>
-          {!data || isLoading ? (<></>) : (<>
-          <h1 css={styles.title}>{data.title}</h1>
-            <p css={styles.date}>{formatDate(data.date[0])} {data.date[1] && <> - {data.date[1] && formatDate(data.date[1])}</>}</p>
-          <div css={styles.layoutButtonIconWithText}>
-            <ButtonIconWithText iconType="members" onClick={memberOnOpen} />
-            <ButtonIconWithText iconType="memo" onClick={memoOnOpen} />
-            <ButtonIconWithText iconType="share" onClick={shareOnOpen} />
-            <ButtonIconWithText iconType="edit" onClick={editOnOpen} />
-
-          </div>
-          <TabTriplink triplinks={data.itineraries} />
-        </>)
-        }
+          {!data || isLoading ? (
+            <>LOADING</>
+          ) : (
+            <>
+              <h1 css={styles.title}>{data.title}</h1>
+              <p css={styles.date}>
+                {formatDate(data.date[0])}{' '}
+                {data.date[1] && (
+                  <> - {data.date[1] && formatDate(data.date[1])}</>
+                )}
+              </p>
+              <div css={styles.layoutButtonIconWithText}>
+                <ButtonIconWithText iconType="members" onClick={memberOnOpen} />
+                <ButtonIconWithText iconType="memo" onClick={memoOnOpen} />
+                <ButtonIconWithText iconType="share" onClick={shareOnOpen} />
+                <ButtonIconWithText iconType="edit" onClick={editOnOpen} />
+              </div>
+              <TabTriplink triplinks={data.itineraries} />
+            </>
+          )}
         </Container>
         <ModalMember isOpen={memberIsOpen} onClose={memberOnClose} />
         <ModalEdit isOpen={editIsOpen} onClose={editOnClose} />
@@ -75,7 +82,7 @@ const Triplink = () => {
           onClose={memoOnClose}
         />
         <ModalShare isOpen={shareIsOpen} onClose={shareOnClose} />
-      </div >
+      </div>
     </>
   )
 }
