@@ -5,9 +5,8 @@ export const styles = {
   toastWrapper: (type: string, visible: boolean) => css`
     position: fixed;
     top: 0;
-    left: 0;
     right: 0;
-    margin: 0 auto;
+    left: 0;
     z-index: 1000;
     display: flex;
     column-gap: 16px;
@@ -16,6 +15,7 @@ export const styles = {
     max-width: 736px; /* 768px - 32px */
     height: fit-content;
     padding: 8px 16px;
+    margin: 0 auto;
     border-radius: 8px;
     opacity: ${visible ? 1 : 0};
     transition: transform ease 0.3s, opacity ease 0.3s;
