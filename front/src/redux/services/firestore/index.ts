@@ -33,7 +33,8 @@ export {
   useUpdateTriplateMutation,
   useGetAllPublishedTriplatesQuery,
   type TriplateType,
-  type GetTriplateType
+  type GetTriplateType,
+  type GetTriplateRequestType
 } from '@/redux/services/firestore/triplates/triplates'
 
 // indexes
