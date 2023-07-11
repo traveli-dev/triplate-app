@@ -22,6 +22,7 @@ import {
   OutlineButtonStyles,
   styles
 } from '@/styles/pages/triplate/[triplateId]/index.styles'
+import { calcStayDuration } from '@/utils/dates'
 
 const TriplateDetails = () => {
   const router = useRouter()
@@ -59,7 +60,7 @@ const TriplateDetails = () => {
                 />
               </div>
               <h1 css={styles.title}>{data.title}</h1>
-              <p css={styles.day}>n泊m日</p>
+              <p css={styles.day}>{data.date && calcStayDuration(data.date)}</p>
               <div css={styles.hashtagsWrapper}>
                 {data.tags &&
                   data.tags.map((hashtag, index) => (
@@ -74,17 +75,17 @@ const TriplateDetails = () => {
               itineraries={data.itineraries}
               memories={data.memories}
             />
-            {/* TODO:テンプレートをアレンジとは？？ */}
+            {/* TODO:旅のテンプレートをアレンジとは？*/}
             <Link css={styles.linkHelp} href="">
               <HiOutlineQuestionMarkCircle size={20} />
               <p>旅のテンプレートをアレンジとは？</p>
             </Link>
-
+            {/* TODO:旅のテンプレートをアレンジする！ */}
             <button css={FillButtonStyles.wrapper}>
               <HiOutlineDuplicate size={24} />
               <p>旅のテンプレートをアレンジする！</p>{' '}
             </button>
-
+{/* TODO: お気に入りに登録する */}
             <button css={OutlineButtonStyles.wrapper}>
               <HiOutlineHeart size={24} />
               <p>お気に入りに登録する</p>
