@@ -20,8 +20,8 @@ export const styles = {
   }: Omit<ContainerProps, 'children'>) => css`
     min-height: ${isFull ? 'calc(100vh - 112px)' : 'auto'};
     padding: 0 ${isPaddingNone ? '0' : '16px'};
+    overflow: hidden;
     text-align: ${isCenter ? 'center' : 'start'};
     background-color: ${setBgColor({ bgColor })};
-    overflow: hidden;
   `
 }

@@ -9,10 +9,10 @@ export const styles = {
   `,
   heading1: css`
     width: 100%;
+    padding: 24px 0;
     overflow: hidden;
     font-size: ${theme.fontSize.lg};
     font-weight: 600;
-    padding: 24px 0;
     text-overflow: ellipsis;
     white-space: nowrap;
   `,

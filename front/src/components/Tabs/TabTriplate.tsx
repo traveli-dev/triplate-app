@@ -20,7 +20,7 @@ export const TabTriplate = ({ itineraries, memories }: TabTriplateProps) => {
 
   return (
     <Tabs>
-      <TabList fitContent ref={tabListRef} isSticky>
+      <TabList fitContent isSticky ref={tabListRef}>
         {Object.keys(itineraries).map((_, index) => (
           <Tab
             focusedTab={focusedTab}

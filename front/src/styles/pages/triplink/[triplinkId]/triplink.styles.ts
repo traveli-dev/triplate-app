@@ -4,15 +4,15 @@ import { theme } from '@/styles/theme'
 export const styles = {
   layoutButtonIconRound: css`
     position: absolute;
-    left: 16px;
     top: 16px;
+    left: 16px;
     z-index: 100;
   `,
   infoWrapper: css`
-    padding: 32px 16px 8px 16px;
     width: 100%;
     max-width: ${theme.breakpoint.md};
     height: 100%;
+    padding: 32px 16px 8px 16px;
     background-color: ${theme.color.white};
     border-radius: 32px 32px 0 0;
   `,

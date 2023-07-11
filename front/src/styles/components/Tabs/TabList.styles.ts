@@ -13,11 +13,11 @@ export const styles = {
     scroll-behavior: smooth;
   `,
   tabListWrapper: (border: boolean, isSticky: boolean) => css`
-    background-color: ${theme.renewalColor.white};
     position: ${isSticky ? 'sticky' : 'static'};
     top: ${isSticky ? '56px' : '56px'};
     z-index: 99;
     width: 100%;
+    background-color: ${theme.renewalColor.white};
     border-bottom: ${border ? '2px' : '0px'} solid ${theme.color.outlineGray};
   `
 }
