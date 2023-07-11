@@ -1,8 +1,13 @@
 import Image from 'next/image'
 import { ButtonFill } from '@/components/Buttons'
+import { UserType } from '@/redux/services/firestore'
 import { styles } from '@/styles/components/Cards/CardUserProfile.styles'
 
-export const CardUserProfile = () => {
+type CardUserProfileProps = {
+  userData: UserType
+}
+
+export const CardUserProfile = ({ userData }: CardUserProfileProps) => {
   return (
     <div css={styles.userProfileCardWrapper}>
       <div css={styles.userProfileWrapper}>
@@ -10,18 +15,19 @@ export const CardUserProfile = () => {
           alt=""
           css={styles.userAvatar}
           height={64}
-          src="/images/user_sample.jpeg"
+          src={userData.icon}
           width={64}
         />
         <div>
-          <div css={styles.userName}>み ゆ う</div>
-          <div css={styles.userId}>@ma_ma_hima</div>
+          <div css={styles.userName}>{userData.name}</div>
+          <div css={styles.userId}>@{userData.userId}</div>
         </div>
       </div>
-      <div css={styles.userStatus}>
-        DESCRIPTIONが入りますDESCRIPTIONが入ります
+      <div css={styles.userStatus}>{userData.description}</div>
+      <div css={styles.userFF}>
+        {userData.followingCount} フォロー | {userData.followerCount} フォロワー
       </div>
-      <div css={styles.userFF}>3 フォロー | 12 フォロワー</div>
+      {/* TODO:フォロー */}
       <div css={styles.buttonFollow}>
         <ButtonFill>フォロー</ButtonFill>
       </div>

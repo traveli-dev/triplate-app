@@ -66,7 +66,7 @@ type TriplateUpdateRequestType = {
   body: Partial<TriplateType>
 }
 
-type GetTriplateRequestType = {
+export type GetTriplateRequestType = {
   uid?: string
   triplateId: string
 }

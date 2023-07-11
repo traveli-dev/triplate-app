@@ -62,6 +62,7 @@ export const TabTriplate = ({ itineraries, memories }: TabTriplateProps) => {
                   {memories[`day${index + 1}`].description}
                 </p>
                 <div css={styles.linkButton}>
+                  {/* TODO:外部リンク */}
                   <ButtonSmall Icon={HiOutlineLink} isFit>
                     Google Map
                   </ButtonSmall>

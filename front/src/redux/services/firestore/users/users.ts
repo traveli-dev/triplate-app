@@ -16,7 +16,7 @@ export type UserType = {
   name: string
   userId: string
   description: string | null
-  followCount: number
+  followingCount: number
   followerCount: number
   notificationCount: number
   links: {
@@ -43,7 +43,7 @@ type UpdateUserType = {
 
 export type UserRequestBodyType = Omit<
   UserType,
-  'followCount' | 'followerCount' | 'notificationCount'
+  'followingCount' | 'followerCount' | 'notificationCount'
 >
 
 export const usersApi = baseFirestoreApi.injectEndpoints({
