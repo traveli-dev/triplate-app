@@ -14,7 +14,8 @@ import { TabTriplate } from '@/components/Tabs'
 import { currentUserSelectors } from '@/redux/features'
 import {
   GetTriplateRequestType,
-  useGetTriplateQuery
+  useGetTriplateQuery,
+  useGetUserQuery
 } from '@/redux/services/firestore'
 import { useAppSelector } from '@/redux/store'
 import {
@@ -29,24 +30,27 @@ const TriplateDetails = () => {
   const { triplateId } = router.query
 
   const currentUser = useAppSelector(currentUserSelectors.currentUserData)
-  const userId = currentUser.userId
+  const { data: userData, isLoading: isUserLoading } = useGetUserQuery(
+    String(currentUser.uid)
+  )
   const req: GetTriplateRequestType = {
     uid: String(currentUser.uid),
     triplateId: String(triplateId)
   }
-  const { data, isLoading } = useGetTriplateQuery(req)
+  const { data: triplateData, isLoading: isTriplateLoading } =
+    useGetTriplateQuery(req)
 
   return (
     <div>
-      {!data || isLoading ? (
+      {!triplateData || !userData || isTriplateLoading || isUserLoading ? (
         <>LOADING</>
       ) : (
         <>
           <Header
             ToolIcon={HiOutlinePencil}
-            href={`/${userId}`}
+            href={`/${userData.userId}`}
             noBorder
-            title={data.title}
+            title={triplateData.title}
             toolHref={`/triplate/${triplateId}/edit/settings`}
           />
           <Container bgColor="white" isFull>
@@ -56,24 +60,26 @@ const TriplateDetails = () => {
                   alt=""
                   css={styles.thumbnail}
                   fill
-                  src={data.thumbnail}
+                  src={triplateData.thumbnail}
                 />
               </div>
-              <h1 css={styles.title}>{data.title}</h1>
-              <p css={styles.day}>{data.date && calcStayDuration(data.date)}</p>
+              <h1 css={styles.title}>{triplateData.title}</h1>
+              <p css={styles.day}>
+                {triplateData.date && calcStayDuration(triplateData.date)}
+              </p>
               <div css={styles.hashtagsWrapper}>
-                {data.tags &&
-                  data.tags.map((hashtag, index) => (
+                {triplateData.tags &&
+                  triplateData.tags.map((tag, index) => (
                     <div css={styles.hashtag} key={index}>
-                      <p>#{hashtag}</p>
+                      <p>#{tag}</p>
                     </div>
                   ))}
               </div>
-              <p css={styles.description}>{data.description} </p>
+              <p css={styles.description}>{triplateData.description} </p>
             </div>
             <TabTriplate
-              itineraries={data.itineraries}
-              memories={data.memories}
+              itineraries={triplateData.itineraries}
+              memories={triplateData.memories}
             />
             {/* TODO:旅のテンプレートをアレンジとは？*/}
             <Link css={styles.linkHelp} href="">
@@ -85,13 +91,13 @@ const TriplateDetails = () => {
               <HiOutlineDuplicate size={24} />
               <p>旅のテンプレートをアレンジする！</p>{' '}
             </button>
-{/* TODO: お気に入りに登録する */}
+            {/* TODO: お気に入りに登録する */}
             <button css={OutlineButtonStyles.wrapper}>
               <HiOutlineHeart size={24} />
               <p>お気に入りに登録する</p>
             </button>
 
-            <CardUserProfile />
+            <CardUserProfile userData={userData} />
           </Container>
         </>
       )}
