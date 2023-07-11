@@ -1,13 +1,13 @@
 import Image from 'next/image'
 import { ButtonFill } from '@/components/Buttons'
-import { styles } from '@/styles/components/Cards/CardUserProfile.styles'
 import { UserType } from '@/redux/services/firestore'
+import { styles } from '@/styles/components/Cards/CardUserProfile.styles'
 
 type CardUserProfileProps = {
   userData: UserType
 }
 
-export const CardUserProfile = ({userData }: CardUserProfileProps) => {
+export const CardUserProfile = ({ userData }: CardUserProfileProps) => {
   return (
     <div css={styles.userProfileCardWrapper}>
       <div css={styles.userProfileWrapper}>
@@ -23,11 +23,8 @@ export const CardUserProfile = ({userData }: CardUserProfileProps) => {
           <div css={styles.userId}>@{userData.userId}</div>
         </div>
       </div>
-      <div css={styles.userStatus}>
-        {userData.description}
-      </div>
-      {/* TODO:FFデータ（別タスクにて修正） */}
-      <div css={styles.userFF}>3 フォロー | 12 フォロワー</div>
+      <div css={styles.userStatus}>{userData.description}</div>
+      <div css={styles.userFF}>{userData.followingCount} フォロー | {userData.followerCount} フォロワー</div>
       {/* TODO:フォロー */}
       <div css={styles.buttonFollow}>
         <ButtonFill>フォロー</ButtonFill>

@@ -16,7 +16,7 @@ export type UserType = {
   name: string
   userId: string
   description: string | null
-  followCount: number
+  followingCount: number
   followerCount: number
   notificationCount: number
   links: {
