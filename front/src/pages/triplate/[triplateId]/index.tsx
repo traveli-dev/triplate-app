@@ -12,7 +12,10 @@ import { Container } from '@/components/Containers'
 import { Header } from '@/components/Headers'
 import { TabTriplate } from '@/components/Tabs'
 import { currentUserSelectors } from '@/redux/features'
-import { GetTriplateRequestType, TriplateType, useGetTriplateQuery } from '@/redux/services/firestore'
+import {
+  GetTriplateRequestType,
+  useGetTriplateQuery
+} from '@/redux/services/firestore'
 import { useAppSelector } from '@/redux/store'
 import {
   FillButtonStyles,
@@ -23,15 +26,21 @@ import {
 const TriplateDetails = () => {
   const router = useRouter()
   const { triplateId } = router.query
-  
+
   const currentUser = useAppSelector(currentUserSelectors.currentUserData)
   const userId = currentUser.userId
-  const req: GetTriplateRequestType = { uid: String(currentUser.uid), triplateId: String(triplateId) }
+  const req: GetTriplateRequestType = {
+    uid: String(currentUser.uid),
+    triplateId: String(triplateId)
+  }
   const { data, isLoading } = useGetTriplateQuery(req)
 
   return (
     <>
-      {!data || isLoading ? (<>LOADING</>) : (
+      <></>
+      {!data || isLoading ? (
+        <>LOADING</>
+      ) : (
         <>
           <Header
             ToolIcon={HiOutlinePencil}
@@ -43,21 +52,29 @@ const TriplateDetails = () => {
           <Container bgColor="white" isFull>
             <div css={styles.triplateInfosWrapper}>
               <div css={styles.thumbnailWrapper}>
-                <Image alt="" css={styles.thumbnail} fill src={data.thumbnail} />
+                <Image
+                  alt=""
+                  css={styles.thumbnail}
+                  fill
+                  src={data.thumbnail}
+                />
               </div>
               <h1 css={styles.title}>{data.title}</h1>
               <p css={styles.day}>n泊m日</p>
               <div css={styles.hashtagsWrapper}>
-                {data.tags && data.tags.map((hashtag, index) => (
-                  <div css={styles.hashtag} key={index}>
-                    <p>#{hashtag}</p>
-                  </div>
-                ))}
+                {data.tags &&
+                  data.tags.map((hashtag, index) => (
+                    <div css={styles.hashtag} key={index}>
+                      <p>#{hashtag}</p>
+                    </div>
+                  ))}
               </div>
-              <p css={styles.description}>
-                {data.description}              </p>
+              <p css={styles.description}>{data.description} </p>
             </div>
-            <TabTriplate itineraries={data.itineraries} memories={data.memories} />
+            <TabTriplate
+              itineraries={data.itineraries}
+              memories={data.memories}
+            />
             {/* TODO:テンプレートをアレンジとは？？ */}
             <Link css={styles.linkHelp} href="">
               <HiOutlineQuestionMarkCircle size={20} />
@@ -76,9 +93,8 @@ const TriplateDetails = () => {
 
             <CardUserProfile />
           </Container>
-        </>)
-      }
-
+        </>
+      )}
     </>
   )
 }
