@@ -36,8 +36,7 @@ const TriplateDetails = () => {
   const { data, isLoading } = useGetTriplateQuery(req)
 
   return (
-    <>
-      <></>
+    <div>
       {!data || isLoading ? (
         <>LOADING</>
       ) : (
@@ -95,7 +94,7 @@ const TriplateDetails = () => {
           </Container>
         </>
       )}
-    </>
+    </div>
   )
 }
 
