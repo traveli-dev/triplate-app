@@ -339,12 +339,12 @@ const Triplink = () => {
 
   return (
     <>
-      <ButtonIconRound icon="back" onClick={() => router.push('/home')} />
+      <div css={styles.layoutButtonIconRound}>
+        <ButtonIconRound icon="back" onClick={() => router.push('/home')} />
+      </div>
       <ImageThumbnail url="/images/thumbnail_sample.jpg" />
       {/* モーダル */}
-      {/* TODO: 一旦モーダルやめて、スクロールしたらタブが上に止まるように */}
-      <div css={styles.modalWrapper}>
-        <div css={styles.handler}></div>
+      <div css={styles.infoWrapper}>
         <Container bgColor="white" isCenter>
           <h1 css={styles.title}>田舎にゆったり旅行</h1>
           <p css={styles.date}>2023.03.25 - 2023.03.27</p>
@@ -363,8 +363,8 @@ const Triplink = () => {
           onClose={memoOnClose}
         />
         <ModalShare isOpen={shareIsOpen} onClose={shareOnClose} />
-        <TabTriplink triplinks={data.itineraries} />
       </div>
+      <TabTriplink triplinks={data.itineraries} />
     </>
   )
 }

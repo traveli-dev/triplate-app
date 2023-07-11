@@ -6,13 +6,13 @@ export const styles = {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 24px 0 8px 0;
   `,
   heading1: css`
     width: 100%;
     overflow: hidden;
     font-size: ${theme.fontSize.lg};
     font-weight: 600;
+    padding: 24px 0;
     text-overflow: ellipsis;
     white-space: nowrap;
   `,

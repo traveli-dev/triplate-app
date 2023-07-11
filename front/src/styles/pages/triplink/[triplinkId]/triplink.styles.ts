@@ -2,21 +2,19 @@ import { css } from '@emotion/react'
 import { theme } from '@/styles/theme'
 
 export const styles = {
-  modalWrapper: css`
-    position: fixed;
-    top: 180px;
+  layoutButtonIconRound: css`
+    position: absolute;
+    left: 16px;
+    top: 16px;
+    z-index: 100;
+  `,
+  infoWrapper: css`
+    padding: 32px 16px 8px 16px;
     width: 100%;
     max-width: ${theme.breakpoint.md};
     height: 100%;
     background-color: ${theme.color.white};
     border-radius: 32px 32px 0 0;
-  `,
-  handler: css`
-    width: 72px;
-    height: 6px;
-    margin: 8px auto 22px auto;
-    background-color: ${theme.color.outlineGray};
-    border-radius: 100px;
   `,
   title: css`
     margin: 0;
