@@ -18,11 +18,10 @@ export const styles = {
     isCenter,
     isPaddingNone
   }: Omit<ContainerProps, 'children'>) => css`
-    height: ${isFull ? '100vh' : 'auto'};
-    min-height: ${isFull ? 'calc(100vh - 56px)' : 'auto'};
+    min-height: ${isFull ? 'calc(100vh - 112px)' : 'auto'};
     padding: 0 ${isPaddingNone ? '0' : '16px'};
-    overflow: hidden;
     text-align: ${isCenter ? 'center' : 'start'};
     background-color: ${setBgColor({ bgColor })};
+    overflow: hidden;
   `
 }
