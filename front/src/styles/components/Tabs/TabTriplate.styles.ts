@@ -11,6 +11,7 @@ export const styles = {
     position: relative;
     width: 100%;
     aspect-ratio: 2/1;
+    margin: 24px 0 0 0;
     ${mq('sm')} {
       aspect-ratio: 1/1;
     }

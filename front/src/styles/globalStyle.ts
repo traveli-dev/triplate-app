@@ -13,7 +13,7 @@ export const globalStyle = () => css`
       sans-serif;
     line-height: 1.15;
     color: ${theme.color.black};
-    background-color: ${theme.color.bgGray};
+    background-color: ${theme.renewalColor.white};
   }
 
   a {

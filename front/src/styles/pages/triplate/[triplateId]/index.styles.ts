@@ -12,6 +12,9 @@ export const styles = {
 
     margin: 0 auto;
   `,
+  layoutTabTriplate: css`
+    margin-top: 16px;
+  `,
   thumbnail: css`
     position: relative !important;
     border-radius: 16px;

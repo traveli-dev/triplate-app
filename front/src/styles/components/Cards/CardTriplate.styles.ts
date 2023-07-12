@@ -6,7 +6,7 @@ export const styles = {
   wrapper: (isSquare: boolean) => css`
     position: relative;
     width: 100%;
-    aspect-ratio: 2/1;
+    aspect-ratio: 3/1;
     ${mq('sm')} {
       aspect-ratio: ${isSquare ? '2/1' : '1/1'};
     }

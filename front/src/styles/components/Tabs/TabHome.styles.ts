@@ -22,14 +22,16 @@ export const styles = {
     margin-bottom: 16px;
   `,
   buttonGrid: css`
-    color: ${theme.color.black};
-    background-color: transparent;
+    padding: 8px;
+    color: ${theme.renewalColor.black};
+    background-color: ${theme.renewalColor.white};
     border: none;
+    border-radius: 100px;
     &:hover {
-      color: ${theme.color.blue};
+      background-color: ${theme.renewalColor.hoverGray};
     }
     &:focus {
-      color: ${theme.color.black};
+      background-color: ${theme.renewalColor.white};
     }
   `,
   tabs: css`
@@ -49,14 +51,14 @@ export const styles = {
           font-size: ${theme.fontSize.md};
           text-align: center;
           cursor: pointer;
-          background-color: ${theme.color.white};
-          border: 2px solid ${theme.color.outlineGray};
+          background-color: ${theme.renewalColor.white};
+          border: 2px solid ${theme.renewalColor.borderGray};
           border-radius: 100px;
           transition: none;
 
           &:hover,
           &:focus {
-            background-color: ${theme.color.bgGray};
+            background-color: ${theme.renewalColor.hoverGray};
           }
         }
       }
@@ -67,21 +69,21 @@ export const styles = {
         font-size: ${theme.fontSize.md};
         text-align: center;
         cursor: pointer;
-        background-color: ${theme.color.white};
-        border: 2px solid ${theme.color.outlineGray};
+        background-color: ${theme.renewalColor.white};
+        border: 2px solid ${theme.renewalColor.borderGray};
         border-radius: 100px;
         transition: all 0.3s 0s ease;
 
         &:hover,
         &:focus {
-          background-color: ${theme.color.bgGray};
+          background-color: ${theme.renewalColor.hoverGray};
         }
       }
 
       &:checked + span {
-        color: ${theme.color.white};
-        background-color: ${theme.color.black};
-        border: 2px solid ${theme.color.black};
+        color: ${theme.renewalColor.white};
+        background-color: ${theme.renewalColor.black};
+        border: 2px solid ${theme.renewalColor.black};
       }
     }
   `

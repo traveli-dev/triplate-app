@@ -1,13 +1,14 @@
 import { css } from '@emotion/react'
-import { TabType } from '@/components/Tabs/TabList'
+import { TabType } from '@/components/Tabs'
 import { theme } from '@/styles/theme'
 
 export const styles = {
   tab: (type: TabType) => css`
     position: relative;
+    flex-grow: 1;
     flex-shrink: 0;
-    width: 88px;
-    padding: ${type === 'triplink' ? '12px' : '64px 12px 12px 12px'};
+    width: ${(type === 'default' || type === 'simple') && '88px'}${type === 'two' && 'auto'};
+    height: ${(type === 'default' || type === 'two') && '42px'}${type === 'simple' && '56px'};
     font-size: ${theme.fontSize.sm};
     background-color: ${theme.color.white};
     border: none;
@@ -19,8 +20,8 @@ export const styles = {
         right: 0;
         bottom: 0px;
         left: 0;
-        width: ${type === 'triplink' ? '88px' : '8px'};
-        height: ${type === 'triplink' ? '3px' : '4px'};
+        width: ${type === 'default' && '88px'}${type === 'simple' && '8px'} ${type === 'two' && '100%'};
+        height: ${(type === 'default' || type === 'two') && '3px'}${type === 'simple' && '4px'};
         margin: 0 auto;
         content: '';
         background-color: ${theme.color.black};
@@ -31,11 +32,10 @@ export const styles = {
     &[aria-selected='false'] {
       &:hover,
       &:focus {
-        color: ${type === 'triplink' ? theme.color.black : theme.color.gray700};
+        color: ${(type === 'default' || type === 'two') && theme.color.black}${type === 'simple' && theme.color.gray700};
         cursor: pointer;
-        background-color: ${type === 'triplink'
-          ? theme.color.bgGray
-          : theme.color.white};
+        background-color: ${(type === 'default' || type === 'two') &&
+          theme.color.bgGray}${type === 'simple' && theme.color.white};
       }
     }
   `

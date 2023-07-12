@@ -8,7 +8,10 @@ const getTabIndex = (tabName: TabName) => {
   return tabIndex
 }
 
-export const useTabNavigation = (tabLength: number) => {
+export const useTabNavigation = (
+  tabLength: number,
+  invalidScroll?: boolean
+) => {
   const [selectedTab, setSelectedTab] = useState<TabName>('tab-0')
   const [focusedTab, setFocusedTab] = useState<TabName>('tab-0')
   const tabListRef = useRef<HTMLDivElement>(null)
@@ -16,12 +19,17 @@ export const useTabNavigation = (tabLength: number) => {
   const scrollToTab = (tabName: TabName) => {
     if (tabListRef.current === null) return
 
-    const currentTabList = tabListRef.current
-    const tabIndex = getTabIndex(tabName)
-    currentTabList.children[tabIndex].scrollIntoView({
+    const scrollOptions: ScrollIntoViewOptions = {
       behavior: 'smooth',
       inline: 'nearest'
-    })
+    }
+
+    if (invalidScroll) {
+      scrollOptions.block = 'nearest'
+    }
+    const currentTabList = tabListRef.current
+    const tabIndex = getTabIndex(tabName)
+    currentTabList.children[tabIndex].scrollIntoView(scrollOptions)
   }
 
   const handleTabClick = (tabName: TabName) => {

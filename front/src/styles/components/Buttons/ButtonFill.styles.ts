@@ -6,7 +6,7 @@ export const styles = {
   button: (isSquare: boolean) => css`
     display: flex;
     width: 100%;
-    padding: 16px 0;
+    height: 56px;
     font-size: ${theme.fontSize.md};
     font-weight: 600;
     color: ${theme.color.white};
@@ -34,6 +34,6 @@ export const styles = {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto;
+    margin: auto;
   `
 }

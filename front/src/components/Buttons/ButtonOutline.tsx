@@ -1,21 +1,21 @@
 import React, { ComponentPropsWithRef } from 'react'
-import { HiOutlinePlus } from 'react-icons/hi'
+import { IconType } from 'react-icons'
 import { styles } from '@/styles/components/Buttons/ButtonOutline.styles'
 
 type ButtonOutlineProps = ComponentPropsWithRef<'button'> & {
   children: React.ReactNode
-  icon: 'plus' | 'none'
+  Icon?: IconType
 }
 
 export const ButtonOutline = ({
   children,
-  icon,
+  Icon,
   ...props
 }: ButtonOutlineProps) => {
   return (
     <button css={styles.button} {...props}>
       <div css={styles.labelWrapper}>
-        {icon == 'plus' && <HiOutlinePlus size={24} />}
+        {Icon && <Icon size={24} />}
         {children}
       </div>
     </button>

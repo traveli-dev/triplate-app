@@ -6,10 +6,10 @@ export const styles = {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 24px 0 8px 0;
   `,
   heading1: css`
     width: 100%;
+    padding: 24px 0;
     overflow: hidden;
     font-size: ${theme.fontSize.lg};
     font-weight: 600;
@@ -37,7 +37,13 @@ export const styles = {
     margin: 8px 0 0 0;
   `,
   ffLink: css`
-    padding: 4px 0;
+    padding: 4px 16px;
+    background-color: ${theme.renewalColor.white};
+    border-radius: 100px;
+    &:hover,
+    &:focus {
+      background-color: ${theme.renewalColor.hoverGray};
+    }
   `,
   ffNumber: css`
     font-size: ${theme.fontSize.md};
@@ -85,7 +91,16 @@ export const styles = {
     color: ${theme.color.gray};
   `,
   iconLink: css`
+    padding: 8px;
     margin-left: 20px;
+    background-color: ${theme.renewalColor.white};
+    border-radius: 100px;
+    &:hover {
+      background-color: ${theme.renewalColor.hoverGray};
+    }
+    &:focus {
+      background-color: ${theme.renewalColor.white};
+    }
   `,
   layoutCardTriplate: css`
     padding-bottom: 16px;

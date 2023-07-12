@@ -20,7 +20,7 @@ export const styles = {
     margin: 0 auto;
     overflow: hidden;
     border: 1px solid ${theme.color.bgGray};
-    border-radius: ${isGrid ? '32px' : '16px'};
+    border-radius: 16px;
   `,
   imgSquare: css`
     /* 正方形を維持する */

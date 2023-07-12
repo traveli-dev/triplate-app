@@ -1,5 +1,13 @@
+import { Header } from '@/components/Headers'
+import { TabDashboard } from '@/components/Tabs'
+
 const Index = () => {
-  return <p>triplateの管理画面です</p>
+  return (
+    <>
+      <Header href="/settings" title="たびのテンプレートを管理" />
+      <TabDashboard />
+    </>
+  )
 }
 
 export default Index

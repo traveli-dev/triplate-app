@@ -1,11 +1,10 @@
 import { css } from '@emotion/react'
-import type { TabType } from '@/components/Tabs/TabList'
 import { theme } from '@/styles/theme'
 
 export const styles = {
-  tabList: css`
+  tabList: (fitContent: boolean) => css`
     display: flex;
-    width: fit-content;
+    width: ${fitContent ? 'fit-content' : 'auto'};
     max-width: 100%;
     margin: 0 auto;
     overflow-x: scroll;
@@ -13,9 +12,16 @@ export const styles = {
     scroll-padding-inline: 32px;
     scroll-behavior: smooth;
   `,
-  tabListWrapper: (type: TabType) => css`
+  tabListWrapper: (
+    border: boolean,
+    isSticky: boolean,
+    withHeader: boolean
+  ) => css`
+    position: ${isSticky ? 'sticky' : 'static'};
+    top: ${withHeader ? '56px' : 0};
+    z-index: 99;
     width: 100%;
-    border-bottom: ${type === 'triplink' ? '2px' : '0px'} solid
-      ${theme.color.outlineGray};
+    background-color: ${theme.renewalColor.white};
+    border-bottom: ${border ? '2px' : '0px'} solid ${theme.color.outlineGray};
   `
 }

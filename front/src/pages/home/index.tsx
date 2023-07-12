@@ -27,9 +27,10 @@ const Home = () => {
             myTriplinksData={data.myTrips}
           />
         )}
-
-        <FloatingActionButton onClick={() => router.push('/triplink/new')} />
       </Container>
+      <div css={styles.layoutFloatingActionButton}>
+        <FloatingActionButton onClick={() => router.push('/triplink/new')} />
+      </div>
       <NavigationBottom />
     </>
   )

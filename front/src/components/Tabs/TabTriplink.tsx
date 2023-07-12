@@ -15,7 +15,7 @@ export const TabTriplink = ({ triplinks }: TabTriplinkProps) => {
 
   return (
     <Tabs>
-      <TabList ref={tabListRef} type="triplink">
+      <TabList border fitContent isSticky ref={tabListRef}>
         {Object.keys(triplinks).map((_, index) => (
           <Tab
             focusedTab={focusedTab}
@@ -23,7 +23,7 @@ export const TabTriplink = ({ triplinks }: TabTriplinkProps) => {
             key={index}
             selectedTab={selectedTab}
             tabName={`tab-${index}`}
-            type="triplink"
+            type="default"
           >
             {index + 1}日目
           </Tab>
@@ -31,11 +31,12 @@ export const TabTriplink = ({ triplinks }: TabTriplinkProps) => {
       </TabList>
       {Object.values(triplinks).map((value, index) => (
         <TabPanel
+          bgColor="bgGray"
+          isFull
           key={index}
           panelName={`day-${index + 1}`}
           selectedTab={selectedTab}
           tabName={`tab-${index}`}
-          type="triplink"
         >
           {value.map((plan, index) => (
             <div css={styles.layoutCardTripListItem} key={index}>

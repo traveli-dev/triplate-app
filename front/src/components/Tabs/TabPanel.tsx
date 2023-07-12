@@ -1,12 +1,13 @@
-import type { TabType } from '@/components/Tabs/TabList'
 import { styles } from '@/styles/components/Tabs/TabPanel.styles'
 
-type TabPanelProps = {
-  panelName: string
-  tabName: string
+export type TabPanelProps = {
   children: React.ReactNode
+  tabName: string
+  panelName: string
   selectedTab: `tab-${string}`
-  type: TabType
+  isFull?: boolean
+  isPaddingNone?: boolean
+  bgColor: 'white' | 'bgGray'
 }
 
 export const TabPanel = ({
@@ -14,12 +15,13 @@ export const TabPanel = ({
   selectedTab,
   panelName,
   children,
-  type
+  bgColor,
+  ...options
 }: TabPanelProps) => {
   return (
     <div
       aria-labelledby={tabName}
-      css={styles.tabPanel(type)}
+      css={styles.tabPanel({ bgColor, ...options })}
       hidden={selectedTab !== tabName}
       id={panelName}
       role="tabpanel"

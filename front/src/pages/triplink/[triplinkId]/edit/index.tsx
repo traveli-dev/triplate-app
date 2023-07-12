@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router'
+import { HiOutlinePlus } from 'react-icons/hi'
 import { ButtonOutline } from '@/components/Buttons'
 import { Header } from '@/components/Headers'
 import { ModalAddPlace } from '@/components/Modals'
@@ -19,7 +20,7 @@ const TriplinkEdit = () => {
       <Header href={`/triplink/${triplinkId}`} title="旅程を編集" />
       {currentCenter.name}
       {currentCenter.address}
-      <ButtonOutline icon="plus" onClick={onOpen}>
+      <ButtonOutline Icon={HiOutlinePlus} onClick={onOpen}>
         行き先を追加
       </ButtonOutline>
       <ModalAddPlace isOpen={isOpen} onClose={onClose} />

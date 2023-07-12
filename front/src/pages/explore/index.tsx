@@ -14,9 +14,9 @@ const Explore = () => {
       <Container bgColor="white" isFull>
         <div css={styles.header}>
           <h1 css={styles.heading1}>みんなのたびテンプレート</h1>
-          <Link href="/help/triplate?prev=explore">
+          <a css={styles.helpButton} href="https://notion.com" target="_blank">
             <HiOutlineQuestionMarkCircle size={18} />
-          </Link>
+          </a>
         </div>
         {!data || isLoading ? (
           <>LOADING</>
